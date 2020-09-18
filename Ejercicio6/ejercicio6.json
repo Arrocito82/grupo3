@@ -1,0 +1,29 @@
+{
+	"estudiante":{
+		"primer-nombre":"Juan",
+		"segundo-nombre":"Adonay",
+		"primer-apellido":"Mata",
+		"segundo-apellido":"Carias",
+		"carnet":"MC18006",
+		"materia":[
+			{
+				"@codigo":"MSM115",
+				"@nombre":"Manejo de Software",
+				"horario-gt":"Lunes  8:05 - 9:45",
+				"horario-gl":"Jueves 6:20 - 8:05"
+			},
+			{
+				"@codigo":"ESD115",
+				"@nombre":"Estructuras de datos",
+				"horario-gt":"Lunes  9:45 - 11:35",
+				"horario-gl":"Miercoles 15:00 - 16:45"
+			},
+			{
+				"@codigo":"PRN115",
+				"@nombre":"Programacion I",
+				"horario-gt":"Martes  8:05 - 9:45",
+				"horario-gl":"sabado 11:35 - 13:20"
+			}
+		]
+	}
+}

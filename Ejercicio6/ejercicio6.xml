@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="CSS/ejercicio6.css" type="text/css"?>
+<estudiante>
+    <primer-nombre>Juan</primer-nombre>
+    <segundo-nombre>Adonay</segundo-nombre>
+    <primer-apellido>Mata</primer-apellido>
+    <segundo-apellido>Carias</segundo-apellido>
+    <carnet>MC18006</carnet>
+    <materia codigo="MSM115" nombre="Manejo de Software">
+        <horario-gt>Lunes  8:05 - 9:45</horario-gt>
+        <horario-gl>Jueves 6:20 - 8:05</horario-gl>
+    </materia>
+    <materia codigo="ESD115" nombre="Estructuras de datos">
+        <horario-gt>Lunes  9:45 - 11:35</horario-gt>
+        <horario-gl>Miercoles 15:00 - 16:45</horario-gl>
+    </materia>
+    <materia codigo="PRN115" nombre="Programacion I">
+        <horario-gt>Martes  8:05 - 9:45</horario-gt>
+        <horario-gl>sabado 11:35 - 13:20</horario-gl>
+    </materia>
+</estudiante>
