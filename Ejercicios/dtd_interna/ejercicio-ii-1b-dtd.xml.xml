@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ejemplodtd1.xml -->
+
+<!DOCTYPE fichero [
+		<!ELEMENT fichero (ficha+)>
+		<!ELEMENT ficha (nombre, apellido, direccion*, DUI,contactos)>
+		<!ELEMENT nombre (#PCDATA)>
+		<!ATTLIST nombre
+		         sexo (M|F|m|f) #FIXED "f"
+            	edad  CDATA  #IMPLIED>
+		<!ELEMENT apellido (#PCDATA)>
+		<!ELEMENT direccion (#PCDATA)>
+		<!ELEMENT DUI (#PCDATA)>
+		<!ELEMENT contactos (telefono|facebook|instagram|twitter)+>
+		<!ELEMENT telefono (#PCDATA)>
+		<!ATTLIST telefono
+		          tipo (fijo|celular) #REQUIRED>
+		<!ELEMENT facebook (#PCDATA)>
+		<!ELEMENT instagram (#PCDATA)>
+		<!ELEMENT twitter (#PCDATA)>
+		]>
+<fichero>
+ <ficha>
+  <nombre sexo="f" edad="17" >Angelina</nombre>
+  <apellido>Fernandez</apellido>
+  <direccion>c/Ulises, 36</direccion>
+  <DUI>02020202-2</DUI>
+  <contactos>
+  <telefono tipo="celular">70000000</telefono>
+  <facebook>Angelina Fernandez</facebook>
+  <instagram>Angelina Fernandez</instagram>
+  <twitter>@angelinafernandez50</twitter>
+  </contactos>
+
+ </ficha>
+</fichero>
