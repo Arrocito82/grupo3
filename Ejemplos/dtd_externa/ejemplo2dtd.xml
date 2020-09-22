@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE fichero SYSTEM "fichero.dtd">
+<fichero>
+ <ficha>
+  <nombre sexo="masculino">
+         Angel
+  </nombre>
+  <apellido>Barbero</apellido>
+  <direccion>c/Ulises, 36</direccion>
+</ficha>
+</fichero>
