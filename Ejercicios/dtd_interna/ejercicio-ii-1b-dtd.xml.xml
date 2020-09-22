@@ -1,36 +1,58 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- ejemplodtd1.xml -->
-
 <!DOCTYPE fichero [
 		<!ELEMENT fichero (ficha+)>
-		<!ELEMENT ficha (nombre, apellido, direccion*, DUI,contactos)>
+		<!ELEMENT ficha (nombre, apellido,fechanacimiento, direccion,( DUI| carnetminoridad),NIT?)>
 		<!ELEMENT nombre (#PCDATA)>
-		<!ATTLIST nombre
-		         sexo (M|F|m|f) #FIXED "f"
-            	edad  CDATA  #IMPLIED>
-		<!ELEMENT apellido (#PCDATA)>
-		<!ELEMENT direccion (#PCDATA)>
+		<!ATTLIST nombre sexo (m|f) #REQUIRED>
+		<!ELEMENT apellido (primerapellido,segundoapellido)>
+		<!ELEMENT primerapellido (#PCDATA)>
+		<!ELEMENT segundoapellido (#PCDATA)>
+		<!ATTLIST segundoapellido
+		                tipo (soltera|casada) #IMPLIED
+		                apellidodesoltera CDATA  #IMPLIED>
+    <!ELEMENT   fechanacimiento (#PCDATA)>
+		<!ELEMENT direccion (departamento,municipio,calle?)>
+		<!ELEMENT departamento (#PCDATA)>
+		<!ELEMENT municipio (#PCDATA)>
+		<!ELEMENT calle (#PCDATA)>
 		<!ELEMENT DUI (#PCDATA)>
-		<!ELEMENT contactos (telefono|facebook|instagram|twitter)+>
-		<!ELEMENT telefono (#PCDATA)>
-		<!ATTLIST telefono
-		          tipo (fijo|celular) #REQUIRED>
-		<!ELEMENT facebook (#PCDATA)>
-		<!ELEMENT instagram (#PCDATA)>
-		<!ELEMENT twitter (#PCDATA)>
+		<!ELEMENT carnetminoridad (#PCDATA)>
+		<!ELEMENT NIT (#PCDATA)>
 		]>
 <fichero>
  <ficha>
-  <nombre sexo="f" edad="17" >Angelina</nombre>
-  <apellido>Fernandez</apellido>
-  <direccion>c/Ulises, 36</direccion>
-  <DUI>02020202-2</DUI>
-  <contactos>
-  <telefono tipo="celular">70000000</telefono>
-  <facebook>Angelina Fernandez</facebook>
-  <instagram>Angelina Fernandez</instagram>
-  <twitter>@angelinafernandez50</twitter>
-  </contactos>
-
+  <nombre sexo="m" >Abraham</nombre>
+  <apellido>
+  <primerapellido>Bell</primerapellido>
+  <segundoapellido>Bell</segundoapellido>
+  </apellido>
+  <fechanacimiento>12/07/2005</fechanacimiento>
+  
+  <direccion>
+  <departamento>San Salvador</departamento>
+  <municipio>Apopa</municipio>
+  <calle>carretera troncal del Norte,km 12</calle>
+  </direccion>
+  <carnetminoridad>521456632</carnetminoridad>
+ </ficha>
+ 
+ 
+ <!-- ficha sexo femenino-->
+ <ficha>
+  <nombre sexo="f" >Adela</nombre>
+  <apellido>
+  <primerapellido>Ramirez</primerapellido>
+  <segundoapellido tipo="casada" apellidodesoltera="Aguilar"> de Beltran </segundoapellido>
+  </apellido>
+  <fechanacimiento>12/07/1995</fechanacimiento>
+  
+  <direccion>
+  <departamento>La Libertad</departamento>
+  <municipio>Chiltiupán</municipio>
+  <calle>carretera a la Costa del Sol,casa N.14</calle>
+  </direccion>
+  <DUI>52145452-2</DUI>
+  <NIT>4634-12071995-125-2</NIT>
  </ficha>
 </fichero>
