@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- ejemplodtd1.xml -->
+<?xml-stylesheet type="text/css" href="css/ejercicio-ii-1b-dtd.css" ?>
+
 <!DOCTYPE fichero [
 		<!ELEMENT fichero (ficha+)>
 		<!ELEMENT ficha (nombre, apellido,fechanacimiento, direccion,( DUI| carnetminoridad),NIT?)>
