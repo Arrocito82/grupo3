@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="css/ejercicio-ii-1a-dtd" type="text/css"?>
 <!-- ejercicio II.2a.xml -->
-<!DOCTYPE fichero SYSTEM "dtd/ejercicio-ii-1a-dtd.dtd">
+<!DOCTYPE fichero SYSTEM "dtd/ejercicioII.2a.dtd">
 <fichero>
  <ficha>
   <nombre sexo="f" edad="17" >Angelina</nombre>
