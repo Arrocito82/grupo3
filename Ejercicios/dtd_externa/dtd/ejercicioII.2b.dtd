@@ -1,0 +1,16 @@
+<!ELEMENT fichero (ficha+)>
+<!ELEMENT ficha (nombre, apellido,fechanacimiento, direccion,( DUI| carnetminoridad),NIT?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ATTLIST nombre sexo (m|f) #REQUIRED>
+<!ELEMENT apellido (primerapellido,segundoapellido)>
+<!ELEMENT primerapellido (#PCDATA)>
+<!ELEMENT segundoapellido (#PCDATA)>
+<!ATTLIST segundoapellido tipo (soltera|casada) #IMPLIED apellidodesoltera CDATA  #IMPLIED>
+<!ELEMENT   fechanacimiento (#PCDATA)>
+<!ELEMENT direccion (departamento,municipio,calle?)>
+<!ELEMENT departamento (#PCDATA)>
+<!ELEMENT municipio (#PCDATA)>
+<!ELEMENT calle (#PCDATA)>
+<!ELEMENT DUI (#PCDATA)>
+<!ELEMENT carnetminoridad (#PCDATA)>
+<!ELEMENT NIT (#PCDATA)>

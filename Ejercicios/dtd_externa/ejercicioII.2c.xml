@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="css/ejercicio-ii-1c-dtd.css" ?>
+
+<!DOCTYPE fichero SYSTEM "dtd/ejercicioII.2c.dtd">
+<fichero>
+ <ficha>
+  <nombre sexo="femenino" edad="17">Angelina</nombre>
+  <apellido>Fernandez</apellido>
+  <direccion>c/Ulises, 36</direccion>
+ </ficha>
+</fichero>
