@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="ejercicio4.css" ?>
+<!-- Seccion IV, ejercicio 4.xml -->
+
+<!DOCTYPE club[
+  <!ELEMENT club (directiva, cuerpo_tecnico, equipo)>
+  <!ELEMENT directiva (presidente, vice_presidente)>
+  <!ELEMENT cuerpo_tecnico (director_tecnico, auxiliar_tecnico, preparador_fisico, medico, nutricionista,
+  masajista, utilero)>
+  <!ELEMENT equipo (jugador+)>
+  <!ELEMENT presidente (#PCDATA)>
+  <!ELEMENT vice_presidente (#PCDATA)>
+  <!ELEMENT director_tecnico (#PCDATA)>
+  <!ELEMENT auxiliar_tecnico (#PCDATA)>
+  <!ELEMENT preparador_fisico (#PCDATA)>
+  <!ELEMENT medico (#PCDATA)>
+  <!ELEMENT nutricionista (#PCDATA)>
+  <!ELEMENT masajista (#PCDATA)>
+  <!ELEMENT utilero (#PCDATA)>
+  <!ELEMENT jugador (#PCDATA)>
+
+  <!ATTLIST club nombre CDATA #REQUIRED>
+  <!ATTLIST directiva inicio_periodo CDATA #REQUIRED
+  final_periodo CDATA #REQUIRED>
+  <!ATTLIST preparador_fisico id CDATA #REQUIRED>
+  <!ATTLIST medico id CDATA #REQUIRED>
+  <!ATTLIST nutricionista id CDATA #REQUIRED>
+  <!ATTLIST masajista id CDATA #REQUIRED>
+  <!ATTLIST utilero id CDATA #REQUIRED>
+  <!ATTLIST jugador id CDATA #REQUIRED
+  posicion (portero|defensa|centrocampista|delantero) #REQUIRED
+  dorsal CDATA #REQUIRED
+  capitan CDATA #IMPLIED>
+  ]>
+
+<club nombre="Futbol club Barcelona">
+  <directiva inicio_periodo="18 de julio del 2015" final_periodo="18 de julio del 2021">
+    <presidente>Josep Maria Bartomeu Floreta</presidente>
+    <vice_presidente>Jordi Cardoner Casaus</vice_presidente>
+  </directiva>
+  <cuerpo_tecnico>
+    <director_tecnico>Ronald Koeman</director_tecnico>
+    <auxiliar_tecnico>Alfred Schreuder</auxiliar_tecnico>
+    <preparador_fisico id="pf1">Albert Roca</preparador_fisico>
+    <medico id="m1">Shaky Renderos</medico>
+    <nutricionista id="n1">Leo Palacios</nutricionista>
+    <masajista id="ma1">Roberto Paz</masajista>
+    <utilero id="u1">Balmore Ortiz</utilero>
+  </cuerpo_tecnico>
+  <equipo>
+    <jugador id="df1" posicion="defensa" dorsal="3" capitan="3">Gerard Piqué</jugador>
+    <jugador id="df2" posicion="defensa" dorsal="20" capitan="4">Sergi Roberto</jugador>
+    <jugador id="p1" posicion="portero" dorsal="1">Marc-André ter Stengen</jugador>
+    <jugador id="p2" posicion="portero" dorsal="13">Neto</jugador>
+    <jugador id="df3" posicion="defensa" dorsal="15">Clément Lenglet</jugador>
+    <jugador id="df4" posicion="defensa" dorsal="18">Jordi Alba</jugador>
+    <jugador id="df5" posicion="defensa" dorsal="23">Samuel Umtiti</jugador>
+    <jugador id="c1" posicion="centrocampista" dorsal="5" capitan="2">Sergio Busquet</jugador>
+    <jugador id="df6" posicion="defensa" dorsal="24">Junior Firpo</jugador>
+    <jugador id="c2" posicion="centrocampista" dorsal="6">Carles Aleña</jugador>
+    <jugador id="c3" posicion="centrocampista" dorsal="8">Miralem Pjanic</jugador>
+    <jugador id="c4" posicion="centrocampista" dorsal="12">Rafinha</jugador>
+    <jugador id="c5" posicion="centrocampista" dorsal="21">Frenkie de Jong</jugador>
+    <jugador id="c6" posicion="centrocampista" dorsal="16">Pedri</jugador>
+    <jugador id="c7" posicion="centrocampista" dorsal="14">Philippe Coutinho</jugador>
+    <jugador id="dl1" posicion="delantero" dorsal="10" capitan="1">Lionel Messi</jugador>
+    <jugador id="dl2" posicion="delantero" dorsal="7">Antoine Griezmann</jugador>
+    <jugador id="dl3" posicion="delantero" dorsal="11">Ousmane Dembélé</jugador>
+    <jugador id="dl4" posicion="delantero" dorsal="19">Martin Braithwaite</jugador>
+    <jugador id="dl5" posicion="delantero" dorsal="17">Trincao</jugador>
+    <jugador id="dl6" posicion="delantero" dorsal="22">Ansumane Fati</jugador>
+  </equipo>
+</club>
