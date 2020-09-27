@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="css/ejercicio-ii-1c-dtd.css" ?>
+<?xml-stylesheet type="text/css" href="css/ejercicio-i-1c-dtd.css" ?>
 
 <!DOCTYPE fichero [
 		<!ELEMENT fichero (ficha+)>
