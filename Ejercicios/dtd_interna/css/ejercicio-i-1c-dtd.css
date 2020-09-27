@@ -39,7 +39,7 @@ apellido::before {
 nombre[sexo]::after {
     margin-left: 3rem;
     content: " sexo: "attr(sexo) " - edad: "attr(edad);
-    color: red;
+    color: green;
 }
 
 direccion::before {

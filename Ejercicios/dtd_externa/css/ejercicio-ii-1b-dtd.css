@@ -2,7 +2,7 @@
     display: block;
 }
 
-fichero{
+fichero {
     width: 50%;
     margin: 5rem auto;
     background: rgba(127, 161, 255, 0.555);
@@ -11,7 +11,7 @@ fichero{
     line-height: 2;
 }
 
-ficha{
+ficha {
     border: 5px dotted white;
     padding: 2rem;
     padding-left: 5rem;
@@ -36,12 +36,18 @@ apellido::before {
     font-size: 1rem;
 }
 
-segundoapellido::after{
-    content: attr(tipo);
-    color: red;
+primerapellido,
+segundoapellido {
+    display: inline;
 }
 
-fechanacimiento::before{
+segundoapellido[tipo=casada]::after {
+    display: block;
+    content: "estado: "attr(tipo);
+    color: rgb(213, 255, 255);
+}
+
+fechanacimiento::before {
     content: "Fecha de nacimiento: " attr(fechanacimiento);
     color: blue;
 }
@@ -49,7 +55,7 @@ fechanacimiento::before{
 nombre[sexo]::after {
     margin-left: 3rem;
     content: " sexo: "attr(sexo);
-    color: red;
+    color: green;
 }
 
 direccion::before {
@@ -58,32 +64,32 @@ direccion::before {
     color: blue;
 }
 
-departamento::before{
+departamento::before {
     content: "-Departamento: ";
     color: blue;
 }
 
-municipio::before{
+municipio::before {
     content: "-Municipio: ";
     color: blue;
 }
 
-calle::before{
+calle::before {
     content: "-Calle: ";
     color: blue;
 }
 
-DUI::before{
+DUI::before {
     content: "DUI: ";
     color: blue;
 }
 
-carnetminoridad::before{
+carnetminoridad::before {
     content: "Carnet de minoridad: ";
     color: blue;
 }
 
-NIT::before{
+NIT::before {
     content: "NIT: ";
     color: blue;
 }
