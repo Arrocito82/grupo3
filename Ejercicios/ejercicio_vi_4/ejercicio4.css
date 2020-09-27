@@ -1,12 +1,14 @@
 /* ejercicio4.css */
-club{
+
+club {
     background-image: url("img/fondo.jpg");
-    background-color:  #145a32 ;
+    background-color: #145a32;
     background-repeat: no-repeat;
     background-position: 50% 650px;
 }
 
-club[nombre]::before { content: attr(nombre);
+club[nombre]::before {
+    content: attr(nombre);
     color: #b5c0c7;
     font-size: 35px;
     font-weight: bold;
@@ -16,341 +18,407 @@ club[nombre]::before { content: attr(nombre);
     text-align: center;
 }
 
-directiva[inicio_periodo]::before { content: "Periodo del " attr(inicio_periodo) " al " attr(final_periodo);
+directiva[inicio_periodo]::before {
+    content: "Periodo del " attr(inicio_periodo) " al " attr(final_periodo);
 }
 
 directiva {
     display: block;
-    width: auto;
+    width: 60%;
     border: 3px double yellow;
     border-radius: 1rem;
     text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     color: #f5e729;
     background-color: #1f1d1e;
     padding-bottom: 10px;
     padding-top: 10px;
 }
 
-presidente::before { content: "Presidente: ";
+presidente::before {
+    content: "Presidente: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-vice_presidente::before {content: "Vice-presidente: ";
+vice_presidente::before {
+    content: "Vice-presidente: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
+
 cuerpo_tecnico {
     display: block;
-    width: auto;
+    width: 60%;
     border: 3px double yellow;
     border-radius: 1rem;
     text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     color: #f5e729;
     background-color: #1f1d1e;
     padding-bottom: 10px;
 }
 
-director_tecnico::before { content: "Director tecnico: ";
+director_tecnico::before {
+    content: "Director tecnico: ";
     padding-top: 10px;
     display: block;
     color: white;
 }
 
-auxiliar_tecnico::before { content: "Auxiliar tecnico: ";
+auxiliar_tecnico::before {
+    content: "Auxiliar tecnico: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-preparador_fisico::before { content: "Preparador fisico: ";
+preparador_fisico::before {
+    content: "Preparador fisico: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-medico::before { content: "Medico: ";
+medico::before {
+    content: "Medico: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-nutricionista::before { content: "Nutricionista: ";
+nutricionista::before {
+    content: "Nutricionista: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-masajista::before { content: "Masajista: ";
+masajista::before {
+    content: "Masajista: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-utilero::before { content: "Utilero: ";
+utilero::before {
+    content: "Utilero: ";
     display: block;
     padding-top: 10px;
     color: white;
 }
 
-jugador{
-  color: #fff;
-  font-size: 18px;
-}
-#p1{ /*ter steguen*/
-  display: block;
-  margin-top: -220px;
-	margin-left: 870px;
-	color: #fff;
-}
-#p1:hover{ /*ter steguen*/
-	color: #f5e729;
-  text-decoration: underline;
+jugador {
+    color: #fff;
+    font-size: 18px;
 }
 
-#df2{ /*sergi roberto*/
-  display: block;
-  margin-top:95px;
-	margin-left: 700px;
-	color: #fff;
-}
-#df2:hover{ /*sergi roberto*/
-  color: #f5e729;
-  text-decoration: underline;
+#p1 {
+    /*ter steguen*/
+    display: block;
+    margin-top: -220px;
+    margin-left: 870px;
+    color: #fff;
 }
 
-#df1{ /*pique*/
-  display: block;
-  margin-top: 310px;
-	margin-left: 775px;
-	color: #fff;
-}
-#df1:hover{ /*pique*/
-  color: #f5e729;
-  text-decoration: underline;
+#p1:hover {
+    /*ter steguen*/
+    color: #f5e729;
+    text-decoration: underline;
 }
 
-#df3{ /*lenglet*/
-  display: block;
-  margin-top: 25px;
-	margin-left: 1000px;
-	color: #fff;
-}
-#df3:hover{ /*lenglet*/
-  color: #f5e729;
-  text-decoration: underline;
+#df2 {
+    /*sergi roberto*/
+    display: block;
+    margin-top: 95px;
+    margin-left: 700px;
+    color: #fff;
 }
 
-#df4{ /*Jordi alba*/
-  display: block;
-  margin-top: 95px;
-	margin-left: 1130px;
-	color: #fff;
-}
-#df4:hover{ /*Jordi alba*/
-  color: #f5e729;
-  text-decoration: underline;
+#df2:hover {
+    /*sergi roberto*/
+    color: #f5e729;
+    text-decoration: underline;
 }
 
-#c1{/*busquets*/
-  display: block;
-  margin-top: 240px;
-	margin-left: 900px;
-	color: #fff;
-}
-#c1:hover{/*busquets*/
-  color: #f5e729;
-  text-decoration: underline;
+#df1 {
+    /*pique*/
+    display: block;
+    margin-top: 310px;
+    margin-left: 775px;
+    color: #fff;
 }
 
-#c5{ /*De Jong*/
-  display: block;
-  margin-top: -20px;
-	margin-left: 800px;
-	color: #fff;
-}
-#c5:hover{ /*De Jong*/
-  color: #f5e729;
-  text-decoration: underline;
+#df1:hover {
+    /*pique*/
+    color: #f5e729;
+    text-decoration: underline;
 }
 
-#c4{ /*rafinha*/
-  display: block;
-  margin-top: 250px;
-	margin-left: 1000px;
-	color: #fff;
-}
-#c4:hover{ /*rafinha*/
-	color: #f5e729;
-  text-decoration: underline;
+#df3 {
+    /*lenglet*/
+    display: block;
+    margin-top: 25px;
+    margin-left: 1000px;
+    color: #fff;
 }
 
-#dl1{ /*messi*/
-  display: block;
-  margin-top: 300px;
-  margin-left: 700px;
-  color: #fff;
-}
-#dl1:hover{ /*messi*/
-  color: #f5e729;
-  text-decoration: underline;
+#df3:hover {
+    /*lenglet*/
+    color: #f5e729;
+    text-decoration: underline;
 }
 
-#dl2{ /*griezman*/
-  display: block;
-  margin-top: 70px;
-	margin-left: 880px;
-	color: #fff;
-}
-#dl2:hover{ /*griezman*/
-  color: #f5e729;
-  text-decoration: underline;
+#df4 {
+    /*Jordi alba*/
+    display: block;
+    margin-top: 95px;
+    margin-left: 1130px;
+    color: #fff;
 }
 
-#dl6{ /*ansu*/
-  display: block;
-  margin-top: 175px;
-  margin-left: 1100px;
-  color: #fff;
-  height: 300px;
+#df4:hover {
+    /*Jordi alba*/
+    color: #f5e729;
+    text-decoration: underline;
 }
-#dl6:hover{ /*ansu*/
-  color: #f5e729;
-  text-decoration: underline;
 
+#c1 {
+    /*busquets*/
+    display: block;
+    margin-top: 240px;
+    margin-left: 900px;
+    color: #fff;
+}
+
+#c1:hover {
+    /*busquets*/
+    color: #f5e729;
+    text-decoration: underline;
+}
+
+#c5 {
+    /*De Jong*/
+    display: block;
+    margin-top: -20px;
+    margin-left: 800px;
+    color: #fff;
+}
+
+#c5:hover {
+    /*De Jong*/
+    color: #f5e729;
+    text-decoration: underline;
+}
+
+#c4 {
+    /*rafinha*/
+    display: block;
+    margin-top: 250px;
+    margin-left: 1000px;
+    color: #fff;
+}
+
+#c4:hover {
+    /*rafinha*/
+    color: #f5e729;
+    text-decoration: underline;
+}
+
+#dl1 {
+    /*messi*/
+    display: block;
+    margin-top: 300px;
+    margin-left: 700px;
+    color: #fff;
+}
+
+#dl1:hover {
+    /*messi*/
+    color: #f5e729;
+    text-decoration: underline;
+}
+
+#dl2 {
+    /*griezman*/
+    display: block;
+    margin-top: 70px;
+    margin-left: 880px;
+    color: #fff;
+}
+
+#dl2:hover {
+    /*griezman*/
+    color: #f5e729;
+    text-decoration: underline;
+}
+
+#dl6 {
+    /*ansu*/
+    display: block;
+    margin-top: 175px;
+    margin-left: 1100px;
+    color: #fff;
+    height: 300px;
+}
+
+#dl6:hover {
+    /*ansu*/
+    color: #f5e729;
+    text-decoration: underline;
 }
 
 
 /*SUPLENTES*/
 
-#p2::before{
-  content: "SUPLENTES:";
-  display:block;
-  margin-left: -100px;
-  margin-bottom: 5px;
-  color: #fff;
-  font-size: 28px;
-  text-decoration: underline;
+#p2::before {
+    content: "SUPLENTES:";
+    display: block;
+    margin-left: -100px;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 28px;
+    text-decoration: underline;
 }
 
-#p2{  /*neto*/
-  display: block;
-  margin-top: -20px;
-  margin-left: 450px;
-  color: #f5e729;
+#p2 {
+    /*neto*/
+    display: block;
+    margin-top: -20px;
+    margin-left: 450px;
+    color: #f5e729;
 }
 
-#p2:hover{  /*neto*/
-  color: #fff;
-  text-decoration: underline;
+#p2:hover {
+    /*neto*/
+    color: #fff;
+    text-decoration: underline;
 }
 
-#df5{ /*umtiti*/
-  display: block;
-  margin-top: -140px;
-  margin-left: 450px;
-  color: #f5e729;
+#df5 {
+    /*umtiti*/
+    display: block;
+    margin-top: -140px;
+    margin-left: 450px;
+    color: #f5e729;
 }
 
-#df5:hover{ /*umtiti*/
-  color: #fff;
-  text-decoration: underline;
+#df5:hover {
+    /*umtiti*/
+    color: #fff;
+    text-decoration: underline;
 }
 
-
-#df6{ /*Junior Firpo*/
-  display: block;
-  margin-top: -250px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#df6:hover{ /*Junior Firpo*/
-  color: #fff;
-  text-decoration: underline;
+#df6 {
+    /*Junior Firpo*/
+    display: block;
+    margin-top: -250px;
+    margin-left: 450px;
+    color: #f5e729;
 }
 
-#c2{ /*Aleña*/
-  display: block;
-  margin-top: 20px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#c2:hover{ /*Aleña*/
-  color: #fff;
-  text-decoration: underline;
+#df6:hover {
+    /*Junior Firpo*/
+    color: #fff;
+    text-decoration: underline;
 }
 
-#c3{ /*Pjanic*/
-  display: block;
-  margin-top: 20px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#c3:hover{ /*Pjanic*/
-  color: #fff;
-  text-decoration: underline;
+#c2 {
+    /*Aleña*/
+    display: block;
+    margin-top: 20px;
+    margin-left: 450px;
+    color: #f5e729;
 }
 
-
-#c6{ /*Pedri*/
-  display: block;
-  margin-top: -250px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#c6:hover{ /*Pedri*/
-  color: #fff;
-  text-decoration: underline;
+#c2:hover {
+    /*Aleña*/
+    color: #fff;
+    text-decoration: underline;
 }
 
-#c7{ /*Coutinho*/
-  display: block;
-  margin-top: 20px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#c7:hover{ /*Coutinho*/
-  color: #fff;
-  text-decoration: underline;
+#c3 {
+    /*Pjanic*/
+    display: block;
+    margin-top: 20px;
+    margin-left: 450px;
+    color: #f5e729;
 }
 
-#dl3{ /*Dembele*/
-  display: block;
-  margin-top: -390px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#dl3:hover{ /*Dembele*/
-  color: #fff;
-  text-decoration: underline;
+#c3:hover {
+    /*Pjanic*/
+    color: #fff;
+    text-decoration: underline;
 }
 
-#dl4{ /*Braithwaite*/
-  display: block;
-  margin-top: 20px;
-  margin-left: 450px;
-  color: #f5e729;
-}
-#dl4:hover{ /*Braithwaite*/
-  color: #fff;
-  text-decoration: underline;
+#c6 {
+    /*Pedri*/
+    display: block;
+    margin-top: -250px;
+    margin-left: 450px;
+    color: #f5e729;
 }
 
-#dl5{ /*Trincao*/
-  display: block;
-  margin-top: 20px;
-  margin-left: 450px;
-  color: #f5e729;
+#c6:hover {
+    /*Pedri*/
+    color: #fff;
+    text-decoration: underline;
 }
-#dl5:hover{ /*Trincao*/
-  color: #fff;
-  text-decoration: underline;
+
+#c7 {
+    /*Coutinho*/
+    display: block;
+    margin-top: 20px;
+    margin-left: 450px;
+    color: #f5e729;
+}
+
+#c7:hover {
+    /*Coutinho*/
+    color: #fff;
+    text-decoration: underline;
+}
+
+#dl3 {
+    /*Dembele*/
+    display: block;
+    margin-top: -390px;
+    margin-left: 450px;
+    color: #f5e729;
+}
+
+#dl3:hover {
+    /*Dembele*/
+    color: #fff;
+    text-decoration: underline;
+}
+
+#dl4 {
+    /*Braithwaite*/
+    display: block;
+    margin-top: 20px;
+    margin-left: 450px;
+    color: #f5e729;
+}
+
+#dl4:hover {
+    /*Braithwaite*/
+    color: #fff;
+    text-decoration: underline;
+}
+
+#dl5 {
+    /*Trincao*/
+    display: block;
+    margin-top: 20px;
+    margin-left: 450px;
+    color: #f5e729;
+}
+
+#dl5:hover {
+    /*Trincao*/
+    color: #fff;
+    text-decoration: underline;
 }
