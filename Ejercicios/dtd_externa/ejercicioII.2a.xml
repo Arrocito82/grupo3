@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="css/ejercicio-ii-1a-dtd" type="text/css"?>
-<!-- ejercicio II.2a.xml -->
+<?xml-stylesheet href="css/ejercicio-ii-1a-dtd.css" type="text/css"?>
+<!-- ejercicio II.2a.xml  -->
 <!DOCTYPE fichero SYSTEM "dtd/ejercicioII.2a.dtd">
 <fichero>
  <ficha>
