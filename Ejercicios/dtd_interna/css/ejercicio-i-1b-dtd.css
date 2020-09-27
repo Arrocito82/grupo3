@@ -43,7 +43,7 @@ segundoapellido {
 
 segundoapellido[tipo=casada]::after {
     display: block;
-    content: "estado: " attr(tipo);
+    content: "Estado: "attr(tipo) "- Apellido de soltera: "attr(apellidodesoltera);
     color: rgb(213, 255, 255);
 }
 

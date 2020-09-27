@@ -14,6 +14,7 @@ fichero {
 ficha {
     border: 5px dotted white;
     padding: 2rem;
+    margin-bottom: 2rem;
     padding-left: 5rem;
     border-radius: 5rem;
     background: rgba(127, 161, 255, 0.671);
@@ -43,7 +44,7 @@ segundoapellido {
 
 segundoapellido[tipo=casada]::after {
     display: block;
-    content: "estado: "attr(tipo);
+    content: "Estado: "attr(tipo) "- Apellido de soltera: "attr(apellidodesoltera);
     color: rgb(213, 255, 255);
 }
 

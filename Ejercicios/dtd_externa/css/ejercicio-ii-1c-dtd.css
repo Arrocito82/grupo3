@@ -2,21 +2,21 @@
     display: block;
 }
 
-fichero{
+fichero {
     width: 50%;
     margin: 5rem auto;
-    background: rgba(127, 255, 212,0.25);
+    background: rgba(127, 255, 212, 0.25);
     font-family: sans-serif;
     letter-spacing: 0.1rem;
     line-height: 2;
 }
 
-ficha{
+ficha {
     border: 5px dotted white;
     padding: 2rem;
     padding-left: 5rem;
     border-radius: 10rem;
-    background: rgba(127, 255, 212,0.35);
+    background: rgba(127, 255, 212, 0.35);
     color: white;
     text-shadow: 0 0 1rem rgb(40, 112, 88);
     font-weight: bolder;
@@ -39,7 +39,7 @@ apellido::before {
 nombre[sexo]::after {
     margin-left: 3rem;
     content: " sexo: "attr(sexo) " - edad: "attr(edad);
-    color: red;
+    color: green;
 }
 
 direccion::before {
