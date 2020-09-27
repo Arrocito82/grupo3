@@ -4,8 +4,8 @@ club {
     background-color: #145a32;
     background-image: url("img/fondo.jpg");
     background-repeat: no-repeat;
-    background-position-x: 90%;
-    background-position-y: 90%;
+    background-position-x: 95%;
+    background-position-y: 95%;
 }
 
 club[nombre]::before {
@@ -25,7 +25,6 @@ directiva[inicio_periodo]::before {
 
 directiva {
     display: block;
-    width: 60%;
     border: 3px double yellow;
     border-radius: 1rem;
     text-align: center;
@@ -52,7 +51,6 @@ vice_presidente::before {
 
 cuerpo_tecnico {
     display: block;
-    width: 60%;
     border: 3px double yellow;
     border-radius: 1rem;
     text-align: center;
@@ -116,310 +114,132 @@ jugador {
     font-size: 18px;
 }
 
-#p1 {
-    /*ter steguen*/
-    display: block;
-    margin-top: -220px;
-    margin-left: 870px;
-    color: #fff;
-}
-
-#p1:hover {
-    /*ter steguen*/
+jugadores jugador:hover {
     color: #f5e729;
     text-decoration: underline;
 }
 
-#df2 {
-    /*sergi roberto*/
-    display: block;
-    margin-top: 95px;
-    margin-left: 700px;
-    color: #fff;
+jugadores jugador {
+    position: absolute;
 }
 
-#df2:hover {
-    /*sergi roberto*/
-    color: #f5e729;
-    text-decoration: underline;
+jugadores jugador[posicion=portero] {
+    right: 40%;
+    top: 10rem;
 }
 
-#df1 {
-    /*pique*/
-    display: block;
-    margin-top: 310px;
-    margin-left: 775px;
-    color: #fff;
+jugadores jugador[posicion=delantero]:nth-child(2n+1) {
+    right: 12rem;
 }
 
-#df1:hover {
-    /*pique*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#df3 {
-    /*lenglet*/
-    display: block;
-    margin-top: 25px;
-    margin-left: 1000px;
-    color: #fff;
-}
-
-#df3:hover {
-    /*lenglet*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#df4 {
-    /*Jordi alba*/
-    display: block;
-    margin-top: 95px;
-    margin-left: 1130px;
-    color: #fff;
-}
-
-#df4:hover {
-    /*Jordi alba*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#c1 {
-    /*busquets*/
-    display: block;
-    margin-top: 240px;
-    margin-left: 900px;
-    color: #fff;
-}
-
-#c1:hover {
-    /*busquets*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#c5 {
-    /*De Jong*/
-    display: block;
-    margin-top: -20px;
-    margin-left: 800px;
-    color: #fff;
-}
-
-#c5:hover {
-    /*De Jong*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#c4 {
-    /*rafinha*/
-    display: block;
-    margin-top: 250px;
-    margin-left: 1000px;
-    color: #fff;
-}
-
-#c4:hover {
-    /*rafinha*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#dl1 {
-    /*messi*/
-    display: block;
-    margin-top: 300px;
-    margin-left: 700px;
-    color: #fff;
-}
-
-#dl1:hover {
-    /*messi*/
-    color: #f5e729;
-    text-decoration: underline;
-}
-
-#dl2 {
-    /*griezman*/
-    display: block;
-    margin-top: 70px;
-    margin-left: 880px;
-    color: #fff;
-}
-
-#dl2:hover {
-    /*griezman*/
-    color: #f5e729;
-    text-decoration: underline;
+jugadores jugador[posicion=delantero]:nth-child(2n) {
+    left: 12rem;
 }
 
 #dl6 {
-    /*ansu*/
-    display: block;
-    margin-top: 175px;
-    margin-left: 1100px;
-    color: #fff;
-    height: 300px;
+    top: 35rem;
 }
 
-#dl6:hover {
-    /*ansu*/
-    color: #f5e729;
-    text-decoration: underline;
+jugadores jugador[posicion=delantero] {
+    top: 28rem;
+    color: khaki;
+}
+
+jugadores jugador[posicion=centrocampista]:nth-child(2n+1) {
+    right: 10rem;
+}
+
+jugadores jugador[posicion=centrocampista]:nth-child(2n) {
+    left: 10rem;
+}
+
+jugadores jugador[posicion=centrocampista] {
+    top: 22rem;
+    color: khaki;
+}
+
+#c5 {
+    top: 38rem;
+}
+
+jugadores jugador[posicion=defensa]:nth-child(2n+1) {
+    right: 5rem;
+}
+
+jugadores jugador[posicion=defensa]:nth-child(2n) {
+    left: 5rem;
+}
+
+jugadores jugador[posicion=defensa]:nth-child(1),
+jugadores jugador[posicion=defensa]:nth-child(2) {
+    top: 15rem;
+}
+
+#df3,
+#df4 {
+    bottom: 15rem;
+}
+
+jugadores {
+    width: 600px;
+    height: 60rem;
+    display: inline-block;
+    margin: 3%;
+    float: right;
+    position: relative;
 }
 
 
 /*SUPLENTES*/
 
-#p2::before {
-    content: "SUPLENTES:";
-    display: block;
-    margin-left: -100px;
-    margin-bottom: 5px;
+suplentes {
+    width: 20%;
+    margin: 3%;
+    padding: 1.5rem;
+    display: inline-block;
     color: #fff;
+}
+
+@media only screen and (max-width: 990px) {
+    suplentes {
+        display: block;
+        margin: 2rem auto;
+    }
+    jugadores {
+        display: block;
+        margin-bottom: 5%;
+        height: 60rem;
+        position: relative;
+        right: 15%;
+    }
+    club {
+        background-position-x: 50%;
+    }
+    cuerpo_tecnico,
+    directiva {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    club {
+        padding: 10%;
+        padding-bottom: 0;
+        background-position-x: 82%;
+    }
+}
+
+suplentes::before {
+    content: "SUPLENTES:";
     font-size: 28px;
     text-decoration: underline;
 }
 
-#p2 {
-    /*neto*/
+suplentes jugador {
     display: block;
-    margin-top: -20px;
-    margin-left: 450px;
-    color: #f5e729;
 }
 
-#p2:hover {
-    /*neto*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#df5 {
-    /*umtiti*/
-    display: block;
-    margin-top: -140px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#df5:hover {
-    /*umtiti*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#df6 {
-    /*Junior Firpo*/
-    display: block;
-    margin-top: -250px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#df6:hover {
-    /*Junior Firpo*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#c2 {
-    /*Aleña*/
-    display: block;
-    margin-top: 20px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#c2:hover {
-    /*Aleña*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#c3 {
-    /*Pjanic*/
-    display: block;
-    margin-top: 20px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#c3:hover {
-    /*Pjanic*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#c6 {
-    /*Pedri*/
-    display: block;
-    margin-top: -250px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#c6:hover {
-    /*Pedri*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#c7 {
-    /*Coutinho*/
-    display: block;
-    margin-top: 20px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#c7:hover {
-    /*Coutinho*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#dl3 {
-    /*Dembele*/
-    display: block;
-    margin-top: -390px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#dl3:hover {
-    /*Dembele*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#dl4 {
-    /*Braithwaite*/
-    display: block;
-    margin-top: 20px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#dl4:hover {
-    /*Braithwaite*/
-    color: #fff;
-    text-decoration: underline;
-}
-
-#dl5 {
-    /*Trincao*/
-    display: block;
-    margin-top: 20px;
-    margin-left: 450px;
-    color: #f5e729;
-}
-
-#dl5:hover {
-    /*Trincao*/
+suplentes jugador:hover {
     color: #fff;
     text-decoration: underline;
 }
