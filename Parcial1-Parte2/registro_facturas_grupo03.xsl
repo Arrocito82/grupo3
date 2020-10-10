@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> 
-<xsl:output doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd" method="html" indent="yes" encoding="ISO-8859-1" media-type="text/html"/>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"> 
+
 
 <xsl:template match="/">
 
@@ -9,7 +10,7 @@
     <title>XSL</title>
 </head>
 <body>
-    <xsl:apply-templates select="/registro/factura"/>
+    <xsl:apply-templates select="/registro/factura" />
 </body>
 </html>
 </xsl:template>
@@ -17,8 +18,8 @@
 <xsl:template match="factura">
  <table>
         <tr>
-            <td>Factura No. <xsl:value-of select="./num/text()"/></td>
-            <td>tipo: <xsl:value-of select="./@tipo/text()"/></td>
+            <td>Factura No. <xsl:value-of select="./num/text()" /></td>
+            <td>tipo: <xsl:value-of select="./@tipo/text()" /></td>
         </tr>
         <tr>
             <td>cliente: </td>
@@ -42,15 +43,15 @@
             <td>subtotal</td>
         </tr>
         <tr>
-            <td/>
-            <td/>
-            <td/>
-            <td/>
-            <td/>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Total</td>
-            <td/>
+            <td></td>
         </tr>
     </table>
 </xsl:template>

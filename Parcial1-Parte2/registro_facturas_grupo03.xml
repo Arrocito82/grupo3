@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <?xml-stylesheet type="text/xsl"  href="registro_facturas_grupo03.xsl"?>
 <!-- grupo 03  -->
 <registro periodo="2012-03">
-    <responsable>Lic. Inocencio P�rez</responsable>
+    <responsable>Lic. Inocencio Pï¿½rez</responsable>
     <factura tipo="final">
         <num>564</num>
         <cliente codigo="2617" sexo="femenino">
-            <nombre>Mar�a V�lez</nombre>
+            <nombre>Marï¿½a Vï¿½lez</nombre>
             <documento>
                 <dui vence="2018-03-03">02349867-9</dui>
             </documento>
@@ -37,7 +37,7 @@
     <factura tipo="credito">
         <num>570</num>
         <cliente codigo="5032" sexo="femenino">
-            <nombre>Julia P�rez</nombre>
+            <nombre>Julia Pï¿½rez</nombre>
             <documento>
                 <pasaporte pais="USA">A98672340</pasaporte>
             </documento>
@@ -80,7 +80,7 @@
         </direccion>
         <lineafactura factura="575">
             <codigo tipo="accesorio_pc">247</codigo>
-            <detalle>Mouse inal�mbrico</detalle>
+            <detalle>Mouse inalï¿½mbrico</detalle>
             <cantidad>5</cantidad>
             <precio>
                 <moneda>$</moneda>
@@ -99,7 +99,7 @@
     <factura tipo="final">
         <num>590</num>
         <cliente codigo="617" sexo="masculino">
-            <nombre>Juan P�rez</nombre>
+            <nombre>Juan Pï¿½rez</nombre>
             <documento>
                 <pasaporte pais="SLV">A40298367</pasaporte>
             </documento>
@@ -167,7 +167,7 @@
         </direccion>
         <lineafactura factura="575">
             <codigo tipo="accesorio_pc">247</codigo>
-            <detalle>Mouse inal�mbrico</detalle>
+            <detalle>Mouse inalï¿½mbrico</detalle>
             <cantidad>10</cantidad>
             <precio>
                 <moneda>$</moneda>
