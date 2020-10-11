@@ -2,11 +2,11 @@
 <?xml-stylesheet type="text/xsl"  href="registro_facturas_grupo03.xsl"?>
 <!-- grupo 03  -->
 <registro periodo="2012-03">
-    <responsable>Lic. Inocencio Pï¿½rez</responsable>
+    <responsable>Lic. Inocencio Pérez</responsable>
     <factura tipo="final">
         <num>564</num>
         <cliente codigo="2617" sexo="femenino">
-            <nombre>Marï¿½a Vï¿½lez</nombre>
+            <nombre>María Velázquez</nombre>
             <documento>
                 <dui vence="2018-03-03">02349867-9</dui>
             </documento>
@@ -37,7 +37,7 @@
     <factura tipo="credito">
         <num>570</num>
         <cliente codigo="5032" sexo="femenino">
-            <nombre>Julia Pï¿½rez</nombre>
+            <nombre>Julia Pérez</nombre>
             <documento>
                 <pasaporte pais="USA">A98672340</pasaporte>
             </documento>
@@ -80,7 +80,7 @@
         </direccion>
         <lineafactura factura="575">
             <codigo tipo="accesorio_pc">247</codigo>
-            <detalle>Mouse inalï¿½mbrico</detalle>
+            <detalle>Mouse inalámbrico</detalle>
             <cantidad>5</cantidad>
             <precio>
                 <moneda>$</moneda>
@@ -99,7 +99,7 @@
     <factura tipo="final">
         <num>590</num>
         <cliente codigo="617" sexo="masculino">
-            <nombre>Juan Pï¿½rez</nombre>
+            <nombre>Juan Pérez</nombre>
             <documento>
                 <pasaporte pais="SLV">A40298367</pasaporte>
             </documento>
@@ -167,7 +167,7 @@
         </direccion>
         <lineafactura factura="575">
             <codigo tipo="accesorio_pc">247</codigo>
-            <detalle>Mouse inalï¿½mbrico</detalle>
+            <detalle>Mouse inalámbrico</detalle>
             <cantidad>10</cantidad>
             <precio>
                 <moneda>$</moneda>
