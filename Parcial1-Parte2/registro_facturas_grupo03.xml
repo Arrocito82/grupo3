@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl"  href="registro_facturas_grupo03.xsl"?>
+
 <!-- grupo 03  -->
+
 <registro periodo="2012-03">
     <responsable>Lic. Inocencio Pérez</responsable>
     <factura tipo="final">
