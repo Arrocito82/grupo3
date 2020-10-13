@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- grupo 03  -->
+<registro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" periodo="2012-03" xsi:noNamespaceSchemaLocation="registro_facturas_grupo03_Parte_III.xsd">
+<!---->
+  <responsable>Lic. Inocencio Pérez</responsable>
+  <factura>
+    <tipo>final</tipo>
+    <num>564</num>
+    <fechaemicion>2017-01-01</fechaemicion>
+    <cliente codigo="2617">
+      <sexo>Femenino</sexo>
+      <nombre>María Vélez</nombre>
+      <documento>
+        <vencimiento>2018-03-03</vencimiento>
+        <dui>02349867-9</dui>
+      </documento>
+      <telefonos codigo.pais="1" codigo.area="323">
+        <telfijo>24356789</telfijo>    
+      </telefonos>      
+      <email>mariav@gmail.com</email>
+    </cliente>
+    <direccion municipio="San Salvador">
+      <depto>San Salvador</depto>
+      <casa>Prados del Bosque Num.23</casa>
+    </direccion>
+    <lineafactura factura="564">
+      <codigo tipo="souvenir">498</codigo>
+      <detalle>Llavero estampas de mi pueblo: Izalco</detalle>
+      <cantidad>10</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>1.13</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>11.30</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>11.30</valor>
+    </total>
+  </factura>
+    
+  <factura>
+    <tipo>credito</tipo>
+    <num>570</num>
+    <fechaemicion>2017-01-02</fechaemicion>
+    <cliente codigo="5032">
+      <sexo>Femenino</sexo>
+      <nombre>Julia Pérez</nombre>
+      <documento>
+        <pasaporte pais="USA">A98672340</pasaporte>
+      </documento>
+      <telefonos codigo.pais="2" codigo.area="322">
+        <telcel cia="tigo">78354926</telcel> 
+      </telefonos>
+      <email>jperez@sica.com</email>
+    </cliente>
+    <direccion municipio="Antiguo Cuscatlan">
+      <depto>La Libertad</depto>
+      <oficina>5 Av. Sur</oficina>
+    </direccion>
+    <lineafactura factura="570">
+      <codigo tipo="pcportatiles">734</codigo>
+      <detalle>netbook acer a240</detalle>
+      <cantidad>3</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>350.00</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>1050.00</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>1050.00</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>credito</tipo>
+    <num>575</num>
+    <fechaemicion>2017-01-03</fechaemicion>
+    <cliente codigo="5327">
+      <sexo>Masculino</sexo>
+      <nombre>Jhon Smith</nombre>
+      <documento>
+        <pasaporte pais="USA">A98670234</pasaporte>
+      </documento>
+      <telefonos codigo.pais="3" codigo.area="324">
+        <telcel cia="tigo">78923546</telcel>
+      </telefonos>  
+      
+      <email>jsmith@usaid.com</email>
+    </cliente>
+    <direccion municipio="Santa Tecla">
+      <depto>La Libertad</depto>
+      <oficina>Final 25 Av. Norte</oficina>
+    </direccion>
+    <lineafactura factura="575">
+      <codigo tipo="accesorio_pc">247</codigo>
+      <detalle>Mouse inalámbrico</detalle>
+      <cantidad>5</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>10.00</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>50.00</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>50.00</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>final</tipo>
+    <num>590</num>
+    <fechaemicion>2017-01-04</fechaemicion>
+    <cliente codigo="617">
+      <sexo>Masculino</sexo>
+      <nombre>Juan Pérez</nombre>
+      <documento>
+        <pasaporte pais="SLV">A40298367</pasaporte>
+      </documento>
+      <telefonos codigo.pais="4" codigo.area="325">
+        <telcel cia="claro">76023546</telcel>
+      </telefonos>  
+      
+      <email>jperez@gmail.com</email>
+    </cliente>
+    <lineafactura factura="590">
+      <codigo tipo="perecedero">213</codigo>
+      <detalle>Agua embotellada</detalle>
+      <cantidad>10</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>0.50</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>5.00</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>5.00</valor>
+    </total>
+    </factura>
+    
+  <factura>
+    <tipo>final</tipo>
+    <num>593</num>
+    <fechaemicion>2017-01-05</fechaemicion>
+    <cliente codigo="177">
+      <sexo>Masculino</sexo>
+      <nombre>Pedro Portillo</nombre>
+      <documento>
+        <pasaporte pais="SLV">A43698027</pasaporte>
+      </documento>
+      <telefonos codigo.pais="5" codigo.area="327">
+        <telcel cia="claro">76028642</telcel>
+      </telefonos>  
+      
+      <email>pportillo@hotmail.com</email>
+    </cliente>
+    <lineafactura factura="593">
+      <codigo tipo="perecedero">215</codigo>
+      <detalle>Soda enlatada</detalle>
+      <cantidad>24</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>0.50</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>5.00</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>5.00</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>credito</tipo>
+    <num>585</num>
+    <fechaemicion>2017-01-06</fechaemicion>
+    <cliente codigo="5327">
+      <sexo>Masculino</sexo>
+      <nombre>Jhon Smith</nombre>
+      <documento>
+        <vencimiento>2018-06-03</vencimiento>
+        <dui>02810867-0</dui>
+      </documento>
+      <telefonos codigo.pais="6" codigo.area="328">
+        <telcel cia="tigo">78923546</telcel>
+      </telefonos> 
+      
+      <email>jsmith@usaid.com</email>
+    </cliente>
+    <direccion municipio="Santa Tecla">
+      <depto>La Libertad</depto>
+      <oficina>Final 25 Av. Norte</oficina>
+    </direccion>
+    <lineafactura factura="575">
+      <codigo tipo="accesorio_pc">247</codigo>
+      <detalle>Mouse inalámbrico</detalle>
+      <cantidad>10</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>10.00</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>100.00</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>100.00</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>credito</tipo>
+    <num>701</num>
+    <fechaemicion>2017-01-07</fechaemicion>
+    <cliente codigo="2802">
+      <sexo>Masculino</sexo>
+      <nombre>Adolfo Avelar</nombre>
+      <documento>
+        <vencimiento>2022-05-02</vencimiento>
+        <dui>07891023-9</dui>
+      </documento>
+      <telefonos codigo.pais="7" codigo.area="329">
+        <telfijo>23554898</telfijo>
+      </telefonos> 
+      
+      <email>adolfo@gmail.com</email>
+    </cliente>
+    <direccion municipio="San Salvador">
+    <depto>San Salvador</depto>
+      <casa>Mejicano Num.2</casa>
+    </direccion>
+    <lineafactura factura="701">
+      <codigo tipo="accesorio_pc">55</codigo>
+      <detalle>Bocinas</detalle>
+      <cantidad>2</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>50</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>100</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>100</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>credito</tipo>
+    <num>700</num>
+    <fechaemicion>2017-01-08</fechaemicion>
+    <cliente codigo="2801">
+      <sexo>Femenino</sexo>
+      <nombre>Juana Arco</nombre>
+      <documento>
+        <vencimiento>2024-01-02</vencimiento>
+        <dui>05432189-3</dui>
+      </documento>
+      <telefonos codigo.pais="8" codigo.area="311">
+        <telfijo>22545412</telfijo>
+      </telefonos> 
+      
+      <email>Juana@gmail.com</email>
+    </cliente>
+    <direccion municipio="San Salvador">
+      <depto>San Salvador</depto>
+      <casa>Centro Num.23</casa>
+    </direccion>
+    <lineafactura factura="701">
+      <codigo tipo="souvenir">400</codigo>
+      <detalle>Llinas</detalle>
+      <cantidad>25</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>2</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>50</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>50</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>final</tipo>
+    <num>601</num>
+    <fechaemicion>2017-01-09</fechaemicion>
+    <cliente codigo="2701">
+      <sexo>Masculino</sexo>
+      <nombre>Daniel Guzman</nombre>
+      <documento>
+        <vencimiento>2021-05-06</vencimiento>
+        <dui>06543716-2</dui>
+      </documento>
+      <telefonos codigo.pais="9" codigo.area="333">
+        <telfijo>23335577</telfijo>
+      </telefonos> 
+      
+      <email>daniel@gmail.com</email>
+    </cliente>
+    <direccion municipio="San Jacinto">
+      <depto>San Salvador</depto>
+      <casa>San Jacinto Num.21</casa>
+    </direccion>
+    <lineafactura factura="601">
+      <codigo tipo="souvenir">200</codigo>
+      <detalle>Camisa del barca</detalle>
+      <cantidad>12</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>5</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>60</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>60</valor>
+    </total>
+  </factura>
+  
+  <factura>
+    <tipo>final</tipo>
+    <num>600</num>
+    <fechaemicion>2017-01-10</fechaemicion>
+    <cliente codigo="2700">
+      <sexo>Femenino</sexo>
+      <nombre>Andrea Monterrosa</nombre>
+      <documento>
+        <vencimiento>2022-03-03</vencimiento>
+        <dui>07394651-1</dui>
+      </documento>
+      <telefonos codigo.pais="22" codigo.area="344">
+        <telfijo>22989817</telfijo>
+      </telefonos> 
+      
+      <email>andrea@gmail.com</email>
+    </cliente>
+    <direccion municipio="San Salvador">
+      <depto>San Salvador</depto>
+      <casa>San salvador Num 50</casa>
+    </direccion>
+    <lineafactura factura="600">
+      <codigo tipo="souvenir">625</codigo>
+      <detalle>Mochila</detalle>
+      <cantidad>3</cantidad>
+      <precio>
+        <moneda>$</moneda>
+        <valor>20</valor>
+      </precio>
+      <subtotal>
+        <moneda>$</moneda>
+        <valor>60</valor>
+      </subtotal>
+    </lineafactura>
+    <total>
+      <moneda>$</moneda>
+      <valor>60</valor>
+    </total>
+  </factura>
+ 
+</registro>

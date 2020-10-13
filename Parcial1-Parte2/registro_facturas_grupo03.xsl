@@ -1,14 +1,12 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"> 
-
-
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" id="xslt1">
+<xsl:output doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd" method="html" indent="yes" encoding="ISO-8859-1" media-type="text/html"/>
 <xsl:template match="/">
 
 <html>
 <head>
     <title>XSL</title>
-    <style>
+    <style type="text/css">
        body{
            background-color: #41aea9;
            color: #e8ffff;
@@ -43,7 +41,7 @@
     </style>
 </head>
 <body>
-    <xsl:apply-templates select="/registro/factura" />
+    <xsl:apply-templates select="/registro/factura"/>
 </body>
 </html>
 </xsl:template>
@@ -51,20 +49,23 @@
 <xsl:template match="factura">
  <table>
         <tr>
-            <td>Factura No. <span> <xsl:value-of select="./num/text()" /></span></td>
-            <td>Tipo: <xsl:value-of select="./@tipo" /></td>
+            <td>Factura No. <span> <xsl:value-of select="./num/text()"/></span></td>
+            <td>Tipo: <xsl:value-of select="./@tipo"/></td>
         </tr>
         <tr>
             <td>Cliente:  </td>
 
         </tr>
         <tr>
-            <td>Nombre:  <xsl:value-of select="./cliente/nombre/text()" /></td>
-            <td>Documento: <xsl:value-of select="./cliente/documento/dui/text() | ./cliente/documento/pasaporte/text()" /></td>
+            <td>Nombre:  <xsl:value-of select="./cliente/nombre/text()"/></td>
+           
+<td>Documento: <xsl:value-of select="name(./cliente/documento/dui |  ./cliente/documento/pasaporte)"/> :  <xsl:value-of select="./cliente/documento/dui/text()|  ./cliente/documento/pasaporte/text()"/></td>  
+      
+           
         </tr>
         <tr>
-            <td>Telefono:  <xsl:value-of select="./cliente/telefono/text()" /></td>
-            <td>Email:  <xsl:value-of select="./cliente/email/text()" /></td>
+            <td>Telefono:  <xsl:value-of select="./cliente/telefono/text()"/></td>
+            <td>Email:  <xsl:value-of select="./cliente/email/text()"/></td>
         </tr>
 
 
@@ -76,16 +77,17 @@
             <td class="lineafact">Subtotal</td>
         </tr>
         <tr>
-            <td class="lineafact"><xsl:value-of select="./lineafactura/codigo/text()" /></td>
-            <td class="lineafact"><xsl:value-of select="./lineafactura/detalle/text()" /></td>
-            <td class="lineafact"><xsl:value-of select="./lineafactura/cantidad/text()" /></td>
-            <td class="lineafact"><xsl:value-of select="./lineafactura/precio/moneda/text()" /><xsl:value-of select="./lineafactura/precio/valor/text()" /></td>
-            <td class="lineafact"><xsl:value-of select="./lineafactura/subtotal/moneda/text()" /><xsl:value-of select="./lineafactura/subtotal/valor/text()" /></td>
+            <td class="lineafact"><xsl:value-of select="./lineafactura/codigo/text()"/></td>
+            <td class="lineafact"><xsl:value-of select="./lineafactura/detalle/text()"/></td>
+            <td class="lineafact"><xsl:value-of select="./lineafactura/cantidad/text()"/></td>
+            <td class="lineafact"><xsl:value-of select="./lineafactura/precio/moneda/text()"/><xsl:value-of select="./lineafactura/precio/valor/text()"/></td>
+            <td class="lineafact"><xsl:value-of select="./lineafactura/subtotal/moneda/text()"/><xsl:value-of select="./lineafactura/subtotal/valor/text()"/></td>
         </tr>
         <tr>
             <td>Total</td>
-            <td><xsl:value-of select="./total/moneda/text()" /><xsl:value-of select="./total/valor/text()" /></td>
+            <td><xsl:value-of select="./total/moneda/text()"/><xsl:value-of select="./total/valor/text()"/></td>
         </tr>
     </table>
 </xsl:template>
+
 </xsl:stylesheet>
