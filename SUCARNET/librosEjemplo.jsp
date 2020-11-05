@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*,net.ucanaccess.jdbc.*" %>
+<%@page language="java" import="java.lang.*" %>
  <html>
  <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -54,10 +55,20 @@ Connection conexion = getConnection();
 out.write("OK");
  
       Statement st = conexion.createStatement();
-      ResultSet rs = st.executeQuery("select * from libros" );
+      String orden;
+      orden = request.getParameter("orden");
 
+      
+      
+         ResultSet rs = st.executeQuery("select * from libros");
+      
+      if(orden != null){
+         rs = st.executeQuery("select * from libros ORDER BY titulo");
+         out.println(orden);
+      }
+      
       // Ponemos los resultados en un table de html
-      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td>Titulo</td><td>Acción</td></tr>");
+      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td> <a href='librosEjemplo.jsp?orden=titulo' >Titulo</a> </td><td>Acción</td></tr>");
       int i=1;
       String isbn;
       while (rs.next())
