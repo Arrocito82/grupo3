@@ -7,7 +7,7 @@
  <body>
 
 <H1>MANTENIMIENTO DE LIBROS</H1>
-<form action="matto.jsp" method="get" name="Actualizar">
+<form action="matto.jsp" method="post" name="Actualizar">
  <table>
  <tr>
  <td>ISBN<input type="text" name="isbn" value="" size="40"/>
