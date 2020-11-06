@@ -2,8 +2,17 @@
 
  <html>
  <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title>Actualizar, Eliminar, Crear registros.</title>
+ <style>
+    body{
+       background-color: beige;
+       padding-left: 3cm;}
+    form[name="Actualizar"]{
+      padding: 20px;
+   }
+
+ </style>
  </head>
  <body>
 
@@ -65,18 +74,18 @@ System.out.println("Error: " + e);
 <form action="matto.jsp" method="get" name="Actualizar">
  <table>
  <tr>
- <td>ISBN<input type="text" name="isbn" value="<%=codISBN%>" size="40"/>
+ <td>ISBN:  <input type="text" name="isbn" value="<%=codISBN%>" size="50"/>
 </td>
   </tr>
  <tr>
- <td>Titulo<input type="text" name="titulo" value="<%=title%>" size="50"/></td>
+ <td>Titulo:  <input type="text" name="titulo" value="<%=title%>" size="50"/></td>
  </tr>
 <tr>
- <td>Autor<input type="text" name="autor" value="<%=aut%>" size="50"/>
+ <td>Autor:  <input type="text" name="autor" value="<%=aut%>" size="50"/>
 </td>
 </tr>
 <tr>
- <td>Publicacion<input type="text" name="publicacion" value="<%=publica%>" size="50"/>
+ <td>Publicacion:  <input type="text" name="publicacion" value="<%=publica%>" size="45"/>
 </td>
 </tr>
 <tr>
