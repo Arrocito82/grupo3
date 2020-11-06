@@ -10,10 +10,9 @@
 <H1>MANTENIMIENTO DE LIBROS</H1>
 
 <%!
-public Connection getConnection() throws SQLException {
+public Connection getConnection(String path) throws SQLException {
 String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-String filePath= path+"/data/datos.mdb";
-out.println(filePath);
+String filePath= path+"\\datos.mdb";
 String userName="",password="";
 String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
 
@@ -31,9 +30,12 @@ System.out.println("Error: " + e);
 %>
 
 <%
+   ServletContext context = request.getServletContext();
+   String path = context.getRealPath("/data");
+   Connection conex = getConnection(path);
+
    String isbnConsulta = request.getParameter("isbn");
    String editorial = request.getParameter("nombre");
-   Connection conex = getConnection();
    Statement state = conex.createStatement();
    ResultSet result = state.executeQuery("select * from libros where isbn='"+isbnConsulta+"'");
    Statement stateEdi = conex.createStatement();
@@ -123,8 +125,6 @@ System.out.println("Error: " + e);
 
 
 <%
-ServletContext context = request.getServletContext();
-String path = System.getProperty("user.dir");
 Connection conexion = getConnection(path);
    if (!conexion.isClosed()){
 out.write("OK");
