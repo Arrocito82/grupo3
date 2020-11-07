@@ -4,15 +4,7 @@
  <head>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title>Actualizar, Eliminar, Crear registros.</title>
- <style>
-    body{
-       background-color: beige;
-       padding-left: 3cm;}
-    form[name="Actualizar"]{
-      padding: 20px;
-   }
-
- </style>
+ <link rel="stylesheet" href="./css/style.css">
  </head>
  <body>
 
@@ -40,7 +32,8 @@ System.out.println("Error: " + e);
 
 <%
    ServletContext context = request.getServletContext();
-   String path = context.getRealPath("/data");
+   String path = context.getRealPath("/SUCARNET/data");
+   System.out.println(path);
    Connection conex = getConnection(path);
 
    String isbnConsulta = request.getParameter("isbn");
@@ -70,8 +63,8 @@ System.out.println("Error: " + e);
 %>
 
 
-
-<form action="matto.jsp" method="get" name="Actualizar">
+<div class="formContainer">
+<form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
  <table>
  <tr>
  <td>ISBN:  <input type="text" name="isbn" value="<%=codISBN%>" size="50"/>
@@ -124,9 +117,11 @@ System.out.println("Error: " + e);
  </tr>
  </table>
  </form>
- <form name="formbusca" action="libros.jsp" method="get">
-   Titulo a buscar: <input id="t1" type="text" oninput="activarBusqueda()" name="titulo1"  placeholder="ingrese un título"><br><br>
-   Autor a buscar: <input id="a1" type="text" oninput="activarBusqueda()" name="autor1" placeholder="ingrese un título">
+</div>
+
+ <form class='buscarform' name="formbusca" action="libros.jsp" method="get">
+   Titulo a buscar: <input id="t1" type="text" oninput="activarBusqueda()" name="titulo1"  placeholder="Ingrese un título"><br><br>
+   Autor a buscar: <input id="a1" type="text" oninput="activarBusqueda()" name="autor1" placeholder="Ingrese un autor">
  <input id="b1" type="submit" name="buscar" value="BUSCAR" disabled>
    
  </form>
@@ -167,7 +162,7 @@ out.write("OK");
          rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial ORDER BY libros.titulo;" );
       }
       // Ponemos los resultados en un table de html
-      out.println("<table border=\"1\"><tr><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
+      out.println("<table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
       int i=1;
       String isbn, publicacion, edit;
       String resultado = "";
@@ -179,14 +174,14 @@ out.write("OK");
          publicacion = rs.getString("publicacion");
          edit = rs.getString("nombre");
 
-         out.println("<tr>");
-         out.println("<td>"+ i +"</td>");
+         out.println("<tr class='tr-libros'>");
+         out.println("<td style='text-align: center;'>"+ i +"</td>");
          out.println("<td>"+isbn+"</td>");
          out.println("<td>"+titulo+"</td>");
          out.println("<td>"+autor+"</td>");
          out.println("<td>"+publicacion+"</td>");
          out.println("<td>"+edit+"</td>");
-         out.println("<td>"+"<a href='libros.jsp?isbn="+ isbn +"'>Actualizar</a><br><a href='matto.jsp?isbn="+ isbn +"&titulo=&Action=Eliminar'>Eliminar</a>" +"</td>");
+         out.println("<td class='btn-container'>"+"<a class='btn-actualizar' href='libros.jsp?isbn="+ isbn +"'>Actualizar</a><br><a class='btn-eliminar' href='matto.jsp?isbn="+ isbn +"&titulo=&Action=Eliminar'>Eliminar</a>" +"</td>");
          out.println("</tr>");
          i++;
       }

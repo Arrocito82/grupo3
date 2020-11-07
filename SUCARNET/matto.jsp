@@ -14,7 +14,7 @@ String ls_action = request.getParameter("Action");
 String ls_result = "Base de datos actualizada...";
 String ls_query = "";
 ServletContext context = request.getServletContext();
-String path = context.getRealPath("/data");
+String path = context.getRealPath("/SUCARNET/data");
 String filePath= path+"\\datos.mdb";
 String ls_dburl = "jdbc:odbc:Driver={MicroSoft Access Driver (*.mdb)};DBQ="+filePath;
 String ls_usuario = "";
@@ -78,19 +78,22 @@ ls_result += " <br/>" + e.toString();
 %>
 
 <html>
-<head><title>Updating a Database</title></head>
+<head><title>Updating a Database</title>
+<link rel="stylesheet" href="./css/matto.css">
+</head>
 <body>
- 
-La siguiente instrucción fue ejecutada:
-<br/><br/>
-<%=ls_query%>
-<br/><br/>
- 
-El resultado fue:
-<br/><br/>
-<%=ls_result%>
-<br/><br/>
- 
-<a href="libros.jsp">Entre otro valor</a>
+<div class="container">
+    La siguiente instrucción fue ejecutada:
+    <br/><br/>
+    <%=ls_query%>
+    <br/><br/>
+    
+    El resultado fue:
+    <br/><br/>
+    <%=ls_result%>
+    <br/><br/>
+    
+    <a href="libros.jsp">Entre otro valor</a>
+</div>
 </body>
 </html>
