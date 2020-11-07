@@ -100,8 +100,11 @@ h1{
  .btn-eliminar, .btn-actualizar:hover{
      opacity: 0.9;
  }
- .btn-actualizar, .btn-aceptar, .btn-buscar{
+ .btn-actualizar, .btn-aceptar:enabled, .btn-buscar:enabled{
      background-color: rgb(2, 123, 42);
+ }
+ .btn-buscar:disabled, .btn-aceptar:disabled{
+     background-color: gray;
  }
  .btn-eliminar{
      background-color: rgb(146, 2, 2);

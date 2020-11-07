@@ -67,18 +67,18 @@ System.out.println("Error: " + e);
 <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
  <table>
  <tr>
- <td>ISBN:  <input type="text" name="isbn" value="<%=codISBN%>" size="50"/>
+ <td>ISBN:  <input oninput="activarBtnAceptar()" type="text" name="isbn" value="<%=codISBN%>" size="50"/>
 </td>
   </tr>
  <tr>
- <td>Titulo:  <input type="text" name="titulo" value="<%=title%>" size="50"/></td>
+ <td>Titulo:  <input  oninput="activarBtnAceptar()" type="text" name="titulo" value="<%=title%>" size="50"/></td>
  </tr>
 <tr>
- <td>Autor:  <input type="text" name="autor" value="<%=aut%>" size="50"/>
+ <td>Autor:  <input  oninput="activarBtnAceptar()" type="text" name="autor" value="<%=aut%>" size="50"/>
 </td>
 </tr>
 <tr>
- <td>Publicacion:  <input type="text" name="publicacion" value="<%=publica%>" size="45"/>
+ <td>Publicacion:  <input  oninput="activarBtnAceptar()" type="text" name="publicacion" value="<%=publica%>" size="45"/>
 </td>
 </tr>
 <tr>
@@ -111,7 +111,7 @@ System.out.println("Error: " + e);
  <input type="radio" name="Action" value="Crear" checked /> Crear
  <% } %>
   </td>
- <td><input class='btn-aceptar'type="SUBMIT" value="ACEPTAR" />
+ <td><input id='btnAcepp' class='btn-aceptar'type="SUBMIT" value="ACEPTAR" disabled />
 </td>
  </tr>
  </tr>
@@ -205,6 +205,17 @@ Connection conexion = getConnection(path);
          document.getElementById("b1").disabled = false;
       }
    }
+   function activarBtnAceptar(){
+      var forInputList = document.querySelectorAll('.form-libro > table > tbody > tr > td > input[type="text"]');
+      
+      if(forInputList[0].value=="" && forInputList[1].value=="" && forInputList[2].value=="" && forInputList[3].value==""){
+         document.getElementById('btnAcepp').disabled= true;
+      }
+      else{
+         document.getElementById('btnAcepp').disabled= false;
+      }
+   }
+    
  </script>
 
  </body>
