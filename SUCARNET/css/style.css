@@ -1,9 +1,9 @@
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: rgba(240, 248, 255, 0.426);
-   }
- form[name="Actualizar"]{
-   padding: 20px;
+}
+form[name="Actualizar"]{
+    padding: 20px;
 }
 h1{
     display: flex;
@@ -14,18 +14,20 @@ h1{
 }
 .form-libro{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+   
     margin-right: 0;
 }
 
 .formContainer{
     display: flex;
     position: relative;
-    width: max-content;
+    width: 1042px;
     margin: 0 !important;
-    left: 10%;
+    left: 5%;
     right: auto;
+    box-shadow: 0px 6px 8px #888888;
+    padding: 50px;
+   
 
 }
 .form-libro table{
@@ -80,6 +82,7 @@ h1{
     display: block;
     position: relative;
     top: 10rem;
+    width: fit-content;
  }
  .btn-container{
      display: flex;
@@ -97,11 +100,22 @@ h1{
  .btn-eliminar, .btn-actualizar:hover{
      opacity: 0.9;
  }
- .btn-actualizar{
+ .btn-actualizar, .btn-aceptar, .btn-buscar{
      background-color: rgb(2, 123, 42);
  }
  .btn-eliminar{
      background-color: rgb(146, 2, 2);
+ }
+ .btn-aceptar, .btn-buscar{
+    display: block;
+    color:white;
+    text-decoration: none;
+    margin:1.5px;
+    padding:5px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
  }
 .tabla-libros{
     border: none;
@@ -122,9 +136,6 @@ h1{
     background-color: rgba(0, 123, 255, 0.124);
     border-radius: 5px;
     padding: 5px;
-}
-.tr-libros :hover{
-    border: 1px solid red;
 }
 .btn-csv{
     display: block;
@@ -149,4 +160,11 @@ h1{
     margin-left: 15px;
 
     
+}
+.libros-container{
+    padding: 50px;
+    width: fit-content;
+    left: 5%;
+    position: relative;
+    box-shadow: 0px 10px 8px #888888;
 }

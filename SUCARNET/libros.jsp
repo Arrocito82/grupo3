@@ -6,7 +6,7 @@
  <title>Actualizar, Eliminar, Crear registros.</title>
  <link rel="stylesheet" href="./css/style.css">
  </head>
- <body>
+ <body style="margin-top:100px;">
 
 <H1>MANTENIMIENTO DE LIBROS</H1>
 
@@ -111,7 +111,7 @@ System.out.println("Error: " + e);
  <input type="radio" name="Action" value="Crear" checked /> Crear
  <% } %>
   </td>
- <td><input type="SUBMIT" value="ACEPTAR" />
+ <td><input class='btn-aceptar'type="SUBMIT" value="ACEPTAR" />
 </td>
  </tr>
  </tr>
@@ -121,7 +121,7 @@ System.out.println("Error: " + e);
  <form class='buscarform' name="formbusca" action="libros.jsp" method="get">
    Titulo a buscar: <input id="t1" type="text" oninput="activarBusqueda()" name="titulo1"  placeholder="Ingrese un título"><br><br>
    Autor a buscar: <input id="a1" type="text" oninput="activarBusqueda()" name="autor1" placeholder="Ingrese un autor">
- <input id="b1" type="submit" name="buscar" value="BUSCAR" disabled>
+ <input id="b1" class="btn-buscar" type="submit" name="buscar" value="BUSCAR" disabled>
    
  </form>
 </div>
@@ -131,7 +131,7 @@ System.out.println("Error: " + e);
 <%
 Connection conexion = getConnection(path);
    if (!conexion.isClosed()){
-out.write("OK");
+
  
       Statement st = conexion.createStatement();
       ResultSet rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial;");
@@ -162,7 +162,7 @@ out.write("OK");
          rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial ORDER BY libros.titulo;" );
       }
       // Ponemos los resultados en un table de html
-      out.println("<table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
+      out.println("<div class='libros-container'><table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
       int i=1;
       String isbn, publicacion, edit;
       String resultado = "";
@@ -190,7 +190,7 @@ out.write("OK");
          buscar = null;
       }
       
-      out.println("</table>");
+      out.println("</table></div>");
       // cierre de la conexion
       conexion.close();
 }
