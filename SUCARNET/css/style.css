@@ -1,6 +1,6 @@
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    background-color: rgba(240, 248, 255, 0.426);
    }
  form[name="Actualizar"]{
    padding: 20px;
@@ -20,9 +20,13 @@ h1{
 }
 
 .formContainer{
-   
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    position: relative;
+    width: max-content;
+    margin: 0 !important;
+    left: 10%;
+    right: auto;
+
 }
 .form-libro table{
     width:90%;
@@ -72,6 +76,11 @@ h1{
      border-bottom:1.5px solid black;
      background-color: rgba(202, 202, 202, 0.59);
  }
+ .buscarform{
+    display: block;
+    position: relative;
+    top: 10rem;
+ }
  .btn-container{
      display: flex;
  }
@@ -113,4 +122,31 @@ h1{
     background-color: rgba(0, 123, 255, 0.124);
     border-radius: 5px;
     padding: 5px;
+}
+.tr-libros :hover{
+    border: 1px solid red;
+}
+.btn-csv{
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    color:white;
+    background-color:darkgreen;
+    padding: 8px;
+    border-radius: 5px;
+    margin:10px;
+}
+.btn-csv:hover{
+    opacity: 0.9;
+}
+.editorial-select{
+    padding: 2px 4px 0px 4px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    border-bottom: 1px solid gray;
+    border-radius: 0;
+    margin-left: 15px;
+
+    
 }

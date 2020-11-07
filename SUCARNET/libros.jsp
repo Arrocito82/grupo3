@@ -83,7 +83,7 @@ System.out.println("Error: " + e);
 </tr>
 <tr>
  <td>Editorial
-    <select name="editorial" id="edi1" >
+    <select class="editorial-select" name="editorial" id="edi1" >
     <% 
       String id, nombre;
       while(resultEdi.next()){
@@ -117,7 +117,6 @@ System.out.println("Error: " + e);
  </tr>
  </table>
  </form>
-</div>
 
  <form class='buscarform' name="formbusca" action="libros.jsp" method="get">
    Titulo a buscar: <input id="t1" type="text" oninput="activarBusqueda()" name="titulo1"  placeholder="Ingrese un título"><br><br>
@@ -125,6 +124,7 @@ System.out.println("Error: " + e);
  <input id="b1" type="submit" name="buscar" value="BUSCAR" disabled>
    
  </form>
+</div>
 <br><br>
 
 
@@ -196,7 +196,7 @@ out.write("OK");
 }
 
 %>
-
+<a class="btn-csv" href="listado-csv.jsp" download="Libros.csv">Descargar Listado CSV</a>
  <script type="text/javascript"> 
    function activarBusqueda(){
       if(document.getElementById("a1").value=="" && document.getElementById("t1").value==""){
