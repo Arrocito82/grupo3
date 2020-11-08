@@ -1,7 +1,7 @@
 <%@page contentType="text/csv" pageEncoding="iso-8859-1" import="java.sql.*,net.ucanaccess.jdbc.*"%><%!
 public Connection getConnection() throws SQLException{
    String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-   String filePath= "c:\\Apache\\Tomcat\\webapps\\grupo3\\SUCARNET\\data\\datos.mdb";
+   String filePath= "c:\\Apache\\Tomcat\\webapps\\SUCARNET\\data\\datos.mdb";
    String userName="",password="";
    String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
    Connection conn = null;
@@ -16,24 +16,28 @@ public Connection getConnection() throws SQLException{
       Statement st = conexion.createStatement();
       ResultSet rs = st.executeQuery("select * from libros" );
       response.setStatus(200);
-      response.setContentType("application/json");
-      response.setHeader("Content-Type", "application/json");   
-      response.setHeader("Content-Disposition", "attachment; filename=listadoLibros.json");
-      out.print("{");
+      response.setContentType("text/xml");
+      response.setHeader("Content-Type", "application/xml");   
+      response.setHeader("Content-Disposition", "attachment; filename=listadoLibros.xml");
+      out.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+      out.print("\n");
+      out.print("<libros>");
       out.print("\n");
       int i=1;
-      int n=1;
-      int j=0;
-      String ti;
-      out.print("\"libros\"" + ": [\n" );
       while (rs.next()){
-         ti=rs.getString("titulo");
-         out.print("{\"Num\": " + i + " , \"ISBN\": "+ rs.getString("isbn") + " , \"Titulo\": \"" + ti + "\" }");
-         out.print(" ,");
+         out.print("<libro" + i +">");
          out.print("\n");
-         i++;
-         }
-         out.print(" ]");
+         out.print(" <numero>" + i);
+         out.print(" </numero>");
          out.print("\n");
-         out.print("}");
+         out.print(" <ISBN>" + rs.getString("isbn"));
+         out.print(" </ISBN>");
+         out.print("\n");
+         out.print(" <titulo>"+rs.getString("Titulo"));
+         out.print(" </titulo>");
+         out.print("\n");
+         out.print("</libro" + i + ">");
+         out.print("\n");
+         i++;}
+      out.print("</libros>");
    conexion.close();/* cierre de la conexion */}%>
