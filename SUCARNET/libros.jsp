@@ -5,6 +5,7 @@
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title>Actualizar, Eliminar, Crear registros.</title>
  <link rel="stylesheet" href="./css/style.css">
+ <script src="./js/validaciones.js"></script>
  </head>
  <body style="margin-top:100px;">
 
@@ -32,7 +33,7 @@ System.out.println("Error: " + e);
 
 <%
    ServletContext context = request.getServletContext();
-   String path = context.getRealPath("/data");
+   String path = context.getRealPath("/SUCARNET/data");
    System.out.println(path);
    Connection conex = getConnection(path);
 
@@ -65,57 +66,44 @@ System.out.println("Error: " + e);
 
 <div class="formContainer">
 <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
- <table>
- <tr>
- <td>ISBN:  <input oninput="activarBtnAceptar()" type="text" name="isbn" value="<%=codISBN%>" size="50"/>
-</td>
-  </tr>
- <tr>
- <td>Titulo:  <input  oninput="activarBtnAceptar()" type="text" name="titulo" value="<%=title%>" size="50"/></td>
- </tr>
-<tr>
- <td>Autor:  <input  oninput="activarBtnAceptar()" type="text" name="autor" value="<%=aut%>" size="50"/>
-</td>
-</tr>
-<tr>
- <td>Publicacion:  <input  oninput="activarBtnAceptar()" type="text" name="publicacion" value="<%=publica%>" size="45"/>
-</td>
-</tr>
-<tr>
- <td>Editorial
-    <select class="editorial-select" name="editorial" id="edi1" >
-    <% 
-      String id, nombre;
-      while(resultEdi.next()){
-      id = resultEdi.getString("Id");
-      nombre = resultEdi.getString("nombre");
+   <ul class="ul-form">
+      <li>ISBN:  <input oninput="activarBtnAceptar()" type="text" name="isbn" value="<%=codISBN%>" size="50" required/></li>
+      <li>Titulo:  <input  oninput="activarBtnAceptar()" type="text" name="titulo" value="<%=title%>" size="50" required/></li>
+      <li>Autor:  <input  oninput="activarBtnAceptar()" type="text" name="autor" value="<%=aut%>" size="50" required/></li>
+      <li>Publicacion:  <input  oninput="activarBtnAceptar()" type="text" name="publicacion" value="<%=publica%>" size="45" required/></li>
 
-      if(id.equals(edi)){ %>   
-      <option value="<%=id%>" selected><%=nombre%></option>
-      <% } else { %>
-      <option value="<%=id%>" ><%=nombre%></option>
-   <% }} %> 
-    </select>
-</td>
-</tr>
+      <li>Editorial
+         <select class="editorial-select" name="editorial" id="edi1" >
+            <% 
+            String id, nombre;
+            while(resultEdi.next()){
+               
+                  id = resultEdi.getString("Id");
+                  nombre = resultEdi.getString("nombre");
 
+                  if(id.equals(edi)){ %>   
+                  <option value="<%=id%>" selected><%=nombre%></option>
+                  <% } else { %>
+                  <option value="<%=id%>" ><%=nombre%></option>
+                  <% }
+               } %> 
+         </select>   
+      </li>
 
- <tr><td> Action
- <% if(isbnConsulta != null){ %>
- <input type="radio" name="Action" value="Actualizar" checked/> Actualizar
- <input type="radio" name="Action" value="Eliminar" /> Eliminar
- <input type="radio" name="Action" value="Crear"  /> Crear
- <% } else { %>
- <input type="radio" name="Action" value="Actualizar" /> Actualizar
- <input type="radio" name="Action" value="Eliminar" /> Eliminar
- <input type="radio" name="Action" value="Crear" checked /> Crear
- <% } %>
-  </td>
- <td><input id='btnAcepp' class='btn-aceptar'type="SUBMIT" value="ACEPTAR" disabled />
-</td>
- </tr>
- </tr>
- </table>
+      <li> Action
+         <% if(isbnConsulta != null){ %>
+         <input type="radio" name="Action" value="Actualizar" checked/> Actualizar
+         <input type="radio" name="Action" value="Eliminar" /> Eliminar
+         <input type="radio" name="Action" value="Crear"  /> Crear
+         <% } else { %>
+         <input type="radio" name="Action" value="Actualizar" /> Actualizar
+         <input type="radio" name="Action" value="Eliminar" /> Eliminar
+         <input type="radio" name="Action" value="Crear" checked /> Crear
+         <% } %>
+      </li>
+      
+      <li><input id='btnAcepp' class='btn-aceptar'type="SUBMIT" value="ACEPTAR" disabled/></li>
+   </ul>
  </form>
 
  <form class='buscarform' name="formbusca" action="libros.jsp" method="get">
@@ -197,25 +185,4 @@ Connection conexion = getConnection(path);
 
 %>
 <a class="btn-csv" href="listado-csv.jsp" download="Libros.csv">Descargar Listado CSV</a>
- <script type="text/javascript"> 
-   function activarBusqueda(){
-      if(document.getElementById("a1").value=="" && document.getElementById("t1").value==""){
-         document.getElementById("b1").disabled = true;
-      }else{
-         document.getElementById("b1").disabled = false;
-      }
-   }
-   function activarBtnAceptar(){
-      var forInputList = document.querySelectorAll('.form-libro > table > tbody > tr > td > input[type="text"]');
-      
-      if(forInputList[0].value=="" && forInputList[1].value=="" && forInputList[2].value=="" && forInputList[3].value==""){
-         document.getElementById('btnAcepp').disabled= true;
-      }
-      else{
-         document.getElementById('btnAcepp').disabled= false;
-      }
-   }
-    
- </script>
-
- </body>
+</body>
