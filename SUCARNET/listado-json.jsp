@@ -1,7 +1,7 @@
 <%@page contentType="text/csv" pageEncoding="iso-8859-1" import="java.sql.*,net.ucanaccess.jdbc.*"%><%!
-public Connection getConnection() throws SQLException{
+public Connection getConnection(String path) throws SQLException{
    String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-   String filePath= "c:\\Apache\\Tomcat\\webapps\\grupo3\\SUCARNET\\data\\datos.mdb";
+   String filePath= path+"\\datos.mdb";
    String userName="",password="";
    String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
    Connection conn = null;
@@ -11,7 +11,10 @@ public Connection getConnection() throws SQLException{
    catch (Exception e) {
       System.out.print("Error: " + e);}
    return conn;}%><%
-   Connection conexion = getConnection();
+   ServletContext context=request.getServletContext();
+   String path=context.getRealPath("/data");
+   Connection conexion = getConnection(path);
+   
    if (!conexion.isClosed()){
       Statement st = conexion.createStatement();
       ResultSet rs = st.executeQuery("select * from libros" );

@@ -11,8 +11,8 @@ public Connection getConnection(String path) throws SQLException{
    catch (Exception e) {
       System.out.print("Error: " + e);}
    return conn;}%><%
-ServletContext context=request.getServletContext();
-String path=context.getRealPath("/data");
+   ServletContext context=request.getServletContext();
+   String path=context.getRealPath("/data");
    Connection conexion = getConnection(path);
    if (!conexion.isClosed()){
       Statement st = conexion.createStatement();
