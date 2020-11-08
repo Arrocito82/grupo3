@@ -1,7 +1,7 @@
 <%@page contentType="text/csv" pageEncoding="iso-8859-1" import="java.sql.*,net.ucanaccess.jdbc.*"%><%!
 public Connection getConnection() throws SQLException{
    String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-   String filePath= "c:\\Apache\\Tomcat\\webapps\\SUCARNET\\data\\datos.mdb";
+   String filePath= "c:\\Apache\\Tomcat\\webapps\\grupo3\\SUCARNET\\data\\datos.mdb";
    String userName="",password="";
    String fullConnectionString = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" + filePath;
    Connection conn = null;

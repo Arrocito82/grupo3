@@ -21,6 +21,7 @@ public Connection getConnection() throws SQLException{
       response.setHeader("Content-Disposition", "attachment; filename=listadoLibros.json");
       out.print("{");
       out.print("\n");
+      System.out.print(rs);
       int i=1;
       int n=1;
       int j=0;
@@ -29,6 +30,7 @@ public Connection getConnection() throws SQLException{
       while (rs.next()){
          ti=rs.getString("titulo");
          out.print("{\"Num\": " + i + " , \"ISBN\": "+ rs.getString("isbn") + " , \"Titulo\": \"" + ti + "\" }");
+         
          out.print(" ,");
          out.print("\n");
          i++;
