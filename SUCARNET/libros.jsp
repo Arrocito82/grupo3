@@ -68,9 +68,9 @@ System.out.println("Error: " + e);
 <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
    <ul class="ul-form">
       <li>ISBN:  <input  type="text" name="isbn" value="<%=codISBN%>" size="50" maxlength="8" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
-      <li>Titulo:  <input   type="text" name="titulo" value="<%=title%>" size="50" required/></li>
+      <li>Titulo:  <input   type="text" name="titulo" value="<%=title%>" size="50" pattern="^[a-zA-Z\s]*$"  title="No se permitem numeros o caracteres especiales" required/></li>
       <li>Autor:  <input  type="text" name="autor" value="<%=aut%>" size="50" required/></li>
-      <li>Publicacion:  <input  type="text" name="publicacion" value="<%=publica%>" size="45" required  required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro "/></li>
+      <li>Publicacion:  <input  type="text" name="publicacion" value="<%=publica%>" size="50" required  required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro "/></li>
 
       <li class="editorialLi">Editorial
          <select class="editorial-select" name="editorial" id="edi1" >
@@ -108,8 +108,8 @@ System.out.println("Error: " + e);
 
 <form class='buscarform' name="formbusca" action="libros.jsp" method="get">
 <ul class="ul-form">
-   <li> Titulo a buscar: <input id="t1" type="text" size="50" oninput="activarBusqueda()" name="titulo1" pattern="[A-Za-z]*$" title="No se permitem numeros o caracteres especiales"  placeholder="Ingrese un título"/></li>
-   <li> Autor a buscar: <input id="a1" type="text" size="50" oninput="activarBusqueda()" name="autor1" pattern="[A-Za-z]*$"  title="No se permitem numeros o caracteres especiales" placeholder="Ingrese un autor"/></li>
+   <li> Titulo a buscar: <input id="t1" type="text" size="50" oninput="activarBusqueda()" name="titulo1" pattern="^[a-zA-Z\s]*$" title="No se permitem numeros o caracteres especiales"  placeholder="Ingrese un título"/></li>
+   <li> Autor a buscar: <input id="a1" type="text" size="50" oninput="activarBusqueda()" name="autor1" pattern="^[a-zA-Z\s]*$"  title="No se permitem numeros o caracteres especiales" placeholder="Ingrese un autor"/></li>
   <li><input id="b1" class="btn-buscar" type="submit" name="buscar" value="BUSCAR" disabled/></li>
 </ul>
 </form>
