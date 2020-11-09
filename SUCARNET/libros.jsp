@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*,net.ucanaccess.jdbc.*" %> 
+<%@page import="java.lang.*" %>
 
  <html>
  <head>
@@ -34,7 +35,6 @@ System.out.println("Error: " + e);
 <%
    ServletContext context = request.getServletContext();
    String path = context.getRealPath("/data");
-   System.out.println(path);
    Connection conex = getConnection(path);
 
    String isbnConsulta = request.getParameter("isbn");
@@ -68,7 +68,7 @@ System.out.println("Error: " + e);
 <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
    <ul class="ul-form">
       <li>ISBN:  <input  type="text" name="isbn" value="<%=codISBN%>" size="50" maxlength="8" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
-      <li>Titulo:  <input   type="text" name="titulo" value="<%=title%>" size="50" pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"  title="No se permitem numeros" required/></li>
+      <li>Titulo:  <input   type="text" name="titulo" value="<%=title%>" size="50" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$"  title="No se permitem numeros" required/></li>
       <li>Autor:  <input  type="text" name="autor" value="<%=aut%>" size="50" required/></li>
       <li>Publicacion:  <input  type="text" name="publicacion" value="<%=publica%>" size="50" required  required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro "/></li>
 
@@ -108,9 +108,10 @@ System.out.println("Error: " + e);
 
 <form class='buscarform' name="formbusca" action="libros.jsp" method="get">
 <ul class="ul-form">
-   <li> Titulo a buscar: <input id="t1" type="text" size="50" oninput="activarBusqueda()" name="titulo1" pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" title="No se permitem numeros"  placeholder="Ingrese un título"/></li>
-   <li> Autor a buscar: <input id="a1" type="text" size="50" oninput="activarBusqueda()" name="autor1" pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"  title="No se permitem numeros" placeholder="Ingrese un autor"/></li>
-  <li><input id="b1" class="btn-buscar" type="submit" name="buscar" value="BUSCAR" disabled/></li>
+   <li> Titulo a buscar: <input id="t1" type="text" size="50" oninput="activarBusqueda()" name="titulo1" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros"  placeholder="Ingrese un título"/></li>
+   <li> Autor a buscar: <input id="a1" type="text" size="50" oninput="activarBusqueda()" name="autor1" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$"  title="No se permitem numeros" placeholder="Ingrese un autor"/></li>
+   <li><input id="b1" class="btn-buscar" type="submit" name="buscar" value="BUSCAR" disabled/></li>
+   <li><input id="r1" class="btn-refrescar" type="submit" name="refrescar" value="REFRESCAR"></li>
 </ul>
 </form>
 </div>
@@ -128,22 +129,22 @@ Connection conexion = getConnection(path);
       String busquedaTitulo = request.getParameter("titulo1");
       String busquedaAutor = request.getParameter("autor1");
       String buscar = request.getParameter("buscar");
-      String titulo, autor; 
+      String refrescar = request.getParameter("refrescar");
        
-      if(buscar != null){
-         while(rs.next()){
-            titulo = rs.getString("titulo");
-            autor = rs.getString("autor");
-
-            if(busquedaTitulo.equals(titulo) && busquedaAutor.equals(autor)){
-               rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial where titulo='"+busquedaTitulo+"' and autor='"+busquedaAutor+"'" );
-               break;
-            }else if((!(busquedaTitulo.equals(titulo)) && busquedaAutor.equals(autor)) || (busquedaTitulo.equals(titulo) && !(busquedaAutor.equals(autor)))){
-               rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial where titulo='"+busquedaTitulo+"' or autor='"+busquedaAutor+"'" );
-               break;
-            }
-            
+      if(buscar != null){  
+         if(!busquedaTitulo.equals("") && !busquedaAutor.equals("")){  
+            rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial where titulo LIKE"+"'%"+busquedaTitulo+"%'"+" and autor LIKE"+"'%"+busquedaAutor+"%'");    
          }
+         else if(!busquedaTitulo.equals("") && busquedaAutor.equals("")){
+            rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial where titulo LIKE"+"'%"+busquedaTitulo+"%'");
+         }
+         else if(busquedaTitulo.equals("") && !busquedaAutor.equals("")){
+            rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial where autor LIKE"+"'%"+busquedaAutor+"%'");
+         }          
+      }
+
+      if(refrescar != null){
+         rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial;");
       }
       
       
@@ -153,8 +154,7 @@ Connection conexion = getConnection(path);
       // Ponemos los resultados en un table de html
       out.println("<div class='libros-container'><table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
       int i=1;
-      String isbn, publicacion, edit;
-      String resultado = "";
+      String isbn, publicacion, edit, titulo, autor;
       while (rs.next())
       {
          isbn = rs.getString("isbn");
@@ -174,10 +174,7 @@ Connection conexion = getConnection(path);
          out.println("</tr>");
          i++;
       }
-      if(buscar != null){
-         out.println(resultado);
-         buscar = null;
-      }
+      
       
       out.println("</table></div>");
       // cierre de la conexion
