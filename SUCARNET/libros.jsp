@@ -33,7 +33,7 @@ System.out.println("Error: " + e);
 
 <%
    ServletContext context = request.getServletContext();
-   String path = context.getRealPath("/data");
+   String path = context.getRealPath("/SUCARNET/data");
    System.out.println(path);
    Connection conex = getConnection(path);
 
