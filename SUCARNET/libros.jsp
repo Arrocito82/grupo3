@@ -67,7 +67,7 @@ System.out.println("Error: " + e);
 <div class="formContainer">
 <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
    <ul class="ul-form">
-      <li>ISBN:  <input  type="text" name="isbn" value="<%=codISBN%>" size="50" maxlength="8" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
+      <li>ISBN:  <input  type="text" name="isbn" value="<%=codISBN%>" size="50" maxlength="13" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
       <li>Titulo:  <input   type="text" name="titulo" value="<%=title%>" size="50" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$"  title="No se permitem numeros" required/></li>
       <li>Autor:  <input  type="text" name="autor" value="<%=aut%>" size="50" required/></li>
       <li>Publicacion:  <input  type="text" name="publicacion" value="<%=publica%>" size="50" required  required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro "/></li>
