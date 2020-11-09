@@ -1,5 +1,5 @@
 <%@page contentType="text/csv" pageEncoding="iso-8859-1" import="java.sql.*,net.ucanaccess.jdbc.*"%><%!
-public Connection getConnection() throws SQLException{
+public Connection getConnection(String path) throws SQLException{
    String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
    String filePath= path +"\\datos.mdb";
    String userName="",password="";
