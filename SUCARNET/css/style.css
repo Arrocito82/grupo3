@@ -11,6 +11,8 @@ form[name="Actualizar"]{
     padding: 20px;
 }
 h1{
+    font-family:serif;
+    letter-spacing:0.15rem;
     display: flex;
     justify-content: center;
     margin-left: auto;
