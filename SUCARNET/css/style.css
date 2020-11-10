@@ -82,7 +82,7 @@ h1{
  .btn-eliminar, .btn-actualizar:hover{
      opacity: 0.9;
  }
- .btn-actualizar, .btn-aceptar:enabled, .btn-buscar:enabled{
+ .btn-actualizar, .btn-aceptar:enabled, .btn-buscar:enabled, .btn-refrescar{
      background-color: rgb(2, 123, 42);
  }
  .btn-buscar:disabled, .btn-aceptar:disabled{
@@ -91,7 +91,7 @@ h1{
  .btn-eliminar{
      background-color: rgb(146, 2, 2);
  }
- .btn-aceptar, .btn-buscar{
+ .btn-aceptar, .btn-buscar, .btn-refrescar{
     display: block;
     color:white;
     text-decoration: none;
@@ -171,4 +171,8 @@ h1{
 }
 .editorialLi{
     display:flex;
+}
+.msg-NoLibros{
+    width: 1042px;
+    text-align: center;
 }

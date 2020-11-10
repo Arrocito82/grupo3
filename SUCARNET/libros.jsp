@@ -152,31 +152,38 @@ Connection conexion = getConnection(path);
          rs = st.executeQuery("SELECT libros.titulo, libros.isbn, libros.autor, libros.publicacion, editorial.nombre FROM editorial INNER JOIN libros ON editorial.Id = libros.id_editorial ORDER BY libros.titulo;" );
       }
       // Ponemos los resultados en un table de html
-      out.println("<div class='libros-container'><table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
+      out.println("<div class='libros-container'>");
       int i=1;
-      String isbn, publicacion, edit, titulo, autor;
-      while (rs.next())
-      {
-         isbn = rs.getString("isbn");
-         titulo = rs.getString("titulo");
-         autor = rs.getString("autor");
-         publicacion = rs.getString("publicacion");
-         edit = rs.getString("nombre");
+      if(rs.next()){
+         out.println("<table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
+         //rs.beforeFirst();
+         String isbn, publicacion, edit, titulo, autor;
+         do
+         {
+            isbn = rs.getString("isbn");
+            titulo = rs.getString("titulo");
+            autor = rs.getString("autor");
+            publicacion = rs.getString("publicacion");
+            edit = rs.getString("nombre");
 
-         out.println("<tr class='tr-libros'>");
-         out.println("<td style='text-align: center;'>"+ i +"</td>");
-         out.println("<td>"+isbn+"</td>");
-         out.println("<td>"+titulo+"</td>");
-         out.println("<td>"+autor+"</td>");
-         out.println("<td>"+publicacion+"</td>");
-         out.println("<td>"+edit+"</td>");
-         out.println("<td class='btn-container'>"+"<a class='btn-actualizar' href='libros.jsp?isbn="+ isbn +"'>Actualizar</a><br><a class='btn-eliminar' href='matto.jsp?isbn="+ isbn +"&titulo=&Action=Eliminar'>Eliminar</a>" +"</td>");
-         out.println("</tr>");
-         i++;
+            out.println("<tr class='tr-libros'>");
+            out.println("<td style='text-align: center;'>"+ i +"</td>");
+            out.println("<td>"+isbn+"</td>");
+            out.println("<td>"+titulo+"</td>");
+            out.println("<td>"+autor+"</td>");
+            out.println("<td>"+publicacion+"</td>");
+            out.println("<td>"+edit+"</td>");
+            out.println("<td class='btn-container'>"+"<a class='btn-actualizar' href='libros.jsp?isbn="+ isbn +"'>Actualizar</a><br><a class='btn-eliminar' href='matto.jsp?isbn="+ isbn +"&titulo=&Action=Eliminar'>Eliminar</a>" +"</td>");
+            out.println("</tr>");
+            i++;
+         }        
+         while (rs.next());
+         
+         out.println("</table></div>");
       }
-      
-      
-      out.println("</table></div>");
+      else{
+         out.println("<p class='msg-NoLibros'>No hay libros que mostrar</p></div>");
+      }
       // cierre de la conexion
       conexion.close();
 }
