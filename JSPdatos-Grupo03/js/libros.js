@@ -33,6 +33,12 @@ function refrescar() {
             document.getElementById("tablaDatos").innerHTML = this.responseText;
             document.getElementById("t1").value = "";
             document.getElementById("a1").value = "";
+            document.getElementById("isbn").value = "";
+            document.getElementById("titulo").value = "";
+            document.getElementById("autor").value = "";
+            document.getElementById("publicacion").value = "";
+            document.getElementById("edi1").value = "0";
+
         }
     };
     xhttp.open("GET", "procesaLibros.jsp?titulo1=&autor1=&refrescar=REFRESCAR", true);

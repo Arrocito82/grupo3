@@ -1,7 +1,7 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*,net.ucanaccess.jdbc.*" %> 
-<%@page import="java.lang.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*,net.ucanaccess.jdbc.*" %>
+    <%@page import="java.lang.*" %>
 
-<%!
+        <%!
 public Connection getConnection(String path) throws SQLException {
 String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
 String filePath= path+"\\datos.mdb";
@@ -21,7 +21,7 @@ System.out.println("Error: " + e);
 }
 %>
 
-<%
+            <%
    ServletContext context = request.getServletContext();
    String path = context.getRealPath("/data");
    Connection conex = getConnection(path);
@@ -32,7 +32,8 @@ System.out.println("Error: " + e);
  
    if (!conex.isClosed()){
   String id, nombre;
-  //out.println("<select>");
+ 
+   out.println("<option value='0' disabled selected >Seleccionar</option>");
             while(resultEdi.next()){
                
                   id = resultEdi.getString("Id");
@@ -41,11 +42,9 @@ System.out.println("Error: " + e);
        out.println("<option value="+id+">"+nombre+"</option>");
       
 }
-//out.println("</select>");
+
 }
 conex.close();
    
 
 %>
-
-
