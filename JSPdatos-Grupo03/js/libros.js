@@ -1,3 +1,4 @@
+//jshint esversion: 6
 function buscar() {
     var titulo1 = document.getElementById("t1").value;
     var autor1 = document.getElementById("a1").value;
@@ -13,6 +14,33 @@ function buscar() {
     };
     xhttp.open("GET", "procesaLibros.jsp?titulo1=" + titulo1 + "&autor1=" + autor1 + "&buscar=" + buscar, true);
     xhttp.send();
+}
+
+function crear() {
+
+    var isbn = document.getElementById("isbn").value;
+    var select = document.getElementById("edi1").value;
+
+    var autor = document.getElementById("autor").value;
+    var titulo = document.getElementById("titulo").value;
+    var publicacion = document.getElementById("publicacion").value;
+    var radioButton = document.getElementsByName("Action");
+    var accion;
+    radioButton.forEach(element => {
+        if (element.checked) {
+            accion = element.value;
+        }
+    });
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            refrescar();
+        }
+    };
+    xhttp.open("POST", "matto.jsp", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("isbn=" + isbn + "&titulo=" + titulo + "&autor=" + autor + "&publicacion=" + publicacion + "&editorial=" + select + "&Action=" + accion);
 }
 
 function cargar() {
@@ -38,7 +66,7 @@ function refrescar() {
             document.getElementById("autor").value = "";
             document.getElementById("publicacion").value = "";
             document.getElementById("edi1").value = "0";
-	    document.getElementById("radioCrear").checked = true;
+            document.getElementById("radioCrear").checked = true;
         }
     };
     xhttp.open("GET", "procesaLibros.jsp?titulo1=&autor1=&refrescar=REFRESCAR", true);
@@ -57,12 +85,20 @@ function cargarEditoriales() {
 }
 
 function eliminar(isbn) {
-    alert("se elimino " + isbn);
-    var xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "matto.jsp?isbn=" + isbn + "&titulo=&Action=Eliminar", true);
-    xhttp.send();
-    refrescar();
+    var xhttp = new XMLHttpRequest();
+    var libro = document.getElementById(isbn);
+    var titulo = libro.childNodes[5].textContent;
+    var autor = libro.childNodes[7].textContent;
+    if (confirm("Desea eliminar el libro " + titulo + " con isbn " + isbn + " del autor" + autor) == true) {
+        xhttp.open("GET", "matto.jsp?isbn=" + isbn + "&titulo=&Action=Eliminar", true);
+        xhttp.send();
+        alert("se elimino el libro" + titulo);
+        refrescar();
+    } else {
+
+    }
+
 }
 
 function editar(isbn) {

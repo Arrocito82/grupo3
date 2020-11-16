@@ -9,7 +9,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Actualizar, Eliminar, Crear registros.</title>
             <link rel="stylesheet" href="./css/style.css">
-            <script src="./js/validaciones.js"></script>
 
         </head>
 
@@ -17,12 +16,8 @@
 
             <H1>MANTENIMIENTO DE LIBROS</H1>
 
-
-
-
-
             <div class="formContainer">
-                <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
+                <div class="form-libro">
                     <ul class="ul-form">
                         <li>ISBN: <input id="isbn" type="text" name="isbn" value="" size="50" maxlength="13" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
                         <li>Titulo: <input id="titulo" type="text" name="titulo" value="" size="50" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros" required/></li>
@@ -41,16 +36,16 @@
 
                         </li>
 
-                        <li><input id='btnAcepp' class='btn-aceptar' type="SUBMIT" value="ACEPTAR" /></li>
+                        <li><button id="btnAcepp" class='btn-aceptar' onclick="crear()">Aceptar</button></li>
                     </ul>
-                </form>
+                </div>
 
                 <div class='buscarform'>
                     <ul class="ul-form">
                         <li> Titulo a buscar: <input id="t1" type="text" size="50" oninput="activarBusqueda()" name="titulo1" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros" placeholder="Ingrese un título" /></li>
                         <li> Autor a buscar: <input id="a1" type="text" size="50" oninput="activarBusqueda()" name="autor1" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros" placeholder="Ingrese un autor" /></li>
                         <li><button id="b1" class="btn-buscar" name="buscar" value="BUSCAR" onclick="buscar()" disabled>Buscar</button></li>
-                        <li><button id="r1" class="btn-refrescar" name="refrescar" value="REFRESCAR" onclick="refrescar()">Refrescar</button></button>
+                        <li><button id="r1" class="btn-refrescar" name="refrescar" value="REFRESCAR" onclick="refrescar()">Refrescar</button>
                         </li>
                     </ul>
                 </div>
@@ -67,5 +62,6 @@
                 <a class="btn-csv" href="listado-txt.jsp" download="libros.txt">Descargar Listado TXT</a>
                 <a class="btn-csv" href="listado-xml.jsp" download="libros.xml">Descargar Listado XML</a>
             </div>
-            <script src="js/libros.js"></script>
+            <script src="./js/validaciones.js"></script>
+            <script src="./js/libros.js"></script>
         </body>
