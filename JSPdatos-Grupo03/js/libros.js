@@ -6,7 +6,7 @@ var autor = document.getElementById("autor");
 var titulo = document.getElementById("titulo");
 var publicacion = document.getElementById("publicacion");
 var radioButton = document.getElementsByName("Action");
-
+var editorialFlag = false;
 isbn.addEventListener("keydown", function(event) {
     validacionInput(/[0-9]+$/i,"Solo de admiten Numeros",event)
 });
@@ -19,25 +19,31 @@ titulo.addEventListener("keydown", function(event) {
     validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ0-9 ]+$/i,"No se admit5en caracteres especiales \n ejemplo: @ # etc",event);
 });
 
-titulo.addEventListener("keydown", function(event) { 
-    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i,"Solo de admiten Letras \n No numeros ni caracteres especiales",event)
-});
-
 publicacion.addEventListener("focusout", function(event) {
-    validarPublicacionInput(/^([0-2][0-9][0-9][0-9]|20[0-9][0-9]|2100)$/i,"Solo de admiten Fechas validas",event)
+    validarPublicacionInput(/^(1[4-9][4-9][0-9]|20[0-9][0-9]|2100)$/i,"Solo de admiten vs validas \nDebe ser o igual a la actual y mayor a la fecha de publicacion de primer libro 1440",event)
+});
+publicacion.addEventListener("keydown", function(event) {
+    validacionInput(/[0-9 ]+$/i,"Solo de admiten vs validas \nDebe ser o igual a la actual",event)
+    
 });
 
 select.addEventListener("change", function() {
-    if (select.selectedIndex > 0) console.log("select valido")
+    if (select.selectedIndex > 0) editorialFlag = true;
 });
 
 function validarPublicacionInput(pattern , message , event){
     var element = event.currentTarget.value;
+    var fecha = new Date();
+    fecha = fecha.getFullYear();
+    console.log(fecha);
     if(element.length < 4) element = "0" + element;    
     if(element.length < 4) element = "0" + element;  
     if (!(pattern.test(element))) {
-       alert(message);        
+        event.currentTarget.value = "";    
+        alert(message);
+        return;    
     }
+    if(element > fecha){ alert(message);}
 }
 function validacionInput(pattern , message , event){
     var element = event.keyCode || event.which;
@@ -177,6 +183,14 @@ function activarBusqueda() {
     }
 }
 
-function validarFormulario() {
 
+function validarFormulario() {
+    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == "") return alert("Ingrese todos los datos del formulario");
+    
+    if(!editorialFlag){
+        alert("Seleccione una editorial")
+        return;
+    }
+
+    
 }
