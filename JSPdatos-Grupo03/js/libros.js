@@ -7,40 +7,49 @@ var titulo = document.getElementById("titulo");
 var publicacion = document.getElementById("publicacion");
 var radioButton = document.getElementsByName("Action");
 
-isbn.addEventListener("focusout", function(event) {
-    isbn = event.currentTarget.value;
+isbn.addEventListener("keydown", function(event) {
+    validacionInput(/[0-9]+$/i,"Solo de admiten Numeros",event)
+});
 
-    for (let index = 0; index < isbn.length; index++) {
-        const element = isbn[index];
-        if (!(/^[0-9]$/i.test(element))) {
-            alert("el isbn debe contener solo numeros del 0-9");
-            break;
-        }
-    }
+autor.addEventListener("keydown", function(event){
+    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i,"Solo de admiten Letras \n No numeros ni caracteres especiales",event);
 });
-autor.addEventListener("keydown", function(event) {
-    autor = event.currentTarget;
-    console.log(event.currentTarget);
-});
+
 titulo.addEventListener("keydown", function(event) {
-    titulo = event.currentTarget;
-    console.log(event.currentTarget);
+    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ0-9 ]+$/i,"No se admit5en caracteres especiales \n ejemplo: @ # etc",event);
 });
-titulo.addEventListener("keydown", function(event) {
-    titulo = event.currentTarget;
-    console.log(event.currentTarget);
+
+titulo.addEventListener("keydown", function(event) { 
+    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i,"Solo de admiten Letras \n No numeros ni caracteres especiales",event)
 });
-publicacion.addEventListener("keydown", function(event) {
-    publicacion = event.currentTarget;
-    console.log(event.currentTarget);
+
+publicacion.addEventListener("focusout", function(event) {
+    validarPublicacionInput(/^([0-2][0-9][0-9][0-9]|20[0-9][0-9]|2100)$/i,"Solo de admiten Fechas validas",event)
 });
+
 select.addEventListener("change", function() {
-    if (select.selectedIndex > 0) {
-        console.log("select valido");
-    }
-
+    if (select.selectedIndex > 0) console.log("select valido")
 });
 
+function validarPublicacionInput(pattern , message , event){
+    var element = event.currentTarget.value;
+    if(element.length < 4) element = "0" + element;    
+    if(element.length < 4) element = "0" + element;  
+    if (!(pattern.test(element))) {
+       alert(message);        
+    }
+}
+function validacionInput(pattern , message , event){
+    var element = event.keyCode || event.which;
+    if(element == 8 || element == 16 || element == 18) return;
+    element = String.fromCharCode(element);
+    if (!(pattern.test(element))) {
+        event.returnValue = false;
+        alert(message);        
+    }
+    
+    
+}
 function buscar() {
     var titulo1 = document.getElementById("t1").value;
     var autor1 = document.getElementById("a1").value;

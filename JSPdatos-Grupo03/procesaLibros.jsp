@@ -23,7 +23,7 @@ System.out.println("Error: " + e);
 
 <%
    ServletContext context = request.getServletContext();
-   String path = context.getRealPath("/data");
+   String path = context.getRealPath("/JSPdatos-Grupo03/data");
    Connection conex = getConnection(path);
 
    String isbnConsulta = request.getParameter("isbn");
