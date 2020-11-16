@@ -13,7 +13,7 @@
 
         </head>
 
-        <body style="margin-top:100px;" onload="cargar()">
+        <body style="margin-top:100px;" onload="cargar();cargarEditoriales()">
 
             <H1>MANTENIMIENTO DE LIBROS</H1>
 
@@ -24,10 +24,10 @@
             <div class="formContainer">
                 <form class="form-libro" action="matto.jsp" method="get" name="Actualizar">
                     <ul class="ul-form">
-                        <li>ISBN: <input type="text" name="isbn" value="" size="50" maxlength="13" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
-                        <li>Titulo: <input type="text" name="titulo" value="" size="50" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros" required/></li>
-                        <li>Autor: <input type="text" name="autor" value="" size="50" required/></li>
-                        <li>Publicacion: <input type="text" name="publicacion" value="" size="50" required required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro " /></li>
+                        <li>ISBN: <input id="isbn" type="text" name="isbn" value="" size="50" maxlength="13" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
+                        <li>Titulo: <input id="titulo" type="text" name="titulo" value="" size="50" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros" required/></li>
+                        <li>Autor: <input id="autor" type="text" name="autor" value="" size="50" required/></li>
+                        <li>Publicacion: <input id="publicacion" type="text" name="publicacion" value="" size="50" required required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro " /></li>
 
                         <li class="editorialLi">Editorial
                             <select class="editorial-select" name="editorial" id="edi1"></select>
@@ -35,9 +35,9 @@
 
                         <li class="ActionRadio"> Action
 
-                            <input type="radio" name="Action" value="Actualizar" checked/> Actualizar
-                            <input type="radio" name="Action" value="Eliminar" /> Eliminar
-                            <input type="radio" name="Action" value="Crear" /> Crear
+                            <input id="radioActualizar" type="radio" name="Action" value="Actualizar" checked/> Actualizar
+                            <input id="radioEliminar" type="radio" name="Action" value="Eliminar" /> Eliminar
+                            <input id="radioCrear" type="radio" name="Action" value="Crear" /> Crear
 
                         </li>
 
@@ -67,44 +67,5 @@
                 <a class="btn-csv" href="listado-txt.jsp" download="libros.txt">Descargar Listado TXT</a>
                 <a class="btn-csv" href="listado-xml.jsp" download="libros.xml">Descargar Listado XML</a>
             </div>
-            <script>
-                function buscar() {
-                    var titulo1 = document.getElementById("t1").value;
-                    var autor1 = document.getElementById("a1").value;
-                    var buscar = document.getElementById("b1").value;
-                    console.log(autor1);
-                    console.log(titulo1);
-                    console.log(buscar);
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("tablaDatos").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "procesaLibros.jsp?titulo1=" + titulo1 + "&autor1=" + autor1 + "&buscar=" + buscar, true);
-                    xhttp.send();
-                }
-
-                function cargar() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("tablaDatos").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "procesaLibros.jsp", true);
-                    xhttp.send();
-                }
-
-                function refrescar() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("tablaDatos").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "procesaLibros.jsp?titulo1=&autor1=&refrescar=REFRESCAR", true);
-                    xhttp.send();
-                }
-            </script>
+            <script src="js/libros.js"></script>
         </body>

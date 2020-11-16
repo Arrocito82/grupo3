@@ -16,7 +16,7 @@ String ls_query = "";
 ServletContext context = request.getServletContext();
 String path = context.getRealPath("/data");
 String filePath= path+"\\datos.mdb";
-String ls_dburl = "jdbc:odbc:Driver={MicroSoft Access Driver (*.mdb)};DBQ="+filePath;
+String ls_dburl = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ="+filePath;
 String ls_usuario = "";
 String ls_password = "";
 String ls_dbdriver = "sun.jdbc.odbc.JdbcOdbcDriver";
@@ -77,7 +77,7 @@ ls_result += " <br/>" + e.toString();
 }
 %>
 
-<html>
+<%-- <html>
 <head><title>Updating a Database</title>
 <link rel="stylesheet" href="./css/matto.css">
 </head>
@@ -96,4 +96,4 @@ ls_result += " <br/>" + e.toString();
     <a href="libros.jsp">Entre otro valor</a>
 </div>
 </body>
-</html>
+</html> --%>
