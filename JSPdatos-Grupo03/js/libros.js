@@ -38,7 +38,7 @@ function refrescar() {
             document.getElementById("autor").value = "";
             document.getElementById("publicacion").value = "";
             document.getElementById("edi1").value = "0";
-
+	    document.getElementById("radioCrear").checked = true;
         }
     };
     xhttp.open("GET", "procesaLibros.jsp?titulo1=&autor1=&refrescar=REFRESCAR", true);
