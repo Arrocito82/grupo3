@@ -1,4 +1,46 @@
 //jshint esversion: 6
+var isbn = document.getElementById("isbn");
+var select = document.getElementById("edi1");
+
+var autor = document.getElementById("autor");
+var titulo = document.getElementById("titulo");
+var publicacion = document.getElementById("publicacion");
+var radioButton = document.getElementsByName("Action");
+
+isbn.addEventListener("focusout", function(event) {
+    isbn = event.currentTarget.value;
+
+    for (let index = 0; index < isbn.length; index++) {
+        const element = isbn[index];
+        if (!(/^[0-9]$/i.test(element))) {
+            alert("el isbn debe contener solo numeros del 0-9");
+            break;
+        }
+    }
+});
+autor.addEventListener("keydown", function(event) {
+    autor = event.currentTarget;
+    console.log(event.currentTarget);
+});
+titulo.addEventListener("keydown", function(event) {
+    titulo = event.currentTarget;
+    console.log(event.currentTarget);
+});
+titulo.addEventListener("keydown", function(event) {
+    titulo = event.currentTarget;
+    console.log(event.currentTarget);
+});
+publicacion.addEventListener("keydown", function(event) {
+    publicacion = event.currentTarget;
+    console.log(event.currentTarget);
+});
+select.addEventListener("change", function() {
+    if (select.selectedIndex > 0) {
+        console.log("select valido");
+    }
+
+});
+
 function buscar() {
     var titulo1 = document.getElementById("t1").value;
     var autor1 = document.getElementById("a1").value;
@@ -16,7 +58,7 @@ function buscar() {
     xhttp.send();
 }
 
-function crear() {
+function aceptar() {
 
     var isbn = document.getElementById("isbn").value;
     var select = document.getElementById("edi1").value;
@@ -116,4 +158,16 @@ function editar(isbn) {
     document.getElementById("isbn").value = isbn;
 
     document.getElementById("radioActualizar").checked = true;
+}
+
+function activarBusqueda() {
+    if (document.getElementById("a1").value == "" && document.getElementById("t1").value == "") {
+        document.getElementById("b1").disabled = true;
+    } else {
+        document.getElementById("b1").disabled = false;
+    }
+}
+
+function validarFormulario() {
+
 }

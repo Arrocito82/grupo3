@@ -19,7 +19,7 @@
             <div class="formContainer">
                 <div class="form-libro">
                     <ul class="ul-form">
-                        <li>ISBN: <input id="isbn" type="text" name="isbn" value="" size="50" maxlength="13" pattern="[0-9]*$" title="Solo se admiten numeros" required/></li>
+                        <li>ISBN: <input id="isbn" type="text" name="isbn" value="" size="50" maxlength="13"required/></li>
                         <li>Titulo: <input id="titulo" type="text" name="titulo" value="" size="50" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$" title="No se permitem numeros" required/></li>
                         <li>Autor: <input id="autor" type="text" name="autor" value="" size="50" required/></li>
                         <li>Publicacion: <input id="publicacion" type="text" name="publicacion" value="" size="50" required required maxlength="4" pattern="[0-9]{4}" title="Debe introducir el año de publicacion del libro " /></li>
@@ -30,13 +30,13 @@
 
                         <li class="ActionRadio"> Action
 
-                            <input id="radioActualizar" type="radio" name="Action" value="Actualizar" checked/> Actualizar
+                            <input id="radioActualizar" type="radio" name="Action" value="Actualizar" /> Actualizar
                             <input id="radioEliminar" type="radio" name="Action" value="Eliminar" /> Eliminar
-                            <input id="radioCrear" type="radio" name="Action" value="Crear" /> Crear
+                            <input id="radioCrear" type="radio" name="Action" value="Crear" checked/> Crear
 
                         </li>
 
-                        <li><button id="btnAcepp" class='btn-aceptar' onclick="crear()">Aceptar</button></li>
+                        <li><button id="btnAcepp" class='btn-aceptar' onclick="validarFormulario()" >Aceptar</button></li>
                     </ul>
                 </div>
 
@@ -62,6 +62,6 @@
                 <a class="btn-csv" href="listado-txt.jsp" download="libros.txt">Descargar Listado TXT</a>
                 <a class="btn-csv" href="listado-xml.jsp" download="libros.xml">Descargar Listado XML</a>
             </div>
-            <script src="./js/validaciones.js"></script>
+            
             <script src="./js/libros.js"></script>
         </body>
