@@ -41,19 +41,20 @@ function validarPublicacionInput(pattern , message , event){
     if (!(pattern.test(element))) {
         event.currentTarget.value = "";    
         alerta(event);
-        return;    
+        return 0;    
     }
     if(element > fecha){ alert(message);}
 }
 function validacionInput(pattern , event){
 
     var element = event.keyCode || event.which;
-    if(element == 8 || element == 16 || element == 18) return;
+    var teclasIgnoradas = [8,16,18,9,39,40,38,37];
+    if(teclasIgnoradas.includes(element)) {return 0;}
     element = String.fromCharCode(element);
     if (!(pattern.test(element))) {
         event.returnValue = false;
         alerta(event); 
-        return;       
+        return 0;       
     }
     alertaOff(event);
     
@@ -191,12 +192,11 @@ function activarBusqueda() {
 function validarFormulario() {
     console.log("validando..");
 
-    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){ return alert("Ingrese todos los datos del formulario");}
+    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){  alert("Ingrese todos los datos del formulario"); return 0;}
     console.log("estan llenos");
     console.log(editorialFlag);
     if(!editorialFlag){
-        alert("Seleccione una editorial")
-        return;
+        return 0;
     }
 
     aceptar();
