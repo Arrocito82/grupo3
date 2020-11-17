@@ -8,22 +8,22 @@ var publicacion = document.getElementById("publicacion");
 var radioButton = document.getElementsByName("Action");
 var editorialFlag = false;
 isbn.addEventListener("keydown", function(event) {
-    validacionInput(/[0-9]+$/i,"Solo de admiten Numeros",event)
+    validacionInput(/[0-9]+$/i , event)
 });
 
 autor.addEventListener("keydown", function(event){
-    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i,"Solo de admiten Letras \n No numeros ni caracteres especiales",event);
+    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/i , event);
 });
 
 titulo.addEventListener("keydown", function(event) {
-    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ0-9 ]+$/i,"No se admit5en caracteres especiales \n ejemplo: @ # etc",event);
+    validacionInput(/[A-Za-zÁÉÍÓÚáéíóúñÑ0-9 ]+$/i , event);
 });
 
 publicacion.addEventListener("focusout", function(event) {
-    validarPublicacionInput(/^(1[4-9][4-9][0-9]|20[0-9][0-9]|2100)$/i,"Solo de admiten vs validas \nDebe ser o igual a la actual y mayor a la fecha de publicacion de primer libro 1440",event)
+    validarPublicacionInput(/^(1[0-9][0-9][0-9]|20[0-9][0-9]|2100)$/i , event)
 });
 publicacion.addEventListener("keydown", function(event) {
-    validacionInput(/[0-9 ]+$/i,"Solo de admiten vs validas \nDebe ser o igual a la actual",event)
+    validacionInput(/[0-9 ]+$/i , event)
     
 });
 
@@ -40,19 +40,22 @@ function validarPublicacionInput(pattern , message , event){
     if(element.length < 4) element = "0" + element;  
     if (!(pattern.test(element))) {
         event.currentTarget.value = "";    
-        alert(message);
+        alerta(event);
         return;    
     }
     if(element > fecha){ alert(message);}
 }
-function validacionInput(pattern , message , event){
+function validacionInput(pattern , event){
+
     var element = event.keyCode || event.which;
     if(element == 8 || element == 16 || element == 18) return;
     element = String.fromCharCode(element);
     if (!(pattern.test(element))) {
         event.returnValue = false;
-        alert(message);        
+        alerta(event); 
+        return;       
     }
+    alertaOff(event);
     
     
 }
@@ -74,6 +77,7 @@ function buscar() {
 }
 
 function aceptar() {
+    console.log("enviando");
 
     var isbn = document.getElementById("isbn").value;
     var select = document.getElementById("edi1").value;
@@ -159,7 +163,7 @@ function eliminar(isbn) {
 }
 
 function editar(isbn) {
-    alert("se actualizo " + isbn);
+    //alert("se actualizo " + isbn);
     var libro = document.getElementById(isbn);
 
     var titulo = libro.childNodes[5].textContent;
@@ -185,12 +189,25 @@ function activarBusqueda() {
 
 
 function validarFormulario() {
-    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == "") return alert("Ingrese todos los datos del formulario");
-    
+    console.log("validando..");
+
+    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){ return alert("Ingrese todos los datos del formulario");}
+    console.log("estan llenos");
+    console.log(editorialFlag);
     if(!editorialFlag){
         alert("Seleccione una editorial")
         return;
     }
 
-    
+    aceptar();
+}
+function alerta(event){
+   // console.log(event.currentTarget);
+    var divError =event.currentTarget.parentNode.lastElementChild;
+    divError.style.visibility = "visible";
+}
+function alertaOff(event){
+  //  console.log(event.currentTarget);
+    var divError =event.currentTarget.parentNode.lastElementChild;
+    divError.style.visibility = "hidden";
 }

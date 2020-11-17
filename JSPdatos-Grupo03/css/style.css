@@ -80,29 +80,40 @@ h1{
      font-size: 15px;
      border-radius: 5px;
      text-align: center;
+     cursor: pointer;
  }
- .btn-eliminar, .btn-actualizar:hover{
-     opacity: 0.9;
+ .btn-actualizar:hover{
+    background-color: #c6cf65;
+     
  }
+ 
  .btn-actualizar, .btn-aceptar:enabled, .btn-buscar:enabled, .btn-refrescar{
-     background-color: rgb(2, 123, 42);
+     background-color: #76a21e;
  }
  .btn-buscar:disabled, .btn-aceptar:disabled{
      background-color: gray;
  }
  .btn-eliminar{
-     background-color: rgb(146, 2, 2);
+     background-color:#5c0b0b;
+}
+.btn-eliminar:hover {
+    background-color: #7c0a02;
+       
  }
  .btn-aceptar, .btn-buscar, .btn-refrescar{
     display: block;
     color:white;
     text-decoration: none;
     margin:1.5px;
-    padding:5px;
+    padding:13px;
     font-size: 15px;
     border-radius: 5px;
     text-align: center;
     border: none;
+    cursor: pointer;
+ }
+ .btn-buscar:disabled{
+    cursor: not-allowed;
  }
 .tabla-libros{
     border: none;
@@ -128,14 +139,15 @@ h1{
     display: block;
     width: fit-content;
     text-decoration: none;
-    color:white;
-    background-color:darkgreen;
-    padding: 8px;
+    color: white;
+    background-color: #76a21e;
+    padding: 13px 29px;
     border-radius: 5px;
-    margin:10px;
+    margin: auto;
 }
 .btn-csv:hover{
-    opacity: 0.9;
+    background-color: #c6cf65;
+    
 }
 .editorial-select{
     padding: 2px 4px 0px 4px;
@@ -162,8 +174,10 @@ h1{
     width: fit-content;
 }
 .descargarbtn{
-    display:grid;
-    margin-top:20px;
+    display: grid;
+    width: 90%;
+    margin: 3rem auto;
+    
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .ActionRadio{
@@ -173,8 +187,22 @@ h1{
 }
 .editorialLi{
     display:flex;
+    align-items: center;
 }
 .msg-NoLibros{
     width: 1042px;
     text-align: center;
+}
+.error{
+    font-size: 0.8rem;
+    color: rgb(117, 3, 3);
+    visibility: hidden; 
+    width: 100%;
+}
+#main-container{
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  
 }
