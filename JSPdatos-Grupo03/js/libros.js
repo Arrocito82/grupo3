@@ -28,10 +28,11 @@ publicacion.addEventListener("keydown", function(event) {
 });
 
 select.addEventListener("change", function() {
+
     if (select.selectedIndex > 0) editorialFlag = true;
 });
 
-function validarPublicacionInput(pattern , message , event){
+function validarPublicacionInput(pattern, event){
     var element = event.currentTarget.value;
     var fecha = new Date();
     fecha = fecha.getFullYear();
@@ -41,15 +42,15 @@ function validarPublicacionInput(pattern , message , event){
     if (!(pattern.test(element))) {
         event.currentTarget.value = "";    
         alerta(event);
-        return 0;    
+        return;    
     }
     if(element > fecha){ alert(message);}
 }
 function validacionInput(pattern , event){
 
     var element = event.keyCode || event.which;
-    var teclasIgnoradas = [8,16,18,9,39,40,38,37];
-    if(teclasIgnoradas.includes(element)) {return 0;}
+    var teclasIgnoradas=[8,16,18,9,39,40,38,37];
+    if(teclasIgnoradas.includes(element)) return 0;
     element = String.fromCharCode(element);
     if (!(pattern.test(element))) {
         event.returnValue = false;
@@ -78,7 +79,7 @@ function buscar() {
 }
 
 function aceptar() {
-    console.log("enviando");
+    
 
     var isbn = document.getElementById("isbn").value;
     var select = document.getElementById("edi1").value;
@@ -164,7 +165,7 @@ function eliminar(isbn) {
 }
 
 function editar(isbn) {
-    //alert("se actualizo " + isbn);
+   
     var libro = document.getElementById(isbn);
 
     var titulo = libro.childNodes[5].textContent;
@@ -178,6 +179,7 @@ function editar(isbn) {
     document.getElementById("isbn").value = isbn;
 
     document.getElementById("radioActualizar").checked = true;
+    editorialFlag = true;
 }
 
 function activarBusqueda() {
@@ -192,11 +194,12 @@ function activarBusqueda() {
 function validarFormulario() {
     console.log("validando..");
 
-    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){  alert("Ingrese todos los datos del formulario"); return 0;}
+    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){ return alert("Ingrese todos los datos del formulario");}
     console.log("estan llenos");
     console.log(editorialFlag);
     if(!editorialFlag){
-        return 0;
+        alert("Seleccione una editorial")
+        return;
     }
 
     aceptar();
