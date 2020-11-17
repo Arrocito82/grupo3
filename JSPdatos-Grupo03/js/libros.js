@@ -42,7 +42,7 @@ function validarPublicacionInput(pattern, event){
     if (!(pattern.test(element))) {
         event.currentTarget.value = "";    
         alerta(event);
-        return;    
+        return 0;    
     }
     if(element > fecha){ alert(message);}
 }
@@ -194,12 +194,12 @@ function activarBusqueda() {
 function validarFormulario() {
     console.log("validando..");
 
-    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){ return alert("Ingrese todos los datos del formulario");}
+    if(isbn.value == "" | titulo.value =="" | publicacion.value == "" | autor.value == ""){  alert("Ingrese todos los datos del formulario"); return 0;}
     console.log("estan llenos");
     console.log(editorialFlag);
     if(!editorialFlag){
         alert("Seleccione una editorial")
-        return;
+        return 0;
     }
 
     aceptar();
