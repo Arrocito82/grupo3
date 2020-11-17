@@ -1,141 +1,169 @@
-body{
+body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: rgba(240, 248, 255, 0.426);
 }
-li{
+
+li {
     list-style: none;
     width: min-content;
     justify-content: center;
 }
-form[name="Actualizar"]{
+
+form[name="Actualizar"] {
     padding: 20px;
 }
-h1{
-    font-family:serif;
-    letter-spacing:0.15rem;
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, Times, serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
     display: flex;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-   
 }
-.form-libro{
+
+.form-libro {
     display: block;
-   
     margin-right: 0;
 }
-.form-libro, .buscarform{
+
+.form-libro,
+.buscarform {
     box-shadow: 0px 6px 8px #888888;
     font-weight: bolder;
 }
 
-.formContainer{
+.formContainer {
     display: grid;
     position: relative;
     grid-template-columns: 1fr 1fr;
-    gap:10px;
+    gap: 10px;
     width: 1136px;
     margin: 0 !important;
     left: 5%;
     right: auto;
 }
-.form-libro  input[type="text"] ,.buscarform input[type="text"] {
+
+.form-libro input[type="text"],
+.buscarform input[type="text"] {
     float: right;
     height: 31px;
-   border: none;
-   border-radius: 0;
-   outline-style: none;
-   border-bottom: 1px solid grey;
-   margin-right: 2px;
-   background-color: rgba(202, 202, 202, 0);
-   cursor:pointer;
+    border: none;
+    border-radius: 0;
+    outline-style: none;
+    border-bottom: 1px solid grey;
+    margin-right: 2px;
+    background-color: rgba(202, 202, 202, 0);
+    cursor: pointer;
 }
-.form-libro input[type="text"]:focus{
+
+.form-libro input[type="text"]:focus {
     transition: all;
-    border:none;
-    border-bottom:1.5px solid black;
+    border: none;
+    border-bottom: 1.5px solid black;
     background-color: rgba(202, 202, 202, 0.59);
 }
 
- .buscarform input[type="text"]:focus{
-     transition: all;
-     border:none;
-     border-bottom:1.5px solid black;
-     background-color: rgba(202, 202, 202, 0.59);
- }
- .buscarform{
-    display: block;
-    position: relative;    
-    padding: 20px;
- }
- .btn-container{
-     display: flex;
- }
- .btn-actualizar , .btn-eliminar{
-     display: block;
-     color:white;
-     text-decoration: none;
-     margin:1.5px;
-     padding:5px;
-     font-size: 15px;
-     border-radius: 5px;
-     text-align: center;
-     cursor: pointer;
- }
- .btn-actualizar:hover{
-    background-color: #c6cf65;
-     
- }
- 
- .btn-actualizar, .btn-aceptar:enabled, .btn-buscar:enabled, .btn-refrescar{
-     background-color: #76a21e;
- }
- .btn-buscar:disabled, .btn-aceptar:disabled{
-     background-color: gray;
- }
- .btn-eliminar{
-     background-color:#5c0b0b;
+.buscarform input[type="text"]:focus {
+    transition: all;
+    border: none;
+    border-bottom: 1.5px solid black;
+    background-color: rgba(202, 202, 202, 0.59);
 }
+
+.buscarform {
+    display: block;
+    position: relative;
+    padding: 20px;
+}
+
+.btn-container {
+    display: flex;
+}
+
+.btn-actualizar,
+.btn-eliminar {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 1.5px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-actualizar:hover {
+    background-color: #c6cf65;
+}
+
+.btn-actualizar,
+.btn-aceptar:enabled,
+.btn-buscar:enabled,
+.btn-refrescar {
+    background-color: #76a21e;
+}
+
+.btn-buscar:disabled,
+.btn-aceptar:disabled {
+    background-color: gray;
+}
+
+.btn-eliminar {
+    background-color: #5c0b0b;
+}
+
 .btn-eliminar:hover {
     background-color: #7c0a02;
-       
- }
- .btn-aceptar, .btn-buscar, .btn-refrescar{
+}
+
+.btn-aceptar,
+.btn-buscar,
+.btn-refrescar {
     display: block;
-    color:white;
+    color: white;
     text-decoration: none;
-    margin:1.5px;
-    padding:13px;
+    margin: 1.5px;
+    padding: 13px;
     font-size: 15px;
     border-radius: 5px;
     text-align: center;
     border: none;
     cursor: pointer;
- }
- .btn-buscar:disabled{
+}
+
+.btn-buscar:disabled {
     cursor: not-allowed;
- }
-.tabla-libros{
+}
+
+.tabla-libros {
     border: none;
     border-color: transparent;
     text-align: center;
 }
-.table-libros-headers{
+
+.table-libros-headers {
     border-bottom: 1px solid black;
 }
-.table-libros-headers td{
+
+.table-libros-headers td {
     font-weight: bolder;
-    
 }
-.table-libros-headers td{
+
+.table-libros-headers td {
     text-align: center;
 }
-.tr-libros td{
+
+.tr-libros td {
     background-color: rgba(0, 123, 255, 0.124);
     border-radius: 5px;
     padding: 5px;
 }
-.btn-csv{
+
+.btn-csv {
     display: block;
     width: fit-content;
     text-decoration: none;
@@ -145,11 +173,12 @@ h1{
     border-radius: 5px;
     margin: auto;
 }
-.btn-csv:hover{
+
+.btn-csv:hover {
     background-color: #c6cf65;
-    
 }
-.editorial-select{
+
+.editorial-select {
     padding: 2px 4px 0px 4px;
     border: none;
     outline: none;
@@ -157,52 +186,61 @@ h1{
     border-bottom: 1px solid gray;
     border-radius: 0;
     margin-left: 15px;
-
-    
 }
-.libros-container{
+
+.libros-container {
     padding: 50px;
     width: fit-content;
     left: 5%;
     position: relative;
     box-shadow: 0px 10px 8px #888888;
 }
-.ul-form{
+
+.ul-form {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 25px;
     width: fit-content;
+    margin: 3rem auto;
 }
-.descargarbtn{
+
+.descargarbtn {
     display: grid;
     width: 90%;
     margin: 3rem auto;
-    
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.ActionRadio{
+
+.ActionRadio {
     display: flex;
     width: max-content;
     justify-content: space-evenly;
 }
-.editorialLi{
-    display:flex;
+
+.radio_button {
+    padding: 0 1rem;
+}
+
+.editorialLi {
+    display: flex;
     align-items: center;
 }
-.msg-NoLibros{
+
+.msg-NoLibros {
     width: 1042px;
     text-align: center;
 }
-.error{
+
+.error {
     font-size: 0.8rem;
     color: rgb(117, 3, 3);
-    visibility: hidden; 
+    visibility: hidden;
     width: 100%;
 }
-#main-container{
+
+#main-container {
     display: block;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-  
 }

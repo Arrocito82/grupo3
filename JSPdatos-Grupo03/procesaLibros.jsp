@@ -23,7 +23,7 @@ System.out.println("Error: " + e);
 
 <%
    ServletContext context = request.getServletContext();
-   String path = context.getRealPath("/JSPdatos-Grupo03/data");
+   String path = context.getRealPath("/data");
    Connection conex = getConnection(path);
 
    String isbnConsulta = request.getParameter("isbn");
@@ -90,7 +90,7 @@ Connection conexion = getConnection(path);
       out.println("<div class='libros-container'>");
       int i=1;
       if(rs.next()){
-         out.println("<table class='tabla-libros' border=\"1\"><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
+         out.println("<table class='tabla-libros'><tr class='table-libros-headers'><td>Num.</td><td>ISBN</td><td><a href='libros.jsp?orden=titulo' >Titulo</a></td><td>Autor</td><td>Publicacion</td><td>Editorial</td><td>Acción</td></tr>");
          //rs.beforeFirst();
          String isbn, publicacion, edit, titulo, autor,id_editorial;
          do

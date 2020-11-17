@@ -14,7 +14,7 @@ String ls_action = request.getParameter("Action");
 String ls_result = "Base de datos actualizada...";
 String ls_query = "";
 ServletContext context = request.getServletContext();
-String path = context.getRealPath("/JSPdatos-Grupo03/data");
+String path = context.getRealPath("/data");
 String filePath= path+"\\datos.mdb";
 String ls_dburl = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ="+filePath;
 String ls_usuario = "";

@@ -23,7 +23,7 @@ System.out.println("Error: " + e);
 
             <%
    ServletContext context = request.getServletContext();
-   String path = context.getRealPath("/JSPdatos-Grupo03/data");
+   String path = context.getRealPath("/data");
    Connection conex = getConnection(path);
 
    Statement stateEdi = conex.createStatement();
