@@ -20,7 +20,7 @@
     </head>
     <body>
         <div class="formulario">
-       <img id="login_imagen" src="./imagenes/login.png" />
+       <img class="login_imagen" src="./imagenes/login.png" />
           <h1>Login</h1>  
        
         <c:if test="${not empty param.msg}">
@@ -34,6 +34,9 @@
                 
                 <button id='login'>Ingresar</button>
             </form>
-        </div></div>
+            
+        </div>
+        <a class="inicio" href="index.jsp">Regresar inicio</a>
+        </div>
     </body>
 </html>

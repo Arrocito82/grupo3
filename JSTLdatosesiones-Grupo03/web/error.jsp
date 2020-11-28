@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="notificacion">
-         <img src="./imagenes/error.png" /><h1>
+            <img class="login_imagen" src="./imagenes/error.png" /><h1>
             <c:choose>
                 <c:when test="${param.tipo eq 'contexto'}">
                     Error, intento de ejecutar una página, la cual debe estar en un contexto dentro de otra página

@@ -11,20 +11,22 @@
          <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
-        <h1 align="center">Control de Accesos</h1>
-        <img src="./imagenes/error.png" />
+        <div class="notificacion reception"> 
+        <img class="error_imagen" src="./imagenes/error.png" />
+        <h1>Control de Accesos</h1>
+        
         <c:choose>
             <c:when test="${param.logeado eq 'not'}">
-                <div class="notificacion">
+                
                     <h2>Se a detectado que usted. 
                     Intenta realizar  la operacion: 
                     <span style="color:blue;">${param.operacion}</span> sin haberse logeado.
                     <br><br>A continuación se le permite ingresar como Anonimo, pero
                     solo tiene derechos para visualizar los libros existentes.</h2>
-                </div>
+             
             </c:when>
             <c:when test="${param.logeado eq 'yes'}">
-                <div class="notificacion">
+                
                     <h2>Su nivel de seguridad es:
                     <span style="color:red;">${sessionScope.nivel}</span>
                     El cual solo le permite realizar:
@@ -41,11 +43,13 @@
                         </c:when>                       
                     </c:choose>
                     </h2>
-                </div>       
+                   
             </c:when>                
         </c:choose>
-            <p style="color:red;">
+            <p>
             <br>Dentro de unos segundos sera redirigido a la pagina de INICIO</p>
+        
+        </div>
         <script>
             setTimeout(function () {
                 location.href = "index.jsp";

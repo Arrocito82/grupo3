@@ -1,8 +1,4 @@
-<%-- 
-    Document   : validar
-    Created on : 26-nov-2020, 10:01:51
-    Author     : felix
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.io.*,java.util.*,java.sql.*" %>
@@ -45,7 +41,7 @@
         <c:set var="user" value="${datos.rows[0].login}" scope="session" />
         <c:set var="nombre" value="${datos.rows[0].nombre}" scope="session" />
         <c:set var="nivel" value="${datos.rows[0].nivel}" scope="session" />
-        <p class="mensaje"><br><br>En unos segundos se redirijirá a index</p>
+        <p class="mensaje"><br><br>En unos segundos se redirijirá a INICIO</p>
         </div>
         <script>
             setTimeout(function () {

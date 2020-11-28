@@ -1,3 +1,4 @@
+  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <table id="header">
     <tr>
@@ -8,7 +9,7 @@
             SISTEMA DE REGISTRO DE LIBROS<br>
             <b class="usuario">${sessionScope.nombre}</b>
         </td>
-        <td id="login">
+        <td id="login_header">
     
           <c:if test="${not empty sessionScope.user}">
               <c:if test="${sessionScope.user != 'Anonimo'}">
