@@ -35,20 +35,21 @@
             <h1>Libros</h1>
         </div>
          <c:if test="${sessionScope.nivel eq 1}">
-             <div class="formulario_insertar">
+            <div>
                 <form method="POST" action="javascript:insertar();">
-                    
-                    <label for="isbn">ISBN:<input id="isbn"  type="text" maxlength="11" autocomplete="off"></label>
-                        
-                    <label for="titulo">Titulo: <input id="titulo"  type="text"></label>
-                       
-                    <label for="autor">Autor:<input id="autor"  type="text"></label>
-                        
-                    <label for="editorial">Editorial:<input id="editorial"  type="text"></label>
-                        
-                    
+                    <div>
+                    <label>ISBN</label>
+                        <input id="isbn"  type="text">
+                        <br><label>Titulo</label>
+                        <input id="titulo"  type="text">
+                        <br><label>Autor</label>
+                        <input id="autor"  type="text">
+                        <br><label>Editorial</label>
+                        <input id="editorial"  type="text">
+                    </div>
+                    <div>
                         <button id="insertar" >Insertar</button>
-                    
+                    </div>
                 </form>
             </div>
         </c:if>

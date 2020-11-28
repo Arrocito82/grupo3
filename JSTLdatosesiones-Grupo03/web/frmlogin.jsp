@@ -1,9 +1,3 @@
-<%-- 
-    Document   : frmlogin
-    Created on : 26-nov-2020, 9:53:39
-    Author     : felix
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.io.*,java.util.*,java.sql.*" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -13,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
         
         <script>
             function login(){
@@ -36,7 +30,7 @@
             <form action="javascript:login();">
                 <label for="usuario">Usuario:<input id='usuario' type='text' autocomplete="off" ></label>
                 
-                <label for="clave">Contraseña:<input id='clave' type='text' autocomplete="off"></label>
+                <label for="clave">Contraseña:<input id='clave' type='password' autocomplete="off"></label>
                 
                 <button id='login'>Ingresar</button>
             </form>

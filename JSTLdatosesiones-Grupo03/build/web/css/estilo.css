@@ -71,9 +71,8 @@ a:hover{
 #logo{
     text-align: left;
 }
-#login_header{
+#login{
     text-align: right;
-    width: 10%;
 }
 
 .formulario{
@@ -82,19 +81,12 @@ a:hover{
     font-family: 'Castoro', serif; 
 
 }
-.formulario_insertar{
-    width: 30%;
-    margin: 3rem 0;
-    font-family: 'Castoro', serif; 
-
-}
-
- label{
+.formulario label{
     display: block;
     font-family: sans-serif;
     margin: 1rem 0;
 }
-input{
+.formulario input{
     display: block;
     width: 100%;
     
@@ -147,12 +139,10 @@ img{
     width: 5rem;
 }
 .inicio{
-    text-align: right;
     color:#666666;
     font-size: larger;
-    margin:1.5rem 0;
 }
 .inicio:hover{
-    color:#db6400;
+    color:#f8f1f1;
     font-size: larger;
 }

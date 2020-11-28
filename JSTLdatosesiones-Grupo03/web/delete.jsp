@@ -1,9 +1,3 @@
-<%-- 
-    Document   : delete
-    Created on : 25-nov-2020, 21:15:01
-    Author     : felix
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.io.*,java.util.*,java.sql.*" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -17,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Eliminar</title>
          <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body> 
@@ -60,8 +54,7 @@
                 </tbody>
             </table>
         </div>
-       
-                <a class="inicio" href="index.jsp">Regresar inicio</a>
+            <a class="inicio" href="index.jsp">Regresar inicio</a>
         </div>
     </body>
 </html>

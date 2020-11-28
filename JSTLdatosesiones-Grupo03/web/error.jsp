@@ -1,9 +1,3 @@
-<%-- 
-    Document   : error
-    Created on : 26-nov-2020, 10:24:07
-    Author     : felix
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.io.*,java.util.*,java.sql.*" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -13,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Error</title>
          <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
@@ -21,7 +15,7 @@
          <img src="./imagenes/error.png" /><h1>
             <c:choose>
                 <c:when test="${param.tipo eq 'contexto'}">
-                    Error, intento de ejecutar una jsp, la cual debe estar en un contexto dentro de otra jsp
+                    Error, intento de ejecutar una página, la cual debe estar en un contexto dentro de otra página
                 </c:when>
                 <c:when test="${param.tipo eq 'parametro'}">
                     Error, debe de ingresar todos los datos del libro.

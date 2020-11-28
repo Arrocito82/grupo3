@@ -1,21 +1,20 @@
-<%-- 
-    Document   : header
-    Created on : 26-nov-2020, 11:02:02
-    Author     : felix
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <table id="header">
     <tr>
         <td id="logo">
             Libros
         </td>
-        <td>SISTEMA DE REGISTRO DE PERSONAS<br><b class="usuario">${sessionScope.nombre}</b></td>
-        <td id="login_header">
+        <td>
+            SISTEMA DE REGISTRO DE LIBROS<br>
+            <b class="usuario">${sessionScope.nombre}</b>
+        </td>
+        <td id="login">
     
           <c:if test="${not empty sessionScope.user}">
               <c:if test="${sessionScope.user != 'Anonimo'}">
-              <span class="usuario">Usuario: ${sessionScope.user}</span><br><a href="logout.jsp">Logout</a>
+              <span class="usuario">
+                  Usuario: ${sessionScope.user}</span><br>
+                  <a href="logout.jsp">Logout</a>
               </c:if>
           </c:if>
         
