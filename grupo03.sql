@@ -39,6 +39,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-INSERT INTO `usuarios` VALUES (1,'Admin','admin','Ing.Balmore',2);
-INSERT INTO `usuarios` VALUES (2,'Registrador','registrador','Registrador',1);
-INSERT INTO `usuarios` VALUES (3,'Mantenimiento','mantenimiento','Mantenimiento',2);
+INSERT INTO `usuarios` VALUES (1,'Admin','admin','Ing.Balmore Ortiz',2);
+INSERT INTO `usuarios` VALUES (2,'Registrador1','registrador1','Juan Perdomo',1);
+INSERT INTO `usuarios` VALUES (3,'Mantenimiento','mantenimiento','Simon Sandoval',2);
+INSERT INTO `usuarios` VALUES (4,'Registrador2','registrador2','Alejandra Platero',1);

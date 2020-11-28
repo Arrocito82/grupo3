@@ -33,7 +33,7 @@
         </sql:update>
             
         <div>
-            <p>A continuación se elimino el libro con los siguientes datos:</p>
+            <p>Se elimino el libro con los siguientes datos:</p>
         </div>
         <div>
             <table class="tablaLibros">
