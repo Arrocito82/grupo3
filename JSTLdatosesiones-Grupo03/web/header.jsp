@@ -10,17 +10,12 @@
         <td id="logo">
             Libros
         </td>
-        <td>
-            SISTEMA DE REGISTRO DE PERSONAS<br>
-            <b class="usuario">${sessionScope.nombre}</b>
-        </td>
-        <td id="login">
+        <td>SISTEMA DE REGISTRO DE PERSONAS<br><b class="usuario">${sessionScope.nombre}</b></td>
+        <td id="login_header">
     
           <c:if test="${not empty sessionScope.user}">
               <c:if test="${sessionScope.user != 'Anonimo'}">
-              <span class="usuario">
-                  Usuario: ${sessionScope.user}</span><br>
-                  <a href="logout.jsp">Logout</a>
+              <span class="usuario">Usuario: ${sessionScope.user}</span><br><a href="logout.jsp">Logout</a>
               </c:if>
           </c:if>
         

@@ -45,7 +45,7 @@
         <c:set var="user" value="${datos.rows[0].login}" scope="session" />
         <c:set var="nombre" value="${datos.rows[0].nombre}" scope="session" />
         <c:set var="nivel" value="${datos.rows[0].nivel}" scope="session" />
-        <p class="mensaje"><br><br>En unos segundos se redirijirá a index</p>
+        <p class="mensaje"><br><br>En unos segundos se redirijirá a Inicio</p>
         </div>
         <script>
             setTimeout(function () {

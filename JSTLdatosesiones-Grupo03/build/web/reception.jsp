@@ -13,6 +13,7 @@
          <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
+        <div class="notificacion">
         <h1>Control de Accesos</h1>
         <c:choose>
             <c:when test="${param.logeado eq 'not'}">
@@ -45,7 +46,7 @@
             </c:when>                
         </c:choose>
             <p style="color:red;">
-            <br>Dentro de unos segundos sera redirigido a la pagina de INICIO</p>
+                <br>Dentro de unos segundos sera redirigido a la pagina de INICIO</p></div>
         <script>
             setTimeout(function () {
                 location.href = "index.jsp";

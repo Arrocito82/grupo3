@@ -16,7 +16,7 @@
          <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
-        <div class="contenido">
+        <div class="notificacion">
             <img src="./imagenes/informacion.png" />
             <h1>Se a insertado el libro correctamente</h1>
        
