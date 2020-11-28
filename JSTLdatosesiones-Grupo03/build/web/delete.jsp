@@ -18,12 +18,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+         <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body> 
-        <div>
+        <div class="notificacion">
+            <img src="./imagenes/informacion.png" />
             <h1>Eliminar libro</h1>
-        </div> 
         
+         
         <c:if test="${empty param.isbn}">
             <c:redirect url="error.jsp">
                 <c:param name="tipo" value="parametro"/>
@@ -40,23 +42,26 @@
             <p>A continuación se elimino el libro con los siguientes datos:</p>
         </div>
         <div>
-            <table>
+            <table class="tablaLibros">
+                <thead>
                 <tr>
                     <th>ISBN</th>
                     <th>Titulo</th>
                     <th>Autor</th>
                     <th>Editorial</th>
-                </tr>
+                </tr></thead>
+                <tbody>
                 <tr>
                     <td>${param.isbn}</td>
                     <td>${param.titulo}</td>
                     <td>${param.autor}</td>
                     <td>${param.editorial}</td>
                 </tr>
+                </tbody>
             </table>
         </div>
-        <div>
-            <a href="index.jsp">Regresar inicio</a>
+       
+                <a class="inicio" href="index.jsp">Regresar inicio</a>
         </div>
     </body>
 </html>

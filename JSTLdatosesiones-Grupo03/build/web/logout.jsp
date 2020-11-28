@@ -14,14 +14,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
+        
+        <div class="notificacion">
+            <img src="./imagenes/informacion.png" />
         <h1>Se a cerrado sesion</h1>
+        
         <c:set var="user" value="" scope="session" />
         <c:set var="nombre" value="" scope="session" />
         <c:set var="nivel" value="-1" scope="session" />
-        <p style="color:red;">
-            <br>Dentro de unos segundos sera redirigido a la pagina de INICIO</p>
+        <p class="mensaje">
+            Dentro de unos segundos sera redirigido a la pagina de INICIO</p></div>
         <script>
             setTimeout(function () {
                 location.href = "index.jsp";

@@ -14,9 +14,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+         <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
-        <h1>
+        <div class="notificacion">
+         <img src="./imagenes/error.png" /><h1>
             <c:choose>
                 <c:when test="${param.tipo eq 'contexto'}">
                     Error, intento de ejecutar una jsp, la cual debe estar en un contexto dentro de otra jsp
@@ -33,5 +35,6 @@
                 }, 5000);
             </script>
         </h1>
+        </div>
     </body>
 </html>

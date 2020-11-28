@@ -14,11 +14,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
-        <div>
+        <div class="notificacion">
+            <img src="./imagenes/informacion.png" />
            <h1>Verificación de usuario</h1> 
-        </div>
+         
         
         <c:if test="${empty param.usuario or empty param.clave}">
             <c:redirect url="frmlogin.jsp">
@@ -43,14 +45,13 @@
         <c:set var="user" value="${datos.rows[0].login}" scope="session" />
         <c:set var="nombre" value="${datos.rows[0].nombre}" scope="session" />
         <c:set var="nivel" value="${datos.rows[0].nivel}" scope="session" />
-        <p style="color:red;"><br><br>En unos segundos se redirijirá a index</p>
+        <p class="mensaje"><br><br>En unos segundos se redirijirá a index</p>
+        </div>
         <script>
             setTimeout(function () {
                 location.href = "index.jsp";
             }, 3000);
         </script>
-        <div>
-            
-        </div>
+       
     </body>
 </html>

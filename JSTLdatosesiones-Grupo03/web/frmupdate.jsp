@@ -24,29 +24,29 @@
                 location.href="update.jsp?isbn="+${param.isbn}+"&titulo="+titulo+"&autor="+autor+"&editorial="+editorial+"&isbnN="+isbn;
             }
         </script>
-        
+         <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
         <%@ include file="header.jsp" %>
-        <div>
+        <div class="formulario">
             <h1>Actualización</h1>
-        </div>
-        <div>
+       
+       
             <form method="POST" action="javascript:actualizacion();">
-                <div>
-                <label>ISBN</label>
-                    <input id="isbn_a"  type="text" value="${param.isbn}">
-                    <br><label>Titulo</label>
-                    <input id="titulo_a"  type="text" value="${param.titulo}">
-                    <br><label>Autor</label>
-                    <input id="autor_a"  type="text" value="${param.autor}">
-                    <br><label>Editorial</label>
-                    <input id="editorial_a"  type="text" value="${param.editorial}">
-                </div>
-                <div>
+               
+                    <label for="isbn_a">ISBN:<input id="isbn_a"  type="text" value="${param.isbn}"></label>
+                    
+                <label for="titulo_a">Titulo: <input id="titulo_a"  type="text" value="${param.titulo}"></label>
+                   
+                    <label for="autor_a">Autor:<input id="autor_a"  type="text" value="${param.autor}"></label>
+                    
+                    <label for="editorial_a">Editorial:<input id="editorial_a"  type="text" value="${param.editorial}"></label>
+                    
+              
                     <button id="actualizar">Actualizar</button>
-                </div>
-            </form>        
+              
+            </form>    
+                   <a class="inicio" href="index.jsp">Regresar inicio</a>
         </div>
     </body>
 </html>

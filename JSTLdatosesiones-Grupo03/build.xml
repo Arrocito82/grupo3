@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="WebAppPM17021" default="default" basedir=".">
-    <description>Builds, tests, and runs the project WebAppPM17021.</description>
+<project name="JSTLdatosesiones-Grupo03" default="default" basedir=".">
+    <description>Builds, tests, and runs the project JSTLdatosesiones-Grupo03.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

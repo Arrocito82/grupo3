@@ -26,10 +26,11 @@
                 location.href=eleccion+".jsp?isbn="+isbn+"&titulo="+titulo+"&autor="+autor+"&editorial="+editorial;   
             }
         </script>
-        
+       <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
          <%@ include file="header.jsp" %>
+        <div class="contenido">
         <div>
             <h1>Libros</h1>
         </div>
@@ -58,8 +59,8 @@
         </sql:query>
         
         <div>
-            <table border="1">
-                <tr>
+            <table class="tablaLibros">
+               <thead>
                     <th>ISBN</th>
                     <th>Título</th>
                     <th>Autor</th>
@@ -67,9 +68,9 @@
                     <c:if test="${sessionScope.nivel eq 2}">   
                         <th>Accion</th>
                     </c:if>
-                </tr>
+                </tr></thead> <tbody> 
                 <c:forEach var = "row" items = "${result.rows}">
-                    
+                   
                     <tr>
                         <td><c:out value = "${row.isbn}"/></td>
                         <td><c:out value = "${row.titulo}"/></td>
@@ -77,13 +78,14 @@
                         <td><c:out value = "${row.editorial}"/></td>
                         <c:if test="${sessionScope.nivel eq 2}">
                             <td>
-                                <button onclick="modificaciones('${row.isbn}', '${row.titulo}', '${row.autor}', '${row.editorial}', 'frmupdate');">Actualizar</button>
-                                <br><button onclick="modificaciones('${row.isbn}', '${row.titulo}', '${row.autor}', '${row.editorial}', 'delete');">Eliminar</button>
+                                <button class="boton_actualizar" onclick="modificaciones('${row.isbn}', '${row.titulo}', '${row.autor}', '${row.editorial}', 'frmupdate');">Actualizar</button>
+                                <button class="boton_eliminar" onclick="modificaciones('${row.isbn}', '${row.titulo}', '${row.autor}', '${row.editorial}', 'delete');">Eliminar</button>
                             </td>
                         </c:if>
                     </tr>
-                </c:forEach>
+                </c:forEach></tbody> 
             </table>
         </div>
+     </div>
     </body>
 </html>

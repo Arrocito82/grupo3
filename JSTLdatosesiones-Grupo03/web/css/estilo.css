@@ -1,0 +1,148 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 27, 2020, 4:58:11 PM
+    Author     : andre
+*/
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+body{
+    background-color: #f8f1f1;
+    margin:8rem 0;
+    font-family: sans-serif;
+}
+#header{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color:  #f8f1f1;
+    z-index: 1;
+    background-color: #16697a;
+    height: 3.5rem;
+    padding: 1.5rem 10% 1rem;
+    position: fixed;
+    top: 0;
+    font-family: 'Castoro', serif;
+    letter-spacing: 0.1rem;
+}
+h1{
+    margin-top: 1rem;
+    letter-spacing: 0.05rem;
+    text-transform: capitalize;
+}
+a{
+    color: #f8f1f1;
+    text-decoration: none;
+}
+a:hover{
+    color: #ffa62b;
+}
+.contenido{
+    width: 80%;
+    margin:1rem auto;
+    position:relative;
+}
+.notificacion{
+    width: 50%;
+    margin:1rem auto;
+    position:relative;
+}
+.tablaLibros{
+    width: 100%;
+ 
+}
+
+.tablaLibros thead tr th{
+    background-color: #db6400;
+    letter-spacing: 0.1rem;
+    color:#f8f1f1;
+    margin: 0;
+    padding: 1rem 0.2rem 1rem 1rem;
+    
+}
+.tablaLibros tbody tr td{
+    border: 1px solid #db6400;
+    margin: 0;
+    padding: 1rem 0.2rem 1rem 1rem;
+    
+}
+#logo{
+    text-align: left;
+}
+#login{
+    text-align: right;
+}
+
+.formulario{
+    width: 30%;
+    margin: 5rem auto 0;
+    font-family: 'Castoro', serif; 
+
+}
+.formulario label{
+    display: block;
+    font-family: sans-serif;
+    margin: 1rem 0;
+}
+.formulario input{
+    display: block;
+    width: 100%;
+    
+}
+button{
+    background-color:grey;
+    padding: 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color:#f8f1f1;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+button:hover{
+  background-color: rgb(219,100,0);
+}
+.boton_actualizar,.boton_eliminar{
+    background-color: grey;
+    padding: 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: #f8f1f1;
+    text-transform: capitalize;
+    font-weight: bold;
+    display: block;
+    margin: 1rem 0;
+}
+.boton_actualizar:hover{
+    background-color:#33ff66;
+}
+.boton_eliminar:hover{
+     background-color: red;
+}
+.usuario{
+    color:#f8f1f1;
+    font-size: large;
+    font-family: sans-serif;
+    
+}
+img{
+    float:left;
+    margin:0 2rem 1rem;
+    height: 8rem;
+    width: 8rem;
+}
+#login_imagen{
+    float:right;
+    margin:0 0 1rem;
+    height: 5rem;
+    width: 5rem;
+}
+.inicio{
+    color:#666666;
+    font-size: larger;
+}
+.inicio:hover{
+    color:#f8f1f1;
+    font-size: larger;
+}

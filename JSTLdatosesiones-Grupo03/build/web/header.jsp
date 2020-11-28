@@ -5,20 +5,20 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<table border="1" width="100%" style="text-align: center;">
+<table id="header">
     <tr>
-        <td>
+        <td id="logo">
             Libros
         </td>
         <td>
             SISTEMA DE REGISTRO DE PERSONAS<br>
-            <b style="color:red;">${sessionScope.nombre}</b>
+            <b class="usuario">${sessionScope.nombre}</b>
         </td>
-        <td>
+        <td id="login">
     
           <c:if test="${not empty sessionScope.user}">
               <c:if test="${sessionScope.user != 'Anonimo'}">
-              <span style="color:blue;font-size:5mm;">
+              <span class="usuario">
                   Usuario: ${sessionScope.user}</span><br>
                   <a href="logout.jsp">Logout</a>
               </c:if>

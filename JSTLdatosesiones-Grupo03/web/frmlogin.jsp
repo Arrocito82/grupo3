@@ -22,23 +22,24 @@
                 location.href="validar.jsp?usuario="+usuario+"&clave="+clave;
             }
         </script>
-        
+        <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
-        <div>
-          <h1>Logeo</h1>  
-        </div>
+        <div class="formulario">
+       <img id="login_imagen" src="./imagenes/login.png" />
+          <h1>Login</h1>  
+       
         <c:if test="${not empty param.msg}">
             <p style="color:red;">Error: ${param.msg}</p>
         </c:if>
         <div>
             <form action="javascript:login();">
-                <label>Usuario</label>
-                <input id='usuario' type='text' >
-                <br><label>Clave</label>
-                <input id='clave' type='text' >
-                <br><button id='login'>Ingresar</button>
+                <label for="usuario">Usuario:<input id='usuario' type='text' autocomplete="off" ></label>
+                
+                <label for="clave">Contraseña:<input id='clave' type='text' autocomplete="off"></label>
+                
+                <button id='login'>Ingresar</button>
             </form>
-        </div>
+        </div></div>
     </body>
 </html>

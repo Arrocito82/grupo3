@@ -18,12 +18,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+         <link rel="stylesheet" href="./css/estilo.css">
     </head>
     <body>
-        <div>
+        
+        <div class="notificacion">
+             <img src="./imagenes/informacion.png" />
             <h1>Se han actualizado los datos</h1>
-        </div>
+        
         
         <c:if test="${empty param.isbn or empty param.titulo or empty param.autor or empty param.editorial}">
             <c:redirect url="error.jsp">
@@ -43,8 +45,8 @@
             <sql:param value="${id}"/>
         </sql:update>
         
-        <div>
-            <a href="index.jsp">Regresar inicio</a>
+        
+            <a class="inicio" href="index.jsp">Regresar inicio</a>
         </div>
     </body>
 </html>
