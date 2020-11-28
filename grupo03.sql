@@ -22,8 +22,8 @@ CREATE TABLE `libro` (
 
 INSERT INTO `libro` VALUES (1,'10010010010','La odisea','Homero','Almadraba');
 INSERT INTO `libro` VALUES (2,'10110111011','La iliada','Homero','Murcia');
-INSERT INTO `libro` VALUES (3,'10210210210','Cuentos de barro','Salarrue',' La Montaña');
-INSERT INTO `libro` VALUES (4,'10110111011','La iliada','Homero','Murcia');
+INSERT INTO `libro` VALUES (3,'10210210210','Cuentos de barro','Salarrue','La Montaña');
+INSERT INTO `libro` VALUES (4,'10110111011','Redwoods and whales','Phil Joel','La Montaña');
 INSERT INTO `libro` VALUES (5,'52136956566','The Hunger Games','Suzanne Collins','Scholastic Corporation');
 INSERT INTO `libro` VALUES (6,'00034543411','Star Wars Episode I: The Phantom Menace','Terry Brooks','Del Rey');
 
