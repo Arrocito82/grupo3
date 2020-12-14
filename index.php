@@ -16,14 +16,16 @@ require "Components/header.php";?>
         
         
         $collection = $client->grupo03->Categoria;
+
+        //$result = $collection->insertOne( [ 'nombre' => 'bailable' ] );
+        
+        //echo "Inserted with Object ID '{$result->getInsertedId()}'";
+        //$cursor = $collection->find(['nombre' => 'bailable']);
         $cursor = $collection->find([]);
         
         foreach ($cursor as $document) {
             echo $document['_id'], " \t",$document['nombre'], "<br>";
         }
-       for ($i=0; $i < 100; $i++) { 
-           echo "lo logramos <br>";
-       }
         ?>
     </div>
 </div>
