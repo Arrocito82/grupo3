@@ -1,0 +1,15 @@
+{
+    "name": "andrea/test",
+    "description": "this is a test",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "1.7.0"
+    },
+    "authors": [
+        {
+            "name": "Andrea Monterrosa",
+            "email": "moralesandrea.edr4@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
