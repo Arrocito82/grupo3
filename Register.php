@@ -2,27 +2,42 @@
 
 $title="Inicio";
 // este es el navbar
-session_start();
-
 if(isset($_SESSION['userName']))
     Header("Location: index.php");
 
+session_start();
+use Utils\NewUser;
+
+require 'vendor/autoload.php' ;
 require "Components/header.php";
+
 ?>
-<?php 
-     if(isset($_POST['userName']) & isset($_POST['password']) & isset($_POST['password'])){
-        $userName = $_POST['userName'];
+<div style="display:none">
+
+    <?php 
+     if(isset($_POST['userName']) & isset($_POST['password']) & isset($_POST['password']) & isset($_POST['fullName'])){
+         $userName = $_POST['userName'];
+        $fullName = $_POST['fullName'];
         $password = $_POST['password'];
         $email = $_POST['email'];
+        NewUser::RegisterNewUser($userName , $fullName , $password , $email);
+        header("Location: index.php");
      }
-?>
+     ?>
+
+</div>
 <div class="container w-50 mt-5">
 
-    <form action="login.php" method="post">
+    <form action="Register.php" method="post">
     <div class="form-group">
-        <label for="userName">User</label>
+        <label for="userName">Usuario</label>
         <input type="text" class="form-control" name="userName" id="userName" aria-describedby="userHelp" placeholder="Enter user" required>
         <small id="userHelp" class="form-text text-muted">Nombre de usuario en la web</small>
+    </div>
+    <div class="form-group">
+        <label for="fullName">Nombre Completo</label>
+        <input type="text" class="form-control" name="fullName" id="fullName" aria-describedby="userHelp" placeholder="Enter user" required>
+        <small id="userHelp" class="form-text text-muted">Nombre completo (Sera visible por otros)</small>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
@@ -42,4 +57,3 @@ require "Components/header.php";
 <script>
 document.getElementById("registerA").style.display ="none";
 </script>
-<?php require "Components/footer.php";?>
