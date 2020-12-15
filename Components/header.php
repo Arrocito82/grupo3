@@ -1,9 +1,11 @@
 <?php 
+session_start();
+require 'vendor/autoload.php' ;
 if(isset($_SESSION['userName']))
     $User = $_SESSION['userName'];
 
 $flag = false;
-
+$path="/master/grupo3/";
 if(isset($User))
     $flag=true;
 ?>
@@ -24,10 +26,10 @@ if(isset($User))
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
         <div class="container">
-            <a class="navbar-brand" href="/grupo3/">Navbar</a>
+            <a class="navbar-brand" href="<?php echo $path; ?>">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,9 +38,11 @@ if(isset($User))
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-lg-3" href="/grupo3/">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link ml-lg-3" href="<?php echo $path; ?>">Inicio <span class="sr-only">(current)</span></a>
                     </li>
 
+                    <?php
+                if($flag){print('
                     <li class="nav-item dropdown ml-lg-3">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Explorar
@@ -48,14 +52,15 @@ if(isset($User))
                             <a class="dropdown-item" href="explorar.php?buscar=autor">Autor</a>
                             <a class="dropdown-item" href="explorar.php?buscar=genero">Genero</a>
                         </div>
-                    </li>
+                    </li>');
+                }?>
                     
                 </ul>
                 <?php
                 if($flag)
                 print( 
-                '<form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                '<form class="form-inline my-2 my-lg-0" Action="'.$path.'explorar.php" method="get">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="buscar">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>');?>
                 <div class="my-2 my-lg-o ml-4"><?php if($flag) echo '<a class="btn mr-1" href="">Hola, ' . $User . '</a><a class="btn btn-outline-secondary" href="logout.php">Salir</a>';else echo '<a id="registerA"  class="btn btn-outline-primary ml-4"href="/Register.php">Registarse</a> <a class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</a>' ?></div>

@@ -1,14 +1,11 @@
 <!-- title es el titulo de la pagina -->
 <?php
-
 $title="Inicio";
 // este es el navbar
-session_start();
-
-
 require "Components/header.php";
-
-
+use MongoDB\Client as db;
+$uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
+$client =  new db($uri);
 ?>
 
 <!-- contenido -->
@@ -50,13 +47,82 @@ require "Components/header.php";
   </a>
 </div>
 
-<div class="body container">
-<!-- footer -->
-<?php 
-echo "<p>";
-for ($i=0; $i <100 ; $i++) { 
-  echo "hallo<br>";
-}echo "</p>";
+
+
+
+<!-- Explorar -->
+
+<!-- categorias -->
+
+ <?php 
+ $collection =$client->grupo03->Categoria;
+ $cursor = $collection->find([]);
+
+echo "<div class='container my-5'> <h2 class='py-3'>Categorias</h2>";
+echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">';
+$array=$cursor->toArray();
+ for ($i=0;$i<count($array); $i++) {
+   echo'<div class="col mb-4">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">'.$array[$i]['nombre'].'</h5>
+          <p class="card-text"> This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>';
+  } 
+  echo '</div></div>';
+unset($i);
+
+//<!-- Autor -->
+
+ $collection =$client->grupo03->Autor;
+ $cursor = $collection->find([]);
+
+echo "<div class='container my-5'> <h2 class='py-3'>Autor</h2>";
+echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">';
+$array=$cursor->toArray();
+ for ($i=0;$i<count($array); $i++) {
+   echo
+    ' 
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">'.$array[$i]['nombre'].'</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>';
+  }
+  
+  echo '</div></div>';
+  unset($i);
+
+//<!-- Genero -->
+
+ $collection =$client->grupo03->Genero;
+ $cursor = $collection->find([]);
+
+echo "<div class='container my-5'> <h2 class='py-3'>Genero</h2>";
+echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">';
+$array=$cursor->toArray();
+ for ($i=0;$i<count($array); $i++) {
+   echo
+    ' 
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">'.$array[$i]['nombre'].'</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>';
+  } echo '</div></div>';
+  unset($i);
+
 
 
 require "Components/footer.php";?>

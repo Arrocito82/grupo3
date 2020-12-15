@@ -1,7 +1,7 @@
 <?php $title="Inicio de session";
-session_start();
+
 use Utils\Login;
-require 'vendor/autoload.php' ;
+
 // este es el navbar
 require "Components/header.php";
 //require "Utils/Authentication.php";
