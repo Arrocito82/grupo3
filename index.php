@@ -5,7 +5,9 @@ $title="Inicio";
 // este es el navbar
 session_start();
 
-
+if(isset($_SESSION['userName'])){
+    $User = $_SESSION['userName'];
+}
 require "Components/header.php";
 
 
