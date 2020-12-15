@@ -3,7 +3,8 @@
     "description": "Proyecto TPI115",
     "type": "project",
     "require": {
-        "mongodb/mongodb": "1.7.0"
+        "mongodb/mongodb": "1.7.0",
+        "phpmailer/phpmailer": "^6.2"
     },
     "authors": [{
         "name": "Andrea Monterrosa",

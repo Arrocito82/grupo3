@@ -23,7 +23,7 @@ final class Versions
      * @deprecated please use {@see self::rootPackageName()} instead.
      *             This constant will be removed in version 2.0.0.
      */
-    const ROOT_PACKAGE_NAME = 'andrea/test';
+    const ROOT_PACKAGE_NAME = 'grupo03/grupo03';
 
     /**
      * Array of all available composer packages.
@@ -36,7 +36,8 @@ final class Versions
   'composer/package-versions-deprecated' => '1.11.99.1@7413f0b55a051e89485c5cb9f765fe24bb02a7b6',
   'jean85/pretty-package-versions' => '1.5.1@a917488320c20057da87f67d0d40543dd9427f7a',
   'mongodb/mongodb' => '1.7.0@cdeff1d45e4da6c6f70fc495e8e8a628b026b6d7',
-  'andrea/test' => '1.0.0+no-version-set@',
+  'phpmailer/phpmailer' => 'v6.2.0@e38888a75c070304ca5514197d4847a59a5c853f',
+  'grupo03/grupo03' => 'dev-master@4dfb97682c2d0eb6f9e83440a15868cf537110c3',
 );
 
     private function __construct()

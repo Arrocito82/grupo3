@@ -15,6 +15,7 @@ use MongoDB\Client as db;
 <!-- contenido -->
 
 <div class="body">
+
     <div class="container">
         <?php
         require 'vendor/autoload.php' ;
