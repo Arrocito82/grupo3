@@ -58,12 +58,7 @@ if(isset($User))
                     <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>');?>
-<<<<<<< HEAD
                 <div class="my-2 my-lg-o ml-4"><?php if($flag) echo '<a class="btn mr-1" href="">Hola, ' . $User . '</a><a class="btn btn-outline-secondary" href="logout.php">Salir</a>';else echo '<a id="registerA"  class="btn btn-outline-primary ml-4"href="/Register.php">Registarse</a> <a class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</a>' ?></div>
-=======
-                <div class="my-2 my-lg-o ml-lg-4"><?php if($flag) echo 'Hola, ' . $User;else echo '<a id="registerA"  class="btn btn-outline-primary  mr-2"href="/Register.php">Registarse</a> 
-                 <a class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</a>' ?></div>
->>>>>>> da726f53c3417a1831694dade655685a77d573d4
             </div>
         </div>
     </nav>
