@@ -22,7 +22,7 @@ if(isset($User)) $flag=true;
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="/grupo3/">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,7 +31,7 @@ if(isset($User)) $flag=true;
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-lg-3" href="#">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link ml-lg-3" href="/grupo3/">Inicio <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown ml-lg-3">
@@ -53,8 +53,9 @@ if(isset($User)) $flag=true;
                     <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>');?>
-                <div class="my-2 my-lg-o ml-4"><?php if($flag) echo 'Hola, ' . $User;else echo '<a id="registerA"  class="btn btn-outline-primary ml-4"href="/Register.php">Registarse</a> <a class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</a>' ?></div>
+                <div class="my-2 my-lg-o ml-lg-4"><?php if($flag) echo 'Hola, ' . $User;else echo '<a id="registerA"  class="btn btn-outline-primary  mr-2"href="/Register.php">Registarse</a> 
+                 <a class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</a>' ?></div>
             </div>
         </div>
     </nav>
-    <div class="body container">
+    

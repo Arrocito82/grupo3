@@ -6,7 +6,7 @@ require "Components/header.php";
 require 'vendor/autoload.php' ;
 use MongoDB\Client as db;
 
-
+echo '<div class="body container">';
 if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="genero"||$_GET['buscar']=="autor")){
   $target=ucwords(strtolower($_GET['buscar']));
   $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
