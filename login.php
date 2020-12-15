@@ -12,7 +12,7 @@ require "Utils/Authentication.php";
         $userName = $_POST['userName'];
         $password = $_POST['password'];
         $flag = Login::autentificar($userName , $password); 
-        printf('<p> cantidad ' . $flag . '</p>');
+       
     }
     if($flag=="Logged"){
         $_SESSION['userName'] = $_POST['userName'];
