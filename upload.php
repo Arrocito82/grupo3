@@ -19,7 +19,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
     $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
     // check if file has one of the following extensions
-    $allowedfileExtensions = array('jpg', 'gif', 'png', 'zip', 'txt', 'xls', 'doc');
+    $allowedfileExtensions = array('jpg', 'gif', 'png', 'zip', 'txt', 'xls', 'doc' ,'mp3');
 
     if (in_array($fileExtension, $allowedfileExtensions))
     {
@@ -29,7 +29,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
 
       if(move_uploaded_file($fileTmpPath, $dest_path)) 
       {
-        $message ='File is successfully uploaded.';
+        $message ='File is successfully uploaded. ' . $fileType;
       }
       else 
       {
@@ -44,7 +44,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
   else
   {
     $message = 'There is some error in the file upload. Please check the following error.<br>';
-    $message .= 'Error:' . $_FILES['uploadedFile']['error'];
+    $message .= 'Error:' . $_FILES['uploadedFile']['error'] . '<br>' . $_POST['uploadBtn'] . ' :' . isset($_POST['uploadBtn']) . '<br>' . $_POST['uploadBtn'];
   }
 }
 $_SESSION['message'] = $message;

@@ -1,8 +1,16 @@
 <!-- title es el titulo de la pagina -->
-<?php $title="Inicio";
-// este es el navbar
-require "Components/header.php";?>
+<?php
 
+$title="Inicio";
+// este es el navbar
+session_start();
+
+if(isset($_SESSION['userName']))
+    $User =$_SESSION['userName'];
+require "Components/header.php";
+
+use MongoDB\Client as db;
+?>
 
 <!-- contenido -->
 
@@ -10,7 +18,7 @@ require "Components/header.php";?>
     <div class="container">
         <?php
         require 'vendor/autoload.php' ;
-        $client = new MongoDB\Client(
+        $client = new db(
             'mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority'
         );
         
