@@ -39,14 +39,12 @@ if(isset($User)) $flag=true;
                   Explorar
                 </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Categoria</a>
-                            <a class="dropdown-item" href="#">Autor</a>
-                            <a class="dropdown-item" href="#">Genero</a>
+                            <a class="dropdown-item" href="explorar.php?buscar=categoria">Categoria</a>
+                            <a class="dropdown-item" href="explorar.php?buscar=autor">Autor</a>
+                            <a class="dropdown-item" href="explorar.php?buscar=genero">Genero</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <?php if(isset($User)) echo 'Hola, ' . $User;else echo '<a class="nav-link ml-lg-3" href="login.php">Iniciar Sesion</a>' ?>
-                    </li>
+                    
                 </ul>
                 <?php
                 if($flag)
@@ -55,7 +53,8 @@ if(isset($User)) $flag=true;
                     <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>');?>
-                <div class="my-2 my-lg-o ml-4"><?php if($flag) echo 'Hola, ' . $User;else echo '<a href="login.php">Iniciar Sesion</a><a id="registerA"  class="btn btn-primary ml-4"href="/Register.php">Registarse</a>' ?></div>
+                <div class="my-2 my-lg-o ml-4"><?php if($flag) echo 'Hola, ' . $User;else echo '<a id="registerA"  class="btn btn-outline-primary ml-4"href="/Register.php">Registarse</a> <a class="btn btn-outline-secondary" href="login.php">Iniciar Sesion</a>' ?></div>
             </div>
         </div>
     </nav>
+    <div class="body container">

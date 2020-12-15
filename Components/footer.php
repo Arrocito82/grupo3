@@ -1,3 +1,4 @@
+</div>
 <nav class="navbar navbar-light bg-light" id="footer">
   <div class="container justify-content-center">
     <div><a class="navbar-brand" href="#">Fixed bottom</a></div>

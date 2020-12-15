@@ -5,39 +5,35 @@ $title="Inicio";
 // este es el navbar
 session_start();
 
-if(isset($_SESSION['userName']))
-    $User =$_SESSION['userName'];
+
 require "Components/header.php";
 
-use MongoDB\Client as db;
+
 ?>
 
 <!-- contenido -->
 
-<div class="body">
-    <div class="container">
-        <?php
-        require 'vendor/autoload.php' ;
-        $client = new db(
-            'mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority'
-        );
-        
-        
-        $collection = $client->grupo03->Categoria;
-
-        //$result = $collection->insertOne( [ 'nombre' => 'bailable' ] );
-        
-        //echo "Inserted with Object ID '{$result->getInsertedId()}'";
-        //$cursor = $collection->find(['nombre' => 'bailable']);
-        $cursor = $collection->find([]);
-        
-        foreach ($cursor as $document) {
-            echo $document['_id'], " \t",$document['nombre'], "<br>";
-        }
-        ?>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="..." class="d-block w-100" alt="...">
     </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-
 
 
 <!-- footer -->
