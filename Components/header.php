@@ -14,31 +14,41 @@
 <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
         <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  	  <span class="navbar-toggler-icon"></span>
-  	</button>
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link ml-lg-3" href="#">Inicio <span class="sr-only">(current)</span></a>
                     </li>
 
+                    <li class="nav-item dropdown ml-lg-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Explorar
+                </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Categoria</a>
+                            <a class="dropdown-item" href="#">Autor</a>
+                            <a class="dropdown-item" href="#">Genero</a>
+                        </div>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <?php if(isset($User)) echo 'Hola, ' . $User;else echo '<a class="nav-link ml-lg-3" href="login.php">Iniciar Sesion</a>' ?>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Buscar" aria-label="Search" size="50">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
-                <div class="my-2 my-lg-o ml-4"><?php if(isset($User)) echo 'Hola, ' . $User;else echo '<a href="login.php">Iniciar Sesion</a>' ?></div>
+
             </div>
         </div>
     </nav>
