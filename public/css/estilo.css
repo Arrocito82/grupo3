@@ -8,3 +8,19 @@
     position: absolute;
     bottom: 0;
 }
+
+.cropped {
+    height: 90vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cropped img {
+    margin: -10px 0px 0px -180px;
+}
+
+#carouselExampleControls {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+}
