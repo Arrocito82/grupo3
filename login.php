@@ -6,6 +6,7 @@ require 'vendor/autoload.php' ;
 require "Components/header.php";
 //require "Utils/Authentication.php";
 ?>
+<div class="body container">
 <div class="container">
 <?php
     $flag = "";

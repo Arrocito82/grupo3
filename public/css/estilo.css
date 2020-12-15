@@ -3,24 +3,16 @@
     margin-bottom: 5rem;
 }
 
-#footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-
-.cropped {
-    height: 90vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.cropped img {
-    margin: -10px 0px 0px -180px;
-}
-
-#carouselExampleControls {
-    position: absolute;
-    top: 4rem;
-    left: 0;
+@media screen and (min-width: 960px) {
+    .cropped {
+        height: 90vh;
+        width: 100%;
+        overflow: hidden;
+    }
+    #img3 {
+        margin: -4vh 0px;
+    }
+    #img1 {
+        margin: -20vh 0px;
+    }
 }
