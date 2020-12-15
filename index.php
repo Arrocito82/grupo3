@@ -5,9 +5,7 @@ $title="Inicio";
 // este es el navbar
 session_start();
 
-if(isset($_SESSION['userName'])){
-    $User = $_SESSION['userName'];
-}
+
 require "Components/header.php";
 
 
@@ -18,13 +16,13 @@ require "Components/header.php";
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="public/imagenes/pexels-stas-knop-5939401.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="public/imagenes/pexels-budgeron-bach-5157178.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="public/imagenes/pexels-brett-sayles-2479312.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
