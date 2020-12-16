@@ -103,4 +103,5 @@ return array(
     'Utils\\Login' => $baseDir . '/Utils/Login.php',
     'Utils\\MailSender' => $baseDir . '/Utils/MailSender.php',
     'Utils\\NewUser' => $baseDir . '/Utils/NewUser.php',
+    'Utils\\ResetPassword' => $baseDir . '/Utils/ResetPassword.php',
 );

@@ -26,7 +26,7 @@ if(isset($User))
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <div class="container">
             <a class="navbar-brand" href="<?php echo $path; ?>">Navbar</a>

@@ -151,6 +151,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'Utils\\Login' => __DIR__ . '/../..' . '/Utils/Login.php',
         'Utils\\MailSender' => __DIR__ . '/../..' . '/Utils/MailSender.php',
         'Utils\\NewUser' => __DIR__ . '/../..' . '/Utils/NewUser.php',
+        'Utils\\ResetPassword' => __DIR__ . '/../..' . '/Utils/ResetPassword.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
