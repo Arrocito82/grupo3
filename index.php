@@ -3,6 +3,7 @@
 $title="Inicio";
 // este es el navbar
 require "Components/header.php";
+require "Components/clases.php";
 use MongoDB\Client as db;
 $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
 $client =  new db($uri);
@@ -51,77 +52,94 @@ $client =  new db($uri);
 
 
 <!-- Explorar -->
+<?php
+echo '<div class="body container">'; 
+$target=['Genero','Categoria','Autor'];
+        $title=['Generos','Categorias','Autores'];
+      
+        for ($k=0; $k < 3; $k++) { 
+           
+        
+    
+    echo "<h2 class='mt-5'>".$title[$k] ."</h2>";
+    $string=$target[$k];
+    settype($string,'string');
+    $collection =$client->grupo03->$string;
+    $audio_collection = $client->grupo03->Audio;
 
-<!-- categorias -->
+    //recuperando la lista del target filtro y conviertiendo a array
+    $target_array=($collection->find([]))->toArray();
 
- <?php 
- $collection =$client->grupo03->Categoria;
- $cursor = $collection->find([]);
 
-echo "<div class='container my-5'> <h2 class='py-3'>Categorias</h2>";
-echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">';
-$array=$cursor->toArray();
- for ($i=0;$i<count($array); $i++) {
-   echo'<div class="col mb-4">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">'.$array[$i]['nombre'].'</h5>
-          <p class="card-text"> This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>';
-  } 
-  echo '</div></div>';
-unset($i);
+            for ($i=0;$i<count($target_array); $i++) {
+                echo '<h4 class="mt-3">'.$target_array[$i]['nombre'].'</h4>';
+                $id= $target_array[$i]['_id'];
+                settype($id,'string');
+                $audio_cursor = ($audio_collection->find(['id_'.strtolower ( $string)=>array( '$in' =>array( $id ))]))->toArray();
+                echo '<div class="row">';
 
-//<!-- Autor -->
+                    //recorriendo los audios para ver cuales son de este elemento de la lista del target
+                    for ($j=0; $j <count($audio_cursor) ; $j++) { 
+                        
+                        $tmp = new Audio($audio_cursor[$j]["_id"]);
+                        ?>
 
- $collection =$client->grupo03->Autor;
- $cursor = $collection->find([]);
 
-echo "<div class='container my-5'> <h2 class='py-3'>Autor</h2>";
-echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">';
-$array=$cursor->toArray();
- for ($i=0;$i<count($array); $i++) {
-   echo
-    ' 
-    <div class="col mb-4">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">'.$array[$i]['nombre'].'</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>';
-  }
-  
-  echo '</div></div>';
-  unset($i);
+                        <!--impriendo tarjeta de la cancion  -->
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $tmp->get_titulo();?></h5>
+                                    <p class="card-text">
+                                        Autor:  <?php 
+                                        $autor=$tmp->get_autores();
+                                        for ($x=0; $x <count($autor) ; $x++) {
+                                            if($x>0){
+                                                echo ", ";
+                                            }
+                                            echo $autor[$x]->get_nombre();
+                                            
+                                        }
+                                        echo ".";
+                                        unset($x);
+                                        echo "<br>";?>
+                                        Genero: <?php 
+                                        $genero=$tmp->get_generos();
+                                        for ($x=0; $x <count($genero) ; $x++) { 
+                                            if($x>0){
+                                                echo ", ";
+                                            }
+                                            echo $genero[$x]->get_nombre();
+                                            
+                                        }
+                                        echo ".";
+                                        unset($x);
+                                        echo "<br>";?>
+                                        Categoria: <?php 
+                                        $categoria=$tmp->get_categorias();
+                                        for ($x=0; $x <count($categoria) ; $x++) { 
+                                            if($x>0){
+                                                echo ", ";
+                                            }
+                                            echo $categoria[$x]->get_nombre();
+                                            
+                                        }
+                                        echo ".";
+                                        unset($x);
+                                        echo "<br>";?>
+                                        Propietario: <?php echo ($tmp->get_usuario())->get_login().".<br>";?> 
+                        
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Reproducir</a>
+                                </div>
+                            </div>
+                        </div>
 
-//<!-- Genero -->
 
- $collection =$client->grupo03->Genero;
- $cursor = $collection->find([]);
-
-echo "<div class='container my-5'> <h2 class='py-3'>Genero</h2>";
-echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">';
-$array=$cursor->toArray();
- for ($i=0;$i<count($array); $i++) {
-   echo
-    ' 
-    <div class="col mb-4">
-      <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">'.$array[$i]['nombre'].'</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>';
-  } echo '</div></div>';
-  unset($i);
+                    <?php }//cierre del for audio
+                    echo'</div>';        
+            }
+    }
 
 
 
