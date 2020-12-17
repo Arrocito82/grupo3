@@ -34,8 +34,8 @@ class NewUser{
 
         $result = $TempUsersCollection->find(['tempToken'=>$token ])->toArray();
 
-        if(count($result) < 0){
-            return False;
+        if(count($result) < 1){
+            return FALSE;
         }
        
         $insertResult = $Client->grupo03->Usuario->insertOne([
