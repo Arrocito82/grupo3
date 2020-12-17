@@ -5,9 +5,9 @@ $title="Inicio";
 if(isset($_SESSION['userName']))
     Header("Location: index.php");
 
-session_start();
-use Utils\NewUser;
 
+use Utils\NewUser;
+use Components\Alert;
 require 'vendor/autoload.php' ;
 require "Components/header.php";
 
@@ -16,12 +16,21 @@ require "Components/header.php";
 
     <?php 
      if(isset($_POST['userName']) & isset($_POST['password']) & isset($_POST['password']) & isset($_POST['fullName'])){
-         $userName = $_POST['userName'];
+        $userName = $_POST['userName'];
         $fullName = $_POST['fullName'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        NewUser::RegisterNewUser($userName , $fullName , $password , $email);
-        header("Location: index.php");
+        $result = NewUser::RegisterNewUser($userName , $fullName , $password , $email);
+
+        
+        $alert = Alert::SimpleAlert('Este correo ya esta siendo usado, o es invalido' , 'alert alert-danger');
+
+        if($result){            
+            $alert =Alert::SimpleAlert('Se ha enviado un codigo de validacion al correo' , 'alert alert-success');
+        }
+        echo $alert;
+        //header("Location: index.php");
+        //die();
      }
      ?>
 

@@ -5,7 +5,19 @@ use Utils\DBConnection\DBConnection as Con;
 use Utils\MailSender;
 
 class NewUser{
-    public function RegisterNewUser(String $userName , String $fullName , String $password , String $email){
+    /**
+     * Registra un nuevo usuario y envia un correo de verificacion, devuelve boolean segun caso de exito
+     *
+     * $userName:  Nombre del Nuevo usuario
+     * 
+     * $fullName:  Nombre completo de la persona
+     * 
+     * $password:  Contraseña del nuevo usuario
+     * 
+     * $email:  El email del nuevo usuario
+     *  
+     */
+    public static function RegisterNewUser(String $userName , String $fullName , String $password , String $email){
 
         $Client = new Mongo(Con::getConnectionString());
         $TempUsersCollection = $Client->grupo03->TempUsers;
@@ -20,14 +32,19 @@ class NewUser{
         ]);
 
         if($result->getInsertedCount() > 0){
-            $HtmlMessage = NewUser::getRegisterHtmlMessage($newToken , $fullName);
-            $Body = NewUser::getRegisterBody();
+            $HtmlMessage = Self::getRegisterHtmlMessage($newToken , $fullName);
+            $Body = Self::getRegisterBody();
             return MailSender::sendMail( $email ,  $HtmlMessage ,  "Nuevo Registro en " ,  $Body);            
         }
         return FALSE;
     }
-
-    public function ValidateNewUser(String $token){
+    /**
+     * Valida el email del nuevo usuario usando un token, devuelve boolean segun validacion
+     *
+     * $token: Token Md5 generado
+     *  
+     */
+    public static function ValidateNewUser(String $token){
 
         $Client = new Mongo(Con::getConnectionString());
         $TempUsersCollection = $Client->grupo03->TempUsers;
@@ -53,7 +70,7 @@ class NewUser{
         return TRUE;
     }
 
-    public function getRegisterHtmlMessage(String $token , String $fullName){
+    private function getRegisterHtmlMessage(String $token , String $fullName){
         $html ='<main>
                     <p>Bienvenido ' . $fullName . '</p>
                     <p>Para verificar tu registro has click en el siguiente enlace</p>
@@ -63,7 +80,7 @@ class NewUser{
         //Se debe cambiar por uno con estilos
         return $html;
     }
-    public function getRegisterBody(){
+    private function getRegisterBody(){
         return 'Nuevo registro'; //Se debe cambiar
     }
 }

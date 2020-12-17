@@ -4,10 +4,14 @@ require 'vendor/autoload.php' ;
 if(isset($_SESSION['userName']))
     $User = $_SESSION['userName'];
 
+if(!isset($style))
+    $style="";
+
 $flag = false;
 $path="/grupo3/";
-if(isset($User))
-    $flag=true;
+
+$flag = isset($User);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +24,7 @@ if(isset($User))
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/estilo.css">
+    <link rel="stylesheet" href="<?= $style ?>">
 </head>
 
 <body>

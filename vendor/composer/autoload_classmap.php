@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Components\\Alert' => $baseDir . '/Components/Alert.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Jean85\\PrettyVersions' => $vendorDir . '/jean85/pretty-package-versions/src/PrettyVersions.php',
     'Jean85\\Version' => $vendorDir . '/jean85/pretty-package-versions/src/Version.php',
@@ -102,6 +103,7 @@ return array(
     'Utils\\IAuthentication' => $baseDir . '/Utils/IAuthentication.php',
     'Utils\\Login' => $baseDir . '/Utils/Login.php',
     'Utils\\MailSender' => $baseDir . '/Utils/MailSender.php',
+    'Utils\\Navegation\\Redirect' => $baseDir . '/Utils/Navegation/Redirect.php',
     'Utils\\NewUser' => $baseDir . '/Utils/NewUser.php',
     'Utils\\ResetPassword' => $baseDir . '/Utils/ResetPassword.php',
 );

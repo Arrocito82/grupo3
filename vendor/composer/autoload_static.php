@@ -28,6 +28,10 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         array (
             'Jean85\\' => 7,
         ),
+        'C' => 
+        array (
+            'Components\\' => 11,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -51,9 +55,14 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         array (
             0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
         ),
+        'Components\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Components',
+        ),
     );
 
     public static $classMap = array (
+        'Components\\Alert' => __DIR__ . '/../..' . '/Components/Alert.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Jean85\\PrettyVersions' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/PrettyVersions.php',
         'Jean85\\Version' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/Version.php',
@@ -150,6 +159,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'Utils\\IAuthentication' => __DIR__ . '/../..' . '/Utils/IAuthentication.php',
         'Utils\\Login' => __DIR__ . '/../..' . '/Utils/Login.php',
         'Utils\\MailSender' => __DIR__ . '/../..' . '/Utils/MailSender.php',
+        'Utils\\Navegation\\Redirect' => __DIR__ . '/../..' . '/Utils/Navegation/Redirect.php',
         'Utils\\NewUser' => __DIR__ . '/../..' . '/Utils/NewUser.php',
         'Utils\\ResetPassword' => __DIR__ . '/../..' . '/Utils/ResetPassword.php',
     );

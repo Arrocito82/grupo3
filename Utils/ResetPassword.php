@@ -5,7 +5,11 @@ use MongoDB\BSON\ObjectID as ID;
 use Utils\DBConnection\DBConnection as Con;
 use Utils\MailSender;
 class ResetPassword{
-
+    /**
+     * Envia un correo con un token MD5 para recuperar la cuenta por olvido de password
+     * 
+     * $email: Email del usuario
+     */
     public static function SolicitarResetPass(String $email){
         $Client = new Mongo(Con::getConnectionString());
         $UsuarioCollection =$Client->grupo03->Usuario;
@@ -36,7 +40,13 @@ class ResetPassword{
 
 
     }
-
+    /**
+     * Actualiza la contraseña del usuario
+     * 
+     * $password: Nueva contraseña
+     * 
+     * $userId: Id del usuario
+     */
     public static function ResetPass(String $password , String $userId){
         $Client = new Mongo(Con::getConnectionString());
         $UsuarioCollection =$Client->grupo03->Usuario;
@@ -52,6 +62,11 @@ class ResetPassword{
         }
         return FALSE;
     }
+    /**
+     * Devuelve "Invalido" si es token no es valido o no existe, de lo contrario devuelve el Id del usuario
+     * 
+     * $token: token a validar
+     */
     public static function ValidateToken(String $token){
         $Client = new Mongo(Con::getConnectionString());
         $ResetCollection =$Client->grupo03->PassResetTemp;

@@ -1,6 +1,7 @@
-<?php $title="Inicio de session";
+<?php $title="Inicio de session"; $style= 'public/css/login.css';
 
 use Utils\Login;
+use Components\Alert;
 
 // este es el navbar
 require "Components/header.php";
@@ -8,26 +9,22 @@ require "Components/header.php";
 ?>
 <div class="body container">
 <div class="container">
+
 <?php
     $flag = "";
     if(isset($_POST['userName']) & isset($_POST['password'])){
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        $flag = Login::autentificar($userName , $password); 
-       
+        $flag = Login::autentificar($_POST['userName'] , $_POST['password']); 
     }
     if($flag=="Logged"){
         $_SESSION['userName'] = $_POST['userName'];
         $_SESSION['password'] = $_POST['password'];
         header("Location: index.php");
     }
-    if($flag=="ErroLog"){
-      printf('<div class="alert alert-danger mt-5" role="alert">
-      Nombre y/o contraseña incorrectos
-      </div><hr>');
+    if($flag=="ErroLog"){ 
+      echo Alert::SimpleAlert('Usuario o contraseña incorrectos','alert alert-danger w-50 mx-auto');
     }
 ?>
-<form action="login.php" method="post">
+<form class="w-50 mx-auto" action="login.php" method="post">
   <div class="form-group">
     <label for="c">User</label>
     <input type="tex" class="form-control" name="userName" id="userName" aria-describedby="userHelp" placeholder="Enter user" required>
@@ -41,10 +38,12 @@ require "Components/header.php";
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <small><a href="/ResetPass.php">¿Has olvidalo la contraseña?</a></small>
-  <button type="submit" class="btn btn-primary">Login</button>
+  <div class="d-flex mt-4 LoginActions">
+    <small class="mr-4"><a href="/ResetPass.php">¿Has olvidado la contraseña?</a></small>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </div>
 </form>
-
+</div>
 </div>
 
 <?php require "Components/footer.php";?>

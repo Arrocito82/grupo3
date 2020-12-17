@@ -4,12 +4,20 @@ namespace Utils;
 require 'vendor/autoload.php' ;
 
 use MongoDB\Client as Mongo;
+use Utils\DBConnection\DBConnection as Con;
 
 class Login  implements IAuthentication
-{
-    public static  function autentificar(String $userName ,String $password){
-        $client = new Mongo('mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority');
-        $count = count($client->grupo03->Usuario->find(['login'=>$userName,'clave'=>$password])->toArray());
+{   
+    /**
+     * Devuelve "Logged" si el inicio de sesion es exitoso, caso contrario devuelve "ErrorLog"
+     * 
+     * $userName: Nombre de usuario
+     * 
+     * $password: Contraseña de usuario
+     */
+    public static function autentificar(String $userName ,String $password){
+        $Client = new Mongo(Con::getConnectionString());
+        $count = count($Client->grupo03->Usuario->find(['login'=>$userName,'clave'=>$password])->toArray());
         if($count>0) return "Logged";
         return "ErroLog";
         

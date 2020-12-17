@@ -1,29 +1,23 @@
 <?php
 use Utils\NewUser;
-require 'vendor/autoload.php';
+use Components\Alert;
 require "Components/header.php";
 
 
 $result = FALSE;
 if(isset($_GET["token"])){
-    $result = NewUser::ValidateNewUser($_GET["token"]);
-    
+    $result = NewUser::ValidateNewUser($_GET["token"]);    
 }
+$message = Alert::SimpleAlert('Token no Valido o ya fue utilizado' , 'alert alert-danger');
 if($result){
-    echo '<div class="alert alert-success" role="alert">
-           Se ha verificado tu correo, ya puedes iniciar session
-           <a class="btn btn-primary" href="/">Ir al Inicio</a>           
-          </div>';
+    $message = Alert::SimpleAlert('Se ha verificado tu correo, ya puedes iniciar session','alert alert-success');
+    $message = $message . '<a class="btn btn-primary" href="/">Ir al Inicio</a>';                    
 }
-else{
-    echo '<div class="alert alert-danger" role="alert">
-            Token no Valido o ya fue utilizado
-         </div>';
-}
+echo '<div class="container mt-4">' . $message . '</div>';
 
 
 
 ?>
 <script>
-    document.getElementsByTagName('nav')[0].style.display ="none";
+    //document.getElementsByTagName('nav')[0].style.display ="none";
 </script>

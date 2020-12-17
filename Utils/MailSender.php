@@ -6,7 +6,17 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php' ;
 
 class MailSender{
-
+    /**
+     * Envia un email usando como remitente el correo de la aplicacion, devuelve bool segun caso de exito
+     * 
+     * $to: Correo de destino
+     * 
+     * $HTMlMessage: HTML a enviar (String)
+     * 
+     * $subject: Asunto
+     * 
+     * $Body: Cuerpo
+     */
     public static function sendMail(String $to , String $HTMlMessage , String $subject , String $Body)
     {
         $mail = new PHPMailer();

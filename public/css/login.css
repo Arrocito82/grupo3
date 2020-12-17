@@ -1,0 +1,10 @@
+form{
+   background-color: aliceblue;
+   padding: 1rem; 
+   border-radius: 10px;
+   box-shadow: 0px 6px 5px #00000030;
+}
+.LoginActions{
+    align-items: center;
+    justify-content: space-between;
+}

@@ -13,6 +13,7 @@ if(isset($_POST['email'])){
         print('<div class="alert alert-success" role="alert">
         Se ha enviado un correo de recuperacion
             </div>');
+            header("refresh:3; index.php");
         }
     else{    
     print('<div class="alert alert-danger" role="alert">

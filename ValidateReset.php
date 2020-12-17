@@ -15,6 +15,8 @@
         header("Location: SetNewPass.php");
         
     }
-    printf('Este token ya fue usado');
+    printf('<div class="container">
+                <div class="alert alert-danger" role="alert"> Este token es invalido o  ya fue usado</div>
+            <div>');
 
 ?>
