@@ -15,7 +15,9 @@ if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="gen
   
     $target=ucwords(strtolower($_GET['buscar']));
     
-    echo "<h1>".$target ."s</h1>";
+     if($target=="Autor"){echo "<h1>".$target."es</h1>";}else{
+        echo "<h1>".$target."s</h1>";
+     }
     $collection =$client->grupo03->$target;
     $audio_collection = $client->grupo03->Audio;
 
