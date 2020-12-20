@@ -5,7 +5,6 @@ use Components\Alert;
 
 // este es el navbar
 require "Components/header.php";
-//require "Utils/Authentication.php";
 ?>
 <div class="body container">
 <div class="container">
