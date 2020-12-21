@@ -12,8 +12,10 @@ window.addEventListener("scroll", function() {
 
             if (posicion >= pageYOffset - 10) {
                 cargando = true;
-                console.log(posicion);
-
+                //recuperar buscar, limite,ultimo,id
+                //llamada a procesar.php usando ajax con post
+                //imprimir mas audios en explorar.php
+                //cargando=false;
             }
         }
 

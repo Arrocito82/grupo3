@@ -1,13 +1,13 @@
 
 <?php
-require 'vendor/autoload.php' ;
-require "Components/clases.php";
+require '../vendor/autoload.php' ;
+require "clases.php";
 use MongoDB\Client as db;
 $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
 $client =  new db($uri);
 
-
-if( isset($_GET['buscar'])&&isset($_GET['id'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="genero"||$_GET['buscar']=="autor")){
+//cambiar a metodo post
+if( isset($_GET['buscar'])&&isset($_GET['id'])){
  
     if( isset($_GET['limite'])&&isset($_GET['ultimo'])){
         $limite=$_GET['limite'];
@@ -15,24 +15,32 @@ if( isset($_GET['buscar'])&&isset($_GET['id'])&&($_GET['buscar']=="categoria"||$
         settype($limite,'integer');
         settype($ultimo,'integer');
 
-    $target=ucwords(strtolower($_GET['buscar']));
+    $target=($_GET['buscar']);
     $id_busqueda=$_GET['id'];
     $collection =$client->grupo03->$target;
     $audio_collection = $client->grupo03->Audio;
 
     //recuperando la lista del target filtro y conviertiendo a array
     $target_array=$collection->findOne(array("_id"=> new MongoDB\BSON\ObjectId($id_busqueda)));
+   
 
 
             
                 if($ultimo==0){
-                    echo '<h5>'.$target_array['nombre'].'</h5>';
+                    echo '
+                    <div class="container-fluid">
+                    <div  class="jumbotron col-sm-12 px-3">
+                        <h1 class="display-4">'.$target_array['nombre'].'</h1>
+                        
+                    </div>
+                    </div>';
+                                        
                 }
                 $id= $target_array['_id'];
                 
                 settype($id,'string');
                 $audio_cursor = ($audio_collection->find(['id_'.strtolower ( $target)=>array( '$in' =>array( $id ))],["limit"=>$limite]))->toArray();
-                if($ultimo==0){echo '<div class="row">';}
+                //if($ultimo==0){echo '<div class="row">';}
 
                     //recorriendo los audios para ver cuales son de este elemento de la lista del target
                     for ($j=$ultimo; $j <count($audio_cursor) ; $j++) { 
@@ -42,7 +50,7 @@ if( isset($_GET['buscar'])&&isset($_GET['id'])&&($_GET['buscar']=="categoria"||$
 
 
                         <!--impriendo tarjeta de la cancion  -->
-                        <div class="col-sm-4">
+                        <div class="col-sm-6 col-md-4 col-lg-3 my-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $tmp->get_titulo();?></h5>
@@ -93,7 +101,7 @@ if( isset($_GET['buscar'])&&isset($_GET['id'])&&($_GET['buscar']=="categoria"||$
 
 
                     <?php }//cierre del for audio
-                    if($limite==count($audio_cursor)){echo'</div>';}               
+                // if($limite==count($audio_cursor)){echo'</div>';}               
             }
 }?>
-<script src="Components/prueba.js"></script>
+
