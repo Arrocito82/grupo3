@@ -7,16 +7,16 @@ $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrit
 $client =  new db($uri);
 
 //cambiar a metodo post
-if( isset($_GET['buscar'])&&isset($_GET['id'])){
+if( isset($_POST['buscar'])&&isset($_POST['id'])){
  
-    if( isset($_GET['limite'])&&isset($_GET['ultimo'])){
-        $limite=$_GET['limite'];
-        $ultimo=$_GET['ultimo'];
+    if( isset($_POST['limite'])&&isset($_POST['ultimo'])){
+        $limite=$_POST['limite'];
+        $ultimo=$_POST['ultimo'];
         settype($limite,'integer');
         settype($ultimo,'integer');
 
-    $target=($_GET['buscar']);
-    $id_busqueda=$_GET['id'];
+    $target=($_POST['buscar']);
+    $id_busqueda=$_POST['id'];
     $collection =$client->grupo03->$target;
     $audio_collection = $client->grupo03->Audio;
 

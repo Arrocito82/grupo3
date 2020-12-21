@@ -1,30 +1,9 @@
-<?php
-$title="Explorar";
-require "Components/header.php";
-require "Components/clases.php";
-use MongoDB\Client as db;
-$uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
-$client =  new db($uri);
-echo '<div class=" container">'; 
-if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="genero"||$_GET['buscar']=="autor")){
-    
-    $target=ucwords(strtolower($_GET['buscar']));  
-    
-    $collection =$client->grupo03->$target;
-    $consulta=$collection->find([]);
-    //recuperando la lista del target filtro y conviertiendo a array
-    $resultado=($consulta)->toArray();//categoria
-    $json_resultado=json_encode($resultado);
-    echo"<h1>".$target."</h1>";   
-    $destino="audios";
-    echo '<div class="row" id="'.$destino.'"></div></div>'; 
-   }  ?>
-    <script>
+<script>
 //jshint esversion: 6
 
 
 let ultima_posicion = 0;
-let destino="<?php echo $destino;?>";
+let destino=<?php echo $destino; ?>;
 let cantidad=12;
 let json_resultado=<?php echo $json_resultado; ?>;
 let buscar="<?php echo $target;?>", limite=cantidad,ultimo=0,ultimo_target=0;
@@ -43,7 +22,7 @@ function cargar(){
                             document.getElementById(destino).insertAdjacentHTML("beforeend", this.responseText);
              
                          
-                        datos=document.querySelectorAll("#"+destino+" .col-sm-6.col-md-4.col-lg-3.my-4 .card").length;
+                        datos=document.querySelectorAll("#",destino," .col-sm-6.col-md-4.col-lg-3.my-4 .card").length;
                         if(datos%cantidad!=0||(this.responseText)==""){
                            
                             
@@ -74,6 +53,3 @@ window.addEventListener("scroll", function() {
 
 });
 </script>
-    <?php              
-
-require "Components/footer.php";?>
