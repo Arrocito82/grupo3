@@ -28,8 +28,8 @@ if( isset($_GET['buscar'])&&isset($_GET['id'])){
             
                 if($ultimo==0){
                     echo '
-                    <div class="container-fluid">
-                    <div  class="jumbotron col-sm-12 px-3">
+                    <div class="container-fluid mt-5">
+                    <div  class="bg-secondary text-white col-sm-12 px-3 py-5 rounded-lg">
                         <h1 class="display-4">'.$target_array['nombre'].'</h1>
                         
                     </div>
@@ -94,7 +94,7 @@ if( isset($_GET['buscar'])&&isset($_GET['id'])){
                                         Propietario: <?php echo ($tmp->get_usuario())->get_login().".<br>";?> 
                         
                                     </p>
-                                    <a href="#" class="btn btn-primary">Reproducir</a>
+                                    <a href="#" class="btn btn-outline-primary">Reproducir</a>
                                 </div>
                             </div>
                         </div>
