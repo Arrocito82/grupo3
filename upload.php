@@ -26,10 +26,11 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
       // directory in which the uploaded file will be moved
       $uploadFileDir = './uploaded_files/';
       $dest_path = $uploadFileDir . $newFileName;
-
+       
       if(move_uploaded_file($fileTmpPath, $dest_path)) 
       {
         $message ='File is successfully uploaded. ' . $fileType.'en la direccion '.$dest_path;
+        
       }
       else 
       {

@@ -14,6 +14,7 @@ if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="gen
     $consulta=$collection->find([]);
     //recuperando la lista del target filtro y conviertiendo a array
     $resultado=($consulta)->toArray();//categoria
+
     $json_resultado=json_encode($resultado);
     echo"<h1>".$target."</h1>";   
     $destino="audios";
@@ -21,6 +22,8 @@ if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="gen
    }  ?>
     <script>
 //jshint esversion: 6
+
+
 
 
 let ultima_posicion = 0;
