@@ -5,7 +5,6 @@ use Components\Alert;
 
 // este es el navbar
 require "Components/header.php";
-//require "Utils/Authentication.php";
 ?>
 <div class="body container">
 <div class="container">
@@ -18,6 +17,7 @@ require "Components/header.php";
     if($flag=="Logged"){
         $_SESSION['userName'] = $_POST['userName'];
         $_SESSION['password'] = $_POST['password'];
+        $_SESSION['id_usuario']=Login::recuperar_id($_POST['userName'] , $_POST['password']);
         header("Location: index.php");
     }
     if($flag=="ErroLog"){ 

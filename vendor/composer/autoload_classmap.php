@@ -100,6 +100,7 @@ return array(
     'PackageVersions\\Installer' => $vendorDir . '/composer/package-versions-deprecated/src/PackageVersions/Installer.php',
     'PackageVersions\\Versions' => $vendorDir . '/composer/package-versions-deprecated/src/PackageVersions/Versions.php',
     'Utils\\DBConnection\\DBConnection' => $baseDir . '/Utils/DBConnection/DBConnection.php',
+    'Utils\\FilesAuth\\File' => $baseDir . '/Utils/FilesAuth/File.php',
     'Utils\\IAuthentication' => $baseDir . '/Utils/IAuthentication.php',
     'Utils\\Login' => $baseDir . '/Utils/Login.php',
     'Utils\\MailSender' => $baseDir . '/Utils/MailSender.php',

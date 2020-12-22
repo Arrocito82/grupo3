@@ -1,11 +1,14 @@
 <?php
+
 $title="Explorar";
 require "Components/header.php";
 require "Components/clases.php";
-use MongoDB\Client as db;
-$uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
-$client =  new db($uri);
+use MongoDB\Client as Mongo;
+use Utils\DBConnection\DBConnection as Con;
+$client = new Mongo(Con::getConnectionString());
+
 echo '<div class=" container">'; 
+
 if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="genero"||$_GET['buscar']=="autor")){
     
     $target=ucwords(strtolower($_GET['buscar']));  
@@ -16,10 +19,13 @@ if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="gen
     $resultado=($consulta)->toArray();//categoria
 
     $json_resultado=json_encode($resultado);
+    if(isset($_SESSION['id_usuario'])){echo $id_usuario;}
     echo"<h1>".$target."</h1>";   
     $destino="audios";
     echo '<div class="row" id="'.$destino.'"></div></div>'; 
-   }  ?>
+   } ?> 
+   
+
     <script>
 //jshint esversion: 6
 
@@ -28,10 +34,12 @@ if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="gen
 
 let ultima_posicion = 0;
 let destino="<?php echo $destino;?>";
+let id_usuario="<?php if(isset($_SESSION['id_usuario'])){echo $id_usuario;}?>"
 let cantidad=12;
 let json_resultado=<?php echo $json_resultado; ?>;
 let buscar="<?php echo $target;?>", limite=cantidad,ultimo=0,ultimo_target=0;
 let cargando = false;
+
 function cargar(){
     
     if( ultimo_target < json_resultado.length) {
@@ -60,7 +68,7 @@ function cargar(){
                     //enviando peticion
                     http.open("POST", "Components/procesar.php", true);
                     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    http.send("buscar="+buscar+"&id="+json_resultado[ultimo_target]._id.$oid+"&ultimo="+ultimo+"&limite="+limite);
+                    http.send("buscar="+buscar+"&id="+json_resultado[ultimo_target]._id.$oid+"&ultimo="+ultimo+"&limite="+limite+"&id_usuario="+id_usuario);
                     ultimo=limite;
                     limite+=limite;
                     

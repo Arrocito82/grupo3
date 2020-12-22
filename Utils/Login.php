@@ -22,6 +22,13 @@ class Login  implements IAuthentication
         return "ErroLog";
         
     }
+    
+    public static function recuperar_id(String $userName ,String $password){
+        $Client = new Mongo(Con::getConnectionString());
+        $consulta=$Client->grupo03->Usuario->findOne(['login'=>$userName,'clave'=>$password]);
+        $id=$consulta['_id'];
+        return $id;
+    }
 }
  
 

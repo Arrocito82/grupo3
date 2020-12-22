@@ -1,9 +1,15 @@
 <?php 
 session_start();
 require 'vendor/autoload.php' ;
-if(isset($_SESSION['userName']))
+if(isset($_SESSION['userName'])){
     $User = $_SESSION['userName'];
+    if(isset($_SESSION['id_usuario'])){
+    $id_usuario=$_SESSION['id_usuario'];
+    
+    }
 
+}
+    
 if(!isset($style))
     $style="";
 
