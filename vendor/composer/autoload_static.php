@@ -156,6 +156,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'PackageVersions\\Installer' => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions/Installer.php',
         'PackageVersions\\Versions' => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions/Versions.php',
         'Utils\\DBConnection\\DBConnection' => __DIR__ . '/../..' . '/Utils/DBConnection/DBConnection.php',
+        'Utils\\FilesAuth\\File' => __DIR__ . '/../..' . '/Utils/FilesAuth/File.php',
         'Utils\\IAuthentication' => __DIR__ . '/../..' . '/Utils/IAuthentication.php',
         'Utils\\Login' => __DIR__ . '/../..' . '/Utils/Login.php',
         'Utils\\MailSender' => __DIR__ . '/../..' . '/Utils/MailSender.php',

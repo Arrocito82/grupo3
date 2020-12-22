@@ -14,7 +14,7 @@ $client =  new db($uri);
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
   <div class="carousel-item active cropped ">
-      <img id="img3" src="public/imagenes/pexels-stas-knop-5939401.jpg" class="d-block w-100 " alt="...">
+      <img id="img3" src="load_file.php?file=public/imagenes/pexels-stas-knop-5939401.jpg" class="d-block w-100 " alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h2>3 slide label</h2>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -54,6 +54,7 @@ $client =  new db($uri);
 
 <!-- Explorar -->
 <?php
+/*
 echo '<div class="body container">'; 
 $target=['Genero','Categoria','Autor'];
         $title=['Generos','Categorias','Autores'];
@@ -144,4 +145,6 @@ $target=['Genero','Categoria','Autor'];
 
 
 
+
+*/
 require "Components/footer.php";?>
