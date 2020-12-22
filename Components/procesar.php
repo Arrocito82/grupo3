@@ -24,10 +24,10 @@ if(isset($_POST['id_usuario'])){
     
     $usuario_lista=($usuario->findOne(['_id'=>new MongoDB\BSON\ObjectId($_POST['id_usuario'])]))['listas'];
 
-echo var_dump(count($usuario_lista));
-    $dropDown = '<div class="btn-group">
-        <button type="button" class="btn btn-danger">Action</button>
-        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+//echo var_dump(count($usuario_lista));
+    $dropDown = '<div class="btn-group dropright btn-block">
+        <button type="button" class="btn btn-primary">Agregar a Favoritos</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu">'; 
@@ -125,7 +125,7 @@ echo var_dump(count($usuario_lista));
                                         Propietario: <?php echo ($tmp->get_usuario())->get_login().".<br>";?> 
                         
                                     </p>
-                                    <a href="#" class="btn btn-outline-primary">Reproducir</a>
+                                    <a href="#" class="btn btn-primary btn-block">Reproducir</a>
                                     <?php echo $dropDown;?>
                                 </div>
                             </div>
