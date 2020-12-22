@@ -4,17 +4,21 @@ use MongoDB\Client as db;
 
 class Usuario{
     public $id;
-    public $login;
+    public $login,$listas=[],$listas_tmp=[];
     function __construct($id) {
         $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
         $client =  new db($uri);
         $collection =$client->grupo03->Usuario;
         $usuario = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));
-       
+        $this->listas_tmp=$usuario['listas'];
+        
         $tmp=$usuario['_id'];
         settype($tmp,'string');
         $this->id= $tmp;        
         $this->login= $usuario['login'];
+        
+
+
     }
     function get_login(){
         return $this->login;
@@ -22,7 +26,20 @@ class Usuario{
     
     function get_id(){
         return $this->id;
+    } 
+    function get_listas_tmp(){
+        return $this->listas_tmp;
     }
+    
+    function get_listas(){
+        for ($i=0; $i < count($this->get_listas_tmp()); $i++) { 
+            
+        
+        $this->listas[$i]=new Lista($this->get_listas_tmp()[$i]);}
+        return $this->listas;
+    } 
+    
+    
 
 }
 class Categoria{
@@ -176,5 +193,35 @@ class Audio {
     }
     
   }
-
+  class Lista {
+    
+    //declaracion de variables
+    public $id;
+    public $nombre;
+    public $audios=[];
+  
+    function __construct($id) {
+      $this->id = $id;
+      $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
+      $client =  new db($uri);
+      $collection =$client->grupo03->Lista;
+      //recuperar la lista con el id
+      $lista = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));
+      $this->nombre=$lista['nombre'];
+      //recuperar la lista de audios de la lista
+      $audio_ids=$lista['lista'];
+            for ($i=0; $i <count($audio_ids) ; $i++) { 
+                    $id=$audio_ids[$i];//este es el id del genero
+                    $this->audios[$i]=new Audio($id);
+            }
+       unset($i);
+        
+    }
+    function get_nombre(){
+        return $this->nombre;
+    }
+    function get_audios(){
+        return $this->audios;
+    }
+}
 ?>
