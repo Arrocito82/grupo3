@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 require '../vendor/autoload.php' ;
 require "clases.php";
 use MongoDB\Client as db;
@@ -14,6 +15,45 @@ if( isset($_POST['buscar'])&&isset($_POST['id'])){
         $ultimo=$_POST['ultimo'];
         settype($limite,'integer');
         settype($ultimo,'integer');
+    
+    //Consulta usuario
+    $usuario =$client->grupo03->Usuario;//
+    $usuarioLista=($usuario->findOne(['login'=>$User]))['listas'];
+    //
+    //recuperando la lista del target filtro y conviertiendo a array
+    $resultadoUsuario=($usuarioLista)->toArray();//Lista
+    //$json_resultadoLista=json_encode($resultadoLista);
+    //Fin de consulta usurio
+
+    //Consulta 2
+    $dropDown="";
+    $listaColeccion =$client->grupo03->Lista;
+     
+        $dropDown = '<!--Nuevo Boton-->
+        <!-- Example split danger button -->
+        <div class="btn-group">
+        <button type="button" class="btn btn-danger">Action</button>
+        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+
+            '; 
+            for ($i=0; $i < count($resultadoUsuario) ; $i++) {
+                 $listas=$listaColeccion->findOne(array("_id"=> new MongoDB\BSON\ObjectId($resultadoUsuario[$i])));
+                 console.log($resultadoUsuario[$i]);
+                $dropDown=$dropDown.'
+            <div class="dropdown-item">'. $listas['nombre'] . '</div>';}
+            $dropDown=$dropDown.
+            '
+        </div>
+        </div>
+        <!--Fin Nuevo Boton-->';
+    }
+    //recuperando la lista del target filtro y conviertiendo a array
+    $resultadoLista=($listas)->toArray();//Lista
+    //$json_resultadoLista=json_encode($resultadoLista);
+    //Fin de consulta 2
 
     $target=($_POST['buscar']);
     $id_busqueda=$_POST['id'];
@@ -95,6 +135,22 @@ if( isset($_POST['buscar'])&&isset($_POST['id'])){
                         
                                     </p>
                                     <a href="#" class="btn btn-outline-primary">Reproducir</a>
+                                    <!--Nuevo Boton-->
+                                    <!-- Example split danger button -->
+                                    <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Action</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                    </div>
+                                    <!--Fin Nuevo Boton-->
                                 </div>
                             </div>
                         </div>
@@ -103,5 +159,5 @@ if( isset($_POST['buscar'])&&isset($_POST['id'])){
                     <?php }//cierre del for audio
                 // if($limite==count($audio_cursor)){echo'</div>';}               
             }
-}?>
+?>
 
