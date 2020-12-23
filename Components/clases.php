@@ -208,6 +208,10 @@ class Audio {
       //recuperar la lista con el id
       $lista = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));
       $this->nombre=$lista['nombre'];
+      $tmp=$lista['_id'];
+      settype($tmp,'string');
+      $this->id= $tmp;     
+      
       //recuperar la lista de audios de la lista
       $audio_ids=$lista['lista'];
             for ($i=0; $i <count($audio_ids) ; $i++) { 
@@ -219,6 +223,9 @@ class Audio {
     }
     function get_nombre(){
         return $this->nombre;
+    }
+    function get_id(){
+        return $this->id;
     }
     function get_audios(){
         return $this->audios;

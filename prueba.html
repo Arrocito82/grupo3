@@ -1,2 +1,32 @@
-[{"_id":{"$oid":"5fd5840e08c5ceafbb1f249a"},"nombre":"Motivacional"},{"_id":{"$oid":"5fd6b9634a120000b90015a3"},"nombre":"Dance"},{"_id":{"$oid":"5fd82d8c80bef9c12bf514a2"},"nombre":"Energia"},{"_id":{"$oid":"5fdbd81ba2aa16d0b4bc65f6"},"nombre":"Ni\u00f1os"},{"_id":{"$oid":"5fdbdd06eed2993143d84080"},"nombre":"Entrenamiento"},{"_id":{"$oid":"5fdbe955a2aa16d0b4bc65fa"},"nombre":"Musica
-Cristiana"},{"_id":{"$oid":"5fdbfda4a2aa16d0b4bc660e"},"nombre":"Entrevistas"},{"_id":{"$oid":"5fdc013fa2aa16d0b4bc6610"},"nombre":"Audiolibro"}]
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <button type="button" onclick="loadDoc()">Request data</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "post.php", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify({
+                "_id": {
+                    "$oid": "5fd82ec380bef9c12bf514a4"
+                }
+            }));
+        }
+    </script>
+
+</body>
+
+</html>

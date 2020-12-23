@@ -1,54 +1,61 @@
-html, body {
-	height: 100%;
+html,
+body {
+    height: 100%;
 }
 
 body {
     /*cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/cursor.png") 32 32, auto;*/
-    
-	background: #eeeeee;
-	overflow: hidden;
+    background: #eeeeee;
+    overflow: hidden;
 }
 
-*, *:before, *:after {
-	box-sizing: border-box;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 .SortableContainer {
-	position: relative;
-	top: 1rem;
-	left: 50%;
-	width: 90% !important;
-	height: auto;
-	opacity: 0;
-	visibility: hidden;
-	transform: translate(-50%, -50%);
+    position: relative;
+    top: 1rem;
+    left: 50%;
+    width: 90% !important;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
 }
 
 .list-item {
-
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 2rem;
-	width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    width: 100%;
 }
-.list-item :hover{
+
+.list-item :hover {
     cursor: grabbing;
 }
 
 .item-content {
-	height: 100%;
-	border: 0px solid rgba(123, 123, 123, 0.498039);
-	border-radius: 4px;
-	color: #999999;
-	line-height: 2rem;
-	padding-left: 32px;
-	font-size: 24px;
-	font-weight: 400;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+    height: 100%;
+    border: 0px solid rgba(123, 123, 123, 0.498039);
+    border-radius: 4px;
+    color: #999999;
+    line-height: 2rem;
+    padding-left: 32px;
+    font-size: 24px;
+    font-weight: 400;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
-.container{
-    border:solid 1px orange;
-    height: 80vh;
+
+.drag {
+    border: solid 1px orange;
+    height: 30vh;
+}
+
+div.scroll {
+    overflow: auto;
 }
