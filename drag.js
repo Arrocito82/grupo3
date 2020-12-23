@@ -1,6 +1,6 @@
 var rowSize = 40; // => container height / number of items
 var container = document.querySelector(".SortableContainer");
-var listItems = Array.from(document.querySelectorAll("#table1 > .list-item")); // Array of elements
+var listItems = Array.from(document.querySelectorAll("#table > .list-item")); // Array of elements
 var sortables = listItems.map(Sortable); // Array of sortables
 var total = sortables.length;
 

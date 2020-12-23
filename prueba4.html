@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="json">
+
+    </div>
+    <script>
+        //jshint esversion:6
+        let json = '{"id":"5fd82ec380bef9c12bf514a4","nombre":"Ver mas tarde","audios":[{"id":"5fd82e705dc3d1359c7686de","url":"uploaded_files\/56208cc9897e419e5a5a3020f3590913.mp3","titulo":"Scaldal of Grace","usuario":{"id":"5fd560550ce1912de8f799cd","login":"andrea","listas":[],"listas_tmp":["5fd82ec380bef9c12bf514a4","5fd82ef75dc3d1359c7686e0"]},"generos":[{"id":"5fd563ab0ce1912de8f799cf","nombre":"Balada"}],"categorias":[{"id":"5fd82d8c80bef9c12bf514a2","nombre":"Energia"},{"id":"5fd6b9634a120000b90015a3","nombre":"Dance"}],"autores":[{"id":"5fd8297480bef9c12bf5149e","nombre":"Hillsong"}]}]}';
+        let result = JSON.parse(json);
+        let lista = "";
+        for (let index = 0; index < (result.audios).length; index++) {
+            const element = result.audios[index];
+            lista = lista + '<div id= class="list-item"><div class = "item-content" ><span class = "order" > ' + element.id + '</span>' + element.titulo + '</div > </div>';
+        }
+
+        console.log(typeof lista);
+        document.getElementById('json').outerHTML = lista;
+    </script>
+</body>
+
+</html>

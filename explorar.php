@@ -7,9 +7,8 @@ use MongoDB\Client as Mongo;
 use Utils\DBConnection\DBConnection as Con;
 $client = new Mongo(Con::getConnectionString());
 
-echo '<div class=" container">'; 
-
-if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="genero"||$_GET['buscar']=="autor")){
+if(isset($_SESSION['id_usuario'])){
+if(isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="genero"||$_GET['buscar']=="autor")){
     
     $target=ucwords(strtolower($_GET['buscar']));  
     
@@ -19,11 +18,15 @@ if( isset($_GET['buscar'])&&($_GET['buscar']=="categoria"||$_GET['buscar']=="gen
     $resultado=($consulta)->toArray();//categoria
 
     $json_resultado=json_encode($resultado);
-    if(isset($_SESSION['id_usuario'])){echo $id_usuario;}
-    echo"<h1>".$target."</h1>";   
+    
+   echo '<div class="container contenido">'; 
+   if($target=="Autor"){
+    echo"<h1>".$target."es</h1>"; 
+   }else{
+    echo"<h1>".$target."s</h1>";  }
     $destino="audios";
     echo '<div class="row" id="'.$destino.'"></div></div>'; 
-   } ?> 
+ ?>
    
 
     <script>
@@ -85,6 +88,6 @@ window.addEventListener("scroll", function() {
 
 });
 </script>
-    <?php              
+    <?php }}             
 
 require "Components/footer.php";?>

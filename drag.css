@@ -1,11 +1,4 @@
-html,
 body {
-    height: 100%;
-}
-
-body {
-    /*cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/cursor.png") 32 32, auto;*/
-    background: #eeeeee;
     overflow: hidden;
 }
 
@@ -53,9 +46,9 @@ body {
 
 .drag {
     border: solid 1px orange;
-    height: 30vh;
+    height: 40vh;
 }
 
-div.scroll {
+div.col-8.scroll {
     overflow: auto;
 }

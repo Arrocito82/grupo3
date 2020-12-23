@@ -59,9 +59,9 @@ if(isset($_POST['id_usuario'])){
             
                 if($ultimo==0){
                     echo '
-                    <div class="container-fluid mt-5">
-                    <div  class="bg-secondary text-white col-sm-12 px-3 py-5 rounded-lg">
-                        <h1 class="display-4">'.$target_array['nombre'].'</h1>
+                    <div class="container-fluid mt-4">
+                    <div  class="bg-secondary text-white col-sm-12 px-3 py-3 rounded-lg">
+                        <h2 >'.$target_array['nombre'].'</h2>
                         
                     </div>
                     </div>';

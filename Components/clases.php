@@ -38,7 +38,17 @@ class Usuario{
         $this->listas[$i]=new Lista($this->get_listas_tmp()[$i]);}
         return $this->listas;
     } 
-    
+    function get_lista($id){
+        if(!(isset($this->listas))){
+            $this->get_listas();
+        }
+        $target=$this->listas;
+            for ($k=0; $k <count($target) ; $k++) { 
+                if($target[$k]->get_id==$id){
+                    return $target[$k];
+                }
+            }
+    }
     
 
 }

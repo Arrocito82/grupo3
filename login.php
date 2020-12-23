@@ -6,8 +6,9 @@ use Components\Alert;
 // este es el navbar
 require "Components/header.php";
 ?>
-<div class="body container">
-<div class="container">
+<div class="container contenido">
+  
+
 
 <?php
     $flag = "";
@@ -43,7 +44,8 @@ require "Components/header.php";
     <button type="submit" class="btn btn-primary">Login</button>
   </div>
 </form>
+
 </div>
-</div>
+
 
 <?php require "Components/footer.php";?>
