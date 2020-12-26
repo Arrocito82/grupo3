@@ -14,7 +14,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("demo").innerHTML = this.responseText[''];
+                    document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
             xhttp.open("POST", "lista.php", true);
@@ -23,7 +23,7 @@
                 "crud": "find"
             }, {
                 "_id": {
-                    "$oid": "5fd82ec380bef9c12bf514a4"
+                    "$oid": "5fd82ef75dc3d1359c7686e0"
                 }
             }]));
         }

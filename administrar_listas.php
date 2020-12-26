@@ -18,16 +18,14 @@ echo "<div class='container'>";
 echo '<div class="row">
             <div class="list-group col-4">';
             for ($i=0; $i < count($listas) ; $i++) {
-                echo '<button type="button" class="list-group-item list-group-item-action list-group-item-secondary" 
+                echo '<button type="button" class="list-group-item list-group-item-action lista-nombre-item" 
                 onclick="editarLista(\''.$listas[$i]->get_id().'\')">'.$listas[$i]->get_nombre().'</button>';
             
             }
-        
+         
             echo '</div>
-            <div class="col-8 scroll" id="lista_activa">
-            <div class="drag  mt-5">
-            <section id="table" class="SortableContainer"></section>
-            </div></div>
+          
+            <ul class="draggable-list col-8 scroll"  id="draggable-list"></ul>
             </div></div>';
 
 
@@ -35,6 +33,8 @@ echo '<div class="row">
     ?>
     
     <script>
+        let lista_activa=[];
+        const draggable_list = document.getElementById('draggable-list');
         function editarLista(id_lista){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -42,14 +42,21 @@ echo '<div class="row">
                    
 
                    let result = JSON.parse(this.responseText);
-                    let lista = "";
+                    draggable_list.innerHTML="";
                     for (let index = 0; index < (result.audios).length; index++) {
+                        let listItem=document.createElement('li');
                         const element = result.audios[index];
-                        lista = lista + '<div id= class="list-item"><div class = "item-content" value="'+  element.id +'"><span class = "order" > '+(index+1)+ '</span>' + element.titulo + '</div > </div>';
+                        listItem.setAttribute('data-index', index);
+                        
+                        
+                        listItem.innerHTML = `
+                        <span class="number bg-light">${index + 1}</span>
+                        <div draggable="true" class="draggable" >
+                            <p >${element.titulo}</p>
+                            <i class="fas fa-grip-lines"></i>
+                        </div>`;
+                        draggable_list.appendChild(listItem);                
                     }
-
-                    console.log(typeof lista);
-                    document.getElementById('table').innerHTML=lista;
                 }
             };
             xhttp.open("POST", "lista.php", true);
@@ -60,6 +67,7 @@ echo '<div class="row">
                 }
             }]));
         }
+
         
     </script>
     

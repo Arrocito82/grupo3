@@ -13,12 +13,24 @@
 $data = json_decode(file_get_contents('php://input'), true);
 require 'vendor/autoload.php' ;
 require "Components/clases.php";
-$crud=$data[0]['crud'];
-$lista_id=$data[1]['_id']['$oid'];
-if($crud=='find'){
-    $lista=new Lista($lista_id);
-    echo json_encode($lista);
-}
 
+//valor del crud: puede ser delete,update, find
+$crud=$data[0]['crud'];
+
+//el id de la lista
+$lista_id=$data[1]['_id']['$oid'];
+
+//si crud es igual a find se retorna la lista 
+
+    
+        if($crud=='delete'){
+                //eliminar el audio
+        }else if($crud=='update'){
+
+            //sobreescribir la lista, viene en formato json
+        }
+//siempre retorna la lista actualizada
+$lista=new Lista($lista_id);
+echo json_encode($lista);
 
 ?>
