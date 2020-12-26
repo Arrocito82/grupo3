@@ -3,7 +3,6 @@ body {
     padding: 0;
     position: relative;
     min-height: 100vh;
-    background-color: #fff;
 }
 
 footer {
@@ -17,10 +16,11 @@ footer {
 }
 
 button.list-group-item.list-group-item-action.list-group-item-secondary:focus {
-    outline: none !important;
+    outline: none;
 }
 
 .draggable-list {
+    padding: 0;
     list-style: none;
 }
 
@@ -30,7 +30,6 @@ button.list-group-item.list-group-item-action.list-group-item-secondary:focus {
     border: 1px solid #dcdcdc;
     border-bottom: 0;
     flex: 1;
-    background-color: #fff;
 }
 
 .draggable-list li:last-of-type {
@@ -58,10 +57,17 @@ button.list-group-item.list-group-item-action.list-group-item-secondary:focus {
     flex: 1;
 }
 
-.lista-nombre-item:focus,
-.draggable-list li.over {
+.lista-nombre-item:focus {
     outline: none;
     background-color: #e0e0e0;
+}
+
+.draggable-list li.over {
+    background-color: #e0e0e0;
+}
+
+.draggable-list li.drag {
+    opacity: 0.95;
 }
 
 @media screen and (min-width: 960px) {

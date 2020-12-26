@@ -19,7 +19,7 @@ echo '<div class="row">
             <div class="list-group col-4">';
             for ($i=0; $i < count($listas) ; $i++) {
                 echo '<button type="button" class="list-group-item list-group-item-action lista-nombre-item" 
-                onclick="editarLista(\''.$listas[$i]->get_id().'\')">'.$listas[$i]->get_nombre().'</button>';
+                onclick="fetchLista(\''.$listas[$i]->get_id().'\')">'.$listas[$i]->get_nombre().'</button>';
             
             }
          
@@ -34,8 +34,12 @@ echo '<div class="row">
     
     <script>
         let lista_activa=[];
+        let index;
+        let index_id;
         const draggable_list = document.getElementById('draggable-list');
-        function editarLista(id_lista){
+
+
+        function fetchLista(id_lista){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -43,20 +47,24 @@ echo '<div class="row">
 
                    let result = JSON.parse(this.responseText);
                     draggable_list.innerHTML="";
+                    lista_activa=[];
                     for (let index = 0; index < (result.audios).length; index++) {
                         let listItem=document.createElement('li');
                         const element = result.audios[index];
                         listItem.setAttribute('data-index', index);
+                        listItem.setAttribute('id', element.id);
                         
                         
                         listItem.innerHTML = `
-                        <span class="number bg-light">${index + 1}</span>
+                        <span class="number bg-light" >${index + 1}</span>
                         <div draggable="true" class="draggable" >
-                            <p >${element.titulo}</p>
+                            <p>${element.titulo}</p>
                             <i class="fas fa-grip-lines"></i>
                         </div>`;
+                        lista_activa.push(listItem);
                         draggable_list.appendChild(listItem);                
                     }
+                    addEventListeners();
                 }
             };
             xhttp.open("POST", "lista.php", true);
@@ -67,6 +75,46 @@ echo '<div class="row">
                 }
             }]));
         }
+        function dragStart() {
+            index=+this.closest('li').getAttribute('data-index');
+            index_id=+this.closest('li').getAttribute('id');
+            
+        }
+
+
+        function dragLeave() {
+            this.classList.remove('over');
+        }
+
+        function dragOver(e) {
+            e.preventDefault(); 
+            
+            this.classList.add('over');
+              
+        }
+
+        function dragDrop() {
+            end_index=+this.closest('li').getAttribute('data-index');
+            end_index_id=+this.closest('li').getAttribute('id');
+            
+            this.classList.remove('over');
+            this.classList.remove('drag');
+        }
+
+        function addEventListeners(){
+            const draggables=document.querySelectorAll('.draggable');
+            const listItems=document.querySelectorAll('.draggable-list li');
+            draggables.forEach(draggable=>{
+                draggable.addEventListener('dragstart',dragStart);
+            });
+            listItems.forEach(item=>{
+                item.addEventListener('dragover',dragOver);
+                item.addEventListener('drop',dragDrop);
+                item.addEventListener('dragleave',dragLeave);
+
+            });
+        }
+
 
         
     </script>
