@@ -76,8 +76,10 @@ echo '<div class="row">
             }]));
         }
         function dragStart() {
-            index=+this.closest('li').getAttribute('data-index');
-            index_id=+this.closest('li').getAttribute('id');
+            index=this.closest('li').getAttribute('data-index');
+            index_id=this.closest('li').getAttribute('id');
+            console.log(index);
+            console.log(index_id.toString());
             
         }
 
