@@ -28,7 +28,8 @@
         public static function ObtenerAutoresPorNombre(String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
-            $autores = $collection->find(array('nombre' =>  $nombre));
+            //$autores = $collection->find(array('nombre' =>  $nombre));
+            $autores = $collection->find(['nombre' =>  new \MongoDB\BSON\Regex('^Prueba', 'i')])->toArray();           
             $Autores = array(); 
             foreach ($autores as $autor) {
                 # code...

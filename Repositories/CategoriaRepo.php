@@ -12,7 +12,7 @@
             $insertOneResult = $collection->insertOne([
                 'nombre' => $nombre,                
             ]);
-             "hola"
+             
             return $insertOneResult->getInsertedId();
         }
 
