@@ -1,7 +1,7 @@
 <?php
 
 use MongoDB\Client as db;
-
+use Utils\DBConnection\DBConnection as Connection;
 class Usuario{
     public $id;
     public $login,$listas=[],$listas_tmp=[];
@@ -139,13 +139,15 @@ class Audio {
     public $generos=[];
     public $categorias=[];
     public $autores=[];
-  
-    function __construct($id) {
-      $this->id = $id;
-      $uri='mongodb+srv://admin:grupo03TPI@grupo03.wwsio.mongodb.net/grupo03?retryWrites=true&w=majority';
-      $client =  new db($uri);
-      $collection =$client->grupo03->Audio;
-      $audio = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));//recuperando audio
+    protected $client =  new db(Connection::getConnectionString());
+    protected $collection =$this->client->grupo03->Audio;
+
+    function __construct() {
+
+    }
+
+    function recuperarAudio($id){
+      $audio = $this->collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));//recuperando audio
       $this->titulo=$audio['titulo'];
       $this->url=$audio['url'];
       $this->usuario=new Usuario ($audio['id_usuario']);
@@ -174,7 +176,6 @@ class Audio {
         $this->categorias[$i]=new Categoria($id);
      }unset($i);
      
-
     }
     function get_document($filtro,$id){
 

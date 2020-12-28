@@ -1,5 +1,6 @@
 <?php 
 namespace Utils\DBConnection;
+
 class DBConnection{
     /**
      * Devuelve el Connection String de la base MongoDB
