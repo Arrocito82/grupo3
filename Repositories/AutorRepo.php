@@ -1,17 +1,18 @@
 <?php 
+    namespace Repositories;
     use MongoDB\Client as Mongo;
     use Utils\DBConnection\DBConnection as Connection;
     use Models\Autor;
-    namespace Repositories;
 
     class AutorRepo{                   
-        public static function CrearAutor(Strign $nombre){
+        public static function CrearAutor(String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
 
             $insertOneResult = $collection->insertOne([
                 'nombre' => $nombre,                
             ]);
+            echo "hola";
             return $insertOneResult->getInsertedId();
         }
 
@@ -23,6 +24,18 @@
 
             $Autor = new Autor($autor['nombre'] , $autor['_id']);
             return $Autor;
+        }
+        public static function ObtenerAutoresPorNombre(String $nombre){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Autor;
+            $autores = $collection->find(array('nombre' =>  $nombre));
+            $Autores = array(); 
+            foreach ($autores as $autor) {
+                # code...
+                $Autor = new Autor($autor['nombre'] , $autor['_id']);
+                array_push($Autores , $Autor);
+            }
+            return $Autores;
         }
 
         public static function EliminarAutor(String $id){

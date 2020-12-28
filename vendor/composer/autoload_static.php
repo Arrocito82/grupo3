@@ -27,6 +27,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'M' => 
         array (
             'MongoDB\\' => 8,
+            'Models\\' => 7,
         ),
         'J' => 
         array (
@@ -59,6 +60,10 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         array (
             0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
         ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Models',
+        ),
         'Jean85\\' => 
         array (
             0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
@@ -74,6 +79,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Jean85\\PrettyVersions' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/PrettyVersions.php',
         'Jean85\\Version' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/Version.php',
+        'Models\\Autor' => __DIR__ . '/../..' . '/Models/Autor.php',
         'MongoDB\\BulkWriteResult' => __DIR__ . '/..' . '/mongodb/mongodb/src/BulkWriteResult.php',
         'MongoDB\\ChangeStream' => __DIR__ . '/..' . '/mongodb/mongodb/src/ChangeStream.php',
         'MongoDB\\Client' => __DIR__ . '/..' . '/mongodb/mongodb/src/Client.php',

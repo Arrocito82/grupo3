@@ -10,6 +10,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Jean85\\PrettyVersions' => $vendorDir . '/jean85/pretty-package-versions/src/PrettyVersions.php',
     'Jean85\\Version' => $vendorDir . '/jean85/pretty-package-versions/src/Version.php',
+    'Models\\Autor' => $baseDir . '/Models/Autor.php',
     'MongoDB\\BulkWriteResult' => $vendorDir . '/mongodb/mongodb/src/BulkWriteResult.php',
     'MongoDB\\ChangeStream' => $vendorDir . '/mongodb/mongodb/src/ChangeStream.php',
     'MongoDB\\Client' => $vendorDir . '/mongodb/mongodb/src/Client.php',
