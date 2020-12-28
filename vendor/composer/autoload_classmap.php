@@ -99,6 +99,8 @@ return array(
     'PackageVersions\\FallbackVersions' => $vendorDir . '/composer/package-versions-deprecated/src/PackageVersions/FallbackVersions.php',
     'PackageVersions\\Installer' => $vendorDir . '/composer/package-versions-deprecated/src/PackageVersions/Installer.php',
     'PackageVersions\\Versions' => $vendorDir . '/composer/package-versions-deprecated/src/PackageVersions/Versions.php',
+    'Repositories\\AutorRepo' => $baseDir . '/Repositories/AutorRepo.php',
+    'Repositories\\UsuarioRepo' => $baseDir . '/Repositories/UsuarioRepo.php',
     'Utils\\DBConnection\\DBConnection' => $baseDir . '/Utils/DBConnection/DBConnection.php',
     'Utils\\FilesAuth\\File' => $baseDir . '/Utils/FilesAuth/File.php',
     'Utils\\IAuthentication' => $baseDir . '/Utils/IAuthentication.php',

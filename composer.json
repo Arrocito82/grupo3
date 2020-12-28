@@ -5,7 +5,9 @@
     "autoload": {
         "psr-4": {
             "Utils\\": "Utils",
-            "Components\\":"Components"
+            "Components\\":"Components",
+            "Repositories\\":"Repositories",
+            "Models\\":"Models"
         }
     },
     "require": {

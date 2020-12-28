@@ -15,6 +15,10 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         array (
             'Utils\\' => 6,
         ),
+        'R' => 
+        array (
+            'Repositories\\' => 13,
+        ),
         'P' => 
         array (
             'PackageVersions\\' => 16,
@@ -38,6 +42,10 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'Utils\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Utils',
+        ),
+        'Repositories\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Repositories',
         ),
         'PackageVersions\\' => 
         array (
@@ -155,6 +163,8 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'PackageVersions\\FallbackVersions' => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions/FallbackVersions.php',
         'PackageVersions\\Installer' => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions/Installer.php',
         'PackageVersions\\Versions' => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions/Versions.php',
+        'Repositories\\AutorRepo' => __DIR__ . '/../..' . '/Repositories/AutorRepo.php',
+        'Repositories\\UsuarioRepo' => __DIR__ . '/../..' . '/Repositories/UsuarioRepo.php',
         'Utils\\DBConnection\\DBConnection' => __DIR__ . '/../..' . '/Utils/DBConnection/DBConnection.php',
         'Utils\\FilesAuth\\File' => __DIR__ . '/../..' . '/Utils/FilesAuth/File.php',
         'Utils\\IAuthentication' => __DIR__ . '/../..' . '/Utils/IAuthentication.php',

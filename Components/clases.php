@@ -16,9 +16,6 @@ class Usuario{
         settype($tmp,'string');
         $this->id= $tmp;        
         $this->login= $usuario['login'];
-        
-
-
     }
     function get_login(){
         return $this->login;
@@ -139,14 +136,13 @@ class Audio {
     public $generos=[];
     public $categorias=[];
     public $autores=[];
-    protected $client =  new db(Connection::getConnectionString());
-    protected $collection =$this->client->grupo03->Audio;
+    protected $client;
+    protected $collection;
+    
+    function __construct($id) {
+        $this->client=  new db(Connection::getConnectionString());
+        $this->collection=$this->client->grupo03->Audio;
 
-    function __construct() {
-
-    }
-
-    function recuperarAudio($id){
       $audio = $this->collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));//recuperando audio
       $this->titulo=$audio['titulo'];
       $this->url=$audio['url'];
