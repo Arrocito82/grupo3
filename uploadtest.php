@@ -1,12 +1,9 @@
 <?php
-session_start(); 
+
+$title='audios';
+require "Components/header.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>PHP File Upload</title>
-</head>
-<body>
+
   <?php
     if (isset($_SESSION['message']) && $_SESSION['message'])
     {
@@ -24,5 +21,5 @@ session_start();
 
     <input type="submit" name="uploadBtn" value="Upload" />
   </form>
-</body>
-</html>
+  <?php
+require "Components/footer.php";?>

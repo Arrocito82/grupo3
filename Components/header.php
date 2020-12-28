@@ -54,7 +54,11 @@ $flag = isset($User);
                     </li>
 
                     <?php
-                if($flag){echo '<li class="nav-item dropdown">
+                if($flag){echo '
+                    <li class="nav-item">
+                    <a class="nav-link " href="upload.php">Agregar Audios</a>
+                </li>
+                    <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Explorar
               </a>
@@ -63,7 +67,7 @@ $flag = isset($User);
                         <a class="dropdown-item" href="explorar.php?buscar=genero">Generos</a>
                         <a class="dropdown-item" href="explorar.php?buscar=autor">Autores</a>
                         <a class="dropdown-item" href="administrar_listas.php">Mis Listas</a>
-                        
+                        <a class="dropdown-item" href="">Mis Audios</a>
                         
                     </div>
                 </li>';

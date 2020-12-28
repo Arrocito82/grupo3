@@ -35,7 +35,8 @@ if(isset($_POST['id_usuario'])){
                  $lista=$listas->findOne(array("_id"=> new MongoDB\BSON\ObjectId($usuario_lista[$i])));
                  
                 $dropDown=$dropDown.'
-            <div class="dropdown-item">'. $lista['nombre'] .  $lista['_id'].'</div>';}
+            <div class="dropdown-item">'. $lista['nombre'].'</div>';}
+            //.  $lista['_id'].
             $dropDown=$dropDown.'</div></div>';
 
         }else{
