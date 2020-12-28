@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$message = 'hola'; 
 if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
 {
     $message = 'entro al primer if';

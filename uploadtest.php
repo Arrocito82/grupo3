@@ -21,10 +21,14 @@ if (isset($_SESSION['id_usuario'])){
   echo "<div class='contenido'>";
   echo "<div class='container'>";
 ?>
-  <form method="get" action="upload.php" enctype="multipart/form-data" class="form-control">
-    <div>
-      <p>Titulo: <input type="text" name="titulo"></p>
-      <p>Autor: <select class="form-control" name="autor">
+  <form method="get" action="upload.php" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="titulo">Titulo:</label>
+      <input class="form-control" type="text" name="titulo">
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor:</label>
+      <select class="form-control" name="autor">
         <option value="0"> </option>
         <?php
            for ($i=0; $i < count($autor_resultado); $i++) { 
@@ -35,8 +39,11 @@ if (isset($_SESSION['id_usuario'])){
              <?php
            }
         ?>
-      </select></p>
-      <p>Categoria: <select class="form-control" name="categoria">
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="categoria">Categoria:</label>
+      <select class="form-control" name="categoria">
         <option value="0"> </option>
         <?php
            for ($i=0; $i < count($categoria_resultado); $i++) { 
@@ -47,8 +54,11 @@ if (isset($_SESSION['id_usuario'])){
              <?php
            }
         ?>
-      </select></p>
-      <p>Genero: <select class="form-control" name="genero">
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="genero">Genero:</label>
+      <select class="form-control" name="genero">
         <option value="0"> </option>
          <?php
            for ($i=0; $i < count($genero_resultado); $i++) { 
@@ -59,14 +69,13 @@ if (isset($_SESSION['id_usuario'])){
              <?php
            }
         ?>
-      </select></p>
+      </select>
     </div>
-    <div>
-      <span>Upload a File:</span>
-      <input type="file" name="uploadedFile" />
+    <div class="form-group">
+      <label for="subir">Subir archivo:</label>
+      <input class="form-control" type="file" name="uploadedFile" />
     </div>
-
-    <input type="submit" name="uploadBtn" value="Upload" />
+    <input class="btn btn-default" type="submit" name="uploadBtn" value="Upload" />
   </form>
 
 <?php
