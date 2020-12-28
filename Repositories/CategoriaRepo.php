@@ -4,7 +4,8 @@
     use Utils\DBConnection\DBConnection as Connection;
     use Models\Categoria;
 
-    class CategoriaRepo{                   
+    class CategoriaRepo{
+                           
         public static function CrearCategoria(String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Categoria;
@@ -20,7 +21,7 @@
         public static function ObtenerCategoria(String $id){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Categoria;
-            $categoria = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));
+            $categoria = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
             $Categoria = new Categoria($categoria['nombre'] , $categoria['_id']);
             return $Categoria;
@@ -55,6 +56,14 @@
                 ['$set' => ['nombre' => $nombre]]
             );
             return $updateResult->getModifiedCount();            
+        }
+
+        public static function ObtenerCategorias($ids){
+            $CategoriasResult = [];
+            for($e = 0 ; $e < count($ids); $e++){
+                array_push($CategoriasResult , CategoriaRepo::ObtenerCategoria($ids[$e]));
+            }
+            return $CategoriasResult;
         }
     }
 ?>

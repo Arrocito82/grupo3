@@ -12,7 +12,7 @@
             $insertOneResult = $collection->insertOne([
                 'nombre' => $nombre,                
             ]);
-            echo "hola";
+            
             return $insertOneResult->getInsertedId();
         }
 
@@ -20,7 +20,7 @@
         public static function ObtenerGenero(String $id){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Genero;
-            $genero = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));
+            $genero = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
             $Genero = new Genero($genero['nombre'] , $genero['_id']);
             return $Genero;
@@ -55,6 +55,14 @@
                 ['$set' => ['nombre' => $nombre]]
             );
             return $updateResult->getModifiedCount();            
+        }
+
+        public static function ObtenerGeneros($ids){
+            $GenerosResult = [];
+            for($t = 0 ; $t < count($ids); $t++){
+                array_push($GenerosResult , GeneroRepo::ObtenerGenero($ids[$t]));
+            }
+            return $GenerosResult;
         }
     }
 ?>
