@@ -1,4 +1,4 @@
-<?php/*
+<?php
 namespace Models;
 class Usuario{
     public $_id , $nombre;
@@ -7,5 +7,5 @@ class Usuario{
         $this->_id = $id;
         $this->nombre = $nombre;
     }
-}*/
+}
 ?>

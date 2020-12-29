@@ -76,6 +76,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
 
     public static $classMap = array (
         'Components\\Alert' => __DIR__ . '/../..' . '/Components/Alert.php',
+        'Components\\SearchTable' => __DIR__ . '/../..' . '/Components/SearchTable.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Jean85\\PrettyVersions' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/PrettyVersions.php',
         'Jean85\\Version' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/Version.php',

@@ -1,4 +1,4 @@
-<?php/* 
+<?php 
     namespace Repositories;
     use MongoDB\Client as Mongo;
     use Utils\DBConnection\DBConnection as Connection;
@@ -16,4 +16,4 @@
 
         }
     }
-*/?>
+?>

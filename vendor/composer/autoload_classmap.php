@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Components\\Alert' => $baseDir . '/Components/Alert.php',
+    'Components\\SearchTable' => $baseDir . '/Components/SearchTable.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Jean85\\PrettyVersions' => $vendorDir . '/jean85/pretty-package-versions/src/PrettyVersions.php',
     'Jean85\\Version' => $vendorDir . '/jean85/pretty-package-versions/src/Version.php',
