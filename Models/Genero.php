@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-    class Autor{
+    class Genero{
         public  $nombre;
         public  $id;
         function __construct( String $nombre , String $id){

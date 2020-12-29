@@ -12,7 +12,7 @@
             $insertOneResult = $collection->insertOne([
                 'nombre' => $nombre,                
             ]);
-            echo "hola";
+            
             return $insertOneResult->getInsertedId();
         }
 
@@ -20,7 +20,7 @@
         public static function ObtenerAutor(String $id){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
-            $autor = $collection->findOne(array('_id' =>  new MongoDB\BSON\ObjectId($id)));
+            $autor = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
             $Autor = new Autor($autor['nombre'] , $autor['_id']);
             return $Autor;
@@ -28,7 +28,8 @@
         public static function ObtenerAutoresPorNombre(String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
-            $autores = $collection->find(array('nombre' =>  $nombre));
+            //$autores = $collection->find(array('nombre' =>  $nombre));
+            $autores = $collection->find(['nombre' =>  new \MongoDB\BSON\Regex('^Prueba', 'i')])->toArray();           
             $Autores = array(); 
             foreach ($autores as $autor) {
                 # code...
@@ -55,6 +56,14 @@
                 ['$set' => ['nombre' => $nombre]]
             );
             return $updateResult->getModifiedCount();            
+        }
+
+        public static function ObtenerAutores($ids){
+            $AutorsResult = [];
+            for($i = 0 ; $i < count($ids); $i++){
+                array_push($AutorsResult , AutorRepo::ObtenerAutor($ids[$i]));
+            }
+            return $AutorsResult;
         }
     }
 ?>
