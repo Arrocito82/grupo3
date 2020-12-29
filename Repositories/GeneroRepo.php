@@ -64,5 +64,19 @@
             }
             return $GenerosResult;
         }
+
+        public static function ObtenerTodosGeneros(){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Genero;
+
+            $result = $collection->find([]);
+            $result_gen = $result->toArray(); 
+            $GenerosResult = [];
+            for($i = 0 ; $i < count($result_gen); $i++){
+                $genero = $result_gen[$i];
+                array_push($GenerosResult ,  new Genero($genero['nombre'] , $genero['_id']));
+            }
+            return $GenerosResult;
+        }
     }
 ?>

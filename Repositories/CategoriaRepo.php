@@ -66,5 +66,20 @@
             }
             return $CategoriasResult;
         }
+
+        public static function ObtenerTodasCategorias(){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Categoria;
+
+            $result = $collection->find([]);
+            $result_cat = $result->toArray(); 
+            $CategoriasResult = [];
+            for($i = 0 ; $i < count($result_cat); $i++){
+                $categoria = $result_cat[$i];
+                array_push($CategoriasResult ,  new Categoria($categoria['nombre'] , $categoria['_id']));
+            }
+            return $CategoriasResult;
+        }
+
     }
 ?>

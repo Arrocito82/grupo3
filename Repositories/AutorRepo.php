@@ -71,11 +71,10 @@
             $collection = $Client->grupo03->Autor;
 
             $result = $collection->find([]);
-
-
+            $result_aut = $result->toArray(); 
             $AutorsResult = [];
-            for($i = 0 ; $i < count($result); $i++){
-                $autor = $result[$i];
+            for($i = 0 ; $i < count($result_aut); $i++){
+                $autor = $result_aut[$i];
                 array_push($AutorsResult ,  new Autor($autor['nombre'] , $autor['_id']));
             }
             return $AutorsResult;
