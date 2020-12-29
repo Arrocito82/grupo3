@@ -41,37 +41,23 @@ namespace Repositories;
             return new Audio( $audioResult['_id'] , $audioResult['url'] , $audioResult['titulo'] , $Usuario , $AutorsResult , $CategoriasResult , $GenerosResult);
             
         }
-        public static function ObtenerAudioesPorNombre(String $nombre){
+        //$filtro = array('id_categoria'=>'hola', 'fdfd' => 'dsds')
+        public static function ObtenerAudiosFiltro(array $filtro , array $opciones = []){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Audio;
-            //$Audioes = $collection->find(array('nombre' =>  $nombre));
-            $Audioes = $collection->find(['nombre' =>  new \MongoDB\BSON\Regex('^Prueba', 'i')])->toArray();           
-            $Audioes = array(); 
-            foreach ($Audioes as $Audio) {
-                # code...
-                $Audio = new Audio($Audio['nombre'] , $Audio['_id']);
-                array_push($Audioes , $Audio);
+
+            $result = $collection->find($filtro,$opciones)->toArray();
+
+            $AudiosResult = [];
+
+            for($i = 0 ; $i < count($result) ; $i++){
+                array_push($AudiosResult , AudioRepo::ObtenerAudio($result[$i]['_id']));
             }
-            return $Audioes;
+
+            return $AudiosResult;
+
         }
-
-        public static function EliminarAudio(String $id){
-            $Client = new Mongo(Connection::getConnectionString());
-            $collection = $Client->grupo03->Audio;
-
-            $deleteResult = $collection->deleteOne(['_id' =>  new MongoDB\BSON\ObjectId($id)]);
-            return $deleteResult->getDeletedCount();            
-        }
-
-        public static function ModificarAudio(String $id , String $nombre){
-            $Client = new Mongo(Connection::getConnectionString());
-            $collection = $Client->grupo03->Audio;
-
-            $updateResult = $collection->updateOne(
-                ['_id' =>  new MongoDB\BSON\ObjectId($id)],
-                ['$set' => ['nombre' => $nombre]]
-            );
-            return $updateResult->getModifiedCount();            
-        }
+        
+        
     }
 ?>

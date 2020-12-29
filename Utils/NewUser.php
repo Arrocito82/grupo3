@@ -3,6 +3,7 @@ namespace Utils;
 use MongoDB\Client as Mongo;
 use Utils\DBConnection\DBConnection as Con;
 use Utils\MailSender;
+use Repositories\ListasRepo;
 
 class NewUser{
     /**
@@ -23,6 +24,8 @@ class NewUser{
         $TempUsersCollection = $Client->grupo03->TempUsers;
 
         $newToken = md5(time() . $userName . $password);
+
+        
         $result = $TempUsersCollection->insertOne([
             'login'     => $userName,
             'email'     => $email,
@@ -54,12 +57,16 @@ class NewUser{
         if(count($result) < 1){
             return FALSE;
         }
-       
+        $id_fav = ListasRepo::CrearLista("Favoritos");
+        settype($id_fav,"string");
+        $id_verMasTarde = ListasRepo::CrearLista("Ver Mas Tarde");
+        settype($id_verMasTarde,"string");
         $insertResult = $Client->grupo03->Usuario->insertOne([
             'login'     => $result[0]['login'],
             'email'     => $result[0]['email'],
             'nombre'    => $result[0]['nombre'],
             'clave'     => $result[0]['clave'],
+            'listas'    => [$id_fav,$id_verMasTarde]
         ]);
         
         if($insertResult->getInsertedCount() > 0){

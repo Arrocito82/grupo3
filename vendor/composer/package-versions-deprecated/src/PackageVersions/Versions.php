@@ -37,7 +37,7 @@ final class Versions
   'jean85/pretty-package-versions' => '1.5.1@a917488320c20057da87f67d0d40543dd9427f7a',
   'mongodb/mongodb' => '1.7.0@cdeff1d45e4da6c6f70fc495e8e8a628b026b6d7',
   'phpmailer/phpmailer' => 'v6.2.0@e38888a75c070304ca5514197d4847a59a5c853f',
-  'grupo03/grupo03' => 'dev-master@1ec3c3ea7b6d56fef4fc1df3961efe9caef7968d',
+  'grupo03/grupo03' => 'dev-master@e094c3bff8470eddcbcebd599a0345bba9b8407d',
 );
 
     private function __construct()
