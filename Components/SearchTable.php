@@ -1,8 +1,10 @@
 <?php
  namespace Components;
+ use Utils\ArrayUtils\ArrayUtils;
+
  class SearchTable{
 
-    public static function renderHTMLSearchTable(array $Audios , array $Autores){
+    public static function renderHTMLSearchResultTable(array $Audios , array $Autores){
         $result = self::renderAudios($Audios);
         $autoresResult = self::renderAutores($Autores);
 
@@ -10,26 +12,29 @@
     }
     private static function renderAudios(array $Audios){
         $result = '<div class="row" id="audios">
+
                         <div class="container-fluid mt-4">
                             <div class="bg-secondary text-white col-sm-12 px-3 py-3 rounded-lg">
-                            <h2>Canciones </h2>
-
+                                <h2>Canciones </h2>
                             </div>
-                    </div>';
+                        </div>';
 
         foreach ($Audios as $audio) {
-                
+        $autores = ArrayUtils::ObjectLinearString($audio->Autores, "nombre");
+        $generos = ArrayUtils::ObjectLinearString($audio->Generos, "nombre");
+        $categorias = ArrayUtils::ObjectLinearString($audio->Categorias , "nombre");
+        
         $result= $result ."<div class='col-sm-6 col-md-4 col-lg-3 my-4'>
-                            <div class='card'>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>{$audio->titulo}</h5>
-                                    <p class='card-text'> Autor:  {$audio->Autores[0]->nombre}.<br>Genero: .<br>Categoria: Energia, Motivacional.<br>{$audio->usuario->nombre}<br></p>
-                                    <a href='#' class='btn btn-primary btn-block'>Reproducir</a>
+                                <div class='card'>
+                                    <div class='card-body'>
+                                        <h5 class='card-title'>{$audio->titulo}</h5>
+                                        <p class='card-text'> Autor:  {$autores}.<br>Generos: {$generos} .<br>Categoria: {$categorias}<br>{$audio->usuario->nombre}<br></p>
+                                        <a href='#' class='btn btn-primary btn-block'>Reproducir</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>";
+                            </div>";
         }
+        $result .="</div>";
         return $result;
     }
 
@@ -52,9 +57,12 @@
                                     </p> 
                                 </div>
                             </div>
-                        </div>
-                    </div>";
+                        </div>";
+                   
         }
+        $result .=  "</div>";
         return $result;
     }
+
+   
  }

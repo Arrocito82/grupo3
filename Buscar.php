@@ -7,15 +7,14 @@
 
 
     if(isset($_POST['f'])){
-        echo $_POST['f'];
-                
+                        
         $filtro =['titulo' =>  new \MongoDB\BSON\Regex(preg_quote($_POST['f']), 'i')];
         $options = ['limit' =>5];
         
         $canciones = AudioRepo::ObtenerAudiosFiltro($filtro ,$options);
         $autores = AutorRepo::ObtenerAutoresPorNombre($_POST['f'] , $options);
 
-        $htmlResult = SearchTable::renderHTMLSearchTable($canciones , $autores);
+        $htmlResult = SearchTable::renderHTMLSearchResultTable($canciones , $autores);
         
         echo $htmlResult->audios;
         echo $htmlResult->autores;
