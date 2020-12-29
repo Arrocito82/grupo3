@@ -3,12 +3,9 @@ namespace Repositories;
     use MongoDB\Client as Mongo;
     use Utils\DBConnection\DBConnection as Connection;
     use Models\Audio;
-    use Models\Autor;
-    use Models\Categoria;
-    use Models\Genero;
-   
+    
+    class AudioRepo{   
 
-    class AudioRepo{                   
         public static function CrearAudio(String $url , String $titulo , String $id_usuario , array $id_autor , array $id_categoria , array $id_genero){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Audio;

@@ -38,7 +38,7 @@
             return $Generos;
         }
 
-        public static function EliminarAutor(String $id){
+        public static function EliminarGenero(String $id){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Genero;
 
@@ -46,7 +46,7 @@
             return $deleteResult->getDeletedCount();            
         }
 
-        public static function ModificarAutor(String $id , String $nombre){
+        public static function ModificarGenero(String $id , String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Genero;
 

@@ -58,6 +58,7 @@
             return $updateResult->getModifiedCount();            
         }
 
+        
         public static function ObtenerCategorias($ids){
             $CategoriasResult = [];
             for($e = 0 ; $e < count($ids); $e++){
