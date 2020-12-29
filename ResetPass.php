@@ -4,22 +4,19 @@
 require "Components/header.php";
 
 use Utils\ResetPassword as Reset;
+use Components\Alert;
 
 
 
 if(isset($_POST['email'])){
     $result = Reset::SolicitarResetPass($_POST['email']);
-    if($result){
-        print('<div class="alert alert-success" role="alert">
-        Se ha enviado un correo de recuperacion
-            </div>');
-            header("refresh:3; index.php");
+    if($result){        
+        Alert::SimpleAlert("Se ha enviado un correo de recuperacion" , "alert alert-success");        
+        header("refresh:3; index.php");
         }
-    else{    
-    print('<div class="alert alert-danger" role="alert">
-    Correo Invalido
-        </div>');
-    }
+
+    Alert::SimpleAlert("Correo Invalido" , "alert alert-danger");           
+    
 }
     
 ?>

@@ -1,6 +1,7 @@
 <?php 
     require "Components/header.php";
     use Utils\ResetPassword as Reset;
+    
     if(!isset($_SESSION['userId'])){
         header("Location: index.php");
              
@@ -9,6 +10,7 @@
     if(isset($_POST['pass1']) & isset($_POST['pass2'])){
         $resultReset = Reset::ResetPass($_POST['pass1'] , $_SESSION['userId']);
         if($resultReset){
+            
             print('<div class="alert alert-success" role="alert">
             Se ha cambiado la contraseña exitosamente <a  class="btn btn-primary ml-4" href="/">Ir al inicio</a>
                 </div>');

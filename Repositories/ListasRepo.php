@@ -65,5 +65,14 @@ namespace Repositories;
             }
             return new Lista($result['_id'] , $result['nombre'] , $Audios);
         }
+
+        public static function ObtenerListasDeUsuario(String $idUsuario){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Usuario;
+
+            $result = $collection->findOne(['_id' => new ID($idUsuario)]);
+
+            return $result['listas'];            
+        }
     }
 ?>

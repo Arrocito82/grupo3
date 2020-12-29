@@ -65,5 +65,22 @@
             }
             return $AutorsResult;
         }
+
+        public static function ObtenerTodosAutores(){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Autor;
+
+            $result = $collection->find([]);
+
+
+            $AutorsResult = [];
+            for($i = 0 ; $i < count($result); $i++){
+                $autor = $result[$i];
+                array_push($AutorsResult ,  new Autor($autor['nombre'] , $autor['_id']));
+            }
+            return $AutorsResult;
+        }
+
+        
     }
 ?>
