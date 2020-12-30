@@ -20,7 +20,7 @@ namespace Repositories;
                 
             ]);
             
-            return $insertOneResult;  //->getInsertedId();
+            return $insertOneResult->getInsertedId();
         }
 
 
