@@ -7,12 +7,12 @@ class Audio{
     public $Categorias = array();
     public $Generos = array();
 
-    function __construct($_id, $url , $titulo , $usuario , $id_autor ,  $Categorias , $Generos){
+    function __construct($_id, $url , $titulo , $usuario , $Autores ,  $Categorias , $Generos){
         $this->_id =$_id;
         $this->url =$url;
         $this->titulo =$titulo;
         $this->usuario =$usuario;
-        $this->Autores =$id_autor;
+        $this->Autores =$Autores;
         $this->Categorias =$Categorias;
         $this->Generos =$Generos;
     }

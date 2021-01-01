@@ -4,6 +4,7 @@ namespace Repositories;
     use MongoDB\BSON\ObjectId as ID;
     use Utils\DBConnection\DBConnection as Connection;
     use Models\Lista;
+    use Models\SimpleLista;
    
 
     class ListasRepo{
@@ -64,6 +65,13 @@ namespace Repositories;
                 array_push($Audios , AudioRepo::ObtenerAudio($lista[$i]));
             }
             return new Lista($result['_id'] , $result['nombre'] , $Audios);
+        }
+        
+        public static function ObtenerSimpleLista(String $id){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Lista;
+            $result = $collection->findOne(['_id' => new ID($id) ]);
+            return new SimpleLista($result['_id'] , $result['nombre']);
         }
 
         // public static function ObtenerListasDeUsuario(String $idUsuario){

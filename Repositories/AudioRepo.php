@@ -11,13 +11,16 @@ namespace Repositories;
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Audio;
 
+            $autores=AutorRepo::ObtenerAutores($id_autor);
+            $categorias=CategoriaRepo::ObtenerCategorias($id_categoria);
+            $generos=GeneroRepo::ObtenerGeneros($id_genero);
             $insertOneResult = $collection->insertOne([
                 'url' => $url, 
                 'titulo' => $titulo,
                 'id_usuario' => $id_usuario,               
-                'id_autor' => $id_autor,
-                'id_categoria' => $id_categoria,
-                'id_genero' => $id_genero,
+                'autores' => $autores,
+                'categorias' => $categorias,
+                'generos' => $generos,
                 
             ]);
             
@@ -32,27 +35,20 @@ namespace Repositories;
 
             $Usuario = UsuarioRepo::ObtenerUsuario($audioResult['id_usuario']);
 
-            $AutorsResult = AutorRepo::ObtenerAutores($audioResult['id_autor']);
-            $CategoriasResult = CategoriaRepo::ObtenerCategorias($audioResult['id_categoria']);
-            $GenerosResult = GeneroRepo::ObtenerGeneros($audioResult['id_genero']);
+           
 
-            return new Audio( $audioResult['_id'] , $audioResult['url'] , $audioResult['titulo'] , $Usuario , $AutorsResult , $CategoriasResult , $GenerosResult);
+            return new Audio( $audioResult['_id'] , $audioResult['url'] , $audioResult['titulo'] , $Usuario , $audioResult['autores'] , $audioResult['categorias'] , $audioResult['generos']);
             
         }
-        //$filtro = array('id_categoria'=>'hola', 'fdfd' => 'dsds')
-        public static function ObtenerAudiosFiltro(array $filtro , array $opciones = []){
+        //AudioRepo::ObtenerAudiosFiltro(["categorias.id"=>['$in'=>['5fef8f1ab883756d8ad0d3c3']]]
+        public static function ObtenerAudiosFiltro(array $filtro , array $opciones = [],int $ultimo=0){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Audio;
 
             $result = $collection->find($filtro,$opciones)->toArray();
 
-            $AudiosResult = [];
-
-            for($i = 0 ; $i < count($result) ; $i++){
-                array_push($AudiosResult , AudioRepo::ObtenerAudio($result[$i]['_id']));
-            }
-
-            return $AudiosResult;
+            
+            return $result;
 
         }
         

@@ -33,5 +33,17 @@
             return $Usuario->listas;
 
         }
+        
+        public static function ObtenerSimpleListasUsuario(String $id){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Usuario;
+            $usuario = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
+            $Listas=[];
+            foreach ($usuario['listas'] as $lista) {
+                array_push($Listas,ListasRepo::ObtenerSimpleLista($lista));
+            }
+
+            return $Listas;
+        }
     }
 ?>
