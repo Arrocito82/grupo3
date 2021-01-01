@@ -1,5 +1,6 @@
 <?php 
 $title="Administrar Listas";
+use Repositories\ListasRepo;
 require "Components/header.php";
 require "Components/clases.php";
 
@@ -7,10 +8,11 @@ require "Components/clases.php";
 if(isset($_SESSION['id_usuario'])){
    $user=new Usuario($_SESSION['id_usuario']);
    $listas=$user->get_listas();
+   //$listas = ListasRepo::ObtenerListasDeUsuario($_SESSION['id_usuario']);
     
     
 
-   echo "<div class='contenido'>";
+echo "<div class='contenido'>";
 echo "<div class='container'>";
 
 
