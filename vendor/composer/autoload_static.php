@@ -76,6 +76,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
 
     public static $classMap = array (
         'Components\\Alert' => __DIR__ . '/../..' . '/Components/Alert.php',
+        'Components\\SearchTable' => __DIR__ . '/../..' . '/Components/SearchTable.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Jean85\\PrettyVersions' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/PrettyVersions.php',
         'Jean85\\Version' => __DIR__ . '/..' . '/jean85/pretty-package-versions/src/Version.php',
@@ -180,6 +181,7 @@ class ComposerStaticInit3f29db7f36a3d36b3a94f45d43a43e55
         'Repositories\\GeneroRepo' => __DIR__ . '/../..' . '/Repositories/GeneroRepo.php',
         'Repositories\\ListasRepo' => __DIR__ . '/../..' . '/Repositories/ListasRepo.php',
         'Repositories\\UsuarioRepo' => __DIR__ . '/../..' . '/Repositories/UsuarioRepo.php',
+        'Utils\\ArrayUtils\\ArrayUtils' => __DIR__ . '/../..' . '/Utils/ArrayUtils/ArrayUtils.php',
         'Utils\\DBConnection\\DBConnection' => __DIR__ . '/../..' . '/Utils/DBConnection/DBConnection.php',
         'Utils\\FilesAuth\\File' => __DIR__ . '/../..' . '/Utils/FilesAuth/File.php',
         'Utils\\IAuthentication' => __DIR__ . '/../..' . '/Utils/IAuthentication.php',

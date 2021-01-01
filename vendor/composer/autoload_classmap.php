@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Components\\Alert' => $baseDir . '/Components/Alert.php',
+    'Components\\SearchTable' => $baseDir . '/Components/SearchTable.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Jean85\\PrettyVersions' => $vendorDir . '/jean85/pretty-package-versions/src/PrettyVersions.php',
     'Jean85\\Version' => $vendorDir . '/jean85/pretty-package-versions/src/Version.php',
@@ -111,6 +112,7 @@ return array(
     'Repositories\\GeneroRepo' => $baseDir . '/Repositories/GeneroRepo.php',
     'Repositories\\ListasRepo' => $baseDir . '/Repositories/ListasRepo.php',
     'Repositories\\UsuarioRepo' => $baseDir . '/Repositories/UsuarioRepo.php',
+    'Utils\\ArrayUtils\\ArrayUtils' => $baseDir . '/Utils/ArrayUtils/ArrayUtils.php',
     'Utils\\DBConnection\\DBConnection' => $baseDir . '/Utils/DBConnection/DBConnection.php',
     'Utils\\FilesAuth\\File' => $baseDir . '/Utils/FilesAuth/File.php',
     'Utils\\IAuthentication' => $baseDir . '/Utils/IAuthentication.php',

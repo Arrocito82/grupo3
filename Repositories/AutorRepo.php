@@ -25,11 +25,11 @@
             $Autor = new Autor($autor['nombre'] , $autor['_id']);
             return $Autor;
         }
-        public static function ObtenerAutoresPorNombre(String $nombre){
+        public static function ObtenerAutoresPorNombre(String $nombre , array $options = []){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
             //$autores = $collection->find(array('nombre' =>  $nombre));
-            $autores = $collection->find(['nombre' =>  new \MongoDB\BSON\Regex('^Prueba', 'i')])->toArray();           
+            $autores = $collection->find(['nombre' =>  new \MongoDB\BSON\Regex('^'.$nombre, 'i')] , $options)->toArray();           
             $Autores = array(); 
             foreach ($autores as $autor) {
                 # code...
