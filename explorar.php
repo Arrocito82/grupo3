@@ -48,9 +48,11 @@ let cantidad=12;
 let json_resultado=<?php echo $json_resultado; ?>;
 let buscar="<?php echo $target;?>", limite=cantidad,ultimo=0,ultimo_target=0;
 let cargando = false;
-let dropDown,result;
+let result;
 
-
+function agregar_lista(id,audio){
+console.log(id,audio);
+}
 function dropDownMenu(){
     
                     var http = new XMLHttpRequest();
@@ -59,20 +61,7 @@ function dropDownMenu(){
                     http.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             result=JSON.parse(this.responseText);
-                            dropDown = `
-                            <div class="btn-group dropright btn-block">
-                                <button type="button" class="btn btn-primary">Agregar a Favoritos</button>
-                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu">`;
-                                for (let index = 0; index<result.length; index++) {
-                                    const element=result[index];
-                                    dropDown+=`<div class="dropdown-item" onclick='agregar_lista("${element._id},this")'>${element.nombre}</div>`; 
-                                    
-                                }
-                                
-                            dropDown +=`</div></div>`;
+                            
                         }}
 
                     http.open("POST", "Components/procesar.php", true);
@@ -96,9 +85,88 @@ function cargar(){
                         if (this.readyState == 4 && this.status == 200) {
 
                             audios=JSON.parse(this.responseText);
+                             audios.forEach(element => {
+                                let autores='',generos= '',categorias='';
+                                
+                                if(element.categorias){
+                                    categorias='Categorias:';
+                                    
+                                    for (let x = 0; x < (element.categorias).length; x++) {
+                                        
+                                        categorias+=` ${element.categorias[x].nombre}`;
+                                        if((element.categorias).length-1==x){
+                                            categorias+='.</br>';
+                                        }else{
+                                            categorias+=', ';
+                                        }
+                                    }
+                                    
+                                    
+                                } 
+                               if(element.generos){
+                                    generos='Generos:';
+                                    
+                                    for (let x = 0; x < (element.generos).length; x++) {
+                                        
+                                        generos+=` ${element.generos[x].nombre}`;
+                                        if((element.generos).length-1==x){
+                                            generos+='.</br>';
+                                        }else{
+                                            generos+=', ';
+                                        }
+                                    }
+                                    
+                                    
+                                } 
+                               if(element.autores){
+                                    autores='Autores:';
+                                    
+                                    for (let x = 0; x < (element.autores).length; x++) {
+                                        
+                                        autores+=` ${element.autores[x].nombre}`;
+                                        if((element.autores).length-1==x){
+                                            autores+='.</br>';
+                                        }else{
+                                            autores+=', ';
+                                        }
+                                    }
+                                    
+                                    
+                                } 
+                               
+                                let dropDown = `
+                            <div class="btn-group dropright btn-block">
+                                <button type="button" class="btn btn-primary">Agregar a Favoritos</button>
+                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">`;
+                                for (let index = 0; index<result.length; index++) {
+                                    const lista=result[index];
+                                    dropDown+=`<div class="dropdown-item" onclick="agregar_lista('${lista._id}','${(element._id).$oid}')">${lista.nombre}</div>`; 
+                                    
+                                }
+                                
+                            dropDown +=`</div></div>`;
+                                let audio=` 
+                                <div class="col-sm-6 col-md-4 col-lg-3 my-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${element.titulo}</h5>
+                                            <p class="card-text">
+                                                ${autores}
+                                                ${generos}
+                                                ${categorias}
+                                            </p>
+                                            <a href="#" class="btn btn-primary btn-block">Reproducir</a>
+                                            ${dropDown}
+                                        </div>
+                                    </div>
+                                </div>`;
+                                 
+                                 document.getElementById(destino).insertAdjacentHTML("beforeend",audio);
+                            });
                             
-                            document.getElementById(destino).insertAdjacentHTML("beforeend",
-                            audios );
              
                          
                         datos=document.querySelectorAll("#"+destino+" .col-sm-6.col-md-4.col-lg-3.my-4 .card").length;
@@ -107,7 +175,7 @@ function cargar(){
                             
                             
                             ultimo_target++;ultimo=0;limite=cantidad-datos%cantidad;
-                            console.log(ultimo_target);console.log(this.responseText);
+                            //console.log(ultimo_target);console.log(audios);
                             cargar(); 
                            
                         }
