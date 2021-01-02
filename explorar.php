@@ -61,7 +61,14 @@ function dropDownMenu(){
                     http.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             result=JSON.parse(this.responseText);
-                            
+                            cargar();
+                            window.addEventListener("scroll", function() {
+    
+                                if(document.documentElement.scrollHeight - document.documentElement.scrollTop === document.documentElement.clientHeight){
+                                cargar();
+                                }
+
+                            });
                         }}
 
                     http.open("POST", "Components/procesar.php", true);
@@ -191,16 +198,7 @@ function cargar(){
                     
         }
 }
-
-
-window.addEventListener("scroll", function() {
-    
-    if(document.documentElement.scrollHeight - document.documentElement.scrollTop === document.documentElement.clientHeight){
-      cargar();
-    }
-
-});
-dropDownMenu();cargar();
+dropDownMenu();
 
 </script>
     <?php }}             
