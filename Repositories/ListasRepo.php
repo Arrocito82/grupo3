@@ -11,10 +11,10 @@ namespace Repositories;
         public static function AgregarAudio(string $idLista , String $idAudio){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Lista;
-            
+            $audio=AudioRepo::ObtenerAudio($idAudio);
             $result = $collection->updateOne(
                 [ '_id' => new ID($idLista) ],
-                [ '$push' => [ 'lista' => $idAudio ]]
+                [ '$push' => [ 'lista' => $audio ]]
 
             );
             return $result->getModifiedCount();
@@ -37,7 +37,7 @@ namespace Repositories;
 
             $result = $collection->updateOne(
                 [ '_id' => new ID($idLista) ],
-                [ '$pull' => [ 'lista' => ['$in' => $idsAudio]]]
+                [ '$pull' => [ 'lista._id' => ['$in' => $idsAudio]]]
             );
             return $result;
         }  
@@ -59,12 +59,7 @@ namespace Repositories;
 
             $lista = $result['lista'];
 
-
-            $Audios = [];
-            for($i = 0 ; $i < count($lista) ; $i++){
-                array_push($Audios , AudioRepo::ObtenerAudio($lista[$i]));
-            }
-            return new Lista($result['_id'] , $result['nombre'] , $Audios);
+            return new Lista($result['_id'] , $result['nombre'] , $result['lista']);
         }
         
         public static function ObtenerSimpleLista(String $id){
