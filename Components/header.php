@@ -20,14 +20,26 @@ $flag = isset($User);
     
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
+    <!-- META CHARSET -->
     <meta charset="UTF-8">
+    <!-- META VIEWPORT -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="Escucha y descarga tus audios preferidos, ayuda que la comunidad crezca compartiendo las canciones 
+        que más te gustan, audio libros ó entrevistas que han sido de tu agrado.">
+    <!-- META KEYWORDS -->
+    <meta name="keywords" content="mp3, musica, audios, audio libros, entrevista, descargar audio, descargar musica, musica mp3">
+    <!-- META AUTHOR -->
+    <meta name="author" content="grupo 03 tpi">
+    <!-- TITLE -->
     <title>
         <?php echo $title ?>
     </title>
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/ico" href="public/icono/favicon_aud.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/estilo.css">
     <link rel="stylesheet" href="<?= $style ?>">
