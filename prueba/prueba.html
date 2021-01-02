@@ -10,6 +10,25 @@
     <p id="demo"></p>
 
     <script>
+        /*
+                function loadDoc() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("demo").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("POST", "lista.php", true);
+                    xhttp.setRequestHeader("Content-type", "application/json");
+                    xhttp.send(JSON.stringify([{
+                        "crud": "find"
+                    }, {
+                        "_id": {
+                            "$oid": "5fd82ef75dc3d1359c7686e0"
+                        }
+                    }]));
+                }*/
+
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -17,7 +36,7 @@
                     document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("POST", "lista.php", true);
+            xhttp.open("POST", "procesar.php", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(JSON.stringify([{
                 "crud": "find"
