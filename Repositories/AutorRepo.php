@@ -22,7 +22,7 @@
             $collection = $Client->grupo03->Autor;
             $autor = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
-            $Autor = new Autor($autor['nombre'] , $autor['_id']);
+            $Autor = new Autor($autor['nombre'] , $id);
             return $Autor;
         }
         public static function ObtenerAutoresPorNombre(String $nombre , array $options = []){
@@ -43,7 +43,7 @@
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
 
-            $deleteResult = $collection->deleteOne(['_id' =>  new MongoDB\BSON\ObjectId($id)]);
+            $deleteResult = $collection->deleteOne(['_id' =>  new \MongoDB\BSON\ObjectId($id)]);
             return $deleteResult->getDeletedCount();            
         }
 
@@ -52,7 +52,7 @@
             $collection = $Client->grupo03->Autor;
 
             $updateResult = $collection->updateOne(
-                ['_id' =>  new MongoDB\BSON\ObjectId($id)],
+                ['_id' =>  new \MongoDB\BSON\ObjectId($id)],
                 ['$set' => ['nombre' => $nombre]]
             );
             return $updateResult->getModifiedCount();            

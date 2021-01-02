@@ -23,7 +23,7 @@
             $collection = $Client->grupo03->Categoria;
             $categoria = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
-            $Categoria = new Categoria($categoria['nombre'] , $categoria['_id']);
+            $Categoria = new Categoria($categoria['nombre'] , $id);
             return $Categoria;
         }
         public static function ObtenerCategoriasPorNombre(String $nombre){
@@ -43,7 +43,7 @@
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Categoria;
 
-            $deleteResult = $collection->deleteOne(['_id' =>  new MongoDB\BSON\ObjectId($id)]);
+            $deleteResult = $collection->deleteOne(['_id' =>  new \MongoDB\BSON\ObjectId($id)]);
             return $deleteResult->getDeletedCount();            
         }
 
@@ -52,7 +52,7 @@
             $collection = $Client->grupo03->Categoria;
 
             $updateResult = $collection->updateOne(
-                ['_id' =>  new MongoDB\BSON\ObjectId($id)],
+                ['_id' =>  new \MongoDB\BSON\ObjectId($id)],
                 ['$set' => ['nombre' => $nombre]]
             );
             return $updateResult->getModifiedCount();            

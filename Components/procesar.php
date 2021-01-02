@@ -37,7 +37,7 @@ if(isset($_POST['id_usuario'])){
                     'limit' =>$limite
              ];
         $tmp=AudioRepo::ObtenerAudiosFiltro($query,$opciones);
-        $audios=[];
+        $audios=array();
         for ($i=$ultimo; $i <$limite&&$i<count($tmp) ; $i++) { 
             array_push($audios,$tmp[$i]);
         }

@@ -31,7 +31,7 @@ for ($i=25; $i < 30; $i++) {
 //        echo var_dump($k);
 //     }
 // }
-$limite=5;$target='categorias';$id_busqueda='5fef8f1ab883756d8ad0d3c3';
+$limite=5;$target='categorias';$id_busqueda='5fd82d8c80bef9c12bf514a2';
 $query=[
     $target.'.id'=>[
                         '$in'=>[$id_busqueda]
@@ -44,6 +44,7 @@ $opciones=[
      ];
 $tmp=AudioRepo::ObtenerAudiosFiltro($query,$opciones);
 echo var_dump(json_encode($tmp));
+// echo var_dump(AudioRepo::ModificarAudio('5fdbf689b1308b21b0445556'));
 
 
 ?>

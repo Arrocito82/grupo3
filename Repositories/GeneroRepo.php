@@ -22,7 +22,7 @@
             $collection = $Client->grupo03->Genero;
             $genero = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
-            $Genero = new Genero($genero['nombre'] , $genero['_id']);
+            $Genero = new Genero($genero['nombre'] ,$id);
             return $Genero;
         }
         public static function ObtenerGenerosPorNombre(String $nombre){

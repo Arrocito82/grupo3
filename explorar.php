@@ -13,16 +13,16 @@ if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="gen
 
 
     if($_GET['buscar']=="categorias"){
-        //$consulta=CategoriaRepo::ObtenerTodasCategorias();
-        $consulta=CategoriaRepo::ObtenerCategorias(['5fef8f1ab883756d8ad0d3c3','5fdbd81ba2aa16d0b4bc65f6']);
+        $consulta=CategoriaRepo::ObtenerTodasCategorias();
+        
     }else if($_GET['buscar']=="generos"){
         $consulta=GeneroRepo::ObtenerTodosGeneros(); 
     }else if($_GET['buscar']=="autores"){
         $consulta=AutorRepo::ObtenerTodosAutores();
     }
     $target=$_GET['buscar'];
-    $resultado = $consulta;
-    $json_resultado=json_encode($resultado);
+    
+    $json_resultado=json_encode($consulta);
    
     
     
@@ -49,7 +49,7 @@ let json_resultado=<?php echo $json_resultado; ?>;
 let buscar="<?php echo $target;?>", limite=cantidad,ultimo=0,ultimo_target=0;
 let cargando = false;
 let dropDown,result;
-console.log(json_resultado);
+
 
 function dropDownMenu(){
     
@@ -59,6 +59,20 @@ function dropDownMenu(){
                     http.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             result=JSON.parse(this.responseText);
+                            dropDown = `
+                            <div class="btn-group dropright btn-block">
+                                <button type="button" class="btn btn-primary">Agregar a Favoritos</button>
+                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">`;
+                                for (let index = 0; index<result.length; index++) {
+                                    const element=result[index];
+                                    dropDown+=`<div class="dropdown-item" onclick='agregar_lista("${element._id},this")'>${element.nombre}</div>`; 
+                                    
+                                }
+                                
+                            dropDown +=`</div></div>`;
                         }}
 
                     http.open("POST", "Components/procesar.php", true);
@@ -68,7 +82,7 @@ function dropDownMenu(){
                     
         }
 
-dropDownMenu();
+
 
 function cargar(){
     
@@ -81,31 +95,20 @@ function cargar(){
                     http.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
 
-                            audios=this.responseText;
-                            dropDown = `
-                            <div class="btn-group dropright btn-block">
-                                <button type="button" class="btn btn-primary">Agregar a Favoritos</button>
-                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu">`;
-                                for (let index = 0; index<result.length; index++) {
-                                    const element=result[index];
-                                    dropDown+=`<div class="dropdown-item" onclick='agregar_lista("${element._id}")'>${element.nombre}</div>`; 
-                                    
-                                }
-                                
-                            dropDown +=`</div></div>`;
+                            audios=JSON.parse(this.responseText);
+                            
                             document.getElementById(destino).insertAdjacentHTML("beforeend",
                             audios );
              
                          
                         datos=document.querySelectorAll("#"+destino+" .col-sm-6.col-md-4.col-lg-3.my-4 .card").length;
-                        if(datos%cantidad!=0||(this.responseText)=="[]"){
-                           
+                        
+                        if(datos%cantidad!=0||audios.length==0){
+                            
                             
                             ultimo_target++;ultimo=0;limite=cantidad-datos%cantidad;
-                            cargar();
+                            console.log(ultimo_target);console.log(this.responseText);
+                            cargar(); 
                            
                         }
                         }
@@ -121,7 +124,7 @@ function cargar(){
         }
 }
 
-cargar();
+
 window.addEventListener("scroll", function() {
     
     if(document.documentElement.scrollHeight - document.documentElement.scrollTop === document.documentElement.clientHeight){
@@ -129,7 +132,7 @@ window.addEventListener("scroll", function() {
     }
 
 });
-
+dropDownMenu();cargar();
 
 </script>
     <?php }}             
