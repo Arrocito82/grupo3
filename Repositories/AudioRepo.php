@@ -44,7 +44,7 @@ use MongoDB\Client as Mongo;
             
         }
         //AudioRepo::ObtenerAudiosFiltro(["categorias.id"=>['$in'=>['5fef8f1ab883756d8ad0d3c3']]]
-        public static function ObtenerAudiosFiltro(array $filtro , array $opciones = [],int $ultimo=0){
+        public static function ObtenerAudiosFiltro(array $filtro , array $opciones = []){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Audio;
 

@@ -50,8 +50,22 @@ let buscar="<?php echo $target;?>", limite=cantidad,ultimo=0,ultimo_target=0;
 let cargando = false;
 let result;
 
-function agregar_lista(id,audio){
-console.log(id,audio);
+function agregar_lista(id_lista,id_audio){
+    var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                   
+                    // console.log(JSON.parse(this.responseText));
+                   console.log(this.responseText);
+                    
+                }
+            };
+            xhttp.open("POST", "crud_lista.php", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify({"crud":"add",
+                                        "lista_id":id_lista,
+                                        "audio_id":id_audio
+                                        }));      
 }
 function dropDownMenu(){
     

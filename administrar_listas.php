@@ -1,14 +1,13 @@
 <?php 
 $title="Administrar Listas";
-use Repositories\ListasRepo;
+use Repositories\UsuarioRepo;
 require "Components/header.php";
 require "Components/clases.php";
 
 
 if(isset($_SESSION['id_usuario'])){
-   $user=new Usuario($_SESSION['id_usuario']);
-   $listas=$user->get_listas();
-   //$listas = ListasRepo::ObtenerListasDeUsuario($_SESSION['id_usuario']);
+   
+   $listas = UsuarioRepo::ObtenerSimpleListasUsuario($_SESSION['id_usuario']);
     
     
 
@@ -21,7 +20,7 @@ echo '<div class="row">
             <div class="list-group col-4">';
             for ($i=0; $i < count($listas) ; $i++) {
                 echo '<button type="button" class="list-group-item list-group-item-action lista-nombre-item" 
-                onclick="fetchLista(\''.$listas[$i]->get_id().'\')">'.$listas[$i]->get_nombre().'</button>';
+                onclick="fetchLista(\''.$listas[$i]->_id.'\')">'.$listas[$i]->nombre.'</button>';
             
             }
          
@@ -46,21 +45,23 @@ echo '<div class="row">
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                    
-
+                    // console.log(JSON.parse(this.responseText));
                    let result = JSON.parse(this.responseText);
                     draggable_list.innerHTML="";
                     lista_activa=[];
+                    console.log(result.audios[0]);
                     for (let index = 0; index < (result.audios).length; index++) {
                         let listItem=document.createElement('li');
                         const element = result.audios[index];
+                        
                         listItem.setAttribute('data-index', index);
-                        listItem.setAttribute('id', element.id);
+                        //listItem.setAttribute('id', element.id);
                         
                         
                         listItem.innerHTML = `
                         <span class="number bg-light" >${index + 1}</span>
                         <div draggable="true" class="draggable" >
-                            <p>${element.titulo}</p>
+                            <p>${element.nombre}</p>
                             <i class="fas fa-grip-lines"></i>
                         </div>`;
                         lista_activa.push(listItem);
@@ -69,13 +70,11 @@ echo '<div class="row">
                     addEventListeners();
                 }
             };
-            xhttp.open("POST", "lista.php", true);
+            xhttp.open("POST", "crud_lista.php", true);
             xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.send(JSON.stringify([{"crud":"find"},{
-                "_id": {
-                    "$oid": id_lista
-                }
-            }]));
+            xhttp.send(JSON.stringify({"crud":"find",
+                                        "lista_id":id_lista
+                                        }));            
         }
         function dragStart() {
             index=this.closest('li').getAttribute('data-index');
