@@ -6,8 +6,8 @@
     if($_GET['hjsd']!="ghdsnd4456sxbas")
         header("Location: index.php");
         
-    
-    $salida = shell_exec("git pull");
-    
+
+    $salida = system("git pull");
+    echo $salida;
     echo Alert::SimpleAlert($salida , "alert alert-success");
 ?>
