@@ -7,7 +7,7 @@
         header("Location: index.php");
         
 
-    $salida = system("git pull");
+    //$salida = system("git pull");
     //echo $salida;
-    echo Alert::SimpleAlert($salida , "alert alert-success");
+    echo Alert::SimpleAlert(system("git pull") , "alert alert-success");
 ?>
