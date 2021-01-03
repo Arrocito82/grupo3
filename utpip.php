@@ -4,5 +4,5 @@
     if($_GET['hjsd']!="ghdsnd4456sxbas")
         header("Location: index.php");
     
-        echo exec("git pull");
+        echo exec("./update.sh");
 ?>
