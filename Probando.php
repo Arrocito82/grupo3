@@ -8,9 +8,9 @@ use Repositories\ListasRepo;
 //require "Components/header.php";
 require 'vendor/autoload.php' ;
 
-echo "<br>";
-$id_busqueda='5fd6b9634a120000b90015a3';
-$query=['id_categoria'=>['$in'=>[$id_busqueda]]];
+// echo "<br>";
+// $id_busqueda='5fd6b9634a120000b90015a3';
+// $query=['id_categoria'=>['$in'=>[$id_busqueda]]];
 /*
 for ($i=25; $i < 30; $i++) { 
     $audio=AudioRepo::CrearAudio(
@@ -29,24 +29,29 @@ for ($i=25; $i < 30; $i++) {
 //     $value=$key['categorias'];
 //     foreach ($value as $k) {
 //        echo var_dump($k);
-//     }
-// }
-$limite=5;$target='categorias';$id_busqueda='5fd82d8c80bef9c12bf514a2';
-$query=[
-    $target.'.id'=>[
-                        '$in'=>[$id_busqueda]
-                    ]    
-    ];
+// //     }
+// // }
+// $limite=5;$target='categorias';$id_busqueda='5fd82d8c80bef9c12bf514a2';
+// $query=[
+//     $target.'.id'=>[
+//                         '$in'=>[$id_busqueda]
+//                     ]    
+//     ];
 
 
-$opciones=[
-            'limit' =>$limite
-     ];
-$tmp=AudioRepo::ObtenerAudiosFiltro($query,$opciones);
-echo var_dump(json_encode($tmp));
-// echo var_dump(AudioRepo::ModificarAudio('5fdbf689b1308b21b0445556'));
+// $opciones=[
+//             'limit' =>$limite
+//      ];
+// $tmp=AudioRepo::ObtenerAudiosFiltro($query,$opciones);
+// echo var_dump(json_encode($tmp));
+// // echo var_dump(AudioRepo::ModificarAudio('5fdbf689b1308b21b0445556'));
 
-
+// echo ListasRepo::EliminarListas();
+$lista_ids=['5fd82e705dc3d1359c7686de','5fdbea5cb1308b21b0445550','5fdabbe7dadf4cce4bb621b3'];
+$result=AudioRepo::ObtenerSimpleAudios($lista_ids);
+foreach($result as $r) {
+    var_dump($r);
+ };
 ?>
 
 

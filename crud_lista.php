@@ -1,6 +1,8 @@
 <?php
 
 require 'vendor/autoload.php';
+
+use Repositories\AudioRepo;
 use Repositories\ListasRepo;
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -31,22 +33,27 @@ estructura del json
 
 
 //si crud es igual a find se retorna la lista 
-
+        $lista_id=$data['lista_id'];
     
         if($crud=='find'){
                 //siempre retorna la lista actualizada
-                $lista_id=$data['lista_id'];
-                $lista=ListasRepo::ObtenerLista($lista_id);
-                echo json_encode($lista);
-        }else if($crud=='delete'){
-                //eliminar el audio
                 
+                $lista=ListasRepo::ObtenerLista($lista_id);
+                // echo json_encode($lista);
+                echo var_dump($lista) ;
+        }else if($crud=='delete'){
+               
+            $modified= ListasRepo::EliminarAudios($lista_id,$data['audios_id']);
+            echo $modified;
         }else if($crud=='update'){
 
-            //sobreescribir la lista, viene en formato json
+            
+            $modified= ListasRepo::ModificarLista($lista_id,$data['audios_id']);
+            echo $modified;
+            
         }else if($crud=='add'){
 
-            $modified=ListasRepo::AgregarAudio($data['lista_id'],$data['audio_id']);
+            $modified=ListasRepo::AgregarAudio($lista_id,$data['audio_id']);
             echo $modified;
         }
 
