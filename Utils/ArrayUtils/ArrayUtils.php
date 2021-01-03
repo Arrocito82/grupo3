@@ -5,14 +5,18 @@
       /**
      * Retorna la suma de las propiedades de un Array de Objetos, especificando el array y la propiedad a sumar
      */
-    private static function ObjectLinearString($array , $key){
+    public static function ObjectLinearString($array , $key){
         $result = "";
-        foreach ($array as $element) {
+        for ($i=0 ; $i<count($array) ; $i++) {
             # code...
-           $result .= " {$element->{$key}}," ; 
+            $element = $array[$i];
+            $result .= " {$element->{$key}}";
+            if($i<count($array)-1)
+                $result .= ", "; 
         }
         
         return $result;
     }
+    
  }
 ?>

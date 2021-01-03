@@ -12,8 +12,9 @@
         $options = ['limit' =>5];
         
         $canciones = AudioRepo::ObtenerAudiosFiltro($filtro ,$options);
+        //var_dump($canciones[0]);
         $autores = AutorRepo::ObtenerAutoresPorNombre($_POST['f'] , $options);
-
+        //var_dump($autores);
         $htmlResult = SearchTable::renderHTMLSearchResultTable($canciones , $autores);
         
         echo $htmlResult->audios;

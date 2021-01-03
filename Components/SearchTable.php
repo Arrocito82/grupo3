@@ -1,6 +1,10 @@
 <?php
  namespace Components;
  use Utils\ArrayUtils\ArrayUtils;
+ use Repositories\AutorRepo;
+ use Repositories\GeneroRepo;
+ use Repositories\CategoriaRepo;
+ use Repositories\UsuarioRepo;
 
  class SearchTable{
 
@@ -20,15 +24,16 @@
                         </div>';
 
         foreach ($Audios as $audio) {
-        $autores = ArrayUtils::ObjectLinearString($audio->Autores, "nombre");
-        $generos = ArrayUtils::ObjectLinearString($audio->Generos, "nombre");
-        $categorias = ArrayUtils::ObjectLinearString($audio->Categorias , "nombre");
+        $usuario = UsuarioRepo::ObtenerUsuario($audio->id_usuario);
+        $autores = ArrayUtils::ObjectLinearString($audio->autores, "nombre");
+        $generos = ArrayUtils::ObjectLinearString($audio->generos, "nombre");
+        $categorias = ArrayUtils::ObjectLinearString($audio->categorias , "nombre");
         
         $result= $result ."<div class='col-sm-6 col-md-4 col-lg-3 my-4'>
                                 <div class='card'>
                                     <div class='card-body'>
                                         <h5 class='card-title'>{$audio->titulo}</h5>
-                                        <p class='card-text'> Autor:  {$autores}.<br>Generos: {$generos} .<br>Categoria: {$categorias}<br>{$audio->usuario->nombre}<br></p>
+                                        <p class='card-text'> Autor:  {$autores}<br>Generos: {$generos} <br>Categoria: {$categorias}<br>Usuario: {$usuario->nombre}<br></p>
                                         <a href='#' class='btn btn-primary btn-block'>Reproducir</a>
                                     </div>
                                 </div>
@@ -62,7 +67,7 @@
         }
         $result .=  "</div>";
         return $result;
-    }
+    }    
 
    
  }
