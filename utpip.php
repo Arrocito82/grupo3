@@ -8,6 +8,6 @@
         
 
     $salida = system("git pull");
-    echo $salida;
+    //echo $salida;
     echo Alert::SimpleAlert($salida , "alert alert-success");
 ?>
