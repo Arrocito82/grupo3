@@ -1,12 +1,12 @@
 <?php 
-    
     use Components\Alert;
-    require 'Components\header.php';
+    require 'Components/header.php';
     if(!isset($_GET['hjsd']))
         header("Location: index.php");
     if($_GET['hjsd']!="ghdsnd4456sxbas")
         header("Location: index.php");
-
-    $salida = shell_exec("git pull");    
+        
+    $salida = shell_exec("git pull");
+    
     echo Alert::SimpleAlert($salida , "alert alert-success");
 ?>
