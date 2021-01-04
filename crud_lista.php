@@ -36,11 +36,11 @@ estructura del json
         $lista_id=$data['lista_id'];
     
         if($crud=='find'){
-                //siempre retorna la lista actualizada
+               
                 
                 $lista=ListasRepo::ObtenerLista($lista_id);
-                // echo json_encode($lista);
-                echo var_dump($lista) ;
+                echo json_encode($lista);
+                
         }else if($crud=='delete'){
                
             $modified= ListasRepo::EliminarAudios($lista_id,$data['audios_id']);
@@ -50,6 +50,8 @@ estructura del json
             
             $modified= ListasRepo::ModificarLista($lista_id,$data['audios_id']);
             echo $modified;
+                
+               
             
         }else if($crud=='add'){
 
