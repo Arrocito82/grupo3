@@ -27,7 +27,8 @@ estructura del json
  {
  'crud':'update',
  'lista_id':'**********',
- 'audios_id':['audio1_id','audio2_id']
+ 'fuente_id':'audio1_id',
+ 'destino':'5'
  }
  */
 
@@ -48,7 +49,7 @@ estructura del json
         }else if($crud=='update'){
 
             
-            $modified= ListasRepo::ModificarLista($lista_id,$data['audios_id']);
+            $modified= ListasRepo::ModificarLista($lista_id,$data['fuente_id'],$data['destino']);
             echo $modified;
                 
                

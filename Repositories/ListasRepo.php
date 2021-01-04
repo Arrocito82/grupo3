@@ -32,15 +32,26 @@ use Models\SimpleLista;
             return $result->getModifiedCount();
         }
         
-        public static function ModificarLista(string $idLista,array $lista_ids){
+        public static function ModificarLista(string $idLista,string $fuente_id,int $destino){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Lista;
-            $lista=AudioRepo::ObtenerSimpleAudios($lista_ids);
+
+            $tmp=$collection->updateOne(['_id' => new ID($idLista)],
+            [ '$pull' => [ 'lista' => ['_id'=>['$in' =>[ $fuente_id]]]]]);
+            $fuente=AudioRepo::ObtenerSimpleAudio($fuente_id);
             $result = $collection->updateOne(
                 ['_id' => new ID($idLista)],
-                ['$set' => ['lista' => $lista]]
+                ['$push'=> [
+                    'lista'=> [
+                       '$each'=> [$fuente],
+                       '$position'=> $destino
+                       ]
+                       ]
+                    
+                ]
             );
             return $result->getModifiedCount();
+           
         }
         public static function EliminarListas(){
             $Client = new Mongo(Connection::getConnectionString());

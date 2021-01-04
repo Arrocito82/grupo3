@@ -31,17 +31,14 @@ echo '      <div class="row">
                 echo '</div>
                 <div class="col-8" >
 
-                <div class="scroll overflow-auto border border-secondary rounded-sm" style="max-height:65vh;">
-                    <ul class="draggable-list m-0"  id="draggable-list"></ul>
+                    <div class="scroll overflow-auto " style="max-height:65vh;" id="scroll_box">
+                        <p id="mensaje" class="text-muted">Lista Vacia.</p>
+                        <ul class="draggable-list m-0"  id="draggable-list"></ul>
+                    </div>
+                    <div class="d-flex flex-row-reverse" id="controles">
+                    </div>
                 </div>
-                <div class="d-flex flex-row-reverse">
-                    <button onclick="actualizar()" type="button" class="btn btn-outline-success my-2 ">Actualizar</button>
-                    <button type="button" class="btn btn-outline-danger my-2 mr-1" onclick="eliminar()">Eliminar</button>
-                    <button type="button" class="btn btn-outline-secondary my-2 mr-1" onclick="reset()">Cancelar</button>
-                    
-                </div>
-                </div>
-        </div>';
+            </div>';
 
 
 
@@ -49,9 +46,9 @@ echo '      <div class="row">
     
     <script>
         let lista_activa=[];
-        let fuente,destino,current_list;
+        let fuente_id,current_list,index,end_index;
         const draggable_list = document.getElementById('draggable-list');
-
+        const p= document.querySelector('#scroll_box p');
         
         function fetchLista(id_lista){
             current_list=id_lista;
@@ -62,25 +59,39 @@ echo '      <div class="row">
                     // console.log(JSON.parse(this.responseText));
                    let result = JSON.parse(this.responseText);
                     draggable_list.innerHTML="";
-                    
-                    
-                    for (let index = 0; index < result.length; index++) {
-                        let listItem=document.createElement('li');
-                        const element = result[index];
-                        
-                        listItem.setAttribute('data-index', index);
-                        listItem.setAttribute('draggable', true);
-                        
-                        listItem.classList.add('text-left');
-                        listItem.id=`${element._id}`;
-                        listItem.innerHTML = `
-                            <input type="checkbox"  id="delete_ids" value="${element._id}" style="margin:1.5rem 0 1.5rem 1rem;">
-                            <div class="draggable">
-                                <p>${element.titulo}</p>
-                                <i class="fas fa-grip-lines"></i>
-                            </div>`;
-                        
-                        draggable_list.appendChild(listItem);                
+                    p.style.display='none';
+                    if(result.length>0){
+                            for (let e = 0; e < result.length; e++) {
+                                let listItem=document.createElement('li');
+                                const element = result[e];
+                                
+                                listItem.setAttribute('data-e', e);
+                                listItem.setAttribute('draggable', true);
+                                
+                                listItem.classList.add('text-left');
+                                listItem.id=`${element._id}`;
+                                listItem.innerHTML = `
+                                    <input type="checkbox"  id="delete_ids" value="${element._id}" style="margin:1.5rem 0 1.5rem 1rem;">
+                                    <div class="draggable">
+                                        <p>${element.titulo}</p>
+                                        <i class="fas fa-grip-lines"></i>
+                                    </div>`;
+                                
+                                draggable_list.appendChild(listItem);                
+                            }
+                            
+                            document.getElementById('controles').innerHTML=`<button type="button" class="btn btn-outline-danger my-2 mr-1" onclick="eliminar()">Eliminar</button>
+                            <button type="button" class="btn btn-outline-secondary my-2 mr-1" onclick="reset()">Cancelar</button>`;
+                            document.getElementById('scroll_box').classList.add('border');
+                            document.getElementById('scroll_box').classList.add('border-secondary');
+                            document.getElementById('scroll_box').classList.add('rounded-sm');
+                            
+                    }else{
+                        document.getElementById('controles').innerHTML='';
+                        p.style.display='block';
+                        document.getElementById('scroll_box').classList.remove('border');
+                        document.getElementById('scroll_box').classList.remove('border-secondary');
+                        document.getElementById('scroll_box').classList.remove('rounded-sm');
                     }
                     addEventListeners();
                 }
@@ -97,23 +108,19 @@ echo '      <div class="row">
         }
 
         function actualizar() {
-            var xhttp = new XMLHttpRequest();
-            var list_aux = document.querySelectorAll("#draggable-list li");
-            let ids_lista=[];
+            let xhttp = new XMLHttpRequest();
             
-            for (let index = 0; index < list_aux.length; index++) {
-                const element = list_aux[index];
-                ids_lista[index]=element.getAttribute('id');
-            }
             let consulta=JSON.stringify({
                 "crud": "update",
                 'lista_id': current_list,
-                'audios_id':ids_lista
+                'fuente_id':fuente_id,
+                'destino':end_index
             });
             
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText);
+                    
                 }
             };
 
@@ -124,8 +131,8 @@ echo '      <div class="row">
             xhttp.send(consulta);
         } 
         function eliminar() {
-            var xhttp = new XMLHttpRequest();
-            var list_aux = document.querySelectorAll("#delete_ids");
+            let xhttp = new XMLHttpRequest();
+            let list_aux = document.querySelectorAll("#delete_ids");
             let ids_lista=[];
             
             list_aux.forEach(element => {
@@ -156,7 +163,8 @@ echo '      <div class="row">
         }
         function dragStart() {
             index=+this.closest('li').getAttribute('data-index');
-            
+            fuente_id=this.closest('li').getAttribute('id');
+            console.log(fuente_id);
         }
 
 
@@ -178,22 +186,23 @@ echo '      <div class="row">
             this.classList.remove('over');
             this.classList.remove('drag');
             end_index=+this.closest('li').getAttribute('data-index');
-            
             mover();
+            actualizar();
+            
             
         }
 
         function mover(){
 
-            var list = document.querySelector("#draggable-list");
+            let list = document.querySelector("#draggable-list");
          
             list.insertBefore(list.childNodes[index], list.childNodes[end_index]);
             
             
-            var list_aux = document.querySelectorAll("#draggable-list li");
+            let list_aux = document.querySelectorAll("#draggable-list li");
             
             for (let i = 0; i < list_aux.length; i++) {
-                var attr = document.createAttribute("data-index");
+                let attr = document.createAttribute("data-index");
                 attr.value =i;
                 list_aux [i].removeAttribute("data-index");;
                 list_aux [i].setAttributeNode(attr);
