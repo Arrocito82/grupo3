@@ -232,7 +232,12 @@ echo '      <div class="row">
 
         let list = document.querySelector("#draggable-list");
 
-        list.insertBefore(list.childNodes[index], list.childNodes[end_index]);
+        if(end_index<index){
+            list.insertBefore(list.childNodes[index], list.childNodes[end_index]);
+        }else if(end_index>index){
+            list.insertBefore(list.childNodes[index], list.childNodes[++end_index]);
+        }
+        
 
 
         let list_aux = document.querySelectorAll("#draggable-list li");
