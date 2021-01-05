@@ -47,22 +47,22 @@ estructura del json
         }else if($crud=='recuperar'){
                
                 
-                $lista=AudioRepo::ObtenerAudio($data['audio_id']);
+                $lista=AudioRepo::ObtenerAudioURL($data['audio_id']);
                 echo json_encode($lista);
         }else if($crud=='delete'){
                
             $modified= AudioRepo::EliminarAudio($data['audio_id']);
             echo $modified;
-        }
-        //else if($crud=='update'){
+        }else if($crud=='update'){
 
             
-        //     $modified= ListasRepo::ModificarLista($lista_id,$data['fuente_id'],$data['destino']);
-        //     echo $modified;
+            $modified= AudioRepo::ModificarAudio($data['audio_id'],$data['titulo']);
+            echo $modified;
                 
                
             
-        // }else if($crud=='add'){
+        }
+        //else if($crud=='add'){
 
         //     $modified=ListasRepo::AgregarAudio($lista_id,$data['audio_id']);
         //     echo $modified;

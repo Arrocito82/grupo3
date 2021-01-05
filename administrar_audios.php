@@ -20,8 +20,33 @@ echo "  <div class='container'>
       </div>";
             
 }?>
+<div class="modal fade" id="modificar_audio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="current_titulo"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="new_titulo" class="col-form-label">Titulo:</label>
+                            <input type="text" class="form-control" id="new_titulo">
+                        </div>
 
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="modificar();">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
+    let modificar_id, modificar_titulo;
       let id_usuario='<?php echo $_SESSION['id_usuario']?>';
       function update_mesaje() {
             document.getElementById('scroll_box').insertAdjacentHTML('afterend', `
@@ -74,7 +99,7 @@ echo "  <div class='container'>
                         <div class="d-flex flex-row-reverse bd-highlight">
                         
                         <button type="button" class="btn btn-danger " onclick="eliminar('${element._id.$oid}')">Eliminar</button>
-                        <button type="button" class="btn btn-success mr-1" onclick="modificar('${element._id.$oid}')">Modificar</button>
+                        <button type="button" class="btn btn-success mr-1" onclick="mostrar('${element._id.$oid}','${element.titulo}')">Modificar</button>
                         <button type="button" class="btn btn-primary mr-1" onclick="reproducir('${element._id.$oid}')">Reproducir</button>
                         </div></li>`);
                     });
@@ -90,6 +115,40 @@ echo "  <div class='container'>
             }));
             
       }
+      function mostrar(id,titulo) {
+            modificar_id=id;
+            modificar_titulo=titulo;
+            document.getElementById('new_titulo').value=titulo;
+            document.getElementById('current_titulo').innerText=titulo;
+            $('#modificar_audio').modal('toggle');
+        }
+      function modificar() {
+        $('#modificar_audio').modal('hide');
+        let new_titulo=document.getElementById('new_titulo').value;
+            consulta = JSON.stringify({
+                'crud': 'update',
+                'audio_id': modificar_id,
+                'titulo':new_titulo,
+
+            });
+            
+            let xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    result =+this.responseText;
+                    if(result>0){
+                        cargar();
+                        update_mesaje();
+                    }
+                   
+                }
+            };
+            xhttp.open("POST", "crud_audio.php", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(consulta);
+        }
+
       function reproducir( id) {
         $('.alert').alert('close');
             let xhttp = new XMLHttpRequest();
@@ -105,10 +164,10 @@ echo "  <div class='container'>
                   
                   <div class="d-flex justify-content-center">
                         <audio controls>
-                        <source src="${result.url}" type="audio/ogg">
-                        <source src="${result.url}" type="audio/mpeg">
+                        <source src="${result[0]}" type="audio/ogg">
+                        <source src="${result[0]}" type="audio/mpeg">
                         Your browser does not support the audio element.
-                        </audio><h5 class="my-auto ml-5 d-inline-block" >${result.titulo}</h5>
+                        </audio><h5 class="my-auto ml-5 d-inline-block" >${result[1]}</h5>
                   </div>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>

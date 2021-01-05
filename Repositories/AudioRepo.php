@@ -68,6 +68,13 @@ class AudioRepo{
             return new Audio( $audioResult['_id'] , $audioResult['url'] , $audioResult['titulo'] , $Usuario , $audioResult['autores'] , $audioResult['categorias'] , $audioResult['generos']);
             
         }
+        public static function ObtenerAudioURL(String $id){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Audio;
+            $audioResult = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
+            return array($audioResult['url'],$audioResult['titulo']);
+            
+        }
         public static function ObtenerSimpleAudio(String $id){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Audio;
