@@ -28,7 +28,7 @@ if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="gen
     
    echo '<div class="container contenido">'; 
    
-    echo"<h1>".$target."</h1>"; 
+    echo"<h1>".ucfirst($target)."</h1>"; 
    
     $destino="audios";
     echo '<div class="row" id="'.$destino.'"></div></div>'; 
