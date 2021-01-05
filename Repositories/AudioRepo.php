@@ -30,7 +30,25 @@ class AudioRepo{
             
             return $insertOneResult->getInsertedId();
         }
+        
+        public static function EliminarAudio(String $id){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Audio;
 
+            $deleteResult = $collection->deleteOne(['_id' =>  new \MongoDB\BSON\ObjectId($id)]);
+            return $deleteResult->getDeletedCount();            
+        }
+
+        public static function ModificarAudio(String $id , String $titulo){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Audio;
+
+            $updateResult = $collection->updateOne(
+                ['_id' =>  new \MongoDB\BSON\ObjectId($id)],
+                ['$set' => ['titulo' => $titulo]]
+            );
+            return $updateResult->getModifiedCount();            
+        }
 
         public static function ObtenerAudio(String $id){
             $Client = new Mongo(Connection::getConnectionString());
