@@ -47,7 +47,7 @@ function introducirElemento(tabla , cuerpoString , nombreArray){
     var cuerpo = row.insertCell(0);        
     cuerpo.scope = 'row';
     if(cuerpoString.length > 12)
-        cuerpoString = cuerpoString.substr(0,10)+ "..";
+        cuerpoString = cuerpoString.substr(0,9)+ "..";
     
     cuerpo.innerHTML = cuerpoString + "<i class='icono-close ml-5 fas fa-times' onclick='deleteRow(event,"+nombreArray+")'></i>";
 }

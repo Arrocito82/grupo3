@@ -39,6 +39,6 @@
     font-size: 1.5rem;
 
 }
-#upPreview table{
-    width: 100%;
+#tablaAutores , #tablaGeneros , #tablaCategorias{
+    width: 360px !important;
 }

@@ -94,7 +94,7 @@ if (isset($_SESSION['id_usuario'])){
         </div>
         <div class="card-body">
             <div class="" id="UpPreview">
-                <div class="autores">
+                <div class="autores overflow-auto">
                     <table id="tablaAutores" class="">
                         <thead class="text-center">
                             <tr>
@@ -106,7 +106,7 @@ if (isset($_SESSION['id_usuario'])){
                         </tbody>
                     </table>
                 </div>
-                <div class="categorias">
+                <div class="categorias overflow-auto">
                     <table id="tablaCategorias" class="">
                         <thead class="text-center">
                             <tr>
@@ -118,7 +118,7 @@ if (isset($_SESSION['id_usuario'])){
                         </tbody>
                     </table>
                 </div>
-                <div class="generos">
+                <div class="generos overflow-auto">
                     <table id="tablaGeneros" class="">
                         <thead class="text-center">
                             <tr>
