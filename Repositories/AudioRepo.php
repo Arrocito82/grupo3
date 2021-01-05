@@ -38,6 +38,7 @@ class AudioRepo{
             $deleteResult = $collection->deleteOne(['_id' =>  new \MongoDB\BSON\ObjectId($id)]);
             $delete_safe=ListasRepo::EliminarAudio($id);
             return $delete_safe+$deleteResult->getDeletedCount();            
+                  
             // return $deleteResult->getDeletedCount();            
         }
 

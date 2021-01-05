@@ -49,12 +49,12 @@ estructura del json
                 
                 $lista=AudioRepo::ObtenerAudio($data['audio_id']);
                 echo json_encode($lista);
-        }      
-        // }else if($crud=='delete'){
+        }else if($crud=='delete'){
                
-        //     $modified= ListasRepo::EliminarAudios($lista_id,$data['audios_id']);
-        //     echo $modified;
-        // }else if($crud=='update'){
+            $modified= AudioRepo::EliminarAudio($data['audio_id']);
+            echo $modified;
+        }
+        //else if($crud=='update'){
 
             
         //     $modified= ListasRepo::ModificarLista($lista_id,$data['fuente_id'],$data['destino']);

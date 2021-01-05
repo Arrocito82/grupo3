@@ -79,7 +79,7 @@ class ListasRepo{
             $collection = $Client->grupo03->Lista;
 
             $result = $collection->updateMany( 
-                [],
+                [ 'lista._id'=>['$in' => [$id]]],
                 [ '$pull' => [ 'lista' => ['_id'=>['$in' => [$id]
                                                     ]
                                         ]

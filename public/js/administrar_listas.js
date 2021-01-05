@@ -88,7 +88,15 @@ function update_mesaje() {
     document.getElementById('controles').insertAdjacentHTML('afterend', `
             <div class="alert alert-secondary fade show d-md-inline-block w-lg-50" role="alert" ondblclick="$('.alert').alert('close');">Lista Actualizada</div>`);
     setTimeout(() => {
-        $('.alert').alert('close')
+        $('.alert').alert('close');
+    }, 2000);
+}
+
+function delete_mesaje() {
+    document.getElementById('controles').insertAdjacentHTML('afterend', `
+            <div class="alert alert-danger fade show d-md-inline-block w-lg-50" role="alert" ondblclick="$('.alert').alert('close');">Audios Eliminados</div>`);
+    setTimeout(() => {
+        $('.alert').alert('close');
     }, 2000);
 }
 
@@ -141,7 +149,10 @@ function eliminar() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             reset();
-            console.log(this.responseText);
+            if (+this.responseText > 0) {
+                delete_mesaje();
+            }
+
         }
     };
 

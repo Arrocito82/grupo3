@@ -23,12 +23,49 @@ echo "  <div class='container'>
 
 <script>
       let id_usuario='<?php echo $_SESSION['id_usuario']?>';
+      function update_mesaje() {
+            document.getElementById('scroll_box').insertAdjacentHTML('afterend', `
+                    <div class="alert alert-secondary fade show d-md-inline-block w-lg-50" role="alert" ondblclick="$('.alert').alert('close');">Audios Actualizado</div>`);
+            setTimeout(() => {
+                $('.alert').alert('close');
+            }, 2000);
+        }
+
+        function delete_mesaje() {
+            document.getElementById('scroll_box').insertAdjacentHTML('afterend', `
+                    <div class="alert alert-danger fade show d-md-inline-block w-lg-50" role="alert" ondblclick="$('.alert').alert('close');">Audio Eliminado</div>`);
+            setTimeout(() => {
+                $('.alert').alert('close');
+            }, 2000);
+        }
+      function eliminar(id){
+        let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    result=+this.responseText;
+                    
+                    if(result>0){
+                        cargar();
+                        delete_mesaje();
+                    }
+                    
+
+                }
+            };
+            xhttp.open("POST", "crud_audio.php", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify({
+                'crud': 'delete',
+                'audio_id': id
+            }));
+            
+      }
       function cargar(){
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     result=JSON.parse(this.responseText);
-                    
+                    document.getElementById('audios').innerHTML='';
                     result.forEach(element => {
                         document.getElementById('audios').insertAdjacentHTML('beforeend', `<li class="list-group-item d-flex justify-content-between text-white bg-dark border-secondary" id="${element._id.$oid}">
                         <p class="my-auto" >
