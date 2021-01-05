@@ -26,12 +26,12 @@ if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="gen
    
     
     
-   echo '<div class="container contenido">'; 
+   echo '<div class="container">'; 
    
-    echo"<h1>".ucfirst($target)."</h1>"; 
+    echo"<h1 >".ucfirst($target)."</h1>"; 
    
-    $destino="audios";
-    echo '<div class="row" id="'.$destino.'"></div></div>'; 
+    
+    echo '<div class="row" id="audios"></div></div>'; 
  ?>
    
 
@@ -41,8 +41,8 @@ if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="gen
 
 
 
-let ultima_posicion = 0;
-let destino="<?php echo $destino;?>";
+
+let destino="audios",first_time=true;
 let id_usuario="<?php if(isset($_SESSION['id_usuario'])){echo $id_usuario;}?>"
 let cantidad=12;
 let json_resultado=<?php echo $json_resultado; ?>;
@@ -99,6 +99,7 @@ function cargar(){
     if( ultimo_target < json_resultado.length) {
                     //ultimo
                     //id
+
                     var http = new XMLHttpRequest();
 
                     //acciones cuando llegue el resultado
@@ -106,6 +107,21 @@ function cargar(){
                         if (this.readyState == 4 && this.status == 200) {
 
                             audios=JSON.parse(this.responseText);
+                            if(first_time==true){
+                                first_time=false;
+                                if(audios.length!=0){
+                                target_title=`
+                                <div class="card w-100 mx-3 text-white bg-secondary mt-3">
+                                <div class="card-body">
+                                    <h4 class="card-title  ">${json_resultado[ultimo_target].nombre}</h4>
+                                </div>
+                                </div>
+                                `;
+                                document.getElementById(destino).insertAdjacentHTML("beforeend",target_title);
+                                }
+                            }
+                            
+
                              audios.forEach(element => {
                                 let autores='',generos= '',categorias='';
                                 
@@ -194,9 +210,9 @@ function cargar(){
                         
                         if(datos%cantidad!=0||audios.length==0){
                             
-                            
+                            first_time=true;
                             ultimo_target++;ultimo=0;limite=cantidad-datos%cantidad;
-                            //console.log(ultimo_target);console.log(audios);
+                            
                             cargar(); 
                            
                         }
