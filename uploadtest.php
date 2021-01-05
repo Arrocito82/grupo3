@@ -43,20 +43,22 @@ if (isset($_SESSION['id_usuario'])){
                         <label for="titulo">Titulo:</label>
                         <input id="titulo" class="form-control" type="text" name="titulo">
                     </div>
-                    <div class="form-group">
-                        <a class="btn btn-success" data-toggle="modal" data-target="#ventanaAutor">
-                            Ingresar autor
-                        </a>
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-success" data-toggle="modal" data-target="#ventanaCategoria">
-                            Ingresar categoria
-                        </a>
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-success" data-toggle="modal" data-target="#ventanaGenero">
-                            Ingresar genero
-                        </a>
+                    <div class="d-flex flex-row justify-content-around mb-5">
+                        <div>
+                            <a class="btn btn-success" data-toggle="modal" data-target="#ventanaAutor">
+                                Ingresar autor
+                            </a>
+                        </div>
+                        <div>
+                            <a class="btn btn-success" data-toggle="modal" data-target="#ventanaCategoria">
+                                Ingresar categoria
+                            </a>
+                        </div>
+                        <div>
+                            <a class="btn btn-success" data-toggle="modal" data-target="#ventanaGenero">
+                                Ingresar genero
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -64,11 +66,20 @@ if (isset($_SESSION['id_usuario'])){
                 <form method="POST" action="upload.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="subir">Subir archivo:</label>
-                        <input class="form-control" type="file" name="uploadedFile" />
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input class="custom-file-input" type="file" name="uploadedFile" />
+                                <label class="custom-file-label" for="uploadedFile">Choose file</label>
+                            </div>
+                        </div>
+
                         <input style="visibility:hidden;" type="text" name="md5" id="md5"
                             value="<?= md5(time() . time())?>">
                     </div>
-                    <input onclick="enviarDatos()" type="submit" name="uploadBtn" value="Upload" />
+                    <input onclick="enviarDatos()" class="btn btn-primary" type="submit" name="uploadBtn" value="Upload" />
                 </form>
             </div>
         </div>
@@ -86,20 +97,20 @@ if (isset($_SESSION['id_usuario'])){
                 <div class="autores">
                     <table id="tablaAutores" class="">
                         <thead class="text-center">
-                            <tr >
-                                <th  scope="col">Autores</th>
+                            <tr>
+                                <th scope="col">Autores</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                           
                         </tbody>
                     </table>
                 </div>
                 <div class="categorias">
                     <table id="tablaCategorias" class="">
-                        <thead  class="text-center">
+                        <thead class="text-center">
                             <tr>
-                                <th  scope="col">Categorias</th>
+                                <th scope="col">Categorias</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,8 +121,8 @@ if (isset($_SESSION['id_usuario'])){
                 <div class="generos">
                     <table id="tablaGeneros" class="">
                         <thead class="text-center">
-                            <tr >
-                                <th  scope="col">Genero</th>
+                            <tr>
+                                <th scope="col">Genero</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -175,7 +186,7 @@ if (isset($_SESSION['id_usuario'])){
             </div>
             <div class="modal-body">
                 <select class="form-control" name="categoria">
-                    
+
                     <?php
                for ($i=0; $i < count($categoria_resultado); $i++) { 
                  $id = $categoria_resultado[$i]->id;

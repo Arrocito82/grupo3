@@ -254,11 +254,7 @@ function reproducir(id , event) {
                     left: -20px;">
                   
                   <div class="d-flex justify-content-center">
-                        <audio controls id="audio_controls" style="
-                        margin-bottom: 5px;
-                        filter: sepia(133%) saturate(70%) grayscale(1) contrast(67%) invert(189%);
-                        border: 2px solid #00000066;
-                        border-radius: 50px;">
+                        <audio controls id="audio_controls"                        ">
                         <source src="${result[0]}" type="audio/ogg">
                         <source src="${result[0]}" type="audio/wav">
                         <source src="${result[0]}" type="audio/mpeg">
