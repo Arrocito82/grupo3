@@ -69,8 +69,8 @@
         public static function ObtenerTodosAutores(){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Autor;
-
-            $result = $collection->find([]);
+            $options = ['sort' => ['nombre' => 1]];
+            $result = $collection->find([], $options);
             $result_aut = $result->toArray(); 
             $AutorsResult = [];
             for($i = 0 ; $i < count($result_aut); $i++){

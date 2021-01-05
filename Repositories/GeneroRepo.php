@@ -8,7 +8,7 @@
         public static function CrearGenero(String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Genero;
-
+            
             $insertOneResult = $collection->insertOne([
                 'nombre' => $nombre,                
             ]);
@@ -68,8 +68,8 @@
         public static function ObtenerTodosGeneros(){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Genero;
-
-            $result = $collection->find([]);
+            $options = ['sort' => ['nombre' => 1]];
+            $result = $collection->find([], $options);
             $result_gen = $result->toArray(); 
             $GenerosResult = [];
             for($i = 0 ; $i < count($result_gen); $i++){

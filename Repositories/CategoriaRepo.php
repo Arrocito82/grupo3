@@ -70,8 +70,8 @@
         public static function ObtenerTodasCategorias(){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Categoria;
-
-            $result = $collection->find([]);
+            $options = ['sort' => ['nombre' => 1]];
+            $result = $collection->find([], $options);
             $result_cat = $result->toArray(); 
             $CategoriasResult = [];
             for($i = 0 ; $i < count($result_cat); $i++){
