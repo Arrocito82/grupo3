@@ -10,7 +10,7 @@ use Repositories\AudioRepo;
 if(isset($_GET['datos'])){
   $data = json_decode(stripslashes($_GET['datos']));  
   echo $data->autoresids;
-  $url = $data->md5;
+  $url ='uploaded_files/' . $data->md5 . $data->ext;
   $titulo = $data->titulo;
   $autores  = $data->autoresids;
   $categorias = $data->categoriasids;

@@ -65,12 +65,14 @@ function deleteRow(event, array) {
 }
 
 function enviarDatos(){
+    var fi = document.getElementsByName("uploadedFile")[0];
     var ruta = "uploadtest.php"
     var object = {
         'autoresids': autoresids,
         'categoriasids' : categoriasids,
         'generosids': generosids,
         'md5':document.getElementById('md5').value,
+        'ext':fi.value.substr(fi.value.lastIndexOf(".")),
         'titulo': document.getElementById('titulo').value,
     }
     $.ajax({
