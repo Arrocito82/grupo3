@@ -10,38 +10,36 @@
     <p id="demo"></p>
 
     <script>
-        /*
-                                                                        function loadDoc() {
-                                                                            var xhttp = new XMLHttpRequest();
-                                                                            xhttp.onreadystatechange = function() {
-                                                                                if (this.readyState == 4 && this.status == 200) {
-                                                                                    document.getElementById("demo").innerHTML = this.responseText;
-                                                                                }
-                                                                            };
-                                                                            xhttp.open("POST", "lista.php", true);
-                                                                            xhttp.setRequestHeader("Content-type", "application/json");
-                                                                            xhttp.send(JSON.stringify([{
-                                                                                "crud": "find"
-                                                                            }, {
-                                                                                "_id": {
-                                                                                    "$oid": "5fd82ef75dc3d1359c7686e0"
-                                                                                }
-                                                                            }]));
-                                                                        }*/
+        // function loadDoc() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function() {
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             document.getElementById("demo").innerHTML = this.responseText;
+        //         }
+        //     };
+        //     xhttp.open("POST", "lista.php", true);
+        //     xhttp.setRequestHeader("Content-type", "application/json");
+        //     xhttp.send(JSON.stringify([{
+        //         "crud": "find"
+        //     }, {
+        //         "_id": {
+        //             "$oid": "5fd82ef75dc3d1359c7686e0"
+        //         }
+        //     }]));
+        // }
 
         function loadDoc() {
-            var xhttp = new XMLHttpRequest();
+            let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("demo").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("POST", "../crud_lista.php", true);
+            xhttp.open("POST", "../crud_audio.php", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.send(JSON.stringify({
-                "crud": "delete",
-                'lista_id': "5fd82ec380bef9c12bf514a4",
-                'audios_id': ['5fd82e705dc3d1359c7686de', '5fdbe416b1308b21b044554d']
+                'crud': 'find',
+                'usuario_id': '5fd560550ce1912de8f799cd'
             }));
         }
     </script>

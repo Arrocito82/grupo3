@@ -79,7 +79,7 @@ $flag = isset($User);
                         <a class="dropdown-item" href="explorar.php?buscar=generos">Generos</a>
                         <a class="dropdown-item" href="explorar.php?buscar=autores">Autores</a>
                         <a class="dropdown-item" href="administrar_listas.php">Mis Listas</a>
-                        <a class="dropdown-item" href="">Mis Audios</a>
+                        <a class="dropdown-item" href="administrar_audios.php">Mis Audios</a>
                         
                     </div>
                 </li>';
