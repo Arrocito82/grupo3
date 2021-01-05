@@ -49,7 +49,7 @@ echo '      <div class="row">
 
 <script>
     let lista_activa = [];
-    let fuente_id, current_list, index, end_index;
+    let fuente_id, current_list, index, end_index, first_time = true;
     const draggable_list = document.getElementById('draggable-list');
     const p = document.querySelector('#scroll_box p');
     
@@ -86,7 +86,7 @@ echo '      <div class="row">
                         let listItem = document.createElement('li');
                         const element = result[e];
 
-                        listItem.setAttribute('data-e', e);
+                        listItem.setAttribute('data-index', e);
                         listItem.setAttribute('draggable', true);
 
                         listItem.classList.add('text-left');
@@ -115,6 +115,8 @@ echo '      <div class="row">
                     document.getElementById('scroll_box').classList.remove('rounded-sm');
                 }
                 addEventListeners();
+                 
+
             }
         };
         xhttp.open("POST", "crud_lista.php", true);
@@ -139,8 +141,9 @@ echo '      <div class="row">
     }
 
     function actualizar() {
+        
         let xhttp = new XMLHttpRequest();
-
+        console.log(end_index);
         let consulta = JSON.stringify({
             "crud": "update",
             'lista_id': current_list,
@@ -200,7 +203,7 @@ echo '      <div class="row">
     function dragStart() {
         index = +this.closest('li').getAttribute('data-index');
         fuente_id = this.closest('li').getAttribute('id');
-        console.log(fuente_id);
+        
     }
 
 
@@ -222,10 +225,10 @@ echo '      <div class="row">
         this.classList.remove('over');
         this.classList.remove('drag');
         end_index = +this.closest('li').getAttribute('data-index');
+        
         mover();
         actualizar();
-
-
+        
     }
 
     function mover() {
@@ -235,7 +238,10 @@ echo '      <div class="row">
         if(end_index<index){
             list.insertBefore(list.childNodes[index], list.childNodes[end_index]);
         }else if(end_index>index){
-            list.insertBefore(list.childNodes[index], list.childNodes[++end_index]);
+            console.log(end_index);
+            end_index+=1;
+            console.log(end_index);
+            list.insertBefore(list.childNodes[index], list.childNodes[end_index]);
         }
         
 
@@ -264,6 +270,7 @@ echo '      <div class="row">
             item.addEventListener('dragstart', dragStart);
 
         });
+        
     }
 </script>
 
