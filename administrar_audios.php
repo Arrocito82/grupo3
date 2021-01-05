@@ -54,6 +54,7 @@ echo "  <div class='container'>
             
       }
       function reproducir( id) {
+        $('.alert').alert('close');
             let xhttp = new XMLHttpRequest();
             consulta=JSON.stringify({
                         'crud':'recuperar',
