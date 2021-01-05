@@ -233,7 +233,8 @@ dropDownMenu();
 function reproducir(id , event) {
    
     let element = event.path[0];
-    
+    if(element.parentElement.children[3].classList.contains("alert")){
+    return 0;}
        
             let xhttp = new XMLHttpRequest();
             consulta=JSON.stringify({
@@ -245,6 +246,7 @@ function reproducir(id , event) {
                 if (this.readyState == 4 && this.status == 200) {
                     result=JSON.parse(this.responseText);
                     
+                       
                     element.insertAdjacentHTML('afterend',`<div class="alert alert-light fade show flex flex-column d-flex justify-content-between mx-0 px-0 py-0 mt-2" role="alert" 
                     style="
                     width: 253px;
