@@ -47,11 +47,13 @@ for ($i=25; $i < 30; $i++) {
 // // echo var_dump(AudioRepo::ModificarAudio('5fdbf689b1308b21b0445556'));
 
 // echo ListasRepo::EliminarListas();
-$lista_ids=['5fd82e705dc3d1359c7686de','5fdbea5cb1308b21b0445550','5fdabbe7dadf4cce4bb621b3'];
-$result=AudioRepo::ObtenerSimpleAudios($lista_ids);
-foreach($result as $r) {
-    var_dump($r);
- };
+// $lista_ids=['5fd82e705dc3d1359c7686de','5fdbea5cb1308b21b0445550','5fdabbe7dadf4cce4bb621b3'];
+// $result=AudioRepo::ObtenerSimpleAudios($lista_ids);
+// foreach($result as $r) {
+//     var_dump($r);
+//  };
+
+ echo AudioRepo::EliminarAudio('5fdc015b1740361c4075c39f');
 ?>
 
 

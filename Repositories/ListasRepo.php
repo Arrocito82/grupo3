@@ -68,9 +68,23 @@ use Models\SimpleLista;
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Lista;
 
-            $result = $collection->updateMany(
+            $result = $collection->updateMany( 
                 [ '_id' => new ID($idLista) ],
                 [ '$pull' => [ 'lista' => ['_id'=>['$in' => $idsAudio]]]]
+            );
+            return $result->getModifiedCount();
+        }  
+        public static function EliminarAudio(String $id){
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Lista;
+
+            $result = $collection->updateMany( 
+                [],
+                [ '$pull' => [ 'lista' => ['_id'=>['$in' => [$id]
+                                                    ]
+                                        ]
+                            ]
+                ]
             );
             return $result->getModifiedCount();
         }  
