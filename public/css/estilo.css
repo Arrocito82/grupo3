@@ -20,7 +20,8 @@ footer {
     padding: 20vh 0;
 }
 
-button.list-group-item.list-group-item-action.list-group-item-secondary:focus {
+button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
+#audio_controls:focus {
     outline: none;
 }
 

@@ -163,7 +163,7 @@ echo "  <div class='container'>
                     document.getElementById('scroll_box').insertAdjacentHTML('afterend',`<div class="alert alert-dark fade show d-flex justify-content-between" role="alert">
                   
                   <div class="d-flex justify-content-center">
-                        <audio controls>
+                        <audio controls id="audio_controls">
                         <source src="${result[0]}" type="audio/ogg">
                         <source src="${result[0]}" type="audio/mpeg">
                         Your browser does not support the audio element.
