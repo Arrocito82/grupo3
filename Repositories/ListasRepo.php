@@ -6,9 +6,9 @@ namespace Repositories;
     use Models\Lista;
 use Models\SimpleAudio;
 use Models\SimpleLista;
-   
+use MongoDB\Operation\FindAndModify;
 
-    class ListasRepo{
+class ListasRepo{
         public static function AgregarAudio(string $idLista , String $idAudio){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Lista;
@@ -87,7 +87,24 @@ use Models\SimpleLista;
                 ]
             );
             return $result->getModifiedCount();
-        }  
+        } 
+        
+        public static function ModificarAudio($id){
+            $updatedObject=AudioRepo::ObtenerSimpleAudio($id);
+            $Client = new Mongo(Connection::getConnectionString());
+            $collection = $Client->grupo03->Lista;
+
+            $result = $collection->updateMany([
+                "lista._id"=> $id 
+              ],
+              [
+                '$set'=> [
+                  "lista.$"=> $updatedObject
+                ]
+              ]);
+          return $result->getModifiedCount();
+        
+    }  
         public static function CrearLista(String $nombre){
             $Client = new Mongo(Connection::getConnectionString());
             $collection = $Client->grupo03->Lista;

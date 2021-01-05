@@ -49,7 +49,10 @@ class AudioRepo{
                 ['_id' =>  new \MongoDB\BSON\ObjectId($id)],
                 ['$set' => ['titulo' => $titulo]]
             );
-            return $updateResult->getModifiedCount();            
+            $update_safe=ListasRepo::ModificarAudio($id);
+             
+            return $update_safe+$updateResult->getModifiedCount();            
+            // return $updateResult->getModifiedCount();            
         }
 
         public static function ObtenerAudio(String $id){
