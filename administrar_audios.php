@@ -165,6 +165,7 @@ echo "  <div class='container'>
                   <div class="d-flex justify-content-center">
                         <audio controls id="audio_controls">
                         <source src="${result[0]}" type="audio/ogg">
+                        <source src="${result[0]}" type="audio/wav">
                         <source src="${result[0]}" type="audio/mpeg">
                         Your browser does not support the audio element.
                         </audio><h5 class="my-auto ml-5 d-inline-block" >${result[1]}</h5>
