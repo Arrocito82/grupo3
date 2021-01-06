@@ -62,9 +62,6 @@ class AudioRepo{
             $audioResult = $collection->findOne(array('_id' =>  new \MongoDB\BSON\ObjectId($id)));
 
             $Usuario = UsuarioRepo::ObtenerUsuario($audioResult['id_usuario']);
-
-           
-
             return new Audio( $audioResult['_id'] , $audioResult['url'] , $audioResult['titulo'] , $Usuario , $audioResult['autores'] , $audioResult['categorias'] , $audioResult['generos']);
             
         }

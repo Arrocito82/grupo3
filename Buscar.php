@@ -21,10 +21,10 @@
         echo $htmlResult->autores;
     }
     else{
-        echo '<form class="form-inline my-2 my-lg-0" Action="buscar.php" method="post">
+        echo '<div class="align-content-center"><form class="form-inline my-2 my-lg-0" Action="Buscar.php" method="post">
                     <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" name="f" size="40">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>';
+                </form></div>';
         echo "<script>
                 document.getElementById('navSearch').style.display = 'none';
             </script>";

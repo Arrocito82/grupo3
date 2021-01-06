@@ -174,6 +174,10 @@ if (isset($_SESSION['id_usuario'])){
                 <button onclick="agregarAutor(event)" class="btn btn-success" data-dismiss="modal" type="button">
                     Aceptar
                 </button>
+
+                <button onclick="newACG('autor')" class="btn btn-success" data-dismiss="modal" type="button">
+                    Crear
+                </button>
             </div>
         </div>
     </div>
@@ -210,6 +214,9 @@ if (isset($_SESSION['id_usuario'])){
                 </button>
                 <button onclick="agregarCategoria(event)" data-dismiss="modal" class="btn btn-success" type="button">
                     Aceptar
+                </button>
+                <button onclick="newACG('categoria')" class="btn btn-success" data-dismiss="modal" type="button">
+                    Crear
                 </button>
             </div>
         </div>
@@ -248,11 +255,35 @@ if (isset($_SESSION['id_usuario'])){
                 <button class="btn btn-success" onclick="agregarGenero(event)" data-dismiss="modal" type="button">
                     Aceptar
                 </button>
+                <button onclick="newACG('genero')" class="btn btn-success" data-dismiss="modal" type="button">
+                    Crear
+                </button>
             </div>
         </div>
     </div>
 </div>
 
+<!--modal crear-->
+<div id="modalCrear"class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="mtCrear" class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div  class="modal-body">
+        <p id="mbCrear">Modal body text goes here.</p>
+        <input class='form-control' id="inputCrear"type="text">
+      </div>
+      <div class="modal-footer">
+        <button onclick="send()" type="button" class="btn btn-primary">Crear</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 echo "</div></div>";
 }?>
