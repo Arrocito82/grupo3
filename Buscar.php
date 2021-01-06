@@ -89,3 +89,4 @@ function reproducir(id , event) {
 
 }
 </script>
+<?php require 'Components/footer.php'?>
