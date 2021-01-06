@@ -69,20 +69,16 @@ if (isset($_SESSION['id_usuario'])){
                 <form method="POST" action="upload.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="subir">Subir archivo:</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input class="custom-file-input" type="file" name="uploadedFile" />
-                                <label class="custom-file-label" for="uploadedFile">Choose file</label>
-                            </div>
-                        </div>
 
-                        <input style="visibility:hidden;" type="text" name="md5" id="md5"
-                            value="<?= md5(time() . time())?>">
+                        <input class="custom-file-input" type="file" name="uploadedFile" />
+
                     </div>
-                    <input onclick="enviarDatos()" class="btn btn-primary" type="submit" name="uploadBtn" value="Upload" />
+
+                    <input style="visibility:hidden;" type="text" name="md5" id="md5"
+                        value="<?= md5(time() . time())?>">
+
+                    <input onclick="enviarDatos()" class="btn btn-primary" type="submit" name="uploadBtn"
+                        value="Upload" />
                 </form>
             </div>
         </div>
@@ -105,7 +101,7 @@ if (isset($_SESSION['id_usuario'])){
                             </tr>
                         </thead>
                         <tbody>
-                           
+
                         </tbody>
                     </table>
                 </div>
