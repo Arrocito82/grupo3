@@ -6,9 +6,10 @@ use Repositories\AutorRepo;
 use Repositories\CategoriaRepo;
 use Repositories\GeneroRepo;
 use Repositories\AudioRepo;
+use Components\Alert;
 
 if(isset($_SESSION['message'])){
-    echo $_SESSION['message'];}
+    echo Alert::SimpleAlert($_SESSION['message']);}
 
 if(isset($_GET['datos'])){
   $data = json_decode(stripslashes($_GET['datos']));  

@@ -30,7 +30,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
        
       if(move_uploaded_file($fileTmpPath, $dest_path)) 
       {
-        $message ='File is successfully uploaded. ' . $fileType.'en la direccion '.$dest_path;
+        $message ='File is successfully uploaded. ';
         
       }
       else 
@@ -46,7 +46,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
   else
   {
     $message = 'There is some error in the file upload. Please check the following error.<br>';
-    $message .= 'Error:' . $_FILES['uploadedFile']['error'] . '<br>' . $_POST['uploadBtn'] . ' :' . isset($_POST['uploadBtn']) . '<br>' . $_POST['uploadBtn'];
+    $message .= 'Error:' . $_FILES['uploadedFile']['error'] . '<br>';
   }
 }
 $_SESSION['message'] = $message;
