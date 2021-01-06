@@ -70,7 +70,7 @@ if (isset($_SESSION['id_usuario'])){
                     <div class="form-group">
                         <label for="subir">Subir archivo:</label>
 
-                        <input class="custom-file-input" type="file" name="uploadedFile" />
+                        <input type="file" name="uploadedFile" />
 
                     </div>
 
