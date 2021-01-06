@@ -28,13 +28,13 @@
         $autores = ArrayUtils::ObjectLinearString($audio->autores, "nombre");
         $generos = ArrayUtils::ObjectLinearString($audio->generos, "nombre");
         $categorias = ArrayUtils::ObjectLinearString($audio->categorias , "nombre");
-        
+        $id_audio = "\"{$audio->_id}\"";
         $result= $result ."<div class='col-sm-6 col-md-4 col-lg-3 my-4'>
                                 <div class='card'>
                                     <div class='card-body'>
                                         <h5 class='card-title'>{$audio->titulo}</h5>
                                         <p class='card-text'> Autor:  {$autores}<br>Generos: {$generos} <br>Categoria: {$categorias}<br>Usuario: {$usuario->nombre}<br></p>
-                                        <a href='#' class='btn btn-primary btn-block'>Reproducir</a>
+                                        <a onclick='reproducir({$id_audio} , event)' class='btn btn-primary btn-block'>Reproducir</a>
                                     </div>
                                 </div>
                             </div>";
