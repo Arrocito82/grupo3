@@ -1,7 +1,7 @@
 <!-- title es el titulo de la pagina -->
 
 <?php
-$title="audafreemp3";
+$title="audafreemp3 | Reproducir audios | Descargar | Mp3";
 // este es el navbar
 require "Components/header.php";
 require "Components/clases.php";
