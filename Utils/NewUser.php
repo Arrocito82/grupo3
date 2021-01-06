@@ -81,7 +81,7 @@ class NewUser{
         $html ='<main>
                     <p>Bienvenido ' . $fullName . '</p>
                     <p>Para verificar tu registro has click en el siguiente enlace</p>
-                    <a href="http://localhost/validate.php?token=' . $token . '">Verificar</a>
+                    <a href="https://audafreemp3.xyz/validate.php?token=' . $token . '">Verificar</a>
                     <p>Si no te has registrado ingora este mail</p>
                 </main>';
         //Se debe cambiar por uno con estilos
