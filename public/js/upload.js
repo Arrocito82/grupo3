@@ -138,11 +138,11 @@ function enviarDatos(){
 
     var ruta = "uploadtest.php"
 
-    if(autoresids==[])
+    if(autoresids.length<1)
         autoresids.push('5fdbe0b0eed2993143d84081');
-    if(categoriasids==[])
+    if(categoriasidsautoresids.length<1)
         categoriasids.push('5ff6407e64eb6c5ec1114b72');
-    if(generosids==[])
+    if(generosidsautoresids.length<1)
         generosids.push('5ff6408be3b08060717b7342');
 
     var object = {
