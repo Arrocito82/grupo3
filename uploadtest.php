@@ -7,9 +7,9 @@ use Repositories\CategoriaRepo;
 use Repositories\GeneroRepo;
 use Repositories\AudioRepo;
 
-if(isset($_SESSION['message']))
-    echo $_SESSION['message'];
-    
+if(isset($_SESSION['message'])){
+    echo $_SESSION['message'];}
+
 if(isset($_GET['datos'])){
   $data = json_decode(stripslashes($_GET['datos']));  
   echo $data->autoresids;

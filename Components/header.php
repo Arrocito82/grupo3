@@ -68,7 +68,7 @@ $flag = isset($User);
                     <?php
                 if($flag){echo '
                     <li class="nav-item">
-                    <a class="nav-link " href="upload.php">Agregar Audios</a>
+                    <a class="nav-link " href="uploadtest.php">Agregar Audios</a>
                 </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
