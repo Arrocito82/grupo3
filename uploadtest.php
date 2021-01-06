@@ -37,7 +37,7 @@ if (isset($_SESSION['id_usuario'])){
 
 
 <div class=row>
-    <div class="card px-0 col-8">
+    <div class="card px-0 col-6">
         <div class="card-header">
             <h3>Subir Nuevo Audio</h3>
         </div>
@@ -94,7 +94,7 @@ if (isset($_SESSION['id_usuario'])){
 
 
 
-    <div class="card px-0 col-4">
+    <div class="card px-0 col-6">
         <div class="card-header">
             <h3>Info</h3>
         </div>
