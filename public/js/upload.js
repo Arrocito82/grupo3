@@ -135,7 +135,16 @@ function deleteRow(event, array) {
 
 function enviarDatos(){
     var fi = document.getElementsByName("uploadedFile")[0];
+
     var ruta = "uploadtest.php"
+
+    if(autoresids==[])
+        autoresids.push('5fdbe0b0eed2993143d84081');
+    if(categoriasids==[])
+        categoriasids.push('5ff6407e64eb6c5ec1114b72');
+    if(generosids==[])
+        generosids.push('5ff6408be3b08060717b7342');
+
     var object = {
         'autoresids': autoresids,
         'categoriasids' : categoriasids,
