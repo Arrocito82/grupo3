@@ -9,7 +9,7 @@ use Repositories\AudioRepo;
 use Components\Alert;
 
 if(isset($_SESSION['message'])){
-    echo $_SESSION['message'];
+    echo '<div class="alert alert-success"> ${$_SESSION["message"]}</div>' ;
     unset($_SESSION['message']);
 }
 
