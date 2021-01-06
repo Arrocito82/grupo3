@@ -1,7 +1,7 @@
 <!-- title es el titulo de la pagina -->
 
 <?php
-$title="audafreemp3";
+$title="audafreemp3 | Reproducir audios | Descargar | Mp3";
 // este es el navbar
 require "Components/header.php";
 require "Components/clases.php";
@@ -14,7 +14,7 @@ require "Components/clases.php";
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active cropped ">
-                <img id="img3" src="public/imagenes/pexels-stas-knop-5939401.jpg" class="d-block w-100 " alt="...">
+                <img id="img3" src="public/imagenes/pexels-stas-knop-5939401.jpg" class="d-block w-100 " alt="auriculares-con-cable-negro-y-azul">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>3 slide label</h2>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -23,7 +23,7 @@ require "Components/clases.php";
 
 
             <div class="carousel-item cropped ">
-                <img id="img2" src="public/imagenes/pexels-brett-sayles-2479312.jpg" class="d-block w-100 " alt="...">
+                <img id="img2" src="public/imagenes/pexels-brett-sayles-2479312.jpg" class="d-block w-100 " alt="foto-actuacion-musica-amigos">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>2 slide label</h2>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -31,7 +31,7 @@ require "Components/clases.php";
             </div>
             <div class="carousel-item cropped ">
 
-                <img id="img1" src="public/imagenes/pexels-budgeron-bach-5157178.jpg" class="d-block w-100 " alt="...">
+                <img id="img1" src="public/imagenes/pexels-budgeron-bach-5157178.jpg" class="d-block w-100 " alt="foto-actividad-adecuación-afición">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>First slide label</h2>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
