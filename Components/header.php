@@ -68,10 +68,22 @@ $flag = isset($User);
 
                     <?php
                 if($flag){echo '
-                    <li class="nav-item">
-                    <a class="nav-link fw-bold" href="uploadtest.php">Agregar Audios</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Editar
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="uploadtest.php">Agregar Audios</a>
+                        
+                        <a class="dropdown-item" href="administrar_listas.php">Editar Mis Listas</a>
+                        <a class="dropdown-item" href="administrar_audios.php">Editar Mis Audios</a>
+                        
+                    </div>
                 </li>
-                    <li class="nav-item dropdown">
+                    
+                    
+               
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Explorar
               </a>
@@ -79,8 +91,8 @@ $flag = isset($User);
                         <a class="dropdown-item" href="explorar.php?buscar=categorias">Categorias</a>
                         <a class="dropdown-item" href="explorar.php?buscar=generos">Generos</a>
                         <a class="dropdown-item" href="explorar.php?buscar=autores">Autores</a>
-                        <a class="dropdown-item" href="administrar_listas.php">Mis Listas</a>
-                        <a class="dropdown-item" href="administrar_audios.php">Mis Audios</a>
+                        <a class="dropdown-item" href="reproducir_listas.php">Reproducir Mis Listas</a>
+                        <a class="dropdown-item" href="reproducir_audios.php">Reproducir Mis Audios</a>
                         
                     </div>
                 </li>';
@@ -94,8 +106,8 @@ $flag = isset($User);
                     <input class="form-control mr-sm-2 " type="search" placeholder="Buscar" aria-label="Search" name="f" size="30">
                     <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                 </form>';?>
-                    <div class="my-2 my-lg-o ml-4">
-                        <?php if($flag) echo '<a class="btn mr-1" href="">Hola, ' . $User . '</a><a class="btn btn-outline-info " href="logout.php"><i class="fas fa-sign-out-alt"></i> Salir</a>';else echo '<a id="registerA"  class="btn btn-outline-primary  ml-4"href="/Register.php"><i class="fas fa-user-plus"></i> Registarse</a> <a class="btn btn-outline-secondary " href="login.php"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>' ?></div>
+                    <div class="my-2 my-lg-0 ml-0 ml-lg-3">
+                        <?php if($flag) echo '<a class="btn" href="">Hola, ' . $User . '</a><a class="btn btn-outline-info " href="logout.php"><i class="fas fa-sign-out-alt"></i> Salir</a>';else echo '<a id="registerA"  class="btn btn-outline-primary  ml-4"href="/Register.php"><i class="fas fa-user-plus"></i> Registarse</a> <a class="btn btn-outline-secondary " href="login.php"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</a>' ?></div>
             </div>
         </div>
     </nav>

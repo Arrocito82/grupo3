@@ -49,7 +49,7 @@ require "Components/clases.php";
         </a>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
     
 
     <section class="index-section">

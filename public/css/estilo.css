@@ -1,36 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Ubuntu:ital,wght@0,300;0,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
-body {
-    margin: 4rem 0 0;
-    padding-bottom: 30vh;
-    position: relative;
-    min-height: 80vh;
-}
-
-hr {
-    border: none;
-    width: 8rem;
-    border-bottom: 1rem dotted #583d72;
-    opacity: 0.5;
-    padding: 3rem 0;
-}
-
-.icon-section {
-    font-size: 6rem;
-    display: block;
-    margin: 1rem auto;
-}
-
-.index-section {
-    text-align: justify;
-    width: 50%;
-    margin: 8rem auto;
-}
-
-.form-container {
-    margin-top: calc(20vh);
-}
-
 
 /* width */
 
@@ -60,30 +29,11 @@ hr {
     background: #c9cbff;
 }
 
-.fw-bold {
-    font-weight: 500;
-}
-
-#brand-icon {
-    font-size: 1.5rem;
-}
-
-#grupo-footer {
-    font-family: 'Libre Baskerville', serif;
-    letter-spacing: 2px;
-    font-size: large;
-}
-
-#brand {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 700;
-    font-size: x-large;
-}
-
-#olas {
-    z-index: -1;
-    position: absolute;
-    bottom: 0;
+body {
+    margin: 4rem 0 0;
+    padding-bottom: 30vh;
+    position: relative;
+    min-height: 80vh;
 }
 
 .h1 {
@@ -115,6 +65,66 @@ footer {
     width: 100%;
     position: absolute;
     bottom: 0;
+}
+
+hr {
+    border: none;
+    width: 8rem;
+    border-bottom: 1rem dotted #583d72;
+    opacity: 0.5;
+    padding: 3rem 0;
+}
+
+.icon-section {
+    font-size: 6rem;
+    display: block;
+    margin: 1rem auto;
+}
+
+.index-section {
+    text-align: center;
+    width: 50%;
+    margin: 8rem auto;
+}
+
+.form-container {
+    margin-top: calc(20vh);
+}
+
+.fw-bold {
+    font-weight: 500;
+}
+
+#brand-icon {
+    font-size: 1.5rem;
+}
+
+#grupo-footer {
+    font-family: 'Libre Baskerville', serif;
+    letter-spacing: 2px;
+    font-size: large;
+}
+
+#brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 700;
+    font-size: x-large;
+}
+
+#olas {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+}
+
+#olas-div {
+    height: 30vh;
+    width: 100%;
+    overflow: hidden;
+    margin: 3rem 0 0;
+    padding: 5rem 0 0;
+    position: absolute;
+    bottom: 2rem;
 }
 
 button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
@@ -176,6 +186,7 @@ button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
 @media screen and (min-width: 960px) {
     .index-section {
         width: 35%;
+        text-align: justify;
     }
     .cropped {
         margin: 0;
@@ -204,14 +215,9 @@ button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
     }
 }
 
-@media screen and (max-width: 960px) {
-    #olas-div {
-        height: 30vh;
-        width: 100%;
-        overflow: hidden;
-        margin: 3rem 0 0;
-        padding: 5rem 0 0;
-        position: absolute;
-        bottom: 2rem;
+@media screen and (max-width:576px) {
+    .index-section {
+        width: 80%;
+        text-align: center;
     }
 }
