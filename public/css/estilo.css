@@ -1,13 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Ubuntu:ital,wght@0,300;0,500;1,700&display=swap');
 body {
     margin: 5rem 0 0;
-    padding-bottom: 5rem;
+    padding-bottom: 30vh;
     position: relative;
     min-height: 100vh;
 }
 
+#brand-icon {
+    font-size: 1.5rem;
+}
+
+#grupo-footer {
+    font-family: 'Libre Baskerville', serif;
+    letter-spacing: 2px;
+    font-size: large;
+}
+
+#brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 700;
+    font-size: x-large;
+}
+
+#olas {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+}
+
 h1 {
     font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
 }
 
 footer {
@@ -88,5 +111,29 @@ button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
     }
     #img1 {
         margin: -20vh 0px;
+    }
+    #olas {
+        object-position: 0 -50%;
+    }
+    #olas-div {
+        height: 30vh;
+        width: 100%;
+        overflow: hidden;
+        margin: 5rem 0 0;
+        padding: 5rem 0 0;
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    #olas-div {
+        height: 30vh;
+        width: 100%;
+        overflow: hidden;
+        margin: 3rem 0 0;
+        padding: 5rem 0 0;
+        position: absolute;
+        bottom: 2rem;
     }
 }

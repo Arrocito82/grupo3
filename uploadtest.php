@@ -9,7 +9,7 @@ use Repositories\AudioRepo;
 use Components\Alert;
 
 if(isset($_SESSION['message'])){
-    echo '<div class="alert alert-success"> ${$_SESSION["message"]}</div>' ;
+    echo '<div class="alert alert-success">Audio Subido con Exito!!</div>' ;
     unset($_SESSION['message']);
 }
 
@@ -31,7 +31,7 @@ if (isset($_SESSION['id_usuario'])){
   $categoria_resultado = CategoriaRepo::ObtenerTodasCategorias();
   $genero_resultado = GeneroRepo::ObtenerTodosGeneros();
 
-  echo "<div class='contenido'>";
+//   echo "<div class='contenido'>";
   echo "<div class='container'>";
 ?>
 
@@ -74,11 +74,11 @@ if (isset($_SESSION['id_usuario'])){
                         <label for="subir">Subir archivo:</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Upload</span>
+                                <span class="input-group-text">Cargar</span>
                             </div>
                             <div class="custom-file">
                                 <input class="custom-file-input" type="file" name="uploadedFile" />
-                                <label class="custom-file-label" for="uploadedFile">Choose file</label>
+                                <label class="custom-file-label" for="uploadedFile">Elegir Audio</label>
                             </div>
                         </div>
 
@@ -285,7 +285,7 @@ if (isset($_SESSION['id_usuario'])){
   </div>
 </div>
 <?php
-echo "</div></div>";
+echo "</div>";
 }?>
 <?php
 $scripts = '<script src="/public/js/upload.js"></script>';

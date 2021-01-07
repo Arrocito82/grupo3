@@ -41,7 +41,7 @@ echo '      <div class="row">
                     <div class="d-flex flex-row-reverse" id="controles">
                     </div>
                 </div>
-            </div>';
+            </div></div>';
 
 
 
