@@ -70,7 +70,7 @@ $flag = isset($User);
                 if($flag){echo '
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Editar
+                    Gestionar Audios
               </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="uploadtest.php">Agregar Audios</a>
