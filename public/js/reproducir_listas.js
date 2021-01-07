@@ -144,7 +144,7 @@ function reproducirOne(id) {
                 <div class="d-block justify-align-content-between">
                         
                 
-                <h5 class="my-auto d-inline-block " id="current_audio_titulo">${result[1]}</h5>
+                <p class="my-auto d-inline-block p-1" id="current_audio_titulo">${result[1]}</p>
                </div>`;
             document.querySelectorAll('#audio_controls source').forEach(url => {
                 url.src = result[0];
@@ -182,7 +182,7 @@ function reproducir(id) {
                 <div class="d-block justify-align-content-between">
                         
                 
-                <h5 class="my-auto d-inline-block " id="current_audio_titulo">${result[1]}</h5>
+                <p class="my-auto d-inline-block p-1 " id="current_audio_titulo">${result[1]}</p>
                </div>`;
             document.querySelectorAll('#audio_controls source').forEach(url => {
                 url.src = result[0];

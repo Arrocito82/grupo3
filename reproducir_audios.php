@@ -121,7 +121,7 @@ echo "  <div class='container'>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             
-                                    <h5 class="mt-3">${result[1]}</h5>
+                                    <p class="mt-3 p-1">${result[1]}</p>
                             
                         </div>`;
                         
@@ -159,7 +159,7 @@ echo "  <div class='container'>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             
-                                    <h5 class="mt-3">${result[1]}</h5>
+                                    <p class="mt-3 p-1">${result[1]}</p>
                             
                         </div>`;
                         
