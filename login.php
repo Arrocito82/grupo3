@@ -35,10 +35,7 @@ require "Components/header.php";
     <label for="password">Password</label>
     <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  
   <div class="d-flex mt-4 LoginActions">
     <small class="mr-4"><a href="/ResetPass.php">¿Has olvidado la contraseña?</a></small>
     <button type="submit" class="btn btn-primary">Login</button>

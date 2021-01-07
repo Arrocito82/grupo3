@@ -40,7 +40,7 @@ if (isset($_SESSION['id_usuario'])){
 ?>
 
 
-<div class=row>
+<div class="row mt-3">
     <div class="card px-0 col-6">
         <div class="card-header">
             <h3>Subir Nuevo Audio</h3>

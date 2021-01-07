@@ -23,18 +23,18 @@
         unset($_SESSION['userId']);
     }
 ?>
-<div class="container mt-3">
+<div class="container">
 
-    <form action="SetNewPass.php" method="post">
+    <form action="SetNewPass.php" method="post" class="mt-3">
         <div class="form-group">
             <label for="pass1">Nueva Contraseña</label>
             <input type="password" name="pass1" class="form-control" id="pass1" aria-describedby="emailHelp" placeholder="Ingrese la nueva contraseña">
-            <small id="emailHelp" class="form-text text-muted">Ingresa tu nueva contraseña</small>
+            
         </div>
         <div class="form-group">
             <label for="pass2">Repetir contraseña</label>
-            <input type="password" name="pass2" class="form-control" id="pass2" aria-describedby="emailHelp" placeholder="Ingrese la nueva contraseña nuevamente">
-            <small id="emailHelp" class="form-text text-muted">Ingresa tu nueva contraseña de nuevo</small>
+            <input type="password" name="pass2" class="form-control" id="pass2" aria-describedby="emailHelp" placeholder="Confirme la nueva contraseña">
+            
         </div>
         
     <button type="submit" class="btn btn-primary">Submit</button>
