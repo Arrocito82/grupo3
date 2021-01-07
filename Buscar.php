@@ -6,6 +6,7 @@
     use Components\SearchTable;
     use Components\Alert;
 
+    
     echo '<div class="container" style="min-height:calc(100vh - 16rem);">';
     if(isset($_POST['f'])){
                         
@@ -16,7 +17,7 @@
         //var_dump($canciones[0]);
         $autores = AutorRepo::ObtenerAutoresPorNombre($_POST['f'] , $options);
         //var_dump($autores);
-        $htmlResult = SearchTable::renderHTMLSearchResultTable($canciones , $autores,$id_usuario);
+        $htmlResult = SearchTable::renderHTMLSearchResultTable($canciones, $autores,$id_usuario);
         if(count($canciones)>0){
             echo $htmlResult->audios;
         }
