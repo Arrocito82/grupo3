@@ -167,17 +167,18 @@ if (isset($_SESSION['id_usuario'])){
             ?>
                 </select>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-warning" type="button" data-dismiss="modal">
-                    Cerrar
+            <div class="modal-footer d-flex justify-content-between">
+                <button onclick="newACG('autor')" class="btn btn-info" data-dismiss="modal" type="button">
+                    Crear
                 </button>
+                <div>
                 <button onclick="agregarAutor(event)" class="btn btn-success" data-dismiss="modal" type="button">
                     Aceptar
                 </button>
-
-                <button onclick="newACG('autor')" class="btn btn-success" data-dismiss="modal" type="button">
-                    Crear
+                <button class="btn btn-warning" type="button" data-dismiss="modal">
+                    Cerrar
                 </button>
+                </div>
             </div>
         </div>
     </div>
@@ -208,16 +209,18 @@ if (isset($_SESSION['id_usuario'])){
             ?>
                 </select>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-warning" type="button" data-dismiss="modal">
-                    Cerrar
+            <div class="modal-footer d-flex justify-content-between">
+                <button onclick="newACG('categoria')" class="btn btn-info" data-dismiss="modal" type="button">
+                    Crear
                 </button>
+                <div>
                 <button onclick="agregarCategoria(event)" data-dismiss="modal" class="btn btn-success" type="button">
                     Aceptar
                 </button>
-                <button onclick="newACG('categoria')" class="btn btn-success" data-dismiss="modal" type="button">
-                    Crear
+                <button class="btn btn-warning" type="button" data-dismiss="modal">
+                    Cerrar
                 </button>
+                </div>
             </div>
         </div>
     </div>
@@ -248,16 +251,18 @@ if (isset($_SESSION['id_usuario'])){
             ?>
                 </select>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-warning" type="button" data-dismiss="modal">
-                    Cerrar
+            <div class="modal-footer d-flex justify-content-between">
+                <button onclick="newACG('genero')" class="btn btn-info" data-dismiss="modal" type="button">
+                    Crear
                 </button>
+                <div>
                 <button class="btn btn-success" onclick="agregarGenero(event)" data-dismiss="modal" type="button">
                     Aceptar
                 </button>
-                <button onclick="newACG('genero')" class="btn btn-success" data-dismiss="modal" type="button">
-                    Crear
+                <button class="btn btn-warning" type="button" data-dismiss="modal">
+                    Cerrar
                 </button>
+                </div>
             </div>
         </div>
     </div>

@@ -11,7 +11,6 @@ if(isset($_SESSION['id_usuario'])){
 if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="generos"||$_GET['buscar']=="autores")){
 
 
-
     if($_GET['buscar']=="categorias"){
         $consulta=CategoriaRepo::ObtenerTodasCategorias();
         
@@ -106,7 +105,8 @@ function cargar(){
                     http.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
 
-                            audios=JSON.parse(this.responseText);
+                            audios=JSON.parse(this.responseText); 
+                            console.log(this.responseText)
                             if(first_time==true){
                                 first_time=false;
                                 if(audios.length!=0){
