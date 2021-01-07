@@ -12,7 +12,7 @@ require 'vendor/autoload.php' ;
 require "Components/header.php";
 
 ?>
-<div style="display:none">
+<div>
 
     <?php 
      if(isset($_POST['userName']) & isset($_POST['password']) & isset($_POST['email']) & isset($_POST['fullName'])){
@@ -23,10 +23,10 @@ require "Components/header.php";
         $result = NewUser::RegisterNewUser($userName , $fullName , $password , $email);
 
         
-        $alert = 'Este correo ya esta siendo usado, o es invalido alert alert-danger';
+        $alert = Alert::SimpleAlert('Este correo ya esta siendo usado, o es invalido' , 'alert alert-danger');
 
         if($result){            
-            $alert ='Se ha enviado un codigo de validacion al correo alert alert-success';
+            $alert =Alert::SimpleAlert('Se ha enviado un codigo de validacion al correo' , 'alert alert-success');
         }
         echo $alert;
         //header("Location: index.php");
