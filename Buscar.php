@@ -24,7 +24,7 @@
             echo $htmlResult->autores;
         }
         if(count($canciones)==0 & count($autores)==0){
-            echo Alert::SimpleAlert('No se encontraron resultados.','alert alert-danger');
+            echo Alert::SimpleAlert('No se encontraron resultados.','alert alert-danger mt-5');
         }
     }
     else{
