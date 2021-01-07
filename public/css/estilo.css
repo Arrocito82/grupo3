@@ -6,6 +6,10 @@ body {
     min-height: 100vh;
 }
 
+.fw-bold {
+    font-weight: 500;
+}
+
 #brand-icon {
     font-size: 1.5rem;
 }
