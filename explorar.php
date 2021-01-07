@@ -30,7 +30,14 @@ if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="gen
     echo"<h1 >".ucfirst($target)."</h1>"; 
    
     
-    echo '<div class="row" id="audios"></div></div>'; 
+    echo '<div class="container fixed-bottom" id="agregar_mensaje_div"></div>
+    <div class="row" id="audios"></div>
+    
+       
+            
+       
+    
+    </div>'; 
  ?>
    
 
@@ -53,9 +60,13 @@ function agregar_lista(id_lista,id_audio){
     var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                   
-                    // console.log(JSON.parse(this.responseText));
-                   console.log(this.responseText);
+                    document.getElementById('agregar_mensaje_div').insertAdjacentHTML('beforeend', `
+                    <div class="alert alert-success " role="alert" style="text-align:center;" id="agregar_mensaje">Audio agregado exitosamente!!.
+                </div>`);
+                    
+                    setTimeout(() => {
+                        $('.alert').alert('close');  
+                    }, 2000);
                     
                 }
             };
