@@ -15,7 +15,7 @@ require "Components/header.php";
 <div style="display:none">
 
     <?php 
-     if(isset($_POST['userName']) & isset($_POST['password']) & isset($_POST['password']) & isset($_POST['fullName'])){
+     if(isset($_POST['userName']) & isset($_POST['password']) & isset($_POST['email']) & isset($_POST['fullName'])){
         $userName = $_POST['userName'];
         $fullName = $_POST['fullName'];
         $password = $_POST['password'];
@@ -23,10 +23,10 @@ require "Components/header.php";
         $result = NewUser::RegisterNewUser($userName , $fullName , $password , $email);
 
         
-        $alert = Alert::SimpleAlert('Este correo ya esta siendo usado, o es invalido' , 'alert alert-danger');
+        $alert = 'Este correo ya esta siendo usado, o es invalido alert alert-danger';
 
         if($result){            
-            $alert =Alert::SimpleAlert('Se ha enviado un codigo de validacion al correo' , 'alert alert-success');
+            $alert ='Se ha enviado un codigo de validacion al correo alert alert-success';
         }
         echo $alert;
         //header("Location: index.php");
