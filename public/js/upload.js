@@ -140,9 +140,9 @@ function enviarDatos(){
 
     if(autoresids.length<1)
         autoresids.push('5fdbe0b0eed2993143d84081');
-    if(categoriasidsautoresids.length<1)
+    if(categoriasids.length<1)
         categoriasids.push('5ff6407e64eb6c5ec1114b72');
-    if(generosidsautoresids.length<1)
+    if(generosids.length<1)
         generosids.push('5ff6408be3b08060717b7342');
 
     var object = {
