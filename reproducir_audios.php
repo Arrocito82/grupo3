@@ -64,7 +64,7 @@ echo "  <div class='container'>
                         </p>
                         <div class="d-flex flex-row-reverse bd-highlight">
                         
-                        <button type="button" class="btn btn-primary mr-1" onclick="reproducir('${element._id.$oid}')">Reproducir</button>
+                        <button type="button" class="btn btn-primary mr-1" onclick="reproducir('${element._id.$oid}')"><i class='fas fa-play'></i></button>
                         </div></li>`);
                     });
                     
