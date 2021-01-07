@@ -1,6 +1,7 @@
 <?php
 namespace Utils; 
 use MongoDB\Client as Mongo;
+use MongoDB\Client;
 use Utils\DBConnection\DBConnection as Con;
 use Utils\MailSender;
 use Repositories\ListasRepo;
@@ -25,7 +26,10 @@ class NewUser{
 
         $newToken = md5(time() . $userName . $password);
 
-        
+        $usuarioCollection=$Client->grupo03->Usuario;
+        $usuarioResult=$usuarioCollection->find(['email'=>$email])->toArray();
+        if(count($usuarioResult)>0)
+            return FALSE;
         $result = $TempUsersCollection->insertOne([
             'login'     => $userName,
             'email'     => $email,
