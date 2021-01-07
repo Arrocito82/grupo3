@@ -80,7 +80,7 @@ if (isset($_SESSION['id_usuario'])){
                                 <span class="input-group-text">Cargar</span>
                             </div>
                             <div class="custom-file">
-                                <input class="custom-file-input" type="file" name="uploadedFile" />
+                                <input class="custom-file-input" type="file" name="uploadedFile" onchange="return validarExt()"/>
                                 <label class="custom-file-label" for="uploadedFile">Elegir Audio</label>
                             </div>
                         </div>

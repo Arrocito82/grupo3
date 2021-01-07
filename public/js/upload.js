@@ -6,6 +6,20 @@ var autoresids = [];
 var categoriasids = [];
 var generosids = [];
 let modalCrear = document.getElementById('modalCrear');
+
+function validarExt()
+{
+    var archivoInput = document.getElementsByName('uploadedFile')[0];
+    var archivoRuta = archivoInput.value;
+    var extPermitidas = /(.mp3|.MP3)$/i;
+    if(!extPermitidas.exec(archivoRuta)){
+        alert('Asegurese de haber seleccionado un PDF');
+        archivoInput.value = '';
+        return false;
+    }
+
+}
+
 function agregarAutor(event){    
     var select = event.currentTarget.parentElement.parentElement.querySelectorAll("select")[0];
     var id = select.value;
