@@ -1,6 +1,9 @@
 <?php
 session_start();
+if(!(isset($_SESSION['userName']))){
 
+  header("Location: index.php");
+}
 if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
 {
     $message = 'entro al primer if';

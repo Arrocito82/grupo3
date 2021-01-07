@@ -7,6 +7,10 @@ use Repositories\CategoriaRepo;
 use Repositories\GeneroRepo;
 use Repositories\AudioRepo;
 use Components\Alert;
+if(!(isset($_SESSION['userName']))){
+
+    header("Location: index.php");
+}
 
 if(isset($_SESSION['message2'])){
     echo '<div class="alert alert-success">Audio Subido con Exito!!

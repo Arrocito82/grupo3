@@ -6,7 +6,10 @@ use Repositories\AutorRepo;
 use Repositories\CategoriaRepo;
 use Repositories\GeneroRepo;
 
+if(!(isset($_SESSION['userName']))){
 
+    header("Location: index.php");
+}
 if(isset($_SESSION['id_usuario'])){
 if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="generos"||$_GET['buscar']=="autores")){
 

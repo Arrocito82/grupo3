@@ -6,7 +6,10 @@
     use Components\SearchTable;
     use Components\Alert;
 
-    
+    if(!(isset($_SESSION['userName']))){
+
+        header("Location: index.php");
+    }
     echo '<div class="container" style="min-height:calc(100vh - 16rem);">';
     if(isset($_POST['f'])){
                         

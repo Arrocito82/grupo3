@@ -8,8 +8,6 @@ if(isset($_SESSION['userName'])){
     
     }
 
-}else{
-    header("Location: index.php");
 }
     
 if(!isset($style))

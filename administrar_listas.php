@@ -3,7 +3,10 @@ $title="Administrar Listas";
 use Repositories\UsuarioRepo;
 require "Components/header.php";
 require "Components/clases.php";
+if(!(isset($_SESSION['userName']))){
 
+    header("Location: index.php");
+}
 
 if(isset($_SESSION['id_usuario'])){
    
