@@ -29,8 +29,8 @@ require "Components/header.php";
             $alert =Alert::SimpleAlert('Se ha enviado un codigo de validacion al correo' , 'alert alert-success');
         }
         echo $alert;
-        //header("Location: index.php");
-        //die();
+        header("Refresh:5; url=login.php");
+        die();
      }
      ?>
 
