@@ -111,7 +111,7 @@ function cargar(){
                                 first_time=false;
                                 if(audios.length!=0){
                                 target_title=`
-                                <div class="card w-100 mx-3 text-white bg-secondary mt-3">
+                                <div class="card w-100 mx-3 text-white bg-dark mt-3">
                                 <div class="card-body">
                                     <h4 class="card-title  ">${json_resultado[ultimo_target].nombre}</h4>
                                 </div>
