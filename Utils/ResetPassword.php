@@ -30,7 +30,7 @@ class ResetPassword{
         if($insertResult->getInsertedCount() >= 1){
             
             $htmlString='<p>Para recuperar contraseña usa el siguiente enlace</p>
-                         <a href="localhost/ValidateReset.php?token='.$token.'">Recupera Contraseña</a>';
+                         <a href="audafreemp3.xyz/ValidateReset.php?token='.$token.'">Recupera Contraseña</a>';
     
             return MailSender::sendMail($email , $htmlString , "Recuperacion de contraseña" , "Recuperar");
             
