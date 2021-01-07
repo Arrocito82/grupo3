@@ -4,6 +4,7 @@
     use Repositories\AudioRepo;
     use Repositories\AutorRepo;
     use Components\SearchTable;
+    use Components\Alert;
 
     echo '<div class="container">';
     if(isset($_POST['f'])){
@@ -23,7 +24,7 @@
             echo $htmlResult->autores;
         }
         if(count($canciones)==0 & count($autores)==0){
-            echo 'No se encontraron resultados.';
+            echo Alert::SimpleAlert('No se encontraron resultados.','alert alert-danger');
         }
     }
     else{
