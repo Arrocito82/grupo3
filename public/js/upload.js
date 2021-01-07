@@ -21,7 +21,7 @@ function validarExt()
 }
 
 function agregarAutor(event){    
-    var select = event.currentTarget.parentElement.parentElement.querySelectorAll("select")[0];
+    var select = event.currentTarget.parentElement.parentElement.parentElement.querySelectorAll("select")[0];
     var id = select.value;
     if(autoresids.includes(id))
         return 0;
@@ -32,7 +32,7 @@ function agregarAutor(event){
 }
 
 function agregarCategoria(event){
-    var select = event.currentTarget.parentElement.parentElement.querySelectorAll("select")[0];
+    var select = event.currentTarget.parentElement.parentElement.parentElement.querySelectorAll("select")[0];
     var id = select.value;
     if(categoriasids.includes(id))
         return 0;
@@ -43,7 +43,7 @@ function agregarCategoria(event){
 }
 
 function agregarGenero(event){
-    var select = event.currentTarget.parentElement.parentElement.querySelectorAll("select")[0];
+    var select = event.currentTarget.parentElement.parentElement.parentElement.querySelectorAll("select")[0];
     var id = select.value;
     if(generos.includes(id))
         return 0;
