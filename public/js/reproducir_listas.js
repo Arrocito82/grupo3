@@ -38,7 +38,7 @@ function fetchLista(id_lista) {
                                         
                                         
                                     </div>
-                                    <button type="button" class="btn btn-primary mr-1 h-75 my-auto" onclick="reproducir('${element._id}');"><i class="fas fa-play"></i></button>
+                                    <button type="button" class="btn btn-primary mr-1 h-75 my-auto" onclick="reproducirOne('${element._id}');"><i class="fas fa-play"></i></button>
                                     `;
 
                     draggable_list.appendChild(listItem);
@@ -109,14 +109,56 @@ function reset_urls() {
 function reproducirTodos() {
     current_audio = 0;
 
-    reproducir(audios_ids[current_audio]);
+    if (current_audio < audios_ids.length) {
+        reproducir(audios_ids[current_audio]);
+    }
 
 }
 
 function siguiente() {
 
     current_audio++;
-    reproducir(audios_ids[current_audio]);
+    if (current_audio < audios_ids.length) {
+        reproducir(audios_ids[current_audio]);
+    }
+}
+
+function reproducirOne(id) {
+
+    let xhttp = new XMLHttpRequest();
+    consulta = JSON.stringify({
+        'crud': 'recuperar',
+        'audio_id': id
+    });
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            result = JSON.parse(this.responseText);
+
+            document.getElementById('audio_controls_div').innerHTML = `
+            <audio controls id="audio_controls" class="w-100" autoplay>
+                <source src="${result[0]}" type="audio/ogg">
+                <source src="${result[0]}" type="audio/wav">
+                <source src="${result[0]}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <div class="d-block justify-align-content-between">
+                        
+                
+                <h5 class="my-auto d-inline-block " id="current_audio_titulo">${result[1]}</h5>
+               </div>`;
+            document.querySelectorAll('#audio_controls source').forEach(url => {
+                url.src = result[0];
+            });
+
+            document.getElementById('current_audio_titulo').innerText = result[1];
+        }
+    };
+    xhttp.open("POST", "crud_audio.php", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(consulta);
+
+
+
 }
 
 function reproducir(id) {
