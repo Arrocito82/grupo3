@@ -16,11 +16,15 @@
         $autores = AutorRepo::ObtenerAutoresPorNombre($_POST['f'] , $options);
         //var_dump($autores);
         $htmlResult = SearchTable::renderHTMLSearchResultTable($canciones , $autores);
-        
-        echo $htmlResult->audios;
-        echo $htmlResult->autores;       
-
-        
+        if(count($canciones)>0){
+            echo $htmlResult->audios;
+        }
+        if(count($autores)>0){
+            echo $htmlResult->autores;
+        }
+        if(count($canciones)<0 & count($autores)<0){
+            echo 'No se encontraron resultados.';
+        }
     }
     else{
         echo '<div class="align-content-center px-5"><form class="form-inline my-2 my-lg-0" Action="Buscar.php" method="post">
