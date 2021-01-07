@@ -13,7 +13,7 @@ function validarExt()
     var archivoRuta = archivoInput.value;
     var extPermitidas = /(.mp3|.MP3)$/i;
     if(!extPermitidas.exec(archivoRuta)){
-        alert('Asegurese de haber seleccionado un PDF');
+        alert('Asegurese de haber seleccionado un audio mp3');
         archivoInput.value = '';
         return false;
     }
