@@ -36,7 +36,7 @@ echo '      <div class="row">
                 
                 
             
-                echo '<div class="bg-light d-block rounded p-2" id="audio_controls_div" >
+                echo '<div class="bg-light d-block rounded p-2 mt-1" id="audio_controls_div" >
                 <audio controls id="audio_controls" class="w-100" preload="auto">
                 <source src="" type="audio/ogg">
                 <source src="" type="audio/wav">
