@@ -14,7 +14,7 @@
 
         return (object)['audios' => $result , 'autores' => $autoresResult];
     }
-    private static function renderAudios(array $Audios){
+    private static function renderAudios(array $Audios, String $dropDownMenu=""){
         $result = '<div class="row" id="audios">
 
                         <div class="container-fluid mt-4">
@@ -35,6 +35,7 @@
                                         <h5 class='card-title'>{$audio->titulo}</h5>
                                         <p class='card-text'> Autor:  {$autores}<br>Generos: {$generos} <br>Categoria: {$categorias}<br>Usuario: {$usuario->nombre}<br></p>
                                         <a onclick='reproducir({$id_audio} , event)' class='btn btn-primary btn-block'>Reproducir</a>
+                                        {$dropDownMenu}
                                     </div>
                                 </div>
                             </div>";

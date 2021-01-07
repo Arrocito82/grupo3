@@ -89,7 +89,7 @@ function dropDownMenu(){
                     http.send(`id_usuario=${id_usuario}`);
                     
                     
-        }
+}
 
 
 
@@ -173,7 +173,7 @@ function cargar(){
                                
                                 let dropDown = `
                             <div class="btn-group dropright btn-block">
-                                <button type="button" class="btn btn-primary">Agregar a Favoritos</button>
+                                <button type="button" class="btn btn-primary">Agregar a Lista</button>
                                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
