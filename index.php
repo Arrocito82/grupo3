@@ -65,7 +65,7 @@ require "Components/clases.php";
             <i class="fas fa-headphones icon-section "></i>
             <div>
                 <h2 class="titulo-section">Reproducir</h2>
-                <h4>Puedes escuchar audios de entrevistas, audiolibros, musica y mucho mas. Agrega tus audios favoritos a tu lista de <span>favoritos</span> y <span>ver mas tarde</span></h4>
+                <h4>Puedes escuchar audios de entrevistas, audiolibros, musica y mucho mas. Agrega tus audios favoritos a tu lista de <em>favoritos</em> y <em>ver mas tarde</em></h4>
             </div>
             <hr>
         </div> 
@@ -73,7 +73,7 @@ require "Components/clases.php";
             <i class="fas fa-search icon-section"></i>
             <div>
                 <h2 class="titulo-section">Explorar</h2>
-                <h4>Explora los audios de las diferentes <span>Autores</span>, <span>Categorias</span> y <span>Generos</span>.
+                <h4>Explora los audios de las diferentes <em>Autores</em>, <em>Categorias</em> y <em>Generos</em>.
                     Ademas, puedes buscar tus audios preferidos, usando la barra de busqueda.
                 </h4>
             </div>
