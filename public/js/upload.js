@@ -45,7 +45,7 @@ function agregarCategoria(event){
 function agregarGenero(event){
     var select = event.currentTarget.parentElement.parentElement.parentElement.querySelectorAll("select")[0];
     var id = select.value;
-    if(generos.includes(id))
+    if(generosids.includes(id))
         return 0;
     var nombreGenero = select.selectedOptions[0].text;
 
