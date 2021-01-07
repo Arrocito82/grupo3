@@ -22,7 +22,7 @@
         if(count($autores)>0){
             echo $htmlResult->autores;
         }
-        if(count($canciones)<0 & count($autores)<0){
+        if(count($canciones)==0 & count($autores)==0){
             echo 'No se encontraron resultados.';
         }
     }
