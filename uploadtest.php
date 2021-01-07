@@ -36,11 +36,11 @@ if (isset($_SESSION['id_usuario'])){
   $genero_resultado = GeneroRepo::ObtenerTodosGeneros();
 
 //   echo "<div class='contenido'>";
-  echo "<div class='container'>";
+  echo "<div class='container pt-3'>";
 ?>
 
 
-<div class="row mt-5">
+<div class="row">
     <div class="card px-0 col-6">
         <div class="card-header">
             <h3>Subir Nuevo Audio</h3>

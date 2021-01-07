@@ -23,7 +23,7 @@
         unset($_SESSION['userId']);
     }
 ?>
-<div class="container">
+<div class="container pt-3">
 
     <form action="SetNewPass.php" method="post" class="mt-3">
         <div class="form-group">
