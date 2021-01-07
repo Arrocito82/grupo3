@@ -167,29 +167,34 @@ function enviarDatos(){
         'ext':fi.value.substr(fi.value.lastIndexOf(".")),
         'titulo': document.getElementById('titulo').value,
     }
-    $.ajax({
-        type: "GET",
-        url: ruta,
-        contentType: 'application/json',
-        data: {datos : JSON.stringify(object)},
-        async: true,
-        dataType: "text",
-        success: function(data){
-            console.log(data);
+    if(fi.value!=""){
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            contentType: 'application/json',
+            data: {datos : JSON.stringify(object)},
+            async: true,
+            dataType: "text",
+            success: function(data){
+                console.log(data);
 
+                
+
+
+                if(data){
+                    //alert("Se ha guardado con exito");
+                }
+                else{
+                    //alert("A ocurrido un error");
+                }
             
-
-
-            if(data){
-                //alert("Se ha guardado con exito");
+                
             }
-            else{
-                //alert("A ocurrido un error");
-            }
-           
-            
-        }
-    });
+        });
+    }
+    else{
+        alert('Asegurese de haber añadir audio');
+    }
 }
 $(".custom-file-input").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
