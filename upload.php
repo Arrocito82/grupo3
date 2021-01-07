@@ -31,6 +31,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
       if(move_uploaded_file($fileTmpPath, $dest_path)) 
       {
         $message ='File is successfully uploaded. ';
+        $_SESSION['message2'] = $message2=true;
         
       }
       else 
@@ -50,5 +51,6 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
   }
 }
 $_SESSION['message'] = $message;
+
 
 header("Location: uploadtest.php");
