@@ -100,8 +100,7 @@ echo "  <div class='container'>
                         
                         <button type="button" class="btn btn-danger " onclick="eliminar('${element._id.$oid}')">Eliminar</button>
                         <button type="button" class="btn btn-success mr-1" onclick="mostrar('${element._id.$oid}','${element.titulo}')">Modificar</button>
-                        <button type="button" class="btn btn-primary mr-1" onclick="reproducir('${element._id.$oid}')">Reproducir</button>
-                        </div></li>`);
+                        </li>`);
                     });
                     
 
@@ -149,41 +148,7 @@ echo "  <div class='container'>
             xhttp.send(consulta);
         }
 
-      function reproducir( id) {
-        $('.alert').alert('close');
-            let xhttp = new XMLHttpRequest();
-            consulta=JSON.stringify({
-                        'crud':'recuperar',
-                        'audio_id':id
-                        });
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    result=JSON.parse(this.responseText);
-                    
-                    document.getElementById('scroll_box').insertAdjacentHTML('afterend',`<div class="alert alert-dark fade show d-flex justify-content-between" role="alert">
-                  
-                  <div class="d-flex justify-content-center">
-                        <audio controls id="audio_controls">
-                        <source src="${result[0]}" type="audio/ogg">
-                        <source src="${result[0]}" type="audio/wav">
-                        <source src="${result[0]}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                        </audio><h5 class="my-auto ml-5 d-inline-block" >${result[1]}</h5>
-                  </div>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button></div>`);
-                        
-
-                }
-            };
-            xhttp.open("POST", "crud_audio.php", true);
-            xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.send(consulta);
-
-           
-            
-      }
+      
       cargar();
 </script>
 <!-- <script src="public/js/administrar_audios.js"></script> -->

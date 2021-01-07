@@ -12,7 +12,7 @@ if(isset($_SESSION['id_usuario'])){
     
 
 
-echo "  <div class='container'><h1 class='mx-0'>Mis Listas</h1>";
+echo "  <div class='container'style='min-height:60vh;'><h1 class='mx-0'>Mis Listas</h1>";
 
 
 
