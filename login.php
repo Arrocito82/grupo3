@@ -6,7 +6,7 @@ use Components\Alert;
 // este es el navbar
 require "Components/header.php";
 ?>
-<div class="container contenido">
+<div class="container form-container">
   
 
 

@@ -1,9 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Ubuntu:ital,wght@0,300;0,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
 body {
-    margin: 5rem 0 0;
+    margin: 4rem 0 0;
     padding-bottom: 30vh;
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;
+}
+
+hr {
+    border: none;
+    width: 8rem;
+    border-bottom: 1rem dotted #583d72;
+    opacity: 0.5;
+    padding: 3rem 0;
+}
+
+.icon-section {
+    font-size: 6rem;
+    display: block;
+    margin: 1rem auto;
+}
+
+.index-section {
+    text-align: justify;
+    width: 50%;
+    margin: 8rem auto;
+}
+
+.form-container {
+    margin-top: calc(20vh);
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #583d72;
+    border-radius: 1rem;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #c9cbff;
 }
 
 .fw-bold {
@@ -32,19 +86,35 @@ body {
     bottom: 0;
 }
 
+.h1 {
+    font-size: 4rem;
+    font-family: 'Lora', serif;
+}
+
+.titulo-section {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.h3 {
+    font-size: 3rem;
+    font-family: 'Lora', serif;
+}
+
 h1 {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
+    padding-top: 1.5rem;
+}
+
+h4 {
+    font-family: sans-serif;
 }
 
 footer {
     width: 100%;
     position: absolute;
     bottom: 0;
-}
-
-.contenido {
-    padding: 20vh 0;
 }
 
 button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
@@ -104,9 +174,13 @@ button.list-group-item.list-group-item-action.list-group-item-secondary:focus,
 }
 
 @media screen and (min-width: 960px) {
+    .index-section {
+        width: 35%;
+    }
     .cropped {
-        margin-top: 2rem;
-        height: 90vh;
+        margin: 0;
+        padding: 0;
+        height: calc(100vh - 4rem);
         width: 100%;
         overflow: hidden;
     }

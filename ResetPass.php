@@ -22,7 +22,7 @@ if(isset($_POST['email'])){
 ?>
 
 
-<div class="container">
+<div class="container form-container">
 
     <form action="ResetPass.php" method="post">
         <div class="form-group">

@@ -35,7 +35,7 @@ require "Components/header.php";
      ?>
 
 </div>
-<div class="container w-50 mt-5">
+<div class="container w-50 form-container">
 
     <form action="Register.php" method="post">
     <div class="form-group">
