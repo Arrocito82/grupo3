@@ -27,8 +27,11 @@ function agregarAutor(event) {
     var nombreAutor = select.selectedOptions[0].text;
 
     autoresids.push(id);
+
     introducirElemento(tablaAutores, nombreAutor, "autoresids");
 }
+
+
 
 function agregarCategoria(event) {
     var select = event.currentTarget.parentElement.parentElement.parentElement.querySelectorAll("select")[0];
