@@ -15,7 +15,7 @@ if(isset($_SESSION['id_usuario'])){
     
 
 
-echo "  <div class='container'style='min-height:90vh; >
+echo "  <div class='container'style='min-height:80vh;' >
             <h1 class='mx-0'>Mis Audios</h1>
             <div class='scroll overflow-auto' style='max-height:65vh;' id='scroll_box'>
             <ul class='list-group' id='audios'></ul>    
