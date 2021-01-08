@@ -168,8 +168,9 @@ function enviarDatos() {
         'ext': fi.value.substr(fi.value.lastIndexOf(".")),
         'titulo': document.getElementById('titulo').value,
     }
+    let spinner = document.getElementById('cargando');
     if (fi.value != "") {
-        let spinner = document.getElementById('cargando');
+
         spinner.classList.remove('d-none');
         spinner.classList.add('d-inline-block');
 
@@ -181,8 +182,7 @@ function enviarDatos() {
             async: true,
             dataType: "text",
             success: function(data) {
-                spinner.classList.remove('d-inline-block');
-                spinner.classList.add('d-none');
+
 
 
             }
