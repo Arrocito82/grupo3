@@ -77,7 +77,7 @@
                                 <div class='card-body'>
                                     <h5 class='card-title'>{$autor->nombre}</h5>
                                     <p class='card-text'>
-                                        <a href='' class='btn btn-primary btn-block'>Ver mas</a>
+                                        <a href='Buscar.php?buscar={$autor->nombre}' class='btn btn-primary btn-block'>Ver mas</a>
                                     </p> 
                                 </div>
                             </div>

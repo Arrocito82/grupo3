@@ -11,7 +11,24 @@
         header("Location: index.php");
     }
     echo '<div class="container" style="min-height:calc(100vh - 16rem);">';
-    if(isset($_POST['f'])){
+    if(isset($_GET['buscar'])){
+                        
+        
+        $filtro= [ 'autores.nombre'=>['$in' => [$_GET['buscar']]]];
+        $options = ['limit' =>5];
+        
+        $canciones = AudioRepo::ObtenerAudiosFiltro($filtro ,$options);
+        
+        
+        $htmlResult = SearchTable::renderHTMLSearchResultTable($canciones,[],$id_usuario);
+        if(count($canciones)>0){
+            echo $htmlResult->audios;
+        }
+        
+        if(count($canciones)==0){
+            echo Alert::SimpleAlert('No se encontraron resultados.','alert alert-danger ');
+        }
+    }else if(isset($_POST['f'])){
                         
         $filtro =['titulo' =>  new \MongoDB\BSON\Regex(preg_quote($_POST['f']), 'i')];
         $options = ['limit' =>5];
