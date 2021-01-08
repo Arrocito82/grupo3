@@ -1,22 +1,24 @@
-.icono-close{
+.icono-close {
     font-size: 20px;
     position: relative;
-    top:2.5px;
+    top: 2.5px;
     right: 2px;
 }
-.icono-close:hover{
+
+.icono-close:hover {
     cursor: pointer;
 }
-#UpPreview{
+
+#UpPreview {
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     height: 300px;
-
 }
-#UpPreview table td{
-    width: 100%;    
-    padding: 5px  8px;
+
+#UpPreview table td {
+    width: 100%;
+    padding: 5px 8px;
     font-size: 100%;
     margin-top: 10px;
     background-color: cadetblue;
@@ -25,20 +27,23 @@
     flex-direction: row;
     justify-content: space-evenly;
     font-weight: bolder;
-   
 }
-#UpPreview table tbody{
+
+#UpPreview table tbody {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
     margin-top: 1rem;
 }
-#UpPreview table th{
-    width: 100% !important;
-    display: flex;   
-    font-size: 1.5rem;
 
+#UpPreview table th {
+    width: 100% !important;
+    display: flex;
+    font-size: 1.5rem;
 }
-#tablaAutores , #tablaGeneros , #tablaCategorias{
+
+#tablaAutores,
+#tablaGeneros,
+#tablaCategorias {
     width: 360px !important;
 }

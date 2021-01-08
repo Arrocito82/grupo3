@@ -45,6 +45,7 @@ if (isset($_SESSION['id_usuario'])){
 
 
 <div class="row">
+
     <div class="card px-0 col-6">
         <div class="card-header">
             <h3>Subir Nuevo Audio</h3>
@@ -93,12 +94,21 @@ if (isset($_SESSION['id_usuario'])){
                         <input style="visibility:hidden;" type="text" name="md5" id="md5"
                             value="<?= md5(time() . time())?>">
                     </div>
-                    <input onclick="enviarDatos()" class="btn btn-primary" type="submit" name="uploadBtn" value="Upload" />
+                    
+                    
+                        <input onclick="enviarDatos()" class="btn btn-primary btn-lg mb-3 mr-2" type="submit" name="uploadBtn" value="Upload" />
+                        <div class=" justify-content-center d-none" id="cargando">
+                        <div class="spinner-border" role="status" >
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        </div>
+                    
                 </form>
             </div>
         </div>
     </div>
 
+  
 
 
 
@@ -297,10 +307,13 @@ if (isset($_SESSION['id_usuario'])){
     </div>
   </div>
 </div>
+
+
 <?php
 echo "</div>";
 }?>
 <?php
+
 $scripts = '<script src="/public/js/upload.js"></script>';
 require 'Components/footer.php';
 ?>
