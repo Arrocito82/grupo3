@@ -65,7 +65,7 @@ require "Components/header.php";
             <i class="fas fa-headphones icon-section "></i>
             <div>
                 <h2 class="titulo-section">Reproducir</h2>
-                <h4>Puedes escuchar audios de entrevistas, audiolibros, musica y mucho mas. Agrega tus audios favoritos a tu lista de <em>favoritos</em> y <em>ver mas tarde</em></h4>
+                <h4>Puedes escuchar audios de entrevistas, audiolibros, musica, efectos de sonido y mucho más. Agrega tus audios favoritos a tu lista de <em>favoritos</em> y <em>ver mas tarde</em></h4>
             </div>
             <hr>
         </div> 
