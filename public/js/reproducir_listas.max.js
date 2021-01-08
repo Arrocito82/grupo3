@@ -15,7 +15,7 @@ function fetchLista(id_lista) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
-            // console.log(JSON.parse(this.responseText));
+
             let result = JSON.parse(this.responseText);
             draggable_list.innerHTML = "";
             p.style.display = 'none';
@@ -85,7 +85,7 @@ function reset_urls() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
-            // console.log(JSON.parse(this.responseText));
+
             let result = JSON.parse(this.responseText);
 
             if (result.length > 0) {

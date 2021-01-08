@@ -35,7 +35,11 @@ if(isset($_GET['buscar'])&&($_GET['buscar']=="categorias"||$_GET['buscar']=="gen
     
     echo '<div class="container fixed-bottom" id="agregar_mensaje_div"></div>
     <div class="row" id="audios"></div>
-    
+                        <div class=" justify-content-center d-none" id="cargando">
+                        <div class="spinner-border" role="status" >
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        </div>
        
             
        
@@ -112,15 +116,30 @@ function cargar(){
     if( ultimo_target < json_resultado.length) {
                     //ultimo
                     //id
-
+                    let spinner = document.getElementById('cargando');
                     var http = new XMLHttpRequest();
 
+                    http.upload.onloadstart = function(evt) {
+                        spinner.classList.remove('d-none');
+                        spinner.classList.add('d-flex');
+
+                    };
+                    
+                       
+
+                    
                     //acciones cuando llegue el resultado
                     http.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
-
+                            
                             audios=JSON.parse(this.responseText); 
-                            console.log(this.responseText)
+                            
+                            setTimeout(() => {
+                                spinner.classList.add('d-none');
+                            spinner.classList.remove('d-flex');
+                            }, 2000);
+                            
+
                             if(first_time==true){
                                 first_time=false;
                                 if(audios.length!=0){
